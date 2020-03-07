@@ -44,3 +44,4 @@ testem.log
 Thumbs.db
 *.xlsx
 mongodb-data
+/.vscode/launch.json
