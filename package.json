@@ -1,12 +1,12 @@
 {
-  "name": "sb-admin-bs4-angular-8",
-  "version": "8.0.0",
+  "name": "ima",
+  "version": "1.0.0",
   "license": "Apache",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "gitbuild": "ng build --prod --base-href /start-angular/SB-Admin-BS4-Angular-7/master/dist/",
+    "gitbuild": "ng build --prod --base-href /dist/",
     "test": "ng test",
     "test-ci": "TEST_CI=true ng test",
     "lint": "ng lint",
@@ -55,6 +55,6 @@
     "protractor": "5.4.3",
     "ts-node": "8.6.2",
     "tslint": "6.0.0",
-    "typescript": "^3.6.5"
+    "typescript": "^3.8.3"
   }
 }
