@@ -23,35 +23,6 @@ $topnav-background-color: #222;
         }
     }
 
-    .messages {
-        width: 300px;
-
-        .media {
-            border-bottom: 1px solid #ddd;
-            padding: 5px 10px;
-
-            &:last-child {
-                border-bottom: none;
-            }
-        }
-
-        .media-body {
-            h5 {
-                font-size: 13px;
-                font-weight: 600;
-            }
-
-            .small {
-                margin: 0;
-            }
-
-            .last {
-                font-size: 12px;
-                margin: 0;
-            }
-        }
-    }
-
     .imacontainer {
         max-width: 1920px;
         margin: 0 auto;
@@ -70,10 +41,9 @@ $topnav-background-color: #222;
 @media(max-width:1440px) {
     :host {
         .navbar {
-            background-color: rgba(34, 34, 34, 0.47);
-            padding: 12px 130px;
             .nav-item {
                 padding: 0 8px;
+
                 >a {
                     font-size: 14px;
                 }
