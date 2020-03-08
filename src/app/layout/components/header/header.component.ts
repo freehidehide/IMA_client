@@ -3,7 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-header',
+    selector: 'default-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
