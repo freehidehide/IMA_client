@@ -8,6 +8,9 @@ import { LanguageTranslationModule } from './shared/modules/language-translation
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
     imports: [
@@ -18,7 +21,7 @@ import { AuthGuard } from './shared';
         LanguageTranslationModule,
         AppRoutingModule
     ],
-    declarations: [AppComponent],
+    declarations: [AppComponent, HomeComponent, FooterComponent, HeaderComponent],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
