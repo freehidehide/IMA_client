@@ -1,78 +1,91 @@
 $topnav-background-color: #222;
+
 :host {
     .navbar {
-        background-color: rgba(34,34,34,0.47);
-        padding:12px 130px;
+        background-color: rgba(34, 34, 34, 0.47);
+        padding: 12px 130px;
+
         .navbar-brand {
             color: #fff;
         }
+
         .nav-item {
-            padding:0 15px;
-            > a {
+            padding: 0 15px;
+
+            >a {
                 color: #fff;
-                font-size:16px;
+                font-size: 16px;
+
                 &:hover {
                     color: #ccc;
                 }
             }
         }
     }
+
     .messages {
         width: 300px;
+
         .media {
             border-bottom: 1px solid #ddd;
             padding: 5px 10px;
+
             &:last-child {
                 border-bottom: none;
             }
         }
+
         .media-body {
             h5 {
                 font-size: 13px;
                 font-weight: 600;
             }
+
             .small {
                 margin: 0;
             }
+
             .last {
                 font-size: 12px;
                 margin: 0;
             }
         }
     }
-    .imacontainer{
+
+    .imacontainer {
         max-width: 1920px;
-        margin:0 auto;
+        margin: 0 auto;
         width: 100%;
     }
-    .imanavbar{
+
+    .imanavbar {
         position: absolute;
-        top:0;
+        top: 0;
         width: 100%;
-        left:0;
+        left: 0;
         z-index: 9;
     }
 }
-@media(max-width:1440px){
+
+@media(max-width:1440px) {
     :host {
         .navbar {
-            background-color: rgba(34,34,34,0.47);
-            padding:12px 130px;
-            
+            background-color: rgba(34, 34, 34, 0.47);
+            padding: 12px 130px;
             .nav-item {
-                padding:0 8px;
-                > a {
-                    font-size:14px;
+                padding: 0 8px;
+                >a {
+                    font-size: 14px;
                 }
             }
         }
     }
 }
 
-@media(max-width:991px){
-    .imanavbar{
+@media(max-width:991px) {
+    .imanavbar {
         position: static !important;
         background-color: #000 !important;
-        padding:12px 25px !important;
+        padding: 12px 25px !important;
     }
 }

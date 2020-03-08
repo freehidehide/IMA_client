@@ -9,6 +9,7 @@ const routes: Routes = [
     { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
     { path: 'signup', loadChildren: () => import('./signup/signup.module').then(m => m.SignupModule) },
     { path: 'contestants', loadChildren: () => import('./contestants/contestants.module').then(m => m.ContestantsModule) },
+    { path: 'shop', loadChildren: () => import('./shop/shop.module').then(m => m.ShopModule) },
     { path: 'error', loadChildren: () => import('./server-error/server-error.module').then(m => m.ServerErrorModule) },
     { path: 'access-denied', loadChildren: () => import('./access-denied/access-denied.module').then(m => m.AccessDeniedModule) },
     { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule) },
