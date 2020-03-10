@@ -11,6 +11,8 @@ import { AuthGuard } from './shared';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { ToastrModule } from 'ngx-toastr';
+import { ApiService } from './api/services/api.service';
 
 @NgModule({
     imports: [
@@ -19,10 +21,16 @@ import { HeaderComponent } from './header/header.component';
         BrowserAnimationsModule,
         HttpClientModule,
         LanguageTranslationModule,
-        AppRoutingModule
+        AppRoutingModule,
+        ToastrModule.forRoot()
     ],
-    declarations: [AppComponent, HomeComponent, FooterComponent, HeaderComponent],
-    providers: [AuthGuard],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        FooterComponent,
+        HeaderComponent
+    ],
+    providers: [AuthGuard, ApiService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
