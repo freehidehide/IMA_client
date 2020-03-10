@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ApiService } from './api/services/api.service';
 import { ShopComponent } from './shop/shop.component';
 import { AdvertisersComponent } from './advertisers/advertisers.component';
+import { ContestantprofileComponent } from './contestantprofile/contestantprofile.component';
 
 @NgModule({
     imports: [
@@ -31,15 +32,16 @@ import { AdvertisersComponent } from './advertisers/advertisers.component';
         HomeComponent,
         FooterComponent,
         HeaderComponent,
-		ShopComponent,
-		AdvertisersComponent
+		    ShopComponent,
+		    AdvertisersComponent,
+        ContestantprofileComponent
     ],
     providers: [
-		AuthGuard,
-		ApiService
-	],
+      AuthGuard,
+      ApiService
+    ],
     bootstrap: [
-		AppComponent
-	]
+      AppComponent
+    ]
 })
 export class AppModule {}
