@@ -13,6 +13,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ApiService } from './api/services/api.service';
+import { ShopComponent } from './shop/shop.component';
+import { AdvertisersComponent } from './advertisers/advertisers.component';
 
 @NgModule({
     imports: [
@@ -28,9 +30,16 @@ import { ApiService } from './api/services/api.service';
         AppComponent,
         HomeComponent,
         FooterComponent,
-        HeaderComponent
+        HeaderComponent,
+		ShopComponent,
+		AdvertisersComponent
     ],
-    providers: [AuthGuard, ApiService],
-    bootstrap: [AppComponent]
+    providers: [
+		AuthGuard,
+		ApiService
+	],
+    bootstrap: [
+		AppComponent
+	]
 })
 export class AppModule {}

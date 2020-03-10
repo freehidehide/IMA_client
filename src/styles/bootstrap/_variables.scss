@@ -36,13 +36,13 @@ $grays: map-merge((
   "900": $gray-900
 ), $grays);
 
-$blue:    #007bff !default;
+$blue:    #3ea6fa !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
 $red:     #dc3545 !default;
 $orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
+$yellow:  #fbae27 !default;
 $green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
@@ -85,6 +85,10 @@ $theme-colors: map-merge((
   "dark":       $dark
 ), $theme-colors);
 // stylelint-enable
+
+//custom colors
+
+$sitegrey:  #f0f0f0;
 
 // Set a specific jump point for requesting color jumps
 $theme-color-interval:      8% !default;
