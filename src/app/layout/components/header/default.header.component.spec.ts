@@ -2,11 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { HeaderComponent } from './header.component';
+import { DefaultHeaderComponent } from './default.header.component';
 import { LayoutModule } from '../../layout.module';
 
 describe('HeaderComponent', () => {
-  let component: HeaderComponent;
+  let component: DefaultHeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async(() => {
@@ -21,7 +21,7 @@ describe('HeaderComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(DefaultHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

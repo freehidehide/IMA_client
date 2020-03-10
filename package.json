@@ -4,7 +4,7 @@
   "license": "Apache",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --prod",
     "gitbuild": "ng build --prod --base-href /dist/",
     "test": "ng test",
@@ -27,11 +27,14 @@
     "@ngx-translate/core": "12.1.1",
     "@ngx-translate/http-loader": "4.0.0",
     "chart.js": "2.9.3",
+    "classlist.js": "^1.1.20150312",
     "core-js": "3.6.4",
     "font-awesome": "4.7.0",
     "ng2-charts": "2.3.0",
+    "ngx-toastr": "^12.0.0",
     "rxjs": "6.5.4",
     "tslib": "^1.11.0",
+    "web-animations-js": "^2.3.2",
     "yarn": "1.22.0",
     "zone.js": "~0.10.2"
   },

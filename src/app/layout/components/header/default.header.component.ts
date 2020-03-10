@@ -4,20 +4,15 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'default-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
+    templateUrl: './default.header.component.html',
+    styleUrls: ['./default.header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class DefaultHeaderComponent implements OnInit {
     public pushRightClass: string;
 
     constructor(private translate: TranslateService, public router: Router) {
-
         this.router.events.subscribe(val => {
-            if (
-                val instanceof NavigationEnd &&
-                window.innerWidth <= 992 &&
-                this.isToggled()
-            ) {
+            if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
                 this.toggleSidebar();
             }
         });

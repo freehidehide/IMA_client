@@ -11,6 +11,8 @@ import { AuthGuard } from './shared';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { ToastrModule } from 'ngx-toastr';
+import { ApiService } from './api/services/api.service';
 import { ShopComponent } from './shop/shop.component';
 import { AdvertisersComponent } from './advertisers/advertisers.component';
 import { ContestantprofileComponent } from './contestantprofile/contestantprofile.component';
@@ -22,10 +24,24 @@ import { ContestantprofileComponent } from './contestantprofile/contestantprofil
         BrowserAnimationsModule,
         HttpClientModule,
         LanguageTranslationModule,
-        AppRoutingModule
+        AppRoutingModule,
+        ToastrModule.forRoot()
     ],
-    declarations: [AppComponent, HomeComponent, FooterComponent, HeaderComponent, ShopComponent, AdvertisersComponent, ContestantprofileComponent],
-    providers: [AuthGuard],
-    bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        FooterComponent,
+        HeaderComponent,
+		    ShopComponent,
+		    AdvertisersComponent,
+        ContestantprofileComponent
+    ],
+    providers: [
+      AuthGuard,
+      ApiService
+    ],
+    bootstrap: [
+      AppComponent
+    ]
 })
 export class AppModule {}
