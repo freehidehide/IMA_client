@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ShopComponent } from './shop/shop.component';
 import { AdvertisersComponent } from './advertisers/advertisers.component';
+import { ContestantprofileComponent } from './contestantprofile/contestantprofile.component';
 
 @NgModule({
     imports: [
@@ -23,7 +24,7 @@ import { AdvertisersComponent } from './advertisers/advertisers.component';
         LanguageTranslationModule,
         AppRoutingModule
     ],
-    declarations: [AppComponent, HomeComponent, FooterComponent, HeaderComponent, ShopComponent, AdvertisersComponent],
+    declarations: [AppComponent, HomeComponent, FooterComponent, HeaderComponent, ShopComponent, AdvertisersComponent, ContestantprofileComponent],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })

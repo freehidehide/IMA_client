@@ -1,0 +1,169 @@
+/* header starts */
+
+:host {
+    .navbar {
+        background-color: #20283b;
+        padding: 12px 130px;
+
+        .navbar-brand {
+            color: #fff;
+        }
+
+        .nav-item {
+            padding: 0 15px;
+
+            >a {
+                color: #fff;
+                font-size: 16px;
+
+                &:hover {
+                    color: #ccc;
+                }
+            }
+        }
+    }
+
+    .imacontainer {
+        max-width: 1920px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .imanavbar {
+        /*position: absolute;
+        top: 0;
+        width: 100%;
+        left: 0;
+        z-index: 9;*/
+    }
+}
+
+@media(max-width:1440px) {
+    :host {
+        .navbar {
+            .nav-item {
+                padding: 0 8px;
+
+                >a {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:991px) {
+    .imanavbar {
+        position: static !important;
+        background-color: #000 !important;
+        padding: 12px 25px !important;
+    }
+}
+
+/* header ends */
+
+
+/* footer starts */
+
+.imafooter {
+    background-color: #333;
+    height: 200px;
+    line-height: 200px;
+
+    p {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 300;
+    }
+}
+
+/* footer ends */
+
+
+
+.contprofileimage{
+    max-width: 560px;
+    overflow: hidden;
+    width: 100%;
+    margin:-280px auto 0;
+    border-radius: 50%;
+    position: relative;
+}
+
+
+.contprofilearea{
+    h2{
+        font-family: 'Rozha One', serif;
+        font-size:66px;
+        line-height: normal;
+        color: #585757;
+    }
+}
+.profile-social{
+    margin: 20px 0 30px;
+    li{
+        a{
+            font-size: 25px;
+            color:#8f8f8f;
+            text-decoration: none;
+        }
+    }
+}
+.contestvote-btn{
+    max-width:680px;
+    width:100%;
+}
+.voteandrank{
+    .voterankcounts{
+        .profilevcount{
+            color: #7a7a7a;
+            font-size: 29px;
+            line-height: 20px;
+            margin: 15px 0 0;
+            font-weight: 800;
+            .contvotestext{
+                font-size: 10px;
+                font-weight: normal;
+            }
+        }
+    }
+}
+.contestprofile-thumb{
+    font-size:19px;
+    font-weight: 600;
+    color: #454545;
+}
+.contprofile-slisting{
+    li{
+        border-bottom: 1px solid #282828;
+    }
+}
+.contprodescr{
+    font-size: 15px;
+    color: #696969;
+}
+.contprofile-listing{
+    border-radius: 30px;
+    overflow: hidden;
+}
+.contprofiledetails{
+    color: #acacac;
+}
+
+@media(max-width:991px) {
+    .contprofileimage{
+        max-width:300px;    
+        margin: -150px auto 0;
+    }
+    .contprofilearea{
+        h2{
+            font-size: 36px;
+        }
+    }
+}
+@media(max-width:767px) {
+    .contprofileimage{
+        max-width:150px;    
+        margin: -75px auto 0;
+    }
+}
