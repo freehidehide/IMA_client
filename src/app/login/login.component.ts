@@ -38,8 +38,9 @@ export class LoginComponent implements OnInit {
             this.toastMessage.error(null, 'We are facing a backend problem, please try again after sometimes or if the issue exist kindly contact adminstrator');
         }
         this.loginForm = this.formBuilder.group({
-            username: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            username: ['', [Validators.required, Validators.minLength(3)]],
+            password: ['', [Validators.required, Validators.minLength(6)]],
+            role_id: [2]
         });
     }
 
@@ -49,21 +50,23 @@ export class LoginComponent implements OnInit {
 
     onSubmit() {
         this.submitted = true;
+        if (this.loginForm.invalid) {
+            return;
+        }
         this.userService.login(this.loginForm)
             .subscribe(data => {
-                this.serviceResponse = data;
                 this.submitted = false;
-                if (this.serviceResponse.status === AppConst.SERVICE_STATUS.SUCCESS) {
-                    this.userResponse = this.serviceResponse.data;
-                    this.toastMessage.success(null, this.serviceResponse.statusMessage);
+                this.userResponse = data;                
+                if (this.userResponse.error && this.userResponse.error.code === AppConst.SERVICE_STATUS.SUCCESS) {
+                    this.toastMessage.success(null, this.userResponse.error.message);
                     sessionStorage.setItem('user_context', JSON.stringify(this.userResponse));
-                    if (this.serviceResponse.data.user.role === 'Admin') {
+                    if (this.userResponse.role.id === AppConst.ROLE.USER) {
                         this.router.navigate(['/dashboard']);
                     } else {
                         this.router.navigate(['/contestants']);
                     }
                 } else {
-                    this.toastMessage.error(null, this.serviceResponse.statusMessage);
+                    this.toastMessage.error(null, this.userResponse.error.message);
                 }
             });
     }
@@ -73,8 +76,4 @@ export class LoginComponent implements OnInit {
 		this.onSubmit();
 	  }
 	}
-
-    onLoggedin() {
-        localStorage.setItem('isLoggedin', 'true');
-    }
 }

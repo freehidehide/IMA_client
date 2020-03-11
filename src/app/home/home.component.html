@@ -7,13 +7,15 @@
         </button>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">HOME</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">ADVERTISERS</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">VOTE</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">CONTESTANTS</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">SHOP</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">PROFILE</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">ABOUT US</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/']" class="nav-link">HOME</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/advertisers']" class="nav-link">ADVERTISERS</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/contestants']" class="nav-link">VOTE</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/contestants']" class="nav-link">CONTESTANTS</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/shop']" class="nav-link">SHOP</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/profile']" class="nav-link">PROFILE</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/login']" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/signup']" class="nav-link">Signup</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/']" class="nav-link">ABOUT US</a></li>
             </ul>
         </div>
     </nav>

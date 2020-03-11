@@ -1,6 +1,4 @@
+import { Error } from './Error';
 export class ServiceResponse {
-    status: String;
-    data: any;
-    statusMessage: string;
-    token: String;
+    error: Error;
 }

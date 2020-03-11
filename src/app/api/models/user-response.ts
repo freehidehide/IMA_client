@@ -1,4 +1,5 @@
 import { ServiceResponse } from './service-response';
+import { Role } from './role';
 export class UserResponse extends ServiceResponse {
     id: string;
     access_token: string;
@@ -19,4 +20,5 @@ export class UserResponse extends ServiceResponse {
     is_paypal_connect: number;
     is_stripe_connect: number;
     subscription_end_date: string;
+    role: Role; 
 }
