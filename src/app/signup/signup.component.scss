@@ -1,19 +1,6 @@
 // shared css for the login and signup page
 @import "../login/login.component.scss";
 
-.signup-page .form-group form input.form-control::-webkit-input-placeholder { 
-    color: #4CAF50;
-  }
-  
-  .signup-page .form-group form input.form-control::-moz-placeholder {
-    color: #4CAF50;
-  }
-  .signup-page .form-group form input.form-control:-ms-input-placeholder {
-    color: #4CAF50;
-  }
-  .signup-page .form-group form input.form-control:placeholder {
-    color: #4CAF50;
-  }
 .signup-page{
     background: #20293c;
     height: 100vh;
@@ -106,6 +93,9 @@
     }
 }
 @media (max-width:767px){
+    .signup-page{
+        padding:0;
+    }
     .signupwhite {
         form{
             padding:15px;

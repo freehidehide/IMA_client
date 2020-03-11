@@ -13,6 +13,8 @@ const routes: Routes = [
     { path: 'shop', loadChildren: () => import('./shop/shop.module').then(m => m.ShopModule) },
     { path: 'advertisers', loadChildren: () => import('./advertisers/advertisers.module').then(m => m.AdvertisersModule) },
     { path: 'profile', loadChildren: () => import('./contestantprofile/contestantprofile.module').then(m => m.ContestantprofileModule) },
+    { path: 'purchase', loadChildren: () => import('./purchasevote/purchasevote.module').then(m => m.PurchasevoteModule) },
+    { path: 'edit', loadChildren: () => import('./editprofile/editprofile.module').then(m => m.EditprofileModule) },
     { path: 'error', loadChildren: () => import('./server-error/server-error.module').then(m => m.ServerErrorModule) },
     { path: 'access-denied', loadChildren: () => import('./access-denied/access-denied.module').then(m => m.AccessDeniedModule) },
     { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule) },
