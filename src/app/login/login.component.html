@@ -10,14 +10,18 @@
                         <div class="form-content">
                             <div class="form-group">
                                 <label>Email address/Username</label>
-                                <input type="text" ng-model="name" class="form-control input-underline input-lg" (keydown)="onKeydown($event)"/>
-                                <div *ngIf="submitted && (loginForm.get('employee_id').value.length === 0)" class="invalid-feedback-show">
-                                    {{ 'Employee Id is required' | translate }}</div>
+                                <input formControlName="username" type="text" ng-model="name" class="form-control input-underline input-lg" required (keydown)="onKeydown($event)"/>
+                                <div *ngIf="submitted && (loginForm.get('username').value.length === 0)" class="invalid-feedback-show">
+                                    {{ 'Username is required' | translate }}</div>
+                                <div *ngIf="submitted && (loginForm.get('username').value.length !== 0 && loginForm.get('username').value.length < 6)"
+                                    class="invalid-feedback-show">
+                                    Password must be 3 Characters
+                                </div>
                             </div>
 
                             <div class="form-group m-0">
                                 <label>Password</label>
-                                <input type="password" class="form-control input-underline input-lg" (keydown)="onKeydown($event)"/>
+                                <input formControlName="password" type="password" required class="form-control input-underline input-lg" (keydown)="onKeydown($event)"/>
                                 <div *ngIf="submitted && (loginForm.get('password').value.length === 0)" class="invalid-feedback-show">
                                     {{ 'Password is required' | translate }}</div>
                                 <div *ngIf="submitted && (loginForm.get('password').value.length !== 0 && loginForm.get('password').value.length < 6)"

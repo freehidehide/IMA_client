@@ -18,8 +18,6 @@ export class ApiService {
         let addHeaders: HttpHeaders = new HttpHeaders();
             addHeaders = addHeaders.append('Accept', 'application/json');
             addHeaders = addHeaders.append('Content-Type', 'application/json');
-            addHeaders = addHeaders.append('Access-Control-Allow-Origin', 'http://3.132.95.244');
-            addHeaders = addHeaders.append('Referer', 'http://3.132.95.244');
         if (sessionStorage.getItem('user_context') !== undefined) {
             const sessionStr = JSON.parse(sessionStorage.getItem('user_context'));
             if (sessionStr && sessionStr.access_token !== null) {
