@@ -16,6 +16,8 @@ import { ApiService } from './api/services/api.service';
 import { ShopComponent } from './shop/shop.component';
 import { AdvertisersComponent } from './advertisers/advertisers.component';
 import { ContestantprofileComponent } from './contestantprofile/contestantprofile.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { PurchasevoteComponent } from './purchasevote/purchasevote.component';
 
 @NgModule({
     imports: [
@@ -34,7 +36,9 @@ import { ContestantprofileComponent } from './contestantprofile/contestantprofil
         HeaderComponent,
 		    ShopComponent,
 		    AdvertisersComponent,
-        ContestantprofileComponent
+        ContestantprofileComponent,
+        EditprofileComponent,
+        PurchasevoteComponent
     ],
     providers: [
       AuthGuard,
