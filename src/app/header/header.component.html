@@ -1,4 +1,10 @@
 <div class="imacontainer position-relative" *ngIf="hideHeader">
+    <div class="alert alert-success alert-dismissible fade show position-absolute header-alert" role="alert">
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
     <nav class="navbar navbar-expand-lg imanavbar">
         <a class="navbar-brand" href="#"><img src="assets/images/ima-logo.png" class="img-fluid" /></a>
         <button class="navbar-toggler" type="button" (click)="toggleSidebar()">

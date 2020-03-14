@@ -39,6 +39,12 @@ $topnav-background-color: #222;
         z-index: 9;
     }
 }
+.header-alert{
+    z-index: 99;
+    width: 100%;
+    left: 0;
+    top:15px;
+}
 
 @media(max-width:1440px) {
     :host {
@@ -63,41 +69,4 @@ $topnav-background-color: #222;
 }
 
 /* header ends */
-/* subheading starts */
-.subheadings {
-    position: absolute;
-    padding: 0 0 0 125px;
-    top: 50%;
-    left: 0;
-    transform: translate(0%, -12%);
 
-    h2 {
-        font-family: 'Rozha One', serif;
-        font-size: 5vw;
-        color: #fff;
-        line-height: 4vw;
-
-        span {
-            font-family: "Open Sans";
-            font-size: 3vw;
-            display: block;
-            font-weight: 300;
-
-        }
-    }
-}
-
-.content-middle {
-    padding: 65px 95px;
-}
-
-@media(max-width:991px) {
-    .content-middle{
-        padding:15px;
-    }
-    .subheadings {
-        padding: 0 0 0 25px;
-    }
-}
-
-/* subheading ends */
