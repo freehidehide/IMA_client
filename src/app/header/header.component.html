@@ -1,6 +1,5 @@
-<div class="imacontainer position-relative">
+<div class="imacontainer position-relative" *ngIf="hideHeader">
     <nav class="navbar navbar-expand-lg imanavbar">
-
         <a class="navbar-brand" href="#"><img src="assets/images/ima-logo.png" class="img-fluid" /></a>
         <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
             <!-- <span class="navbar-toggler-icon"></span> -->
@@ -8,15 +7,16 @@
         </button>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">HOME</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">ADVERTISERS</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">VOTE</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">CONTESTANTS</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">SHOP</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">PROFILE</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">ABOUT US</a></li>
-    </ul>
-    </div>
-    
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/']" class="nav-link">HOME</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/advertisers']" class="nav-link">ADVERTISERS</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/contestants']" class="nav-link">VOTE</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/contestants']" class="nav-link">CONTESTANTS</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/shop']" class="nav-link">SHOP</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/profile']" class="nav-link">PROFILE</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/login']" class="nav-link">LOGIN</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/signup']" class="nav-link">SIGNUP</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" [routerLink]="['/']" class="nav-link">ABOUT US</a></li>
+            </ul>
+        </div>
     </nav>
 </div>

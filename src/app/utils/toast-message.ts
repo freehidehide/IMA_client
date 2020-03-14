@@ -9,26 +9,31 @@ export class ToastMessage {
         autoDismiss: true,
         positionClass: 'toast-top-center'
     };
+    toastRef: any;
 
     constructor(private toastr: ToastrService) { }
 
     success(message, title) {
-        this.toastr.success(message, title, this.toastConfig);
+        this.toastRef = this.toastr.success(message, title, this.toastConfig);
     }
 
     error(message, title)  {
-        this.toastr.error(message, title, this.toastConfig);
+        this.toastRef = this.toastr.error(message, title, this.toastConfig);
     }
 
     warning(message, title)  {
-        this.toastr.warning(message, title, this.toastConfig);
+        this.toastRef = this.toastr.warning(message, title, this.toastConfig);
     }
 
     info(message, title)  {
-        this.toastr.info(message, title, this.toastConfig);
+        this.toastRef = this.toastr.info(message, title, this.toastConfig);
     }
 
     show(message, title)  {
-        this.toastr.show(message, title, this.toastConfig);
+        this.toastRef = this.toastr.show(message, title, this.toastConfig);
+    }
+
+    removeToast(message, title)  {
+        this.toastr.clear(this.toastRef.ToastId);
     }
 }
