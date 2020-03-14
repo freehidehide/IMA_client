@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
-  constructor() {
-    
+  public hideHeader: boolean = false;
+  public headerRemove: string[] = ['/login', '/signup'];
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.hideHeader = !(this.headerRemove.indexOf(event.url) > -1);
+      }
+    });
   }
 
 }
