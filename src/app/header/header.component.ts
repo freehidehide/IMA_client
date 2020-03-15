@@ -16,5 +16,9 @@ export class HeaderComponent {
       }
     });
   }
+  
+  public toggleSidebar(): void {
+    
+  }
 
 }

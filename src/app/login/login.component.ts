@@ -48,10 +48,6 @@ export class LoginComponent implements OnInit {
         return this.loginForm.controls;
     }
 
-    showToast() {
-        this.toastMessage.success('', 'assaa');
-    }
-
     onSubmit() {
         this.submitted = true;
         if (this.loginForm.invalid) {

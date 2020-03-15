@@ -11,7 +11,6 @@ import { AuthGuard } from './shared';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { ToastrModule } from 'ngx-toastr';
 import { ApiService } from './api/services/api.service';
 import { ShopComponent } from './shop/shop.component';
 import { AdvertisersComponent } from './advertisers/advertisers.component';
@@ -26,8 +25,7 @@ import { PurchasevoteComponent } from './purchasevote/purchasevote.component';
         BrowserAnimationsModule,
         HttpClientModule,
         LanguageTranslationModule,
-        AppRoutingModule,
-        ToastrModule.forRoot()
+        AppRoutingModule
     ],
     declarations: [
         AppComponent,

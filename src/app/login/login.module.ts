@@ -16,8 +16,7 @@ import { ToastMessage } from '../utils/toast-message';
         ReactiveFormsModule
     ],
     providers: [
-        UserService,
-        ToastMessage
+        UserService
     ],
     declarations: [LoginComponent]
 })
