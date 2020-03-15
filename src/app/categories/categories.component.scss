@@ -1,0 +1,28 @@
+.categoriescontainer{
+    max-width: 1300px;
+    width:100%;
+}
+.categorieslisting{
+    li{
+        padding:8px 15px;
+        a{
+            font-size:33px;
+            font-weight: 300;
+            color: #181c30;
+            em{
+                font-weight: 400;
+            }
+        }
+        &:before{
+            content: '';
+            position: absolute;
+            width:5px;
+            height: 6px;
+            background-color: #181c30;
+            top:50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 52px;
+        }
+    }
+}
