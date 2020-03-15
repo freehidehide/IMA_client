@@ -8,7 +8,7 @@ import { RouterModule, Router, NavigationEnd } from '@angular/router';
 })
 export class HeaderComponent {
   public hideHeader: boolean = false;
-  public headerRemove: string[] = ['/login', '/signup'];
+  public headerRemove: string[] = ['/login', '/signup','/forgot-password','/resend-link','/reset-password','/password-changed'];
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
