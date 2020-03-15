@@ -8,11 +8,14 @@ import { RouterModule, Router, NavigationEnd } from '@angular/router';
 })
 export class HeaderComponent {
   public hideHeader: boolean = false;
+  public showStaticHeader: boolean = false;
   public headerRemove: string[] = ['/login', '/signup','/forgot-password','/resend-link','/reset-password','/password-changed'];
+  public staticheader: string[] = ['/profile','/view-profile'];
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.hideHeader = !(this.headerRemove.indexOf(event.url) > -1);
+        this.showStaticHeader = (this.staticheader.indexOf(event.url) > -1);
       }
     });
   }

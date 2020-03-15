@@ -1,10 +1,23 @@
-.imafooter{
-    background-color:#333;
+.imafooter {
+    background-color: #333;
     height: 200px;
     line-height: 200px;
-    p{
-        color:#fff;
+
+    p {
+        color: #fff;
         font-size: 20px;
         font-weight: 300;
+    }
+}
+
+@media(max-width:767px) {
+    .imafooter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            line-height: normal;
+        }
     }
 }

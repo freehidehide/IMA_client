@@ -37,6 +37,12 @@ $topnav-background-color: #222;
     z-index: 9;
 }
 
+.staticimanav {
+    position: static;
+    background-color: #20293c;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
 .header-alert {
     z-index: 99;
@@ -64,6 +70,11 @@ $topnav-background-color: #222;
         position: static !important;
         background-color: #000 !important;
         padding: 12px 25px !important;
+    }
+
+    .navbar {
+        padding-left: inherit !important;
+        padding-right: inherit !important;
     }
 }
 
