@@ -1,49 +1,48 @@
 $topnav-background-color: #222;
-
 /* header starts */
 
-:host {
-    .navbar {
-        background-color: rgba(34, 34, 34, 0.47);
-        padding: 12px 130px;
+.navbar {
+    background-color: rgba(34, 34, 34, 0.47);
+    padding: 12px 130px;
 
-        .navbar-brand {
+    .navbar-brand {
+        color: #fff;
+    }
+
+    .nav-item {
+        padding: 0 15px;
+
+        >a {
             color: #fff;
-        }
+            font-size: 16px;
 
-        .nav-item {
-            padding: 0 15px;
-
-            >a {
-                color: #fff;
-                font-size: 16px;
-
-                &:hover {
-                    color: #ccc;
-                }
+            &:hover {
+                color: #ccc;
             }
         }
     }
-
-    .imacontainer {
-        max-width: 1920px;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .imanavbar {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        left: 0;
-        z-index: 9;
-    }
 }
-.header-alert{
+
+.imacontainer {
+    max-width: 1920px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.imanavbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 9;
+}
+
+
+.header-alert {
     z-index: 99;
     width: 100%;
     left: 0;
-    top:15px;
+    top: 15px;
 }
 
 @media(max-width:1440px) {
@@ -69,4 +68,3 @@ $topnav-background-color: #222;
 }
 
 /* header ends */
-

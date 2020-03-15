@@ -1,104 +1,120 @@
 // shared css for the login and signup page
 @import "../login/login.component.scss";
 
-.signup-page{
+.signup-page {
     background: #20293c;
     height: 100vh;
     text-align: center;
-    padding:15px 0;
-    .form-content{
-        padding-top:10px;
+    padding: 15px 0;
+
+    .form-content {
+        padding-top: 10px;
     }
-    .login-actions{
-        margin:0;
-        .register-btn{
-            background:#3ea6fa;
-            font-size:22px;
+
+    .login-actions {
+        margin: 0;
+
+        .register-btn {
+            background: #3ea6fa;
+            font-size: 22px;
             font-weight: 600;
-            color:#fff;
-            border:none;
-            width:100%;
+            color: #fff;
+            border: none;
+            width: 100%;
         }
     }
-    .thirdlogin{
+
+    .thirdlogin {
         margin: 0;
     }
+
     .toplogo {
-        img{
+        img {
             max-width: 150px;
         }
     }
 }
-.signupwhite{
+
+.signupwhite {
     background: #fff;
     max-width: 800px;
     width: 100%;
-    padding:15px 0;
-    margin:0 auto;
-    form{
-        padding:15px 145px;
-        input{
+    padding: 15px 0;
+    margin: 0 auto;
+
+    form {
+        padding: 15px 145px;
+
+        input {
             background: #ebebeb;
-            border:none;
-            color:#797979;
+            border: none;
+            color: #797979;
             height: 50px;
             padding: 0 15px;
             text-align: center;
-            font-size:21px;
-            &:focus{
-                border:none;
+            font-size: 21px;
+
+            &:focus {
+                border: none;
             }
         }
-        .form-group{
-            padding:0;
-            margin:0 0 20px;
+
+        .form-group {
+            padding: 0;
+            margin: 0 0 20px;
         }
     }
 }
 
-.already_acc{
-    color:#666;
-    font-size:13px;
-    margin:15px 0 0;
+.already_acc {
+    color: #666;
+    font-size: 13px;
+    margin: 15px 0 0;
     font-weight: 600;
-    a{
+
+    a {
         text-decoration: underline;
-        font-size:18px;
+        font-size: 18px;
         font-weight: 700;
         text-transform: uppercase;
-        color:#666;
+        color: #666;
     }
 }
-.ortext{
+
+.ortext {
     position: relative;
-    color:#000;
-    margin:20px 0;
-    &:after{
-        content:'';
+    color: #000;
+    margin: 20px 0;
+
+    &:after {
+        content: '';
         position: absolute;
-        width:100%;
+        width: 100%;
         height: 1px;
         background: #acacac;
-        left:0;
-        top:50%;
-        transform: translate(0%,-50%);
-   }
-    span{
+        left: 0;
+        top: 50%;
+        transform: translate(0%, -50%);
+    }
+
+    span {
         background: #fff;
         position: relative;
-        z-index:9;
-        font-size:16px;
-        padding:0 4px;
-        top:-2px;
+        z-index: 9;
+        font-size: 16px;
+        padding: 0 4px;
+        top: -2px;
     }
 }
-@media (max-width:767px){
-    .signup-page{
-        padding:0;
+
+@media (max-width:767px) {
+    .signup-page {
+        padding: 0;
     }
+
     .signupwhite {
-        form{
-            padding:15px;
+        form {
+            padding: 15px;
         }
     }
 }
