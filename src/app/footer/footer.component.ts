@@ -8,7 +8,7 @@ import { RouterModule, Router, NavigationEnd } from '@angular/router';
 })
 export class FooterComponent {
   public hideFooter: boolean = false;
-  public footerRemove: string[] = ['/login', '/signup','/forgot-password'];
+  public footerRemove: string[] = ['/login', '/signup', '/forgot-password'];
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -17,5 +17,5 @@ export class FooterComponent {
     });
   }
 
-  
+
 }
