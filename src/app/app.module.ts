@@ -17,6 +17,8 @@ import { AdvertisersComponent } from './advertisers/advertisers.component';
 import { ContestantprofileComponent } from './contestantprofile/contestantprofile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { PurchasevoteComponent } from './purchasevote/purchasevote.component';
+import { ImalistingComponent } from './imalisting/imalisting.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
     imports: [
@@ -36,7 +38,9 @@ import { PurchasevoteComponent } from './purchasevote/purchasevote.component';
 		    AdvertisersComponent,
         ContestantprofileComponent,
         EditprofileComponent,
-        PurchasevoteComponent
+        PurchasevoteComponent,
+        ImalistingComponent,
+        CategoriesComponent
     ],
     providers: [
       AuthGuard,

@@ -14,6 +14,8 @@ const routes: Routes = [
     { path: 'advertisers', loadChildren: () => import('./advertisers/advertisers.module').then(m => m.AdvertisersModule) },
     { path: 'profile', loadChildren: () => import('./contestantprofile/contestantprofile.module').then(m => m.ContestantprofileModule) },
     { path: 'purchase', loadChildren: () => import('./purchasevote/purchasevote.module').then(m => m.PurchasevoteModule) },
+    { path: 'imalisting', loadChildren: () => import('./imalisting/imalisting.module').then(m => m.ImalistingModule) },
+    { path: 'categories', loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
     { path: 'edit', loadChildren: () => import('./editprofile/editprofile.module').then(m => m.EditprofileModule) },
     { path: 'error', loadChildren: () => import('./server-error/server-error.module').then(m => m.ServerErrorModule) },
     { path: 'access-denied', loadChildren: () => import('./access-denied/access-denied.module').then(m => m.AccessDeniedModule) },

@@ -10,3 +10,47 @@
         display: none !important;
     }
 }
+
+/* subheading starts */
+.subheadings {
+    position: absolute;
+    padding: 0 0 0 125px;
+    top: 50%;
+    left: 0;
+    transform: translate(0%, -12%);
+
+    h2 {
+        font-family: 'Rozha One', serif;
+        font-size: 5vw;
+        color: #fff;
+        line-height: 4vw;
+
+        span {
+            font-family: "Open Sans";
+            font-size: 33px;
+            line-height: 33px;
+            display: block;
+            font-weight: 300;
+
+        }
+    }
+}
+.imacontainer {
+    max-width: 1920px;
+    margin: 0 auto;
+    width: 100%;
+}
+.content-middle {
+    padding: 65px 95px;
+}
+
+@media(max-width:991px) {
+    .content-middle{
+        padding:15px;
+    }
+    .subheadings {
+        padding: 0 0 0 25px;
+    }
+}
+
+/* subheading ends */
