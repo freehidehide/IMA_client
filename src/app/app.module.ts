@@ -24,6 +24,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { ResendlinkComponent } from './resendlink/resendlink.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { PasswordchangedComponent } from './passwordchanged/passwordchanged.component';
+import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 
 @NgModule({
     imports: [
@@ -50,7 +51,8 @@ import { PasswordchangedComponent } from './passwordchanged/passwordchanged.comp
         ForgotpasswordComponent,
         ResendlinkComponent,
         ResetpasswordComponent,
-        PasswordchangedComponent
+        PasswordchangedComponent,
+        ViewprofileComponent
     ],
     providers: [
       AuthGuard,
