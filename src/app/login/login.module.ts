@@ -6,7 +6,6 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../api/services/user.service';
-import { ToastMessage } from '../utils/toast-message';
 
 @NgModule({
     imports: [

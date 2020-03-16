@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastMessage } from '../utils/toast-message';
+import { ToastService } from '../api/services/toast-service';
 import { UserService } from '../api/services/user.service';
 import { ServiceResponse } from '../api/models/service-response';
 import { UserResponse } from '../api/models/user-response';
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
         public router: Router,
         private formBuilder: FormBuilder,
         private userService: UserService,
-        private toastMessage: ToastMessage
+        private toastService: ToastService
       ) {}
 
       ngOnInit() {
@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit {
         const isBackendFailure = sessionStorage.getItem('backend_failure');
         if (isSessionExpired !== undefined && isSessionExpired === 'true') {
             sessionStorage.removeItem('session_expired');
-            this.toastMessage.error(null, 'Session Expired');
+            this.toastService.error('Session Expired');
         } else if (isBackendFailure !== undefined && isBackendFailure === 'true') {
             sessionStorage.removeItem('backend_failure');
-            this.toastMessage.error(null, 'We are facing a backend problem, please try again after sometimes or if the issue exist kindly contact adminstrator');
+            this.toastService.error('We are facing a backend problem, please try again after sometimes or if the issue exist kindly contact adminstrator');
         }
         this.loginForm = this.formBuilder.group({
             username: ['', [Validators.required, Validators.minLength(3)]],
@@ -58,15 +58,15 @@ export class LoginComponent implements OnInit {
                 this.submitted = false;
                 this.userResponse = data;                
                 if (this.userResponse.error && this.userResponse.error.code === AppConst.SERVICE_STATUS.SUCCESS) {
-                    this.toastMessage.success(null, this.userResponse.error.message);
+                    this.toastService.success(this.userResponse.error.message);
                     sessionStorage.setItem('user_context', JSON.stringify(this.userResponse));
                     if (this.userResponse.role.id === AppConst.ROLE.USER) {
-                        this.router.navigate(['/dashboard']);
+                        this.router.navigate(['/admin']);
                     } else {
                         this.router.navigate(['/contestants']);
                     }
                 } else {
-                    this.toastMessage.error(null, this.userResponse.error.message);
+                    this.toastService.error(this.userResponse.error.message);
                 }
             });
     }

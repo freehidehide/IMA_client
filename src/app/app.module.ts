@@ -24,6 +24,7 @@ import { ResendlinkComponent } from './resendlink/resendlink.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { PasswordchangedComponent } from './passwordchanged/passwordchanged.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
+import { ToastService } from './api/services/toast-service';
 
 @NgModule({
     imports: [
@@ -54,7 +55,8 @@ import { ViewprofileComponent } from './viewprofile/viewprofile.component';
     ],
     providers: [
       AuthGuard,
-      ApiService
+      ApiService,
+      ToastService
     ],
     bootstrap: [
       AppComponent
