@@ -21,6 +21,7 @@ const routes: Routes = [
     { path: 'reset-password', loadChildren: () => import('./resetpassword/resetpassword.module').then(m => m.ResetpasswordModule) },
     { path: 'password-changed', loadChildren: () => import('./passwordchanged/passwordchanged.module').then(m => m.PasswordchangedModule) },
     { path: 'view-profile', loadChildren: () => import('./viewprofile/viewprofile.module').then(m => m.ViewprofileModule) },
+    { path: 'donate', loadChildren: () => import('./donate/donate.module').then(m => m.DonateModule) },
     { path: 'edit', loadChildren: () => import('./editprofile/editprofile.module').then(m => m.EditprofileModule) },
     { path: 'error', loadChildren: () => import('./server-error/server-error.module').then(m => m.ServerErrorModule) },
     { path: 'access-denied', loadChildren: () => import('./access-denied/access-denied.module').then(m => m.AccessDeniedModule) },
