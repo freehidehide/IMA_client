@@ -11,7 +11,6 @@ import { AuthGuard } from './shared';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { ToastrModule } from 'ngx-toastr';
 import { ApiService } from './api/services/api.service';
 import { ShopComponent } from './shop/shop.component';
 import { AdvertisersComponent } from './advertisers/advertisers.component';
@@ -25,6 +24,7 @@ import { ResendlinkComponent } from './resendlink/resendlink.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { PasswordchangedComponent } from './passwordchanged/passwordchanged.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
+import { ToastService } from './api/services/toast-service';
 import { DonateComponent } from './donate/donate.component';
 
 @NgModule({
@@ -34,8 +34,7 @@ import { DonateComponent } from './donate/donate.component';
         BrowserAnimationsModule,
         HttpClientModule,
         LanguageTranslationModule,
-        AppRoutingModule,
-        ToastrModule.forRoot()
+        AppRoutingModule
     ],
     declarations: [
         AppComponent,
@@ -58,7 +57,8 @@ import { DonateComponent } from './donate/donate.component';
     ],
     providers: [
       AuthGuard,
-      ApiService
+      ApiService,
+      ToastService
     ],
     bootstrap: [
       AppComponent
