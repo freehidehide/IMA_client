@@ -25,6 +25,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { PasswordchangedComponent } from './passwordchanged/passwordchanged.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { ToastService } from './api/services/toast-service';
+import { DonateComponent } from './donate/donate.component';
 
 @NgModule({
     imports: [
@@ -51,7 +52,8 @@ import { ToastService } from './api/services/toast-service';
         ResendlinkComponent,
         ResetpasswordComponent,
         PasswordchangedComponent,
-        ViewprofileComponent
+        ViewprofileComponent,
+        DonateComponent
     ],
     providers: [
       AuthGuard,
