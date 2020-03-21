@@ -1,13 +1,13 @@
-import { ChartsModule } from './charts.module';
+import { ChartsModule } from "./charts.module";
 
-describe('ChartsModule', () => {
+describe("ChartsModule", () => {
     let chartsModule: ChartsModule;
 
     beforeEach(() => {
         chartsModule = new ChartsModule();
     });
 
-    it('should create an instance', () => {
+    it("should create an instance", () => {
         expect(chartsModule).toBeTruthy();
     });
 });

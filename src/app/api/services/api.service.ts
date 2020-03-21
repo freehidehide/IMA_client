@@ -1,13 +1,16 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { Router } from '@angular/router';
-import { environment } from '../../../environments/environment';
+import { Injectable } from "@angular/core";
+import {
+    HttpClient,
+    HttpErrorResponse,
+    HttpHeaders
+} from "@angular/common/http";
+import { Observable, throwError, of } from "rxjs";
+import { catchError } from "rxjs/operators";
+import { Router } from "@angular/router";
+import { environment } from "../../../environments/environment";
 
 @Injectable()
 export class ApiService {
-
     private baseUrl: String = environment.apiEndPoint;
     private httpOptions: any;
     public windowTop: any = window.top;
@@ -16,26 +19,29 @@ export class ApiService {
 
     getHeaders() {
         let addHeaders: HttpHeaders = new HttpHeaders();
-            addHeaders = addHeaders.append('Accept', 'application/json');
-            addHeaders = addHeaders.append('Content-Type', 'application/json');
-        if (sessionStorage.getItem('user_context') !== undefined) {
-            const sessionStr = JSON.parse(sessionStorage.getItem('user_context'));
+        addHeaders = addHeaders.append("Accept", "application/json");
+        addHeaders = addHeaders.append("Content-Type", "application/json");
+        if (sessionStorage.getItem("user_context") !== undefined) {
+            const sessionStr = JSON.parse(
+                sessionStorage.getItem("user_context")
+            );
             if (sessionStr && sessionStr.access_token !== null) {
-                addHeaders = addHeaders.append('Authorization', 'Bearer ' + sessionStr.access_token); 
+                addHeaders = addHeaders.append(
+                    "Authorization",
+                    "Bearer " + sessionStr.access_token
+                );
             }
         }
         this.httpOptions = {
             headers: addHeaders
-        }; 
+        };
     }
 
     httpGet<T>(url): Observable<T> {
         this.getHeaders();
         return this.http
             .get<T>(this.baseUrl + url, this.httpOptions)
-            .pipe(
-                catchError(this.handleNetworkErrors)
-            );
+            .pipe(catchError(this.handleNetworkErrors));
     }
 
     /**
@@ -45,9 +51,7 @@ export class ApiService {
         this.getHeaders();
         return this.http
             .post(this.baseUrl + url, body, this.httpOptions)
-            .pipe(
-                catchError(this.handleNetworkErrors)
-            );
+            .pipe(catchError(this.handleNetworkErrors));
     }
 
     /**
@@ -57,9 +61,7 @@ export class ApiService {
         this.getHeaders();
         return this.http
             .put(this.baseUrl + url, body, this.httpOptions)
-            .pipe(
-                catchError(this.handleNetworkErrors)
-            );
+            .pipe(catchError(this.handleNetworkErrors));
     }
 
     /**
@@ -69,9 +71,7 @@ export class ApiService {
         this.getHeaders();
         return this.http
             .delete(this.baseUrl + url, options)
-            .pipe(
-                catchError(this.handleNetworkErrors)
-            );
+            .pipe(catchError(this.handleNetworkErrors));
     }
 
     /**
@@ -79,17 +79,16 @@ export class ApiService {
      */
     handleNetworkErrors(errObject: HttpErrorResponse): Observable<any> {
         if (errObject.status === 0) {
-            sessionStorage.removeItem('user_context');
-            sessionStorage.setItem('backend_failure', 'true');
-         //   window.location.href = "/login";
+            sessionStorage.removeItem("user_context");
+            sessionStorage.setItem("backend_failure", "true");
+            //   window.location.href = "/login";
         } else if (errObject.status === 401) {
-            sessionStorage.removeItem('user_context');
-            sessionStorage.setItem('session_expired', 'true');
-           // window.location.href = "/login";
+            sessionStorage.removeItem("user_context");
+            sessionStorage.setItem("session_expired", "true");
+            // window.location.href = "/login";
         } else if (errObject.status === 500) {
-         alert(errObject.error.statusMessage);
+            alert(errObject.error.statusMessage);
         }
         return of(true);
     }
-
 }

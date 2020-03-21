@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { NgbCarouselModule, NgbAlertModule } from "@ng-bootstrap/ng-bootstrap";
 
-import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardComponent } from './dashboard.component';
-import { NotificationComponent } from './components';
-import { StatModule } from '../../shared';
+import { DashboardRoutingModule } from "./dashboard-routing.module";
+import { DashboardComponent } from "./dashboard.component";
+import { NotificationComponent } from "./components";
+import { StatModule } from "../../shared";
 
 @NgModule({
     imports: [
@@ -15,9 +15,6 @@ import { StatModule } from '../../shared';
         DashboardRoutingModule,
         StatModule
     ],
-    declarations: [
-        DashboardComponent,
-        NotificationComponent
-    ]
+    declarations: [DashboardComponent, NotificationComponent]
 })
 export class DashboardModule {}

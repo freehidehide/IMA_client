@@ -1,33 +1,55 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class ToastService {
-
-    private _showPopUp: boolean = false;
-    // @Input
-    constructor() { }
+    public showMessage: boolean = false;
+    public isLoading: boolean = false;
+    public message: string = "";
+    public messageClass: string = "alert-success";
 
     success(message) {
-     //   this.toastRef = this.toastr.success(message, this.toastConfig);
+        this.showMessage = true;
+        this.message = message;
+        this.messageClass = "alert-success";
+        this.showMessagePopup();
     }
 
-    error(message)  {
-       // this.toastRef = this.toastr.error(message, this.toastConfig);
+    error(message) {
+        this.showMessage = true;
+        this.message = message;
+        this.messageClass = "alert-warning";
+        this.showMessagePopup();
     }
 
-    warning(message)  {
-        // this.toastRef = this.toastr.warning(message, this.toastConfig);
+    warning(message) {
+        this.showMessage = true;
+        this.message = message;
+        this.messageClass = "alert-warning";
+        this.showMessagePopup();
     }
 
-    info(message)  {
-        // this.toastRef = this.toastr.info(message, this.toastConfig);
+    info(message) {
+        this.showMessage = true;
+        this.message = message;
+        this.messageClass = "alert-info";
+        this.showMessagePopup();
     }
 
-    show(message)  {
-        // this.toastRef = this.toastr.show(message, this.toastConfig);
+    removeToast() {
+        this.showMessage = false;
     }
 
-    removeToast(message)  {
-       // this.toastr.clear(this.toastRef.ToastId);
+    showMessagePopup() {
+        setTimeout(() => {
+            this.showMessage = false;
+        }, 3000);
+    }
+
+    showLoading() {
+        this.isLoading = true;
+    }
+
+    clearLoading() {
+        this.isLoading = false;
     }
 }

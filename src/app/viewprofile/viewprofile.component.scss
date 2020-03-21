@@ -8,7 +8,7 @@
 
 .vpcontainer {
     max-width: 680px;
-    margin-top: -38px
+    margin-top: -38px;
 }
 
 .profile-image {
@@ -60,7 +60,7 @@ p {
     transform: translate(-50%, -50%);
 }
 
-@media (max-width:1440px) {
+@media (max-width: 1440px) {
     .profileupdate {
         a.btn {
             font-size: 13px;
@@ -102,7 +102,7 @@ p {
     }
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
     .vpcontainer {
         margin-top: 0;
     }
@@ -116,5 +116,4 @@ p {
             padding: 25px 0;
         }
     }
-
 }

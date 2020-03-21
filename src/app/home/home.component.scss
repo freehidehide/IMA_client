@@ -29,13 +29,6 @@ $topnav-background-color: #222;
     }
 }
 
-
-
-
-
-
-
-
 .subheadings {
     position: absolute;
     padding: 0 0 0 125px;
@@ -45,7 +38,7 @@ $topnav-background-color: #222;
     width: 50%;
 
     h2 {
-        font-family: 'Rozha One', serif;
+        font-family: "Rozha One", serif;
         font-size: 5.25vw;
         color: #fff;
         line-height: 5vw;
@@ -60,7 +53,6 @@ $topnav-background-color: #222;
             line-height: normal;
             display: block;
             font-weight: 300;
-
         }
     }
 }
@@ -132,7 +124,7 @@ $topnav-background-color: #222;
     }
 }
 
-@media(max-width:991px) {
+@media (max-width: 991px) {
     .homefeatures {
         margin: 40px 0 40px;
 

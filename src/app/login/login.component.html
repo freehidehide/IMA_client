@@ -1,60 +1,118 @@
-<div class="alert alert-success alert-dismissible fade show position-absolute header-alert" role="alert">
-        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
 <div class="login-page" [@routerTransition]>
     <div class="imacontainer">
         <div class="d-flex">
             <div class="login-left d-flex align-items-center">
                 <div class="logininner">
                     <div class="text-center toplogo">
-                        <img src="assets/images/login-logo.jpg" class="img-fluid" />
+                        <img
+                            src="assets/images/login-logo.jpg"
+                            class="img-fluid"
+                        />
                     </div>
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <div class="form-content">
                             <div class="form-group">
                                 <label>Email address/Username</label>
-                                <input formControlName="username" type="text" ng-model="name"
-                                    class="form-control input-underline input-lg" required
-                                    (keydown)="onKeydown($event)" />
-                                <div *ngIf="submitted && (loginForm.get('username').value.length === 0)"
-                                    class="invalid-feedback-show">
-                                    {{ 'Username is required' | translate }}</div>
-                                <div *ngIf="submitted && (loginForm.get('username').value.length !== 0 && loginForm.get('username').value.length < 6)"
-                                    class="invalid-feedback-show">
+                                <input
+                                    formControlName="username"
+                                    type="text"
+                                    ng-model="name"
+                                    class="form-control input-underline input-lg"
+                                    required
+                                    (keydown)="onKeydown($event)"
+                                />
+                                <div
+                                    *ngIf="
+                                        submitted &&
+                                        loginForm.get('username').value
+                                            .length === 0
+                                    "
+                                    class="invalid-feedback-show"
+                                >
+                                    {{ "Username is required" | translate }}
+                                </div>
+                                <div
+                                    *ngIf="
+                                        submitted &&
+                                        loginForm.get('username').value
+                                            .length !== 0 &&
+                                            loginForm.get('username').value
+                                                .length < 6
+                                    "
+                                    class="invalid-feedback-show"
+                                >
                                     Password must be 3 Characters
                                 </div>
                             </div>
 
                             <div class="form-group m-0">
                                 <label>Password</label>
-                                <input formControlName="password" type="password" required
-                                    class="form-control input-underline input-lg" (keydown)="onKeydown($event)" />
-                                <div *ngIf="submitted && (loginForm.get('password').value.length === 0)"
-                                    class="invalid-feedback-show">
-                                    {{ 'Password is required' | translate }}</div>
-                                <div *ngIf="submitted && (loginForm.get('password').value.length !== 0 && loginForm.get('password').value.length < 6)"
-                                    class="invalid-feedback-show">
+                                <input
+                                    formControlName="password"
+                                    type="password"
+                                    required
+                                    class="form-control input-underline input-lg"
+                                    (keydown)="onKeydown($event)"
+                                />
+                                <div
+                                    *ngIf="
+                                        submitted &&
+                                        loginForm.get('password').value
+                                            .length === 0
+                                    "
+                                    class="invalid-feedback-show"
+                                >
+                                    {{ "Password is required" | translate }}
+                                </div>
+                                <div
+                                    *ngIf="
+                                        submitted &&
+                                        loginForm.get('password').value
+                                            .length !== 0 &&
+                                            loginForm.get('password').value
+                                                .length < 6
+                                    "
+                                    class="invalid-feedback-show"
+                                >
                                     Password must be 6 Characters
                                 </div>
                             </div>
-                            <p class="forgotpass text-right"><a class="text-decoration-none" href="#">Forgot
-                                    Password</a></p>
+                            <p class="forgotpass text-right">
+                                <a class="text-decoration-none" href="#"
+                                    >Forgot Password</a
+                                >
+                            </p>
                         </div>
-                        <div class="login-actions d-flex justify-content-between">
-                            <a class="btn loginbtn rounded-btn" (keydown)="onKeydown($event)"
-                                (click)="onSubmit()">{{ 'Log in' | translate }}</a>
-                            <a class="btn rounded-btn" [routerLink]="['/signup']">{{ 'Register' | translate }}</a>
+                        <div
+                            class="login-actions d-flex justify-content-between"
+                        >
+                            <a
+                                class="btn loginbtn rounded-btn"
+                                (keydown)="onKeydown($event)"
+                                (click)="onSubmit()"
+                                >{{ "Log in" | translate }}</a
+                            >
+                            <a
+                                class="btn rounded-btn"
+                                [routerLink]="['/signup']"
+                                >{{ "Register" | translate }}</a
+                            >
                         </div>
                     </form>
                     <div class="thirdlogin">
-                        <p class="thirdtext">Sign in using your social account</p>
-                        <a href="#" class="facebook rounded-btn text-center mb-3"><i class="fa fa-facebook"
-                                aria-hidden="true"></i>Sign in with <span>Facebook</span></a>
-                        <a href="#" class="google rounded-btn text-center"><i class="fa fa-google"
-                                aria-hidden="true"></i>Sign in with <span>Google</span></a>
+                        <p class="thirdtext">
+                            Sign in using your social account
+                        </p>
+                        <a
+                            href="#"
+                            class="facebook rounded-btn text-center mb-3"
+                            ><i class="fa fa-facebook" aria-hidden="true"></i
+                            >Sign in with <span>Facebook</span></a
+                        >
+                        <a href="#" class="google rounded-btn text-center"
+                            ><i class="fa fa-google" aria-hidden="true"></i>Sign
+                            in with <span>Google</span></a
+                        >
                     </div>
                 </div>
             </div>

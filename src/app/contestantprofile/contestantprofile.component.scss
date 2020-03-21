@@ -1,12 +1,7 @@
-
-
-
 nav.navbar {
     background-color: #20283b;
     padding: 12px 130px;
 }
-
-
 
 .imacontainer {
     max-width: 1920px;
@@ -18,13 +13,13 @@ nav.navbar {
     position: static;
 }
 
-@media(max-width:1440px) {
+@media (max-width: 1440px) {
     :host {
         .navbar {
             .nav-item {
                 padding: 0 8px;
 
-                >a {
+                > a {
                     font-size: 14px;
                 }
             }
@@ -32,17 +27,13 @@ nav.navbar {
     }
 }
 
-@media(max-width:991px) {
+@media (max-width: 991px) {
     .imanavbar {
         position: static !important;
         background-color: #000 !important;
         padding: 12px 25px !important;
     }
 }
-
-
-
-
 
 .contprofileimage {
     max-width: 560px;
@@ -53,10 +44,9 @@ nav.navbar {
     position: relative;
 }
 
-
 .contprofilearea {
     h2 {
-        font-family: 'Rozha One', serif;
+        font-family: "Rozha One", serif;
         font-size: 66px;
         line-height: normal;
         color: #585757;
@@ -123,7 +113,7 @@ nav.navbar {
     color: #acacac;
 }
 
-@media(max-width:991px) {
+@media (max-width: 991px) {
     .contprofileimage {
         max-width: 300px;
         margin: -150px auto 0;
@@ -136,7 +126,7 @@ nav.navbar {
     }
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
     .contprofileimage {
         max-width: 150px;
         margin: -75px auto 0;
