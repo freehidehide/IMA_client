@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { ImalistingComponent } from './imalisting.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { ImalistingComponent } from "./imalisting.component";
 
 const routes: Routes = [
     {
-        path: '',
+        path: "",
         component: ImalistingComponent
     }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
-export class ImalistingRoutingModule { }
+export class ImalistingRoutingModule {}

@@ -1,11 +1,11 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, Output, EventEmitter, OnInit } from "@angular/core";
+import { Router, NavigationEnd } from "@angular/router";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
-    selector: 'app-sidebar',
-    templateUrl: './sidebar.component.html',
-    styleUrls: ['./sidebar.component.scss']
+    selector: "app-sidebar",
+    templateUrl: "./sidebar.component.html",
+    styleUrls: ["./sidebar.component.scss"]
 })
 export class SidebarComponent implements OnInit {
     isActive: boolean;
@@ -30,10 +30,9 @@ export class SidebarComponent implements OnInit {
     ngOnInit() {
         this.isActive = false;
         this.collapsed = false;
-        this.showMenu = '';
-        this.pushRightClass = 'push-right';
+        this.showMenu = "";
+        this.pushRightClass = "push-right";
     }
-
 
     eventCalled() {
         this.isActive = !this.isActive;
@@ -41,7 +40,7 @@ export class SidebarComponent implements OnInit {
 
     addExpandClass(element: any) {
         if (element === this.showMenu) {
-            this.showMenu = '0';
+            this.showMenu = "0";
         } else {
             this.showMenu = element;
         }
@@ -53,18 +52,18 @@ export class SidebarComponent implements OnInit {
     }
 
     isToggled(): boolean {
-        const dom: Element = document.querySelector('body');
+        const dom: Element = document.querySelector("body");
         return dom.classList.contains(this.pushRightClass);
     }
 
     toggleSidebar() {
-        const dom: any = document.querySelector('body');
+        const dom: any = document.querySelector("body");
         dom.classList.toggle(this.pushRightClass);
     }
 
     rltAndLtr() {
-        const dom: any = document.querySelector('body');
-        dom.classList.toggle('rtl');
+        const dom: any = document.querySelector("body");
+        dom.classList.toggle("rtl");
     }
 
     changeLang(language: string) {
@@ -72,6 +71,6 @@ export class SidebarComponent implements OnInit {
     }
 
     onLoggedout() {
-        localStorage.removeItem('isLoggedin');
+        localStorage.removeItem("isLoggedin");
     }
 }

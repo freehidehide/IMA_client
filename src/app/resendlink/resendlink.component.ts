@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-resendlink',
-  templateUrl: './resendlink.component.html',
-  styleUrls: ['./resendlink.component.scss']
+    selector: "app-resendlink",
+    templateUrl: "./resendlink.component.html",
+    styleUrls: ["./resendlink.component.scss"]
 })
 export class ResendlinkComponent implements OnInit {
+    constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {}
 }

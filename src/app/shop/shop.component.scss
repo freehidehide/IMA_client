@@ -63,7 +63,7 @@
         width: 53px;
         height: 53px;
         border: none;
-        background: url('../../assets/images/minus-icon.jpg') no-repeat left top;
+        background: url("../../assets/images/minus-icon.jpg") no-repeat left top;
     }
 
     input.quantityinput {
@@ -80,7 +80,7 @@
         width: 53px;
         height: 53px;
         border: none;
-        background: url('../../assets/images/plus-icon.jpg') no-repeat left top;
+        background: url("../../assets/images/plus-icon.jpg") no-repeat left top;
     }
 }
 
@@ -156,7 +156,7 @@
     }
 }
 
-@media(max-width:991px) {
+@media (max-width: 991px) {
     .slectcolors {
         .availcolorsselect {
             width: 32px;

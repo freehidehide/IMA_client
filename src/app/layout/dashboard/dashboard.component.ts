@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { routerTransition } from '../../router.animations';
+import { Component, OnInit } from "@angular/core";
+import { routerTransition } from "../../router.animations";
 
 @Component({
-    selector: 'app-dashboard',
-    templateUrl: './dashboard.component.html',
-    styleUrls: ['./dashboard.component.scss'],
+    selector: "app-dashboard",
+    templateUrl: "./dashboard.component.html",
+    styleUrls: ["./dashboard.component.scss"],
     animations: [routerTransition()]
 })
 export class DashboardComponent implements OnInit {
@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
         this.alerts.push(
             {
                 id: 1,
-                type: 'success',
+                type: "success",
                 message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptates est animi quibusdam praesentium quam, et perspiciatis,
                 consectetur velit culpa molestias dignissimos
@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
             },
             {
                 id: 2,
-                type: 'warning',
+                type: "warning",
                 message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptates est animi quibusdam praesentium quam, et perspiciatis,
                 consectetur velit culpa molestias dignissimos
