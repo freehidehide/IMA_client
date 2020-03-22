@@ -30,6 +30,7 @@ import { SiteAlertMessageComponent } from "./site-alert-message/site-alert-messa
 import { SiteLoaderComponent } from "./site-loader/site-loader.component";
 import { CartComponent } from "./cart/cart.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
+import { InstantvoteComponent } from "./instantvote/instantvote.component";
 
 @NgModule({
     imports: [
@@ -61,7 +62,8 @@ import { CheckoutComponent } from "./checkout/checkout.component";
         SiteAlertMessageComponent,
         SiteLoaderComponent,
         CartComponent,
-        CheckoutComponent
+        CheckoutComponent,
+        InstantvoteComponent
     ],
     providers: [AuthGuard, ApiService, ToastService],
     bootstrap: [AppComponent]

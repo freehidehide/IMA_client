@@ -131,6 +131,13 @@ const routes: Routes = [
             import("./checkout/checkout.module").then(m => m.CheckoutModule)
     },
     {
+        path: "instant-vote",
+        loadChildren: () =>
+            import("./instantvote/instantvote.module").then(
+                m => m.InstantvoteModule
+            )
+    },
+    {
         path: "error",
         loadChildren: () =>
             import("./server-error/server-error.module").then(
