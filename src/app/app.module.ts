@@ -28,6 +28,9 @@ import { ToastService } from "./api/services/toast-service";
 import { DonateComponent } from "./donate/donate.component";
 import { SiteAlertMessageComponent } from "./site-alert-message/site-alert-message.component";
 import { SiteLoaderComponent } from "./site-loader/site-loader.component";
+import { CartComponent } from "./cart/cart.component";
+import { CheckoutComponent } from "./checkout/checkout.component";
+import { InstantvoteComponent } from "./instantvote/instantvote.component";
 
 @NgModule({
     imports: [
@@ -57,7 +60,10 @@ import { SiteLoaderComponent } from "./site-loader/site-loader.component";
         ViewprofileComponent,
         DonateComponent,
         SiteAlertMessageComponent,
-        SiteLoaderComponent
+        SiteLoaderComponent,
+        CartComponent,
+        CheckoutComponent,
+        InstantvoteComponent
     ],
     providers: [AuthGuard, ApiService, ToastService],
     bootstrap: [AppComponent]

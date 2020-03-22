@@ -17,7 +17,12 @@ export class HeaderComponent {
         "/reset-password",
         "/password-changed"
     ];
-    public staticheader: string[] = ["/profile", "/view-profile"];
+    public staticheader: string[] = [
+        "/profile",
+        "/view-profile",
+        "/cart",
+        "/checkout"
+    ];
     constructor(private router: Router) {
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
