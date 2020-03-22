@@ -29,6 +29,7 @@ import { DonateComponent } from "./donate/donate.component";
 import { SiteAlertMessageComponent } from "./site-alert-message/site-alert-message.component";
 import { SiteLoaderComponent } from "./site-loader/site-loader.component";
 import { CartComponent } from "./cart/cart.component";
+import { CheckoutComponent } from "./checkout/checkout.component";
 
 @NgModule({
     imports: [
@@ -59,7 +60,8 @@ import { CartComponent } from "./cart/cart.component";
         DonateComponent,
         SiteAlertMessageComponent,
         SiteLoaderComponent,
-        CartComponent
+        CartComponent,
+        CheckoutComponent
     ],
     providers: [AuthGuard, ApiService, ToastService],
     bootstrap: [AppComponent]

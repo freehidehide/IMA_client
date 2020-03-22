@@ -1,0 +1,221 @@
+<div class="imacontainer">
+    <div class="carttitle d-flex justify-content-center align-items-center">
+        <h3 class="rozhafont text-uppercase">Checkout</h3>
+    </div>
+    <div class="content-middle checkout-middle">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="paymentoptions-right">
+                    <h4>Payment Options</h4>
+                    <img
+                        src="assets/images/payment-options.png"
+                        class="img-fluid"
+                    />
+                </div>
+            </div>
+            <div class="col-md-7 order-md-first">
+                <div class="maincheckout">
+                    <form>
+                        <div class="form-group emailorderstatus">
+                            <label for="exampleInputEmail1"
+                                >Enter email address. This address will be used
+                                to send you order status updates.</label
+                            >
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        id="exampleInputEmail1"
+                                        aria-describedby="emailHelp"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-check">
+                            <input
+                                type="checkbox"
+                                class="form-check-input"
+                                id="exampleCheck1"
+                            />
+                            <label class="form-check-label" for="exampleCheck1"
+                                >I agree with
+                                <a href="">Terms & Conditions</a></label
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="address1">Address</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="address1"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="address2">Address2</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="address2"
+                            />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputCountry">Country</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="inputCountry"
+                                />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputState">State</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="inputState"
+                                />
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="inputZip">Zip Code</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="inputZip"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="shippingaddress"
+                                />
+                                <label
+                                    class="form-check-label"
+                                    for="shippingaddress"
+                                >
+                                    Shipping Address is the same as my billing
+                                    address
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="saveinfo"
+                                />
+                                <label class="form-check-label" for="saveinfo">
+                                    Save information for next time
+                                </label>
+                            </div>
+                        </div>
+                        <h4 class="paymenttitle">Payment</h4>
+                        <div class="paymentblock">
+                            <div class="paymentoptions">
+                                <div
+                                    class="custom-control custom-radio custom-control-inline"
+                                >
+                                    <input
+                                        type="radio"
+                                        id="cc"
+                                        name="payment"
+                                        class="custom-control-input"
+                                    />
+                                    <label class="custom-control-label" for="cc"
+                                        >Credit Card</label
+                                    >
+                                </div>
+                                <div
+                                    class="custom-control custom-radio custom-control-inline"
+                                >
+                                    <input
+                                        type="radio"
+                                        id="paypal"
+                                        name="payment"
+                                        class="custom-control-input"
+                                    />
+                                    <label
+                                        class="custom-control-label"
+                                        for="paypal"
+                                        >PayPal</label
+                                    >
+                                </div>
+                                <div
+                                    class="custom-control custom-radio custom-control-inline"
+                                >
+                                    <input
+                                        type="radio"
+                                        id="stripe"
+                                        name="payment"
+                                        class="custom-control-input"
+                                    />
+                                    <label
+                                        class="custom-control-label"
+                                        for="stripe"
+                                        >Stripe</label
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="ccname">Name</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="ccname"
+                                    />
+                                    <small class="form-text text-muted"
+                                        >Full name as displayed on card</small
+                                    >
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="ccnum"
+                                        >Credit Card Number</label
+                                    >
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="ccnum"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="expire"
+                                                >Expiration</label
+                                            >
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="expire"
+                                            />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="cvv">CVV</label>
+                                            <input
+                                                type="number"
+                                                class="form-control"
+                                                id="cvv"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 continuews">
+                                    <button
+                                        class="btn btn-success continue-btn text-uppercase"
+                                    >
+                                        Continue
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
