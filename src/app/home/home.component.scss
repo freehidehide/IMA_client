@@ -35,13 +35,13 @@ $topnav-background-color: #222;
     top: 50%;
     left: 0;
     transform: translate(0%, -51%);
-    width: 50%;
+    width: 48%;
 
     h2 {
         font-family: "Rozha One", serif;
-        font-size: 5.25vw;
+        font-size: 100px;
         color: #fff;
-        line-height: 5vw;
+        line-height: 96px;
 
         .nextline {
             display: block;
@@ -75,6 +75,7 @@ $topnav-background-color: #222;
     h2 {
         font-weight: 300;
         font-size: 45px;
+        color: #696969;
     }
 
     p {
@@ -101,12 +102,12 @@ $topnav-background-color: #222;
     }
 
     h3 {
-        font-size: 19vw;
-        line-height: 12vw;
+        font-size: 341px;
+        line-height: 230px;
     }
 
     .vipmember {
-        font-size: 4vw;
+        font-size: 79px;
     }
 
     .membership-amount {
@@ -124,9 +125,285 @@ $topnav-background-color: #222;
     }
 }
 
-@media (max-width: 991px) {
+.home-instantvote {
+    background-color: #20293c;
+
+    .instavote-container {
+        max-width: 1160px;
+        width: 100%;
+    }
+
+    .homeinstavotein {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 361px;
+    }
+
+    .homeinstantvote {
+        max-width: 300px;
+
+        h2 {
+            font-weight: 300;
+            font-size: 45px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+    }
+
+    .invotebt {
+        .instant-vote-btn {
+            font-weight: 600;
+            font-size: 23px;
+            height: 97px;
+            padding: 0 108px;
+        }
+    }
+}
+
+.home-purticket {
+    background-color: #20293c;
+
+    .purticket-container {
+        max-width: 1240px;
+        width: 100%;
+    }
+
+    .homepurticketin {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 361px;
+    }
+
+    .homepticketcont {
+        max-width: 405px;
+
+        h2 {
+            font-weight: 300;
+            font-size: 45px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+    }
+
+    .purticketbt {
+        .pticket-btn {
+            font-weight: 600;
+            font-size: 23px;
+            height: 97px;
+            padding: 0 108px;
+        }
+    }
+}
+
+@media (max-width: 1800px) {
+    .subheadings {
+        h2 {
+            font-size: 79px;
+            line-height: 75px;
+        }
+    }
+}
+
+@media (max-width: 1440px) {
+    .subheadings {
+        top: 60%;
+
+        h2 {
+            font-size: 75px;
+            line-height: 70px;
+
+            span,
+            span:not(.nextline) {
+                font-size: 25px;
+                margin: 30px 0 0;
+            }
+        }
+    }
+
+    .home-instantvote {
+        .instavote-container {
+            max-width: 878px;
+        }
+
+        .homeinstavotein {
+            height: 271px;
+
+            .instavoteimg {
+                img {
+                    width: 173px;
+                    height: auto;
+                }
+            }
+
+            .homeinstantvote {
+                max-width: 230px;
+
+                h2 {
+                    font-size: 34px;
+                }
+
+                p {
+                    font-size: 15px;
+                }
+            }
+
+            .invotebt {
+                .instant-vote-btn {
+                    height: 72px;
+                    padding: 0 75px;
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+
+    .imafeaturescontainer {
+        max-width: 950px;
+    }
+
     .homefeatures {
-        margin: 40px 0 40px;
+        h2 {
+            font-size: 34px;
+        }
+
+        p {
+            font-size: 15px;
+        }
+
+        ul {
+            li {
+                margin-bottom: 70px;
+            }
+        }
+
+        .features-btn {
+            font-size: 17px;
+            padding: 9px;
+        }
+    }
+
+    .home-purticket {
+        .purticket-container {
+            max-width: 950px;
+
+            .homepurticketin {
+                height: 271px;
+
+                .hticketimg {
+                    img {
+                        width: 265px;
+                        height: auto;
+                    }
+                }
+
+                .homepticketcont {
+                    h2 {
+                        font-size: 34px;
+                    }
+
+                    p {
+                        font-size: 15px;
+                    }
+                }
+
+                .purticketbt {
+                    .pticket-btn {
+                        height: 75px;
+                        padding: 0 50px;
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+    }
+
+    .subscribe-section {
+        .subscribetext {
+            font-size: 28px;
+        }
+
+        h3 {
+            font-size: 256px;
+            line-height: 150px;
+        }
+
+        .vipmember {
+            font-size: 59px;
+        }
+
+        .membership-amount {
+            font-size: 28px;
+
+            span {
+                font-size: 46px;
+            }
+        }
+
+        .subscribe-btn {
+            font-size: 17px;
+            padding: 10px 50px;
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    .subheadings {
+        width: 55%;
+
+        h2 {
+            font-size: 62px;
+            line-height: 46px;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .subheadings {
+        top: 60%;
+        width: 50%;
+
+        h2 {
+            font-size: 50px;
+            line-height: 46px;
+
+            span,
+            span:not(.nextline) {
+                font-size: 20px;
+                margin: 8px 0 0;
+            }
+        }
+    }
+
+    .home-instantvote {
+        .instavote-container {
+            max-width: inherit;
+            padding: 0 15px;
+        }
+        .homeinstavotein {
+            height: auto;
+            padding: 15px 0;
+            .invotebt {
+                .instant-vote-btn {
+                    font-size: 15px;
+                    padding: 10px 30px;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    .imafeaturescontainer {
+        max-width: 950px;
+        padding: 0 15px;
+    }
+    .homefeatures {
+        margin: 40px 0;
 
         ul {
             li {
@@ -144,6 +421,168 @@ $topnav-background-color: #222;
 
         .features-btn {
             font-size: 16px;
+        }
+    }
+
+    .home-purticket {
+        .purticket-container {
+            max-width: inherit;
+            padding: 0 15px;
+
+            .homepurticketin {
+                height: auto;
+                padding: 15px 0;
+
+                .hticketimg {
+                    img {
+                        width: auto;
+                        height: auto;
+                        max-width: 180px;
+                    }
+                }
+
+                .homepticketcont {
+                    max-width: 300px;
+                    h2 {
+                        font-size: 34px;
+                    }
+
+                    p {
+                        font-size: 15px;
+                    }
+                }
+
+                .purticketbt {
+                    .pticket-btn {
+                        height: auto;
+                        padding: 10px 30px;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    .subscribe-section {
+        .subscribetext {
+            font-size: 28px;
+        }
+
+        h3 {
+            font-size: 256px;
+            line-height: 150px;
+        }
+
+        .vipmember {
+            font-size: 59px;
+        }
+
+        .membership-amount {
+            font-size: 28px;
+
+            span {
+                font-size: 46px;
+            }
+        }
+
+        .subscribe-btn {
+            font-size: 15px;
+            padding: 10px 30px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .subheadings {
+        padding: 0 20px;
+        width: 100%;
+
+        h2 {
+            font-size: 35px;
+            line-height: normal;
+
+            span,
+            span:not(.nextline) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .home-instantvote {
+        .homeinstavotein {
+            flex-direction: column;
+            .homeinstantvote {
+                margin: 10px 0;
+            }
+            .invotebt {
+                .instant-vote-btn {
+                    font-size: 15px;
+                    padding: 10px 30px;
+                    height: auto;
+                }
+            }
+        }
+    }
+    .homefeatures {
+        margin: 20px 0;
+
+        ul {
+            li {
+                margin-bottom: 20px;
+            }
+        }
+        .features-btn {
+            font-size: 16px;
+            display: inline-block !important;
+            padding: 8px 20px;
+        }
+    }
+
+    .home-purticket {
+        .purticket-container {
+            .homepurticketin {
+                flex-direction: column;
+                .homepticketcont {
+                    margin: 15px 0;
+                }
+            }
+        }
+    }
+
+    .subscribe-section {
+        padding: 20px 0;
+        .subscribetext {
+            font-size: 20px;
+        }
+
+        h3 {
+            font-size: 80px;
+            line-height: 62px;
+        }
+
+        .vipmember {
+            font-size: 40px;
+        }
+
+        .membership-amount {
+            font-size: 25px;
+            margin: 0 0 15px !important;
+
+            span {
+                font-size: 30px;
+            }
+        }
+    }
+}
+@media (max-width: 480px) {
+    .subheadings {
+        top: 50%;
+        h2 {
+            font-size: 26px;
+            line-height: 22px;
+            .nextline {
+                display: inline;
+            }
         }
     }
 }
