@@ -106,10 +106,45 @@
         top: -2px;
     }
 }
+@media (max-width: 1440px) {
+    .signupwhite {
+        max-width: 600px;
+        form {
+            padding: 15px 100px;
+            .form-group {
+                margin: 0 0 15px;
+            }
+            input {
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+    }
+    .signup-page {
+        .login-actions {
+            .register-btn {
+                font-size: 16px;
+                line-height: 32px;
+            }
+        }
+        .thirdlogin {
+            .thirdtext {
+                font-size: 13px;
+            }
+        }
+    }
+    .already_acc {
+        font-size: 11px;
+        a {
+            font-size: 14px;
+        }
+    }
+}
 
 @media (max-width: 767px) {
     .signup-page {
         padding: 0;
+        height: inherit;
     }
 
     .signupwhite {

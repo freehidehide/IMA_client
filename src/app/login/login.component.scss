@@ -16,7 +16,7 @@ $topnav-background-color: #222;
         text-align: right;
 
         img {
-            height: 100vh;
+            height: 100%;
             object-fit: cover;
             width: 100%;
         }
@@ -160,7 +160,11 @@ $topnav-background-color: #222;
 @media (max-width: 1440px) {
     .login-page {
         font-size: 15px;
-
+        .toplogo {
+            img {
+                max-width: 145px;
+            }
+        }
         .logininner {
             width: 380px;
         }
@@ -168,19 +172,45 @@ $topnav-background-color: #222;
         .limageright {
             img {
                 object-position: 100% 100%;
+                height: 100%;
+            }
+        }
+        .input-lg {
+            height: 42px;
+        }
+        .login-actions {
+            a {
+                font-size: 16px;
+                line-height: 27px;
+            }
+        }
+        .rounded-btn {
+            font-size: 15px;
+            line-height: 23px;
+        }
+    }
+    .thirdlogin {
+        margin: 26px 0 0;
+        .thirdtext {
+            font-size: 15px;
+            margin: 0 0 8px;
+        }
+        a {
+            i {
+                font-size: 23px;
             }
         }
     }
-
-    .thirdlogin {
-        .thirdtext {
-            font-size: 15px;
-        }
+    .forgotpass {
+        margin: 0;
     }
 }
 
 @media (max-width: 767px) {
     .login-page {
+        display: flex;
+        align-items: center;
+        height: 100vh;
         .logininner {
             margin: 20px auto 15px;
         }
