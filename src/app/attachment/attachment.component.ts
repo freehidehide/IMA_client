@@ -21,8 +21,8 @@ export class AttachmentComponent {
   @Input('attachment')
   set attachment(value: Attachment) {
     console.log('this.imageClass', this.imageClass);
-    const id: string = value.id;
-    const hash: string = Md5.hashStr(value.class + id + 'jpg' + this.imageClass);
+    const id: string = value.id.toString();
+    const hash: string = Md5.hashStr(value.class + id + 'jpg' + this.imageClass).toString();
     // this.url = environment.apiEndPoint + "/images/original/" + value.class + "/" + id + "." + hash + ".jpg";
     this.url = "http://3.132.95.244/images/original/" + value.class + "/" + id + "." + hash + ".jpg";
   }
