@@ -4,9 +4,11 @@ import { routerTransition } from "../router.animations";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ToastService } from "../api/services/toast-service";
 import { UserService } from "../api/services/user.service";
+import { SessionService } from "../api/services/session-service";
 import { ServiceResponse } from "../api/models/service-response";
-import { UserResponse } from "../api/models/user-response";
+import { User } from "../api/models/user";
 import { AppConst } from "../utils/app-const";
+import { BaseComponent } from "../base.component";
 
 @Component({
     selector: "app-login",
@@ -14,19 +16,25 @@ import { AppConst } from "../utils/app-const";
     styleUrls: ["./login.component.scss"],
     animations: [routerTransition()]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends BaseComponent implements OnInit {
     public loginForm: FormGroup;
     public serviceResponse: ServiceResponse = new ServiceResponse();
     public submitted: Boolean;
-    public userResponse: UserResponse = new UserResponse();
+    public User: User = new User();
     constructor(
         public router: Router,
         private formBuilder: FormBuilder,
         private userService: UserService,
+        private sessionService: SessionService,
         private toastService: ToastService
-    ) {}
+    ) {
+        super();
+    }
 
     ngOnInit() {
+        if (this.sessionService.auth) {
+            this.router.navigate(["/contestants"]);
+        }
         const isSessionExpired = sessionStorage.getItem("session_expired");
         const isBackendFailure = sessionStorage.getItem("backend_failure");
         if (isSessionExpired !== undefined && isSessionExpired === "true") {
@@ -43,7 +51,7 @@ export class LoginComponent implements OnInit {
         }
         this.loginForm = this.formBuilder.group({
             username: ["", [Validators.required, Validators.minLength(3)]],
-            password: ["", [Validators.required, Validators.minLength(6)]],
+            password: ["", [Validators.required, Validators.minLength(3)]],
             role_id: [2]
         });
     }
@@ -52,35 +60,38 @@ export class LoginComponent implements OnInit {
         return this.loginForm.controls;
     }
 
-    onSubmit() {
+    onSubmit(): void {
         this.submitted = true;
         if (this.loginForm.invalid) {
             return;
         }
+        this.toastService.showLoading();
         this.userService.login(this.loginForm).subscribe(data => {
             this.submitted = false;
-            this.userResponse = data;
+            this.User = data;
+            this.toastService.clearLoading();
             if (
-                this.userResponse.error &&
-                this.userResponse.error.code === AppConst.SERVICE_STATUS.SUCCESS
+                this.User.error &&
+                this.User.error.code === AppConst.SERVICE_STATUS.SUCCESS
             ) {
-                this.toastService.success(this.userResponse.error.message);
+                this.toastService.success(this.User.error.message);
                 sessionStorage.setItem(
                     "user_context",
-                    JSON.stringify(this.userResponse)
+                    JSON.stringify(this.User)
                 );
-                if (this.userResponse.role.id === AppConst.ROLE.USER) {
+                this.sessionService.isLogined();
+                if (this.User.role.id === AppConst.ROLE.USER) {
                     this.router.navigate(["/admin"]);
                 } else {
                     this.router.navigate(["/contestants"]);
                 }
             } else {
-                this.toastService.error(this.userResponse.error.message);
+                this.toastService.error(this.User.error.message);
             }
         });
     }
 
-    onKeydown(event) {
+    onKeydown(event): void {
         if (event.key === "Enter") {
             this.onSubmit();
         }

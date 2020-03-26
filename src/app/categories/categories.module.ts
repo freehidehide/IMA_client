@@ -1,10 +1,11 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-
+import { CategoryService } from "../api/services/category.service";
 import { CategoriesRoutingModule } from "./categories-routing.module";
 
 @NgModule({
     declarations: [],
-    imports: [CommonModule, CategoriesRoutingModule]
+    imports: [CommonModule, CategoriesRoutingModule],
+    providers: [CategoryService]
 })
 export class CategoriesModule {}

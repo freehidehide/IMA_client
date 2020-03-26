@@ -12,7 +12,7 @@
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <div class="form-content">
                             <div class="form-group">
-                                <label>Email address/Username</label>
+                                <label>Username</label>
                                 <input
                                     formControlName="username"
                                     type="text"
@@ -37,11 +37,11 @@
                                         loginForm.get('username').value
                                             .length !== 0 &&
                                         loginForm.get('username').value.length <
-                                            6
+                                            3
                                     "
                                     class="invalid-feedback-show"
                                 >
-                                    Password must be 3 Characters
+                                    Password must be minimum 3 Characters
                                 </div>
                             </div>
 
@@ -70,11 +70,11 @@
                                         loginForm.get('password').value
                                             .length !== 0 &&
                                         loginForm.get('password').value.length <
-                                            6
+                                            4
                                     "
                                     class="invalid-feedback-show"
                                 >
-                                    Password must be 6 Characters
+                                    Password must be 3 minimum Characters
                                 </div>
                             </div>
                             <p class="forgotpass text-right">

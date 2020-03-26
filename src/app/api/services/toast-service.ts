@@ -42,7 +42,7 @@ export class ToastService {
     showMessagePopup() {
         setTimeout(() => {
             this.showMessage = false;
-        }, 3000);
+        }, 10000);
     }
 
     showLoading() {

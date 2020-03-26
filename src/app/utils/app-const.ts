@@ -1,11 +1,14 @@
 export class AppConst {
     public static readonly SERVER_URL = {
-        REGISTER: "/register",
+        REGISTER: "/users/register",
         LOGIN: "/users/login",
         ROLE: "/role",
         USER: "/users",
         FORGETPASSWORD: "/forgot_password",
-        CHANGEPASSWORD: "/change_password"
+        CHANGEPASSWORD: "/change_password",
+        ALLCATEGORY: "/catagories",
+        PRODUCTS: "/products",
+        ADVERTISEMENTS: "/advertisements"
     };
 
     public static readonly SERVICE_STATUS = {

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { RouterModule, Router, NavigationEnd } from "@angular/router";
+import { SessionService } from "../api/services/session-service";
 
 @Component({
     selector: "app-header",
@@ -23,7 +24,8 @@ export class HeaderComponent {
         "/cart",
         "/checkout"
     ];
-    constructor(private router: Router) {
+    constructor(private router: Router,
+        public sessionService: SessionService) {
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
                 this.hideHeader = !(this.headerRemove.indexOf(event.url) > -1);
@@ -33,5 +35,9 @@ export class HeaderComponent {
         });
     }
 
-    public toggleSidebar(): void {}
+    toggleSidebar(): void {}
+
+    redirect(url: string): void {
+        this.router.navigate([url]);
+    }
 }

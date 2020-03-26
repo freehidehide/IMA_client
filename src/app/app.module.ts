@@ -25,12 +25,14 @@ import { ResetpasswordComponent } from "./resetpassword/resetpassword.component"
 import { PasswordchangedComponent } from "./passwordchanged/passwordchanged.component";
 import { ViewprofileComponent } from "./viewprofile/viewprofile.component";
 import { ToastService } from "./api/services/toast-service";
+import { SessionService } from "./api/services/session-service";
 import { DonateComponent } from "./donate/donate.component";
 import { SiteAlertMessageComponent } from "./site-alert-message/site-alert-message.component";
 import { SiteLoaderComponent } from "./site-loader/site-loader.component";
 import { CartComponent } from "./cart/cart.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 import { InstantvoteComponent } from "./instantvote/instantvote.component";
+import { AttachmentComponent } from './attachment/attachment.component';
 
 @NgModule({
     imports: [
@@ -63,9 +65,10 @@ import { InstantvoteComponent } from "./instantvote/instantvote.component";
         SiteLoaderComponent,
         CartComponent,
         CheckoutComponent,
-        InstantvoteComponent
+        InstantvoteComponent,
+        AttachmentComponent
     ],
-    providers: [AuthGuard, ApiService, ToastService],
+    providers: [AuthGuard, ApiService, ToastService, SessionService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
