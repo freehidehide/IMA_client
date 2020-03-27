@@ -15,7 +15,6 @@ import {FooterComponent} from './footer/footer.component';
 import {HeaderComponent} from './header/header.component';
 import {ApiService} from './api/services/api.service';
 import {ShopComponent} from './shop/shop.component';
-import {AdvertisersComponent} from './advertisers/advertisers.component';
 import {ContestantprofileComponent} from './contestantprofile/contestantprofile.component';
 import {EditprofileComponent} from './editprofile/editprofile.component';
 import {PurchasevoteComponent} from './purchasevote/purchasevote.component';
@@ -33,6 +32,7 @@ import {CartComponent} from './cart/cart.component';
 import {CheckoutComponent} from './checkout/checkout.component';
 import {InstantvoteComponent} from './instantvote/instantvote.component';
 import {AttachmentComponent} from './attachment/attachment.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
 	imports: [
@@ -49,7 +49,6 @@ import {AttachmentComponent} from './attachment/attachment.component';
 		FooterComponent,
 		HeaderComponent,
 		ShopComponent,
-		AdvertisersComponent,
 		ContestantprofileComponent,
 		EditprofileComponent,
 		PurchasevoteComponent,
@@ -64,7 +63,8 @@ import {AttachmentComponent} from './attachment/attachment.component';
 		CartComponent,
 		CheckoutComponent,
 		InstantvoteComponent,
-		AttachmentComponent
+		AttachmentComponent,
+		PaginationComponent
 	],
 	providers: [AuthGuard, ApiService, ToastService, SessionService],
 	bootstrap: [AppComponent]
