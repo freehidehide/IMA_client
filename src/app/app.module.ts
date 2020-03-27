@@ -19,7 +19,6 @@ import { EditprofileComponent } from "./editprofile/editprofile.component";
 import { PurchasevoteComponent } from "./purchasevote/purchasevote.component";
 import { ImalistingComponent } from "./imalisting/imalisting.component";
 import { CategoriesComponent } from "./categories/categories.component";
-import { ForgotpasswordComponent } from "./forgotpassword/forgotpassword.component";
 import { ResendlinkComponent } from "./resendlink/resendlink.component";
 import { ResetpasswordComponent } from "./resetpassword/resetpassword.component";
 import { PasswordchangedComponent } from "./passwordchanged/passwordchanged.component";
@@ -55,7 +54,6 @@ import { AttachmentComponent } from './attachment/attachment.component';
         PurchasevoteComponent,
         ImalistingComponent,
         CategoriesComponent,
-        ForgotpasswordComponent,
         ResendlinkComponent,
         ResetpasswordComponent,
         PasswordchangedComponent,
