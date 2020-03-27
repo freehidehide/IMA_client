@@ -1,4 +1,6 @@
-export class Role {
-    id: number;
-    name: string;
+/** @format */
+
+export interface Role {
+	id: number;
+	name: string;
 }

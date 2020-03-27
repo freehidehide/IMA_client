@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { AccessDeniedComponent } from "./access-denied.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-describe("AccessDeniedComponent", () => {
-    let component: AccessDeniedComponent;
-    let fixture: ComponentFixture<AccessDeniedComponent>;
+import {AccessDeniedComponent} from './access-denied.component';
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [AccessDeniedComponent]
-        }).compileComponents();
-    }));
+describe('AccessDeniedComponent', () => {
+	let component: AccessDeniedComponent;
+	let fixture: ComponentFixture<AccessDeniedComponent>;
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(AccessDeniedComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [AccessDeniedComponent]
+		}).compileComponents();
+	}));
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(AccessDeniedComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

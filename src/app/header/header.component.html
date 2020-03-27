@@ -1,175 +1,185 @@
+<!-- @format -->
+
 <div
-    class="imacontainer position-relative"
-    *ngIf="!showStaticHeader && hideHeader"
+	class="imacontainer position-relative"
+	*ngIf="!showStaticHeader && hideHeader"
 >
-    <app-site-alert-message></app-site-alert-message>
-    <nav class="navbar navbar-expand-lg imanavbar">
-        <a class="navbar-brand" href="#"
-            ><img src="assets/images/ima-logo.png" class="img-fluid"
-        /></a>
-        <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
-            <!-- <span class="navbar-toggler-icon"></span> -->
-            <i class="fa fa-bars text-muted" aria-hidden="true"></i>
-        </button>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/']"
-                        class="nav-link"
-                        >HOME</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/advertisers']"
-                        class="nav-link"
-                        >ADVERTISERS</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/contestants']"
-                        class="nav-link"
-                        >VOTE</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/contestants']"
-                        class="nav-link"
-                        >CONTESTANTS</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/shop']"
-                        class="nav-link"
-                        >SHOP</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/profile']"
-                        class="nav-link"
-                        >PROFILE</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/login']"
-                        class="nav-link"
-                        >LOGIN</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/signup']"
-                        class="nav-link"
-                        >SIGNUP</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/']"
-                        class="nav-link"
-                        >ABOUT US</a
-                    >
-                </li>
-            </ul>
-        </div>
-    </nav>
+	<app-site-alert-message></app-site-alert-message>
+	<nav class="navbar navbar-expand-lg imanavbar">
+		<a class="navbar-brand" href="#"
+			><img src="assets/images/ima-logo.png" class="img-fluid"
+		/></a>
+		<button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+			<!-- <span class="navbar-toggler-icon"></span> -->
+			<i class="fa fa-bars text-muted" aria-hidden="true"></i>
+		</button>
+		<div class="collapse navbar-collapse">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						(click)="redirect('/')"
+						class="nav-link"
+						>HOME</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						(click)="redirect('/advertisers')"
+						class="nav-link"
+						>ADVERTISERS</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						(click)="redirect('/contestants')"
+						class="nav-link"
+						>VOTE</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						(click)="redirect('/categories')"
+						class="nav-link"
+						>CATEGORIES</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						(click)="redirect('/shop')"
+						class="nav-link"
+						>SHOP</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						(click)="redirect('/')"
+						class="nav-link"
+						>ABOUT US</a
+					>
+				</li>
+				<li class="nav-item" *ngIf="!sessionService.isAuth">
+					<a
+						href="javascript:void(0)"
+						(click)="redirect('/login')"
+						class="nav-link"
+						>LOGIN</a
+					>
+				</li>
+				<li class="nav-item" *ngIf="!sessionService.isAuth">
+					<a
+						href="javascript:void(0)"
+						(click)="redirect('/signup')"
+						class="nav-link"
+						>SIGNUP</a
+					>
+				</li>
+				<li class="nav-item" *ngIf="sessionService.isAuth">
+					<a
+						href="javascript:void(0)"
+						(click)="redirect('/profile')"
+						class="nav-link"
+						>PROFILE</a
+					>
+				</li>
+				<li class="nav-item" *ngIf="sessionService.isAuth">
+					<a
+						href="javascript:void(0)"
+						(click)="sessionService.logout(); redirect('/')"
+						class="nav-link"
+						>LOGOUT</a
+					>
+				</li>
+			</ul>
+		</div>
+	</nav>
 </div>
 <div class="imacontainer" *ngIf="showStaticHeader">
-    <nav class="navbar navbar-expand-lg staticimanav">
-        <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
-            <!-- <span class="navbar-toggler-icon"></span> -->
-            <i class="fa fa-bars text-muted" aria-hidden="true"></i>
-        </button>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/']"
-                        class="nav-link"
-                        >HOME</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/advertisers']"
-                        class="nav-link"
-                        >ADVERTISERS</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/contestants']"
-                        class="nav-link"
-                        >VOTE</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/contestants']"
-                        class="nav-link"
-                        >CONTESTANTS</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/shop']"
-                        class="nav-link"
-                        >SHOP</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/profile']"
-                        class="nav-link"
-                        >PROFILE</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/login']"
-                        class="nav-link"
-                        >LOGIN</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/signup']"
-                        class="nav-link"
-                        >SIGNUP</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/']"
-                        class="nav-link"
-                        >ABOUT US</a
-                    >
-                </li>
-            </ul>
-        </div>
-    </nav>
+	<nav class="navbar navbar-expand-lg staticimanav">
+		<button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+			<!-- <span class="navbar-toggler-icon"></span> -->
+			<i class="fa fa-bars text-muted" aria-hidden="true"></i>
+		</button>
+		<div class="collapse navbar-collapse">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/']"
+						class="nav-link"
+						>HOME</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/advertisers']"
+						class="nav-link"
+						>ADVERTISERS</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/contestants']"
+						class="nav-link"
+						>VOTE</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/contestants']"
+						class="nav-link"
+						>CONTESTANTS</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/shop']"
+						class="nav-link"
+						>SHOP</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/profile']"
+						class="nav-link"
+						>PROFILE</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/login']"
+						class="nav-link"
+						>LOGIN</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/signup']"
+						class="nav-link"
+						>SIGNUP</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/']"
+						class="nav-link"
+						>ABOUT US</a
+					>
+				</li>
+			</ul>
+		</div>
+	</nav>
 </div>

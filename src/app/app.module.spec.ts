@@ -1,13 +1,15 @@
-import { AppModule } from "./app.module";
+/** @format */
 
-describe("AppModule", () => {
-    let appModule: AppModule;
+import {AppModule} from './app.module';
 
-    beforeEach(() => {
-        appModule = new AppModule();
-    });
+describe('AppModule', () => {
+	let appModule: AppModule;
 
-    it("should create an instance", () => {
-        expect(appModule).toBeTruthy();
-    });
+	beforeEach(() => {
+		appModule = new AppModule();
+	});
+
+	it('should create an instance', () => {
+		expect(appModule).toBeTruthy();
+	});
 });

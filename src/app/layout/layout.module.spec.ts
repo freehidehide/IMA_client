@@ -1,13 +1,15 @@
-import { LayoutModule } from "./layout.module";
+/** @format */
 
-describe("LayoutModule", () => {
-    let layoutModule: LayoutModule;
+import {LayoutModule} from './layout.module';
 
-    beforeEach(() => {
-        layoutModule = new LayoutModule();
-    });
+describe('LayoutModule', () => {
+	let layoutModule: LayoutModule;
 
-    it("should create an instance", () => {
-        expect(layoutModule).toBeTruthy();
-    });
+	beforeEach(() => {
+		layoutModule = new LayoutModule();
+	});
+
+	it('should create an instance', () => {
+		expect(layoutModule).toBeTruthy();
+	});
 });

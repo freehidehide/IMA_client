@@ -1,13 +1,15 @@
-import { StatModule } from "./stat.module";
+/** @format */
 
-describe("StatModule", () => {
-    let statModule: StatModule;
+import {StatModule} from './stat.module';
 
-    beforeEach(() => {
-        statModule = new StatModule();
-    });
+describe('StatModule', () => {
+	let statModule: StatModule;
 
-    it("should create an instance", () => {
-        expect(statModule).toBeTruthy();
-    });
+	beforeEach(() => {
+		statModule = new StatModule();
+	});
+
+	it('should create an instance', () => {
+		expect(statModule).toBeTruthy();
+	});
 });

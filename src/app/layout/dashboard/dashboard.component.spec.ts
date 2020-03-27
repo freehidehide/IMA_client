@@ -1,31 +1,33 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+/** @format */
 
-import { DashboardComponent } from "./dashboard.component";
-import { DashboardModule } from "./dashboard.module";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-describe("DashboardComponent", () => {
-    let component: DashboardComponent;
-    let fixture: ComponentFixture<DashboardComponent>;
+import {DashboardComponent} from './dashboard.component';
+import {DashboardModule} from './dashboard.module';
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            imports: [
-                DashboardModule,
-                RouterTestingModule,
-                BrowserAnimationsModule
-            ]
-        }).compileComponents();
-    }));
+describe('DashboardComponent', () => {
+	let component: DashboardComponent;
+	let fixture: ComponentFixture<DashboardComponent>;
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(DashboardComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			imports: [
+				DashboardModule,
+				RouterTestingModule,
+				BrowserAnimationsModule
+			]
+		}).compileComponents();
+	}));
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(DashboardComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

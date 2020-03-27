@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { ShopComponent } from "./shop.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-describe("ShopComponent", () => {
-    let component: ShopComponent;
-    let fixture: ComponentFixture<ShopComponent>;
+import {ShopComponent} from './shop.component';
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [ShopComponent]
-        }).compileComponents();
-    }));
+describe('ShopComponent', () => {
+	let component: ShopComponent;
+	let fixture: ComponentFixture<ShopComponent>;
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(ShopComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [ShopComponent]
+		}).compileComponents();
+	}));
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(ShopComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

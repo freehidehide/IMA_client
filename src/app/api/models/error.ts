@@ -1,5 +1,7 @@
-export class Error {
-    code: number;
-    message: string;
-    fields: string;
+/** @format */
+
+export interface Error {
+	code: number;
+	message: string;
+	fields: string;
 }

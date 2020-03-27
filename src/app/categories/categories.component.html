@@ -1,94 +1,33 @@
+<!-- @format -->
+
 <div class="imacontainer">
-    <div class="subheader position-relative">
-        <div class="subheadings">
-            <h2>
-                CONTESTANTS
-                <span class="text-uppercase">Model Categories</span>
-            </h2>
-        </div>
-        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
-    </div>
-    <div class="content-middle">
-        <div class="categoriescontainer mx-auto px-4">
-            <ul class="list-unstyled categorieslisting row">
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Acting</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Lifestyle</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Adventure & Travel</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Makeup & Beauty</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Cars & Bikes</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Music Performance</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Combat & Stunts</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>National Service</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Comedy & Entertainment</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>News & Media</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Cosplay & Gaming</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Plus-Size Model</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Dance</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Sports</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Entrepreneurship</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Swimsuit</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Fashion</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Visual Arts</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Fitness</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Foodie</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Women Empowerment</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Hair</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Yoga</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#">Best in <em>Health & Wellness</em></a>
-                </li>
-                <li class="col-md-6">
-                    <a href="#"
-                        >Best in <em>Influential Model of the Year</em></a
-                    >
-                </li>
-            </ul>
-        </div>
-    </div>
+	<div class="subheader position-relative">
+		<div class="subheadings">
+			<h2>
+				CONTESTANTS
+				<span class="text-uppercase">Model Categories</span>
+			</h2>
+		</div>
+		<img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
+	</div>
+	<div class="content-middle">
+		<div class="categoriescontainer mx-auto px-4" *ngIf="!isNodata">
+			<ul class="list-unstyled categorieslisting row">
+				<li
+					class="col-md-6"
+					*ngFor="
+						let category of categoriesList.data;
+						trackBy: trackById
+					"
+				>
+					<a href="#"
+						><em>{{ category.name }}</em></a
+					>
+				</li>
+			</ul>
+		</div>
+		<div class="categoriescontainer mx-auto px-4" *ngIf="isNodata">
+			No Records found.
+		</div>
+	</div>
 </div>

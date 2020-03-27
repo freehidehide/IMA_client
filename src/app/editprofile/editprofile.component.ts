@@ -1,12 +1,14 @@
-import { Component, OnInit } from "@angular/core";
+/** @format */
+
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: "app-editprofile",
-    templateUrl: "./editprofile.component.html",
-    styleUrls: ["./editprofile.component.scss"]
+	selector: 'app-editprofile',
+	templateUrl: './editprofile.component.html',
+	styleUrls: ['./editprofile.component.scss']
 })
 export class EditprofileComponent implements OnInit {
-    constructor() {}
+	constructor() {}
 
-    ngOnInit(): void {}
+	ngOnInit(): void {}
 }

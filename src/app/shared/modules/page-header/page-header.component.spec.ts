@@ -1,26 +1,28 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
+/** @format */
 
-import { PageHeaderComponent } from "./page-header.component";
-import { PageHeaderModule } from "./page-header.module";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 
-describe("PageHeaderComponent", () => {
-    let component: PageHeaderComponent;
-    let fixture: ComponentFixture<PageHeaderComponent>;
+import {PageHeaderComponent} from './page-header.component';
+import {PageHeaderModule} from './page-header.module';
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            imports: [PageHeaderModule, RouterTestingModule]
-        }).compileComponents();
-    }));
+describe('PageHeaderComponent', () => {
+	let component: PageHeaderComponent;
+	let fixture: ComponentFixture<PageHeaderComponent>;
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(PageHeaderComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			imports: [PageHeaderModule, RouterTestingModule]
+		}).compileComponents();
+	}));
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(PageHeaderComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

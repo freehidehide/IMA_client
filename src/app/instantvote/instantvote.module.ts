@@ -1,10 +1,12 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+/** @format */
 
-import { InstantvoteRoutingModule } from "./instantvote-routing.module";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+
+import {InstantvoteRoutingModule} from './instantvote-routing.module';
 
 @NgModule({
-    declarations: [],
-    imports: [CommonModule, InstantvoteRoutingModule]
+	declarations: [],
+	imports: [CommonModule, InstantvoteRoutingModule]
 })
 export class InstantvoteModule {}

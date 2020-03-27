@@ -1,60 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
-@import "bootstrap/bootstrap";
-@import "spinner";
-@import "utils";
-@import "rtl";
-@import "responsive";
+/**
+ * /* You can add global styles to this file, and also import other style files
+ *
+ * @format
+ */
+
+@import 'bootstrap/bootstrap';
+@import 'spinner';
+@import 'utils';
+@import 'rtl';
+@import 'responsive';
 
 @media print {
-    .breadcrumb {
-        display: none !important;
-    }
+	.breadcrumb {
+		display: none !important;
+	}
 }
 html,
 body {
-    height: 100%;
+	height: 100%;
 }
 /* subheading starts */
 .subheadings {
-    position: absolute;
-    padding: 0 0 0 125px;
-    top: 50%;
-    left: 0;
-    transform: translate(0%, -12%);
+	position: absolute;
+	padding: 0 0 0 125px;
+	top: 50%;
+	left: 0;
+	transform: translate(0%, -12%);
 
-    h2 {
-        font-family: "Rozha One", serif;
-        font-size: 5vw;
-        color: #fff;
-        line-height: 4vw;
+	h2 {
+		font-family: 'Rozha One', serif;
+		font-size: 5vw;
+		color: #fff;
+		line-height: 4vw;
 
-        span {
-            font-family: "Open Sans";
-            font-size: 33px;
-            line-height: 33px;
-            display: block;
-            font-weight: 300;
-        }
-    }
+		span {
+			font-family: 'Open Sans';
+			font-size: 33px;
+			line-height: 33px;
+			display: block;
+			font-weight: 300;
+		}
+	}
 }
 .imacontainer {
-    max-width: 1920px;
-    margin: 0 auto;
-    width: 100%;
+	max-width: 1920px;
+	margin: 0 auto;
+	width: 100%;
 }
 .content-middle {
-    padding: 65px 95px;
+	padding: 65px 95px;
 }
 .rozhafont {
-    font-family: "Rozha One", serif;
+	font-family: 'Rozha One', serif;
 }
 @media (max-width: 991px) {
-    .content-middle {
-        padding: 15px;
-    }
-    .subheadings {
-        padding: 0 0 0 25px;
-    }
+	.content-middle {
+		padding: 15px;
+	}
+	.subheadings {
+		padding: 0 0 0 25px;
+	}
 }
 
 /* subheading ends */
+.invalid-feedback-show {
+	color: #f00;
+	font-size: 14px;
+	margin: 1px 0 0;
+}

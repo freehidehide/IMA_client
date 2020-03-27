@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { SiteAlertMessageComponent } from "./site-alert-message.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-describe("SiteAlertMessageComponent", () => {
-    let component: SiteAlertMessageComponent;
-    let fixture: ComponentFixture<SiteAlertMessageComponent>;
+import {SiteAlertMessageComponent} from './site-alert-message.component';
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [SiteAlertMessageComponent]
-        }).compileComponents();
-    }));
+describe('SiteAlertMessageComponent', () => {
+	let component: SiteAlertMessageComponent;
+	let fixture: ComponentFixture<SiteAlertMessageComponent>;
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(SiteAlertMessageComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [SiteAlertMessageComponent]
+		}).compileComponents();
+	}));
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(SiteAlertMessageComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

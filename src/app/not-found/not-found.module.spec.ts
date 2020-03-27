@@ -1,13 +1,15 @@
-import { NotFoundModule } from "./not-found.module";
+/** @format */
 
-describe("NotFoundModule", () => {
-    let notFoundModule: NotFoundModule;
+import {NotFoundModule} from './not-found.module';
 
-    beforeEach(() => {
-        notFoundModule = new NotFoundModule();
-    });
+describe('NotFoundModule', () => {
+	let notFoundModule: NotFoundModule;
 
-    it("should create an instance", () => {
-        expect(notFoundModule).toBeTruthy();
-    });
+	beforeEach(() => {
+		notFoundModule = new NotFoundModule();
+	});
+
+	it('should create an instance', () => {
+		expect(notFoundModule).toBeTruthy();
+	});
 });

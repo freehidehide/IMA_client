@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { ResendlinkComponent } from "./resendlink.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-describe("ResendlinkComponent", () => {
-    let component: ResendlinkComponent;
-    let fixture: ComponentFixture<ResendlinkComponent>;
+import {ResendlinkComponent} from './resendlink.component';
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [ResendlinkComponent]
-        }).compileComponents();
-    }));
+describe('ResendlinkComponent', () => {
+	let component: ResendlinkComponent;
+	let fixture: ComponentFixture<ResendlinkComponent>;
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(ResendlinkComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [ResendlinkComponent]
+		}).compileComponents();
+	}));
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(ResendlinkComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

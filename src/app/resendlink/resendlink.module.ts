@@ -1,10 +1,12 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+/** @format */
 
-import { ResendlinkRoutingModule } from "./resendlink-routing.module";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+
+import {ResendlinkRoutingModule} from './resendlink-routing.module';
 
 @NgModule({
-    declarations: [],
-    imports: [CommonModule, ResendlinkRoutingModule]
+	declarations: [],
+	imports: [CommonModule, ResendlinkRoutingModule]
 })
 export class ResendlinkModule {}

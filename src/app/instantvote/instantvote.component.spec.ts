@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { InstantvoteComponent } from "./instantvote.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-describe("InstantvoteComponent", () => {
-    let component: InstantvoteComponent;
-    let fixture: ComponentFixture<InstantvoteComponent>;
+import {InstantvoteComponent} from './instantvote.component';
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [InstantvoteComponent]
-        }).compileComponents();
-    }));
+describe('InstantvoteComponent', () => {
+	let component: InstantvoteComponent;
+	let fixture: ComponentFixture<InstantvoteComponent>;
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(InstantvoteComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [InstantvoteComponent]
+		}).compileComponents();
+	}));
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(InstantvoteComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

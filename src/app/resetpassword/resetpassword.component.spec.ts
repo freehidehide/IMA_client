@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { ResetpasswordComponent } from "./resetpassword.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-describe("ResetpasswordComponent", () => {
-    let component: ResetpasswordComponent;
-    let fixture: ComponentFixture<ResetpasswordComponent>;
+import {ResetpasswordComponent} from './resetpassword.component';
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [ResetpasswordComponent]
-        }).compileComponents();
-    }));
+describe('ResetpasswordComponent', () => {
+	let component: ResetpasswordComponent;
+	let fixture: ComponentFixture<ResetpasswordComponent>;
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(ResetpasswordComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [ResetpasswordComponent]
+		}).compileComponents();
+	}));
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(ResetpasswordComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

@@ -1,1 +1,3 @@
-export * from "./notification/notification.component";
+/** @format */
+
+export * from './notification/notification.component';

@@ -1,34 +1,36 @@
+/** @format */
+
 .imanavbar {
-    position: static;
+	position: static;
 }
 
 .eprofilecontainer {
-    max-width: 1044px;
-    width: 100%;
+	max-width: 1044px;
+	width: 100%;
 }
 
 .profile-image {
-    max-width: 285px;
-    border-radius: 50%;
-    overflow: hidden;
+	max-width: 285px;
+	border-radius: 50%;
+	overflow: hidden;
 }
 
 .eprofleft {
-    .btn {
-        border-color: #aeaeae;
-        color: #aeaeae;
-    }
+	.btn {
+		border-color: #aeaeae;
+		color: #aeaeae;
+	}
 }
 
 .form-group {
-    label {
-        color: #888;
-    }
+	label {
+		color: #888;
+	}
 
-    input {
-        height: 44px;
-        border: none;
-        background-color: #e8e8e8;
-        color: #888;
-    }
+	input {
+		height: 44px;
+		border: none;
+		background-color: #e8e8e8;
+		color: #888;
+	}
 }

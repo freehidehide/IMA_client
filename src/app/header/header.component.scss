@@ -1,81 +1,83 @@
+/** @format */
+
 $topnav-background-color: #222;
 /* header starts */
 
 .navbar {
-    background-color: rgba(34, 34, 34, 0.47);
-    padding: 12px 130px;
+	background-color: rgba(34, 34, 34, 0.47);
+	padding: 12px 130px;
 
-    .navbar-brand {
-        color: #fff;
-    }
+	.navbar-brand {
+		color: #fff;
+	}
 
-    .nav-item {
-        padding: 0 15px;
+	.nav-item {
+		padding: 0 15px;
 
-        > a {
-            color: #fff;
-            font-size: 16px;
+		> a {
+			color: #fff;
+			font-size: 16px;
 
-            &:hover {
-                color: #ccc;
-            }
-        }
-    }
+			&:hover {
+				color: #ccc;
+			}
+		}
+	}
 }
 
 .imacontainer {
-    max-width: 1920px;
-    margin: 0 auto;
-    width: 100%;
+	max-width: 1920px;
+	margin: 0 auto;
+	width: 100%;
 }
 
 .imanavbar {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    left: 0;
-    z-index: 9;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	left: 0;
+	z-index: 9;
 }
 
 .staticimanav {
-    position: static;
-    background-color: #20293c;
-    padding-top: 10px;
-    padding-bottom: 10px;
+	position: static;
+	background-color: #20293c;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .header-alert {
-    z-index: 99;
-    width: 100%;
-    left: 0;
-    top: 15px;
+	z-index: 99;
+	width: 100%;
+	left: 0;
+	top: 15px;
 }
 @media (max-width: 1440px) {
-    :host {
-        .navbar {
-            padding: 6px 88px;
-            .nav-item {
-                padding: 0 8px;
+	:host {
+		.navbar {
+			padding: 6px 88px;
+			.nav-item {
+				padding: 0 8px;
 
-                > a {
-                    font-size: 13px;
-                }
-            }
-            .navbar-brand {
-                img {
-                    height: 70px;
-                }
-            }
-        }
-    }
+				> a {
+					font-size: 13px;
+				}
+			}
+			.navbar-brand {
+				img {
+					height: 70px;
+				}
+			}
+		}
+	}
 }
 
 @media (max-width: 991px) {
-    .imanavbar {
-        position: static !important;
-        background-color: #000 !important;
-        padding: 12px 25px !important;
-    }
+	.imanavbar {
+		position: static !important;
+		background-color: #000 !important;
+		padding: 12px 25px !important;
+	}
 }
 
 /* header ends */

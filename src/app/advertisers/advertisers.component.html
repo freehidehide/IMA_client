@@ -1,75 +1,50 @@
-<div class="imacontainer">
-    <div class="subheader position-relative">
-        <div class="subheadings">
-            <h2 class="text-uppercase">Advertisers</h2>
-        </div>
-        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
-    </div>
-    <div class="content-middle advertlisting">
-        <div class="row mb-4 adertindlist">
-            <div class="col-md-7">
-                <div class="d-flex">
-                    <div class="mr-3">
-                        <div class="advertimg">
-                            <img
-                                src="assets/images/advertisers-dummy-img.jpg"
-                                class="img-fluid"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="advertmaincontent">
-                    <h2 class="m-0 p-0">
-                        Lorem Ipsum
-                    </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam ac est id justo eleifend imperdiet
-                    </p>
-                    <div class="mt-5 pt-4 text-center">
-                        <a
-                            href="#"
-                            class="btn btn-primary text-uppercase purchasbtn px-5 py-2"
-                            >Purchase</a
-                        >
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- @format -->
 
-        <div class="row mt-5 mb-4 adertindlist">
-            <div class="col-md-7">
-                <div class="d-flex">
-                    <div class="mr-3">
-                        <div class="advertimg">
-                            <img
-                                src="assets/images/advertisers-dummy-img.jpg"
-                                class="img-fluid"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="advertmaincontent">
-                    <h2 class="m-0 p-0">
-                        Lorem Ipsum
-                    </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam ac est id justo eleifend imperdiet
-                    </p>
-                    <div class="mt-5 pt-4 text-center">
-                        <a
-                            href="#"
-                            class="btn btn-warning text-uppercase purchasbtn px-5 py-2"
-                            >Purchase</a
-                        >
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="imacontainer">
+	<div class="subheader position-relative">
+		<div class="subheadings">
+			<h2 class="text-uppercase">Advertisers</h2>
+		</div>
+		<img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
+	</div>
+	<div class="content-middle advertlisting" *ngIf="!isNodata">
+		<div
+			class="row mt-5 mb-4 adertindlist"
+			*ngFor="
+				let advertisement of advertisementList.data;
+				trackBy: trackById
+			"
+		>
+			<div class="col-md-7">
+				<div class="d-flex">
+					<div class="mr-3">
+						<div class="advertimg">
+							<app-attachment
+								[attachment]="advertisement.attachment"
+								[type]="original"
+							></app-attachment>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="advertmaincontent">
+					<h2 class="m-0 p-0">
+						{{ advertisement.name }}
+					</h2>
+					<p>
+						{{ advertisement.description }}
+					</p>
+					<div class="mt-5 pt-4 text-center">
+						<a
+							href="{{ advertisement.url }}"
+							class="btn btn-primary text-uppercase purchasbtn px-5 py-2"
+							target="_blank"
+							>Purchase</a
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

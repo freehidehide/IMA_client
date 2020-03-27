@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { DonateComponent } from "./donate.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-describe("DonateComponent", () => {
-    let component: DonateComponent;
-    let fixture: ComponentFixture<DonateComponent>;
+import {DonateComponent} from './donate.component';
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [DonateComponent]
-        }).compileComponents();
-    }));
+describe('DonateComponent', () => {
+	let component: DonateComponent;
+	let fixture: ComponentFixture<DonateComponent>;
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(DonateComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [DonateComponent]
+		}).compileComponents();
+	}));
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(DonateComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

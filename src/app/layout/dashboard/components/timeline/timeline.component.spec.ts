@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { TimelineComponent } from "./timeline.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-describe("TimelineComponent", () => {
-    let component: TimelineComponent;
-    let fixture: ComponentFixture<TimelineComponent>;
+import {TimelineComponent} from './timeline.component';
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [TimelineComponent]
-        }).compileComponents();
-    }));
+describe('TimelineComponent', () => {
+	let component: TimelineComponent;
+	let fixture: ComponentFixture<TimelineComponent>;
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TimelineComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [TimelineComponent]
+		}).compileComponents();
+	}));
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(TimelineComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });
