@@ -94,10 +94,17 @@
 .productcartdesc {
 	color: #696969;
 
+<<<<<<< HEAD
 	h2 {
 		font-size: 4vw;
 		font-weight: 300;
 	}
+=======
+    h2 {
+        font-size: 75px;
+        font-weight: 300;
+    }
+>>>>>>> 7875311a3f602c111171f3e9cbc9daaedfcb5e24
 
 	p {
 		font-size: 20px;
@@ -157,7 +164,58 @@
 		font-size: 41px;
 	}
 }
-
+@media (max-width: 1440px) {
+    .content-middle {
+        padding: 30px 50px;
+    }
+    .productcartdesc {
+        h2 {
+            font-size: 56px;
+        }
+    }
+    .ctqtytext {
+        font-size: 11px;
+    }
+    .ctquantityinput {
+        .ctqtydecr {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+        }
+        input.quantityinput {
+            width: 40px;
+            height: 40px;
+            font-size: 40px;
+        }
+        .ctqtyincr {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+        }
+    }
+    .product-availsizes {
+        span {
+            font-size: 15px;
+        }
+        a {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+    }
+    .cartdetails {
+        input.discountcode {
+            height: 56px;
+            font-size: 31px;
+            width: 252px;
+        }
+        .cart-btn {
+            height: 56px;
+            font-size: 31px;
+            width: 252px;
+        }
+    }
+}
 @media (max-width: 991px) {
 	.slectcolors {
 		.availcolorsselect {
