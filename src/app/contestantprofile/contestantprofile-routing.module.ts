@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { ContestantprofileComponent } from "./Contestantprofile.component";
+import { ContestantprofileComponent } from "./contestantprofile.component";
 
 const routes: Routes = [
     {

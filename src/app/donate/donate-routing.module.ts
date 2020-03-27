@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { DonateComponent } from "./Donate.component";
+import { DonateComponent } from "./donate.component";
 
 const routes: Routes = [
     {

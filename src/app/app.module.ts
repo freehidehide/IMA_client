@@ -54,7 +54,6 @@ import { AttachmentComponent } from './attachment/attachment.component';
         EditprofileComponent,
         PurchasevoteComponent,
         ImalistingComponent,
-        CategoriesComponent,
         ForgotpasswordComponent,
         ResendlinkComponent,
         ResetpasswordComponent,

@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { InstantvoteComponent } from "./Instantvote.component";
+import { InstantvoteComponent } from "./instantvote.component";
 
 const routes: Routes = [
     {
