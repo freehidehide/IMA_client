@@ -11,18 +11,18 @@ export class AppConst {
 		ALLCATEGORY: '/catagories',
 		PRODUCTS: '/products',
 		ADVERTISEMENTS: '/advertisements'
-	}
+	};
 
 	public static readonly SERVICE_STATUS = {
 		SUCCESS: 0,
 		FAILED: 1
-	}
+	};
 
 	public static readonly ROLE = {
 		ADMIN: 0,
 		USER: 1,
 		CONTESTANT: 2
-	}
+	};
 
 	public static readonly MONTH_NAMES = [
 		'Jan',
@@ -37,7 +37,7 @@ export class AppConst {
 		'Oct',
 		'Nov',
 		'Dec'
-	]
+	];
 
 	public static readonly WEEK_DAYS = [
 		'Sun',
@@ -47,5 +47,5 @@ export class AppConst {
 		'Thu',
 		'Fri',
 		'Sat'
-	]
+	];
 }

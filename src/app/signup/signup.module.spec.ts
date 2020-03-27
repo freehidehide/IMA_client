@@ -1,15 +1,15 @@
 /** @format */
 
-import {SignupModule} from './signup.module'
+import {SignupModule} from './signup.module';
 
 describe('SignupModule', () => {
-	let signupModule: SignupModule
+	let signupModule: SignupModule;
 
 	beforeEach(() => {
-		signupModule = new SignupModule()
-	})
+		signupModule = new SignupModule();
+	});
 
 	it('should create an instance', () => {
-		expect(signupModule).toBeTruthy()
-	})
-})
+		expect(signupModule).toBeTruthy();
+	});
+});

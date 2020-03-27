@@ -1,15 +1,15 @@
 /** @format */
 
-import {LoginModule} from './login.module'
+import {LoginModule} from './login.module';
 
 describe('LoginModule', () => {
-	let loginModule: LoginModule
+	let loginModule: LoginModule;
 
 	beforeEach(() => {
-		loginModule = new LoginModule()
-	})
+		loginModule = new LoginModule();
+	});
 
 	it('should create an instance', () => {
-		expect(loginModule).toBeTruthy()
-	})
-})
+		expect(loginModule).toBeTruthy();
+	});
+});

@@ -4,7 +4,7 @@
  * @format
  */
 
-declare var module: NodeModule
+declare var module: NodeModule;
 interface NodeModule {
-	id: string
+	id: string;
 }

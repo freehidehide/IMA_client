@@ -1,7 +1,7 @@
 /** @format */
 
-import {Component, OnInit, Input} from '@angular/core'
-import {RouterModule} from '@angular/router'
+import {Component, OnInit, Input} from '@angular/core';
+import {RouterModule} from '@angular/router';
 
 @Component({
 	selector: 'app-page-header',
@@ -9,8 +9,8 @@ import {RouterModule} from '@angular/router'
 	styleUrls: ['./page-header.component.scss']
 })
 export class PageHeaderComponent implements OnInit {
-	@Input() heading: string
-	@Input() icon: string
+	@Input() heading: string;
+	@Input() icon: string;
 	constructor() {}
 
 	ngOnInit() {}

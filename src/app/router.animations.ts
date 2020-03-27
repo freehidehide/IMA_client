@@ -1,13 +1,13 @@
 /** @format */
 
-import {animate, state, style, transition, trigger} from '@angular/animations'
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 export function routerTransition() {
-	return noTransition()
+	return noTransition();
 }
 
 export function noTransition() {
-	return trigger('routerTransition', [])
+	return trigger('routerTransition', []);
 }
 
 export function slideToRight() {
@@ -22,7 +22,7 @@ export function slideToRight() {
 			style({transform: 'translateX(0%)'}),
 			animate('0.5s ease-in-out', style({transform: 'translateX(100%)'}))
 		])
-	])
+	]);
 }
 
 export function slideToLeft() {
@@ -37,7 +37,7 @@ export function slideToLeft() {
 			style({transform: 'translateX(0%)'}),
 			animate('0.5s ease-in-out', style({transform: 'translateX(-100%)'}))
 		])
-	])
+	]);
 }
 
 export function slideToBottom() {
@@ -52,7 +52,7 @@ export function slideToBottom() {
 			style({transform: 'translateY(0%)'}),
 			animate('0.5s ease-in-out', style({transform: 'translateY(100%)'}))
 		])
-	])
+	]);
 }
 
 export function slideToTop() {
@@ -67,5 +67,5 @@ export function slideToTop() {
 			style({transform: 'translateY(0%)'}),
 			animate('0.5s ease-in-out', style({transform: 'translateY(-100%)'}))
 		])
-	])
+	]);
 }

@@ -1,9 +1,9 @@
 /** @format */
 
-import {NgModule} from '@angular/core'
-import {CommonModule} from '@angular/common'
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import {ContestantsRoutingModule} from './contestants-routing.module'
+import {ContestantsRoutingModule} from './contestants-routing.module';
 
 @NgModule({
 	declarations: [],

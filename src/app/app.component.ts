@@ -1,7 +1,7 @@
 /** @format */
 
-import {Component, OnInit} from '@angular/core'
-import {SessionService} from './api/services/session-service'
+import {Component, OnInit} from '@angular/core';
+import {SessionService} from './api/services/session-service';
 
 @Component({
 	selector: 'app-root',
@@ -10,6 +10,6 @@ import {SessionService} from './api/services/session-service'
 })
 export class AppComponent {
 	constructor(private sessionService: SessionService) {
-		this.sessionService.isLogined()
+		this.sessionService.isLogined();
 	}
 }

@@ -1,8 +1,8 @@
 /** @format */
 
-import {Component} from '@angular/core'
-import {RouterModule, Router, NavigationEnd} from '@angular/router'
-import {SessionService} from '../api/services/session-service'
+import {Component} from '@angular/core';
+import {RouterModule, Router, NavigationEnd} from '@angular/router';
+import {SessionService} from '../api/services/session-service';
 
 @Component({
 	selector: 'app-header',
@@ -10,8 +10,8 @@ import {SessionService} from '../api/services/session-service'
 	styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-	public hideHeader: boolean = false
-	public showStaticHeader: boolean = false
+	public hideHeader: boolean = false;
+	public showStaticHeader: boolean = false;
 	public headerRemove: string[] = [
 		'/login',
 		'/signup',
@@ -19,27 +19,27 @@ export class HeaderComponent {
 		'/resend-link',
 		'/reset-password',
 		'/password-changed'
-	]
+	];
 	public staticheader: string[] = [
 		'/profile',
 		'/view-profile',
 		'/cart',
 		'/checkout',
 		'/edit'
-	]
+	];
 	constructor(private router: Router, public sessionService: SessionService) {
 		this.router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
-				this.hideHeader = !(this.headerRemove.indexOf(event.url) > -1)
+				this.hideHeader = !(this.headerRemove.indexOf(event.url) > -1);
 				this.showStaticHeader =
-					this.staticheader.indexOf(event.url) > -1
+					this.staticheader.indexOf(event.url) > -1;
 			}
-		})
+		});
 	}
 
 	toggleSidebar(): void {}
 
 	redirect(url: string): void {
-		this.router.navigate([url])
+		this.router.navigate([url]);
 	}
 }

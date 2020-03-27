@@ -1,26 +1,26 @@
 /** @format */
 
-import {async, ComponentFixture, TestBed} from '@angular/core/testing'
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {SiteLoaderComponent} from './site-loader.component'
+import {SiteLoaderComponent} from './site-loader.component';
 
 describe('SiteLoaderComponent', () => {
-	let component: SiteLoaderComponent
-	let fixture: ComponentFixture<SiteLoaderComponent>
+	let component: SiteLoaderComponent;
+	let fixture: ComponentFixture<SiteLoaderComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [SiteLoaderComponent]
-		}).compileComponents()
-	}))
+		}).compileComponents();
+	}));
 
 	beforeEach(() => {
-		fixture = TestBed.createComponent(SiteLoaderComponent)
-		component = fixture.componentInstance
-		fixture.detectChanges()
-	})
+		fixture = TestBed.createComponent(SiteLoaderComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
 	it('should create', () => {
-		expect(component).toBeTruthy()
-	})
-})
+		expect(component).toBeTruthy();
+	});
+});

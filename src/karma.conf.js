@@ -32,7 +32,7 @@ module.exports = function(config) {
 		autoWatch: true,
 		browsers: ['Chrome'],
 		singleRun: false
-	}
+	};
 
 	if (process.env.TEST_CI) {
 		Object.assign(defaults, {
@@ -46,8 +46,8 @@ module.exports = function(config) {
 				}
 			},
 			browserNoActivityTimeout: 60000
-		})
+		});
 	}
 
-	config.set(defaults)
-}
+	config.set(defaults);
+};

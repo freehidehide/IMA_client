@@ -1,15 +1,15 @@
 /** @format */
 
-import {ServerErrorModule} from './server-error.module'
+import {ServerErrorModule} from './server-error.module';
 
 describe('ServerErrorModule', () => {
-	let serverErrorModule: ServerErrorModule
+	let serverErrorModule: ServerErrorModule;
 
 	beforeEach(() => {
-		serverErrorModule = new ServerErrorModule()
-	})
+		serverErrorModule = new ServerErrorModule();
+	});
 
 	it('should create an instance', () => {
-		expect(serverErrorModule).toBeTruthy()
-	})
-})
+		expect(serverErrorModule).toBeTruthy();
+	});
+});

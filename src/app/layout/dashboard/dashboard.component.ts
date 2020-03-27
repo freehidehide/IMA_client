@@ -1,7 +1,7 @@
 /** @format */
 
-import {Component, OnInit} from '@angular/core'
-import {routerTransition} from '../../router.animations'
+import {Component, OnInit} from '@angular/core';
+import {routerTransition} from '../../router.animations';
 
 @Component({
 	selector: 'app-dashboard',
@@ -10,7 +10,7 @@ import {routerTransition} from '../../router.animations'
 	animations: [routerTransition()]
 })
 export class DashboardComponent implements OnInit {
-	public alerts: Array<any> = []
+	public alerts: Array<any> = [];
 
 	constructor() {
 		this.alerts.push(
@@ -30,13 +30,13 @@ export class DashboardComponent implements OnInit {
                 consectetur velit culpa molestias dignissimos
                 voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
 			}
-		)
+		);
 	}
 
 	ngOnInit() {}
 
 	public closeAlert(alert: any) {
-		const index: number = this.alerts.indexOf(alert)
-		this.alerts.splice(index, 1)
+		const index: number = this.alerts.indexOf(alert);
+		this.alerts.splice(index, 1);
 	}
 }

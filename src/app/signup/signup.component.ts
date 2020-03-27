@@ -1,16 +1,16 @@
 /** @format */
 
-import {Component, OnInit} from '@angular/core'
-import {Router} from '@angular/router'
-import {routerTransition} from '../router.animations'
-import {FormBuilder, FormGroup, Validators} from '@angular/forms'
-import {ToastService} from '../api/services/toast-service'
-import {UserService} from '../api/services/user.service'
-import {SessionService} from '../api/services/session-service'
-import {ServiceResponse} from '../api/models/service-response'
-import {User} from '../api/models/user'
-import {AppConst} from '../utils/app-const'
-import {BaseComponent} from '../base.component'
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {routerTransition} from '../router.animations';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ToastService} from '../api/services/toast-service';
+import {UserService} from '../api/services/user.service';
+import {SessionService} from '../api/services/session-service';
+import {ServiceResponse} from '../api/models/service-response';
+import {User} from '../api/models/user';
+import {AppConst} from '../utils/app-const';
+import {BaseComponent} from '../base.component';
 
 @Component({
 	selector: 'app-signup',
@@ -19,9 +19,9 @@ import {BaseComponent} from '../base.component'
 	animations: [routerTransition()]
 })
 export class SignupComponent extends BaseComponent implements OnInit {
-	public registerForm: FormGroup
-	public submitted: boolean
-	public User: User = new User()
+	public registerForm: FormGroup;
+	public submitted: boolean;
+	public User: User = new User();
 	constructor(
 		public router: Router,
 		private formBuilder: FormBuilder,
@@ -29,7 +29,7 @@ export class SignupComponent extends BaseComponent implements OnInit {
 		private sessionService: SessionService,
 		private toastService: ToastService
 	) {
-		super()
+		super();
 	}
 
 	ngOnInit() {
@@ -46,59 +46,59 @@ export class SignupComponent extends BaseComponent implements OnInit {
 				]
 			},
 			{validator: this.pwdMatchValidator}
-		)
+		);
 	}
 
 	pwdMatchValidator(frm: FormGroup) {
 		return frm.get('password').value === frm.get('confirm_password').value
 			? null
-			: {invalid: true}
+			: {invalid: true};
 	}
 
 	get password() {
-		return this.registerForm.get('password')
+		return this.registerForm.get('password');
 	}
 	get confirm_password() {
-		return this.registerForm.get('confirm_password')
+		return this.registerForm.get('confirm_password');
 	}
 
 	get f() {
-		return this.registerForm.controls
+		return this.registerForm.controls;
 	}
 	onSubmit() {
-		this.submitted = true
+		this.submitted = true;
 		if (this.registerForm.invalid) {
-			return
+			return;
 		}
-		delete this.registerForm.value.confirm_password
+		delete this.registerForm.value.confirm_password;
 		this.userService.register(this.registerForm).subscribe((response) => {
-			this.submitted = false
-			this.User = response
-			this.toastService.clearLoading()
+			this.submitted = false;
+			this.User = response;
+			this.toastService.clearLoading();
 			if (
 				this.User.error &&
 				this.User.error.code === AppConst.SERVICE_STATUS.SUCCESS
 			) {
-				this.toastService.success(this.User.error.message)
+				this.toastService.success(this.User.error.message);
 				sessionStorage.setItem(
 					'user_context',
 					JSON.stringify(this.User)
-				)
-				this.sessionService.isLogined()
+				);
+				this.sessionService.isLogined();
 				if (this.User.role.id === AppConst.ROLE.USER) {
-					this.router.navigate(['/admin'])
+					this.router.navigate(['/admin']);
 				} else {
-					this.router.navigate(['/contestants'])
+					this.router.navigate(['/contestants']);
 				}
 			} else {
-				this.toastService.error(this.User.error.message)
+				this.toastService.error(this.User.error.message);
 			}
-		})
+		});
 	}
 
 	onKeydown(event): void {
 		if (event.key === 'Enter') {
-			this.onSubmit()
+			this.onSubmit();
 		}
 	}
 }

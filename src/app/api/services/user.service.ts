@@ -1,39 +1,42 @@
 /** @format */
 
-import {Injectable} from '@angular/core'
-import {FormGroup} from '@angular/forms'
-import {ApiService} from './api.service'
-import {AppConst} from '../../utils/app-const'
-import {Observable} from 'rxjs'
+import {Injectable} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {ApiService} from './api.service';
+import {AppConst} from '../../utils/app-const';
+import {Observable} from 'rxjs';
 
-import {User} from '../models/user'
+import {User} from '../models/user';
 
 @Injectable()
 export class UserService {
 	constructor(private apiService: ApiService) {}
 
 	register(registerForm: FormGroup): Observable<User> {
-		const register: string = AppConst.SERVER_URL.REGISTER
-		return this.apiService.httpPost(register, registerForm.value)
+		const register: string = AppConst.SERVER_URL.REGISTER;
+		return this.apiService.httpPost(register, registerForm.value);
 	}
 
 	login(loginForm: FormGroup): Observable<User> {
-		const login: string = AppConst.SERVER_URL.LOGIN
-		return this.apiService.httpPost(login, loginForm.value)
+		const login: string = AppConst.SERVER_URL.LOGIN;
+		return this.apiService.httpPost(login, loginForm.value);
 	}
 
 	update(updateForm: FormGroup): Observable<User> {
-		const updateDetail: string = AppConst.SERVER_URL.USER
-		return this.apiService.httpPut(updateDetail, updateForm.value)
+		const updateDetail: string = AppConst.SERVER_URL.USER;
+		return this.apiService.httpPut(updateDetail, updateForm.value);
 	}
 
 	changePassword(changePasswordForm: FormGroup): Observable<User> {
-		const changePassword: string = AppConst.SERVER_URL.CHANGEPASSWORD
-		return this.apiService.httpPut(changePassword, changePasswordForm.value)
+		const changePassword: string = AppConst.SERVER_URL.CHANGEPASSWORD;
+		return this.apiService.httpPut(
+			changePassword,
+			changePasswordForm.value
+		);
 	}
 
 	forgotPassword(forgotForm: FormGroup): Observable<User> {
-		const forgotPassword: string = AppConst.SERVER_URL.FORGETPASSWORD
-		return this.apiService.httpPost(forgotPassword, forgotForm.value)
+		const forgotPassword: string = AppConst.SERVER_URL.FORGETPASSWORD;
+		return this.apiService.httpPost(forgotPassword, forgotForm.value);
 	}
 }

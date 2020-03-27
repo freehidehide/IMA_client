@@ -1,6 +1,6 @@
 /** @format */
 
 export interface Color {
-	id: number
-	color: string
+	id: number;
+	color: string;
 }

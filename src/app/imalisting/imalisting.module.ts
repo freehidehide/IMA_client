@@ -1,9 +1,9 @@
 /** @format */
 
-import {NgModule} from '@angular/core'
-import {CommonModule} from '@angular/common'
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import {ImalistingRoutingModule} from './imalisting-routing.module'
+import {ImalistingRoutingModule} from './imalisting-routing.module';
 
 @NgModule({
 	declarations: [],

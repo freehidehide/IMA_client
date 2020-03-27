@@ -1,9 +1,9 @@
 /** @format */
 
-import {NgModule} from '@angular/core'
-import {CommonModule} from '@angular/common'
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import {ResetpasswordRoutingModule} from './resetpassword-routing.module'
+import {ResetpasswordRoutingModule} from './resetpassword-routing.module';
 
 @NgModule({
 	declarations: [],

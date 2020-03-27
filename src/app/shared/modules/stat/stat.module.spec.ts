@@ -1,15 +1,15 @@
 /** @format */
 
-import {StatModule} from './stat.module'
+import {StatModule} from './stat.module';
 
 describe('StatModule', () => {
-	let statModule: StatModule
+	let statModule: StatModule;
 
 	beforeEach(() => {
-		statModule = new StatModule()
-	})
+		statModule = new StatModule();
+	});
 
 	it('should create an instance', () => {
-		expect(statModule).toBeTruthy()
-	})
-})
+		expect(statModule).toBeTruthy();
+	});
+});

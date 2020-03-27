@@ -1,9 +1,9 @@
 /** @format */
 
-import {NgModule} from '@angular/core'
-import {CommonModule} from '@angular/common'
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import {InstantvoteRoutingModule} from './instantvote-routing.module'
+import {InstantvoteRoutingModule} from './instantvote-routing.module';
 
 @NgModule({
 	declarations: [],

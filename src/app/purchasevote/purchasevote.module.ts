@@ -1,9 +1,9 @@
 /** @format */
 
-import {NgModule} from '@angular/core'
-import {CommonModule} from '@angular/common'
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import {PurchasevoteRoutingModule} from './purchasevote-routing.module'
+import {PurchasevoteRoutingModule} from './purchasevote-routing.module';
 
 @NgModule({
 	declarations: [],

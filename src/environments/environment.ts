@@ -8,7 +8,7 @@ export const environment = {
 	production: true,
 	apiEndPoint: 'api/v1',
 	assetEndPoint: '/'
-}
+};
 
 /*
  * For easier debugging in development mode, you can import the following file

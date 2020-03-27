@@ -1,9 +1,9 @@
 /** @format */
 
-import {NgModule} from '@angular/core'
-import {CommonModule} from '@angular/common'
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import {EditprofileRoutingModule} from './editprofile-routing.module'
+import {EditprofileRoutingModule} from './editprofile-routing.module';
 
 @NgModule({
 	declarations: [],

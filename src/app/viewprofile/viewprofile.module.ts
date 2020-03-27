@@ -1,9 +1,9 @@
 /** @format */
 
-import {NgModule} from '@angular/core'
-import {CommonModule} from '@angular/common'
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import {ViewprofileRoutingModule} from './viewprofile-routing.module'
+import {ViewprofileRoutingModule} from './viewprofile-routing.module';
 
 @NgModule({
 	declarations: [],

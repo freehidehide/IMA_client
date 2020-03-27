@@ -1,26 +1,26 @@
 /** @format */
 
-import {async, ComponentFixture, TestBed} from '@angular/core/testing'
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {PasswordchangedComponent} from './passwordchanged.component'
+import {PasswordchangedComponent} from './passwordchanged.component';
 
 describe('PasswordchangedComponent', () => {
-	let component: PasswordchangedComponent
-	let fixture: ComponentFixture<PasswordchangedComponent>
+	let component: PasswordchangedComponent;
+	let fixture: ComponentFixture<PasswordchangedComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [PasswordchangedComponent]
-		}).compileComponents()
-	}))
+		}).compileComponents();
+	}));
 
 	beforeEach(() => {
-		fixture = TestBed.createComponent(PasswordchangedComponent)
-		component = fixture.componentInstance
-		fixture.detectChanges()
-	})
+		fixture = TestBed.createComponent(PasswordchangedComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
 	it('should create', () => {
-		expect(component).toBeTruthy()
-	})
-})
+		expect(component).toBeTruthy();
+	});
+});
