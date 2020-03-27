@@ -1,12 +1,12 @@
 <!-- @format -->
-
+<!-- *ngIf="toastService.showMessage" -->
 <div
-	*ngIf="toastService.showMessage"
 	[className]="toastService.messageClass"
-	class="alert alert-dismissible fade show position-absolute header-alert"
+	class="sitealert alert alert-dismissible fade show position-absolute header-alert"
 	role="alert"
->
-	<strong>{{ toastService.message }}</strong>
+><img src="assets/images/alert-success.png" class="img-fluid mr-2"
+/>
+	<strong>Test{{ toastService.message }}</strong>
 	<button
 		type="button"
 		class="close"
