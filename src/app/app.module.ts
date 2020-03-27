@@ -15,6 +15,7 @@ import {FooterComponent} from './footer/footer.component';
 import {HeaderComponent} from './header/header.component';
 import {ApiService} from './api/services/api.service';
 import {ShopComponent} from './shop/shop.component';
+import {CategoriesComponent} from './categories/categories.component';
 import {AdvertisersComponent} from './advertisers/advertisers.component';
 import {ContestantprofileComponent} from './contestantprofile/contestantprofile.component';
 import {EditprofileComponent} from './editprofile/editprofile.component';
@@ -50,6 +51,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 		FooterComponent,
 		HeaderComponent,
 		ShopComponent,
+		CategoriesComponent,
 		AdvertisersComponent,
 		ContestantprofileComponent,
 		EditprofileComponent,
