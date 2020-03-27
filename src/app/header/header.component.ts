@@ -22,7 +22,8 @@ export class HeaderComponent {
         "/profile",
         "/view-profile",
         "/cart",
-        "/checkout"
+        "/checkout",
+        "/edit"
     ];
     constructor(private router: Router,
         public sessionService: SessionService) {
