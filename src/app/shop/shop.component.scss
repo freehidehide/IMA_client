@@ -1,5 +1,3 @@
-/** @format */
-
 .cartimglisting {
     flex-direction: row;
 
@@ -160,7 +158,6 @@
     .content-middle {
         padding: 30px 50px;
     }
-
     .productcartdesc {
         h2 {
             font-size: 56px;
@@ -177,39 +174,33 @@
             height: 40px;
             background-size: cover;
         }
-
         input.quantityinput {
             width: 40px;
             height: 40px;
             font-size: 40px;
         }
-
         .ctqtyincr {
             width: 40px;
             height: 40px;
             background-size: cover;
         }
     }
-
     .product-availsizes {
         span {
             font-size: 15px;
         }
-
         a {
             width: 40px;
             height: 40px;
             font-size: 18px;
         }
     }
-
     .cartdetails {
         input.discountcode {
             height: 56px;
             font-size: 31px;
             width: 252px;
         }
-
         .cart-btn {
             height: 56px;
             font-size: 31px;

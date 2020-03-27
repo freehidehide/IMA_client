@@ -6,7 +6,7 @@ export class AppConst {
 		LOGIN: '/users/login',
 		ROLE: '/role',
 		USER: '/users',
-		FORGETPASSWORD: '/forgot_password',
+		FORGETPASSWORD: '/users/forgot_password',
 		CHANGEPASSWORD: '/change_password',
 		ALLCATEGORY: '/catagories',
 		PRODUCTS: '/products',
