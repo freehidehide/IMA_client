@@ -1,50 +1,52 @@
+/** @format */
+
 .contestants-section {
-    .contestant-img {
-        border-radius: 50px;
-        overflow: hidden;
-        display: inline-block;
-    }
+	.contestant-img {
+		border-radius: 50px;
+		overflow: hidden;
+		display: inline-block;
+	}
 
-    .contestant-listdetails {
-        margin: 5px 0 50px;
-        align-items: center;
-    }
+	.contestant-listdetails {
+		margin: 5px 0 50px;
+		align-items: center;
+	}
 
-    .contestant-name {
-        flex: 1 1 0;
-        color: #8f8f8f;
-        font-size: 25px;
-    }
+	.contestant-name {
+		flex: 1 1 0;
+		color: #8f8f8f;
+		font-size: 25px;
+	}
 
-    .contestant-counts {
-        color: #8f8f8f;
-        font-size: 25px;
-        display: flex;
-        align-items: center;
-    }
+	.contestant-counts {
+		color: #8f8f8f;
+		font-size: 25px;
+		display: flex;
+		align-items: center;
+	}
 }
 
 @media (max-width: 1440px) {
-    .contestants-section {
-        .contestant-img {
-            border-radius: 20px;
-        }
+	.contestants-section {
+		.contestant-img {
+			border-radius: 20px;
+		}
 
-        .contestant-name {
-            font-size: 16px;
-        }
+		.contestant-name {
+			font-size: 16px;
+		}
 
-        .contestant-counts {
-            font-size: 13px;
+		.contestant-counts {
+			font-size: 13px;
 
-            img {
-                width: 20px;
-                height: auto;
-            }
-        }
+			img {
+				width: 20px;
+				height: auto;
+			}
+		}
 
-        .contestant-listdetails {
-            margin: 5px 0 20px;
-        }
-    }
+		.contestant-listdetails {
+			margin: 5px 0 20px;
+		}
+	}
 }

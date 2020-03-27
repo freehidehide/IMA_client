@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { ServerErrorComponent } from "./server-error.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing'
 
-describe("ServerErrorComponent", () => {
-    let component: ServerErrorComponent;
-    let fixture: ComponentFixture<ServerErrorComponent>;
+import {ServerErrorComponent} from './server-error.component'
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [ServerErrorComponent]
-        }).compileComponents();
-    }));
+describe('ServerErrorComponent', () => {
+	let component: ServerErrorComponent
+	let fixture: ComponentFixture<ServerErrorComponent>
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(ServerErrorComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [ServerErrorComponent]
+		}).compileComponents()
+	}))
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
-});
+	beforeEach(() => {
+		fixture = TestBed.createComponent(ServerErrorComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
+
+	it('should create', () => {
+		expect(component).toBeTruthy()
+	})
+})

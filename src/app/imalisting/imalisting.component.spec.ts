@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { ImalistingComponent } from "./imalisting.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing'
 
-describe("ImalistingComponent", () => {
-    let component: ImalistingComponent;
-    let fixture: ComponentFixture<ImalistingComponent>;
+import {ImalistingComponent} from './imalisting.component'
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [ImalistingComponent]
-        }).compileComponents();
-    }));
+describe('ImalistingComponent', () => {
+	let component: ImalistingComponent
+	let fixture: ComponentFixture<ImalistingComponent>
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(ImalistingComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [ImalistingComponent]
+		}).compileComponents()
+	}))
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
-});
+	beforeEach(() => {
+		fixture = TestBed.createComponent(ImalistingComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
+
+	it('should create', () => {
+		expect(component).toBeTruthy()
+	})
+})

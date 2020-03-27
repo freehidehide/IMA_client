@@ -1,14 +1,16 @@
-import { AppPage } from "./app.po";
+/** @format */
 
-describe("test-ng8 App", () => {
-    let page: AppPage;
+import {AppPage} from './app.po'
 
-    beforeEach(() => {
-        page = new AppPage();
-    });
+describe('test-ng8 App', () => {
+	let page: AppPage
 
-    it("should display welcome message", () => {
-        page.navigateTo();
-        expect(page.getParagraphText()).toEqual("SB Admin BS4 Angular8");
-    });
-});
+	beforeEach(() => {
+		page = new AppPage()
+	})
+
+	it('should display welcome message', () => {
+		page.navigateTo()
+		expect(page.getParagraphText()).toEqual('SB Admin BS4 Angular8')
+	})
+})

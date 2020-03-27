@@ -1,40 +1,42 @@
+/** @format */
+
 .advertlisting {
-    .advertimg {
-        display: inline-block;
-        border-radius: 40px;
-        overflow: hidden;
-    }
+	.advertimg {
+		display: inline-block;
+		border-radius: 40px;
+		overflow: hidden;
+	}
 
-    .advertmaincontent {
-        margin: 180px 0 0;
+	.advertmaincontent {
+		margin: 180px 0 0;
 
-        h2 {
-            font-size: 75px;
-            color: #696969;
-            font-weight: 300;
-        }
+		h2 {
+			font-size: 75px;
+			color: #696969;
+			font-weight: 300;
+		}
 
-        p {
-            font-size: 25px;
-            color: #696969;
-        }
-    }
+		p {
+			font-size: 25px;
+			color: #696969;
+		}
+	}
 
-    .purchasbtn {
-        font-size: 25px;
-        color: #fff;
-        font-weight: 300;
-    }
+	.purchasbtn {
+		font-size: 25px;
+		color: #fff;
+		font-weight: 300;
+	}
 
-    .adertindlist {
-        margin: 0 0 30px;
-    }
+	.adertindlist {
+		margin: 0 0 30px;
+	}
 }
 
 @media (max-width: 767px) {
-    .advertlisting {
-        .advertmaincontent {
-            margin: 20px 0 0;
-        }
-    }
+	.advertlisting {
+		.advertmaincontent {
+			margin: 20px 0 0;
+		}
+	}
 }

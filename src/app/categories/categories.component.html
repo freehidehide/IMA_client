@@ -1,23 +1,33 @@
+<!-- @format -->
+
 <div class="imacontainer">
-    <div class="subheader position-relative">
-        <div class="subheadings">
-            <h2>
-                CONTESTANTS
-                <span class="text-uppercase">Model Categories</span>
-            </h2>
-        </div>
-        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
-    </div>
-    <div class="content-middle">
-        <div class="categoriescontainer mx-auto px-4" *ngIf="!isNodata">
-            <ul class="list-unstyled categorieslisting row">
-                <li class="col-md-6" *ngFor="let category of categoriesList.data; trackBy: trackById">
-                   <a href="#"><em>{{category.name}}</em></a>
-                </li>
-            </ul>
-        </div>
-        <div class="categoriescontainer mx-auto px-4" *ngIf="isNodata">
-            No Records found.
-        </div>
-    </div>
+	<div class="subheader position-relative">
+		<div class="subheadings">
+			<h2>
+				CONTESTANTS
+				<span class="text-uppercase">Model Categories</span>
+			</h2>
+		</div>
+		<img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
+	</div>
+	<div class="content-middle">
+		<div class="categoriescontainer mx-auto px-4" *ngIf="!isNodata">
+			<ul class="list-unstyled categorieslisting row">
+				<li
+					class="col-md-6"
+					*ngFor="
+						let category of categoriesList.data;
+						trackBy: trackById
+					"
+				>
+					<a href="#"
+						><em>{{ category.name }}</em></a
+					>
+				</li>
+			</ul>
+		</div>
+		<div class="categoriescontainer mx-auto px-4" *ngIf="isNodata">
+			No Records found.
+		</div>
+	</div>
 </div>

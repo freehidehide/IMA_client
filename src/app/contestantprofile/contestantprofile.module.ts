@@ -1,10 +1,12 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+/** @format */
 
-import { ContestantprofileRoutingModule } from "./contestantprofile-routing.module";
+import {NgModule} from '@angular/core'
+import {CommonModule} from '@angular/common'
+
+import {ContestantprofileRoutingModule} from './contestantprofile-routing.module'
 
 @NgModule({
-    declarations: [],
-    imports: [CommonModule, ContestantprofileRoutingModule]
+	declarations: [],
+	imports: [CommonModule, ContestantprofileRoutingModule]
 })
 export class ContestantprofileModule {}

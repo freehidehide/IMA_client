@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { EditprofileComponent } from "./editprofile.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing'
 
-describe("EditprofileComponent", () => {
-    let component: EditprofileComponent;
-    let fixture: ComponentFixture<EditprofileComponent>;
+import {EditprofileComponent} from './editprofile.component'
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [EditprofileComponent]
-        }).compileComponents();
-    }));
+describe('EditprofileComponent', () => {
+	let component: EditprofileComponent
+	let fixture: ComponentFixture<EditprofileComponent>
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(EditprofileComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [EditprofileComponent]
+		}).compileComponents()
+	}))
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
-});
+	beforeEach(() => {
+		fixture = TestBed.createComponent(EditprofileComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
+
+	it('should create', () => {
+		expect(component).toBeTruthy()
+	})
+})

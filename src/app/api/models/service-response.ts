@@ -1,4 +1,6 @@
-import { Error } from "./Error";
+/** @format */
+
+import {Error} from './Error'
 export class ServiceResponse {
-    error: Error;
+	error: Error
 }

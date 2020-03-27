@@ -1,119 +1,121 @@
-.view-profile {
-    min-height: calc(100vh - 260px);
+/** @format */
 
-    .vpinner {
-        padding: 104px 0 170px;
-    }
+.view-profile {
+	min-height: calc(100vh - 260px);
+
+	.vpinner {
+		padding: 104px 0 170px;
+	}
 }
 
 .vpcontainer {
-    max-width: 680px;
-    margin-top: -38px;
+	max-width: 680px;
+	margin-top: -38px;
 }
 
 .profile-image {
-    padding: 0 0 50px;
+	padding: 0 0 50px;
 }
 
 .profile-name {
-    font-size: 66px;
-    color: #585757;
+	font-size: 66px;
+	color: #585757;
 }
 
 .forgot-subscribe {
-    font-size: 48px;
-    color: #7a7a7a;
-    margin: 0 0 50px;
+	font-size: 48px;
+	color: #7a7a7a;
+	margin: 0 0 50px;
 }
 
 .subscribed {
-    font-size: 33px;
-    color: #3ea6fa;
+	font-size: 33px;
+	color: #3ea6fa;
 }
 
 p {
-    font-size: 25px;
-    color: #7a7a7a;
-    line-height: normal;
+	font-size: 25px;
+	color: #7a7a7a;
+	line-height: normal;
 }
 
 .profile-details {
-    max-width: 380px;
+	max-width: 380px;
 }
 
 .subscribe-button {
-    margin-top: 30px 0 0;
+	margin-top: 30px 0 0;
 
-    a {
-        height: 58px;
-        font-size: 18px;
-        line-height: 42px;
-    }
+	a {
+		height: 58px;
+		font-size: 18px;
+		line-height: 42px;
+	}
 }
 
 .subscribedicon {
-    width: 92px;
-    height: 92px;
-    position: absolute;
-    left: 50%;
-    bottom: -37px;
-    transform: translate(-50%, -50%);
+	width: 92px;
+	height: 92px;
+	position: absolute;
+	left: 50%;
+	bottom: -37px;
+	transform: translate(-50%, -50%);
 }
 
 @media (max-width: 1440px) {
-    .profileupdate {
-        a.btn {
-            font-size: 13px;
-        }
-    }
+	.profileupdate {
+		a.btn {
+			font-size: 13px;
+		}
+	}
 
-    .vpcontainer {
-        max-width: 510px;
-    }
+	.vpcontainer {
+		max-width: 510px;
+	}
 
-    .profile-name {
-        font-size: 50px;
-    }
+	.profile-name {
+		font-size: 50px;
+	}
 
-    .forgot-subscribe {
-        font-size: 37px;
-    }
+	.forgot-subscribe {
+		font-size: 37px;
+	}
 
-    .subscribed {
-        font-size: 25px;
-    }
+	.subscribed {
+		font-size: 25px;
+	}
 
-    p {
-        font-size: 18px;
-    }
+	p {
+		font-size: 18px;
+	}
 
-    .subscribe-button {
-        a {
-            font-size: 13px;
-            height: 43px;
-            line-height: 28px;
-        }
-    }
+	.subscribe-button {
+		a {
+			font-size: 13px;
+			height: 43px;
+			line-height: 28px;
+		}
+	}
 
-    .subscribedicon {
-        width: 69px;
-        height: 69px;
-        bottom: -18px;
-    }
+	.subscribedicon {
+		width: 69px;
+		height: 69px;
+		bottom: -18px;
+	}
 }
 
 @media (max-width: 767px) {
-    .vpcontainer {
-        margin-top: 0;
-    }
+	.vpcontainer {
+		margin-top: 0;
+	}
 
-    .profileupdate {
-        margin-bottom: 15px;
-    }
+	.profileupdate {
+		margin-bottom: 15px;
+	}
 
-    .view-profile {
-        .vpinner {
-            padding: 25px 0;
-        }
-    }
+	.view-profile {
+		.vpinner {
+			padding: 25px 0;
+		}
+	}
 }

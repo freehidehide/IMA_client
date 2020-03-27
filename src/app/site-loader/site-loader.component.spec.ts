@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { SiteLoaderComponent } from "./site-loader.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing'
 
-describe("SiteLoaderComponent", () => {
-    let component: SiteLoaderComponent;
-    let fixture: ComponentFixture<SiteLoaderComponent>;
+import {SiteLoaderComponent} from './site-loader.component'
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [SiteLoaderComponent]
-        }).compileComponents();
-    }));
+describe('SiteLoaderComponent', () => {
+	let component: SiteLoaderComponent
+	let fixture: ComponentFixture<SiteLoaderComponent>
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(SiteLoaderComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [SiteLoaderComponent]
+		}).compileComponents()
+	}))
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
-});
+	beforeEach(() => {
+		fixture = TestBed.createComponent(SiteLoaderComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
+
+	it('should create', () => {
+		expect(component).toBeTruthy()
+	})
+})

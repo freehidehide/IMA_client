@@ -1,120 +1,122 @@
+/** @format */
+
 // shared css for the login and signup page
-@import "../login/login.component.scss";
+@import '../login/login.component.scss';
 
 .signup-page {
-    background: #20293c;
-    height: 100vh;
-    text-align: center;
-    padding: 15px 0;
+	background: #20293c;
+	height: 100vh;
+	text-align: center;
+	padding: 15px 0;
 
-    .form-content {
-        padding-top: 10px;
-    }
+	.form-content {
+		padding-top: 10px;
+	}
 
-    .login-actions {
-        margin: 0;
+	.login-actions {
+		margin: 0;
 
-        .register-btn {
-            background: #3ea6fa;
-            font-size: 22px;
-            font-weight: 600;
-            color: #fff;
-            border: none;
-            width: 100%;
-        }
-    }
+		.register-btn {
+			background: #3ea6fa;
+			font-size: 22px;
+			font-weight: 600;
+			color: #fff;
+			border: none;
+			width: 100%;
+		}
+	}
 
-    .thirdlogin {
-        margin: 0;
-    }
+	.thirdlogin {
+		margin: 0;
+	}
 
-    .toplogo {
-        img {
-            max-width: 150px;
-        }
-    }
+	.toplogo {
+		img {
+			max-width: 150px;
+		}
+	}
 }
 
 .signupwhite {
-    background: #fff;
-    max-width: 800px;
-    width: 100%;
-    padding: 15px 0;
-    margin: 0 auto;
+	background: #fff;
+	max-width: 800px;
+	width: 100%;
+	padding: 15px 0;
+	margin: 0 auto;
 
-    form {
-        padding: 15px 145px;
+	form {
+		padding: 15px 145px;
 
-        input {
-            background: #ebebeb;
-            border: none;
-            color: #797979;
-            height: 50px;
-            padding: 0 15px;
-            text-align: center;
-            font-size: 21px;
+		input {
+			background: #ebebeb;
+			border: none;
+			color: #797979;
+			height: 50px;
+			padding: 0 15px;
+			text-align: center;
+			font-size: 21px;
 
-            &:focus {
-                border: none;
-            }
-        }
+			&:focus {
+				border: none;
+			}
+		}
 
-        .form-group {
-            padding: 0;
-            margin: 0 0 20px;
-        }
-    }
+		.form-group {
+			padding: 0;
+			margin: 0 0 20px;
+		}
+	}
 }
 
 .already_acc {
-    color: #666;
-    font-size: 13px;
-    margin: 15px 0 0;
-    font-weight: 600;
+	color: #666;
+	font-size: 13px;
+	margin: 15px 0 0;
+	font-weight: 600;
 
-    a {
-        text-decoration: underline;
-        font-size: 18px;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: #666;
-    }
+	a {
+		text-decoration: underline;
+		font-size: 18px;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #666;
+	}
 }
 
 .ortext {
-    position: relative;
-    color: #000;
-    margin: 20px 0;
+	position: relative;
+	color: #000;
+	margin: 20px 0;
 
-    &:after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 1px;
-        background: #acacac;
-        left: 0;
-        top: 50%;
-        transform: translate(0%, -50%);
-    }
+	&:after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 1px;
+		background: #acacac;
+		left: 0;
+		top: 50%;
+		transform: translate(0%, -50%);
+	}
 
-    span {
-        background: #fff;
-        position: relative;
-        z-index: 9;
-        font-size: 16px;
-        padding: 0 4px;
-        top: -2px;
-    }
+	span {
+		background: #fff;
+		position: relative;
+		z-index: 9;
+		font-size: 16px;
+		padding: 0 4px;
+		top: -2px;
+	}
 }
 
 @media (max-width: 767px) {
-    .signup-page {
-        padding: 0;
-    }
+	.signup-page {
+		padding: 0;
+	}
 
-    .signupwhite {
-        form {
-            padding: 15px;
-        }
-    }
+	.signupwhite {
+		form {
+			padding: 15px;
+		}
+	}
 }

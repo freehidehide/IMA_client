@@ -1,4 +1,6 @@
+/** @format */
+
 export interface Role {
-    id: number;
-    name: string;
+	id: number
+	name: string
 }

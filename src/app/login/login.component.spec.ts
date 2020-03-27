@@ -1,27 +1,29 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+/** @format */
 
-import { LoginComponent } from "./login.component";
-import { LoginModule } from "./login.module";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing'
+import {RouterTestingModule} from '@angular/router/testing'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
-describe("LoginComponent", () => {
-    let component: LoginComponent;
-    let fixture: ComponentFixture<LoginComponent>;
+import {LoginComponent} from './login.component'
+import {LoginModule} from './login.module'
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            imports: [LoginModule, RouterTestingModule, BrowserAnimationsModule]
-        }).compileComponents();
-    }));
+describe('LoginComponent', () => {
+	let component: LoginComponent
+	let fixture: ComponentFixture<LoginComponent>
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(LoginComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			imports: [LoginModule, RouterTestingModule, BrowserAnimationsModule]
+		}).compileComponents()
+	}))
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
-});
+	beforeEach(() => {
+		fixture = TestBed.createComponent(LoginComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
+
+	it('should create', () => {
+		expect(component).toBeTruthy()
+	})
+})

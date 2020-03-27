@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { PurchasevoteComponent } from "./purchasevote.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing'
 
-describe("PurchasevoteComponent", () => {
-    let component: PurchasevoteComponent;
-    let fixture: ComponentFixture<PurchasevoteComponent>;
+import {PurchasevoteComponent} from './purchasevote.component'
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [PurchasevoteComponent]
-        }).compileComponents();
-    }));
+describe('PurchasevoteComponent', () => {
+	let component: PurchasevoteComponent
+	let fixture: ComponentFixture<PurchasevoteComponent>
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(PurchasevoteComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [PurchasevoteComponent]
+		}).compileComponents()
+	}))
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
-});
+	beforeEach(() => {
+		fixture = TestBed.createComponent(PurchasevoteComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
+
+	it('should create', () => {
+		expect(component).toBeTruthy()
+	})
+})

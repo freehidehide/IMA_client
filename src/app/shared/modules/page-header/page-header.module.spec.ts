@@ -1,13 +1,15 @@
-import { PageHeaderModule } from "./page-header.module";
+/** @format */
 
-describe("PageHeaderModule", () => {
-    let pageHeaderModule: PageHeaderModule;
+import {PageHeaderModule} from './page-header.module'
 
-    beforeEach(() => {
-        pageHeaderModule = new PageHeaderModule();
-    });
+describe('PageHeaderModule', () => {
+	let pageHeaderModule: PageHeaderModule
 
-    it("should create an instance", () => {
-        expect(pageHeaderModule).toBeTruthy();
-    });
-});
+	beforeEach(() => {
+		pageHeaderModule = new PageHeaderModule()
+	})
+
+	it('should create an instance', () => {
+		expect(pageHeaderModule).toBeTruthy()
+	})
+})

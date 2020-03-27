@@ -1,13 +1,15 @@
-import { AccessDeniedModule } from "./access-denied.module";
+/** @format */
 
-describe("AccessDeniedModule", () => {
-    let accessDeniedModule: AccessDeniedModule;
+import {AccessDeniedModule} from './access-denied.module'
 
-    beforeEach(() => {
-        accessDeniedModule = new AccessDeniedModule();
-    });
+describe('AccessDeniedModule', () => {
+	let accessDeniedModule: AccessDeniedModule
 
-    it("should create an instance", () => {
-        expect(accessDeniedModule).toBeTruthy();
-    });
-});
+	beforeEach(() => {
+		accessDeniedModule = new AccessDeniedModule()
+	})
+
+	it('should create an instance', () => {
+		expect(accessDeniedModule).toBeTruthy()
+	})
+})

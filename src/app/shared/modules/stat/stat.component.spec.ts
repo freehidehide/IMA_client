@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { StatComponent } from "./stat.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing'
 
-describe("StatComponent", () => {
-    let component: StatComponent;
-    let fixture: ComponentFixture<StatComponent>;
+import {StatComponent} from './stat.component'
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [StatComponent]
-        }).compileComponents();
-    }));
+describe('StatComponent', () => {
+	let component: StatComponent
+	let fixture: ComponentFixture<StatComponent>
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(StatComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [StatComponent]
+		}).compileComponents()
+	}))
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
-});
+	beforeEach(() => {
+		fixture = TestBed.createComponent(StatComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
+
+	it('should create', () => {
+		expect(component).toBeTruthy()
+	})
+})

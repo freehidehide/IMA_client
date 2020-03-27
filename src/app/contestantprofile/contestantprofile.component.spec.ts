@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+/** @format */
 
-import { ContestantprofileComponent } from "./contestantprofile.component";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing'
 
-describe("ContestantprofileComponent", () => {
-    let component: ContestantprofileComponent;
-    let fixture: ComponentFixture<ContestantprofileComponent>;
+import {ContestantprofileComponent} from './contestantprofile.component'
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [ContestantprofileComponent]
-        }).compileComponents();
-    }));
+describe('ContestantprofileComponent', () => {
+	let component: ContestantprofileComponent
+	let fixture: ComponentFixture<ContestantprofileComponent>
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(ContestantprofileComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [ContestantprofileComponent]
+		}).compileComponents()
+	}))
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
-});
+	beforeEach(() => {
+		fixture = TestBed.createComponent(ContestantprofileComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
+
+	it('should create', () => {
+		expect(component).toBeTruthy()
+	})
+})
