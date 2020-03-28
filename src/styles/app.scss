@@ -15,6 +15,9 @@
 		display: none !important;
 	}
 }
+:focus{
+	outline: none;
+}
 html,
 body {
 	height: 100%;
