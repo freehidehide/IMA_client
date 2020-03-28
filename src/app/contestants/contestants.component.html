@@ -5,23 +5,28 @@
 		<div class="subheadings">
 			<h2>
 				CONTESTANTS
-				<span>by <em>Votes</em></span>
+				<span
+					>by <em>{{ categoryName }}</em></span
+				>
 			</h2>
 		</div>
 		<img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
 	</div>
 	<div class="content-middle contestants-section">
-		<div class="row">
-			<div class="col-md-6">
-				<a href="#" class="contestant-img">
-					<img
-						src="assets/images/contestant-1.jpg"
-						class="img-fluid"
-					/>
+		<div class="row" *ngIf="!isNodata">
+			<div
+				class="col-md-6"
+				*ngFor="let user of userList.data; trackBy: trackById"
+			>
+				<a [routerLink]="['/profile', user.id]" class="contestant-img">
+					<app-attachment
+						[attachment]="user.attachment"
+						[type]="original"
+					></app-attachment>
 				</a>
 				<div class="d-flex contestant-listdetails">
 					<div class="contestant-name text-center">
-						FirstName Lastname
+						{{ user.first_name }} {{ user.last_name }}
 					</div>
 					<div class="contestant-counts">
 						<span class="mr-3 d-flex align-items-center"
@@ -30,112 +35,19 @@
 								width="25"
 								class="img-fluid mr-2"
 							/>
-							99</span
-						>
-						<span class="d-flex align-items-center"
-							><img
-								src="assets/images/medal-icon.png"
-								width="25"
-								class="img-fluid  mr-2"
-							/>
-							01</span
+							{{
+								user.category && user.category.votes
+									? user.category.votes
+									: 0
+							}}</span
 						>
 					</div>
 				</div>
 			</div>
-
+		</div>
+		<div class="row mb-4" *ngIf="isNodata">
 			<div class="col-md-6">
-				<a href="#" class="contestant-img">
-					<img
-						src="assets/images/contestant-2.jpg"
-						class="img-fluid"
-					/>
-				</a>
-				<div class="d-flex contestant-listdetails">
-					<div class="contestant-name text-center">
-						FirstName Lastname
-					</div>
-					<div class="contestant-counts">
-						<span class="mr-3 d-flex align-items-center"
-							><img
-								src="assets/images/star-icon.png"
-								width="25"
-								class="img-fluid mr-2"
-							/>
-							99</span
-						>
-						<span class="d-flex align-items-center"
-							><img
-								src="assets/images/medal-icon.png"
-								width="25"
-								class="img-fluid  mr-2"
-							/>
-							01</span
-						>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<a href="#" class="contestant-img">
-					<img
-						src="assets/images/contestant-3.jpg"
-						class="img-fluid"
-					/>
-				</a>
-				<div class="d-flex contestant-listdetails">
-					<div class="contestant-name text-center">
-						FirstName Lastname
-					</div>
-					<div class="contestant-counts">
-						<span class="mr-3 d-flex align-items-center"
-							><img
-								src="assets/images/star-icon.png"
-								width="25"
-								class="img-fluid mr-2"
-							/>
-							99</span
-						>
-						<span class="d-flex align-items-center"
-							><img
-								src="assets/images/medal-icon.png"
-								width="25"
-								class="img-fluid  mr-2"
-							/>
-							01</span
-						>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<a href="#" class="contestant-img">
-					<img
-						src="assets/images/contestant-4.jpg"
-						class="img-fluid"
-					/>
-				</a>
-				<div class="d-flex contestant-listdetails">
-					<div class="contestant-name text-center">
-						FirstName Lastname
-					</div>
-					<div class="contestant-counts">
-						<span class="mr-3 d-flex align-items-center"
-							><img
-								src="assets/images/star-icon.png"
-								width="25"
-								class="img-fluid mr-2"
-							/>
-							99</span
-						>
-						<span class="d-flex align-items-center"
-							><img
-								src="assets/images/medal-icon.png"
-								width="25"
-								class="img-fluid  mr-2"
-							/>
-							01</span
-						>
-					</div>
-				</div>
+				No Records
 			</div>
 		</div>
 	</div>

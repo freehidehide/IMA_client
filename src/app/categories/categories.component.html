@@ -20,7 +20,13 @@
 						trackBy: trackById
 					"
 				>
-					<a href="#"
+					<a
+						href="javascript:void(0)"
+						[routerLink]="[
+							'/contestants',
+							category.id,
+							category.name
+						]"
 						><em>{{ category.name }}</em></a
 					>
 				</li>

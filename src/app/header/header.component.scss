@@ -23,7 +23,7 @@ $topnav-background-color: #222;
 			}
 		}
 	}
-	&.scrollheader{
+	&.scrollheader {
 		background-color: rgba(34, 34, 34, 0.75);
 	}
 }
@@ -33,8 +33,6 @@ $topnav-background-color: #222;
 	margin: 0 auto;
 	width: 100%;
 }
-
-
 
 .staticimanav {
 	position: static;
@@ -72,12 +70,12 @@ $topnav-background-color: #222;
 @media (max-width: 991px) {
 	.imanavbar {
 		position: static;
-		background:rgba(0, 0, 0, 0.95);
+		background: rgba(0, 0, 0, 0.95);
 		padding: 12px 25px !important;
 	}
-	.navbar{
-		.nav-item{
-			a{
+	.navbar {
+		.nav-item {
+			a {
 				font-size: 14px;
 				text-align: center;
 			}

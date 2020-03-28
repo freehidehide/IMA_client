@@ -26,7 +26,18 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			</div>
 			<div class="invotebt">
-				<button class="btn btn-primary text-uppercase instant-vote-btn" [routerLink]="['/instant-vote']">
+				<button
+					*ngIf="!sessionService.isAuth"
+					class="btn btn-primary text-uppercase instant-vote-btn"
+					[routerLink]="['/login']"
+				>
+					Vote Now
+				</button>
+				<button
+					*ngIf="sessionService.isAuth"
+					class="btn btn-primary text-uppercase instant-vote-btn"
+					[routerLink]="['/instant-vote']"
+				>
 					Vote Now
 				</button>
 			</div>
@@ -49,7 +60,10 @@
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					</p>
 					<div class="px-4">
-						<a href="#" [routerLink]="['/advertisers']"  class="d-block btn btn-primary features-btn"
+						<a
+							href="javascript:void(0)"
+							[routerLink]="['/advertisers']"
+							class="d-block btn btn-primary features-btn"
 							>VISIT PAGE</a
 						>
 					</div>
@@ -61,12 +75,15 @@
 							class="img-fluid"
 						/>
 					</div>
-					<h2 class="mt-3 mb-0 px-4">Contestants</h2>
+					<h2 class="mt-3 mb-0 px-4">Highest Votes</h2>
 					<p class="px-4">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					</p>
 					<div class="px-4">
-						<a href="#" [routerLink]="['/contestants']" class="d-block btn btn-primary features-btn"
+						<a
+							href="javascript:void(0)"
+							[routerLink]="['/contestants']"
+							class="d-block btn btn-primary features-btn"
 							>VISIT PAGE</a
 						>
 					</div>
@@ -78,12 +95,15 @@
 							class="img-fluid"
 						/>
 					</div>
-					<h2 class="mt-3 mb-0 px-4">Vote</h2>
+					<h2 class="mt-3 mb-0 px-4">Categories</h2>
 					<p class="px-4">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					</p>
 					<div class="px-4">
-						<a href="#" [routerLink]="['/instant-vote']" class="d-block btn btn-primary features-btn"
+						<a
+							href="javascript:void(0)"
+							[routerLink]="['/contestants']"
+							class="d-block btn btn-primary features-btn"
 							>VISIT PAGE</a
 						>
 					</div>
@@ -100,12 +120,15 @@
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					</p>
 					<div class="px-4">
-						<a href="#" [routerLink]="['/shop']" class="d-block btn btn-primary features-btn"
+						<a
+							href="javascript:void(0)"
+							[routerLink]="['/shop']"
+							class="d-block btn btn-primary features-btn"
 							>VISIT PAGE</a
 						>
 					</div>
 				</li>
-				<li class="col-md-4 text-center">
+				<li class="col-md-4 text-center" *ngIf="sessionService.isAuth">
 					<div class="px-4">
 						<img
 							src="assets/images/feature-myprofile.jpg"
@@ -117,7 +140,10 @@
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					</p>
 					<div class="px-4">
-						<a href="#" [routerLink]="['/edit']" class="d-block btn btn-primary features-btn"
+						<a
+							href="javascript:void(0)"
+							[routerLink]="['/edit']"
+							class="d-block btn btn-primary features-btn"
 							>VISIT PAGE</a
 						>
 					</div>
@@ -134,7 +160,9 @@
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					</p>
 					<div class="px-4">
-						<a href="#" class="d-block btn btn-primary features-btn"
+						<a
+							href="javascript:void(0)"
+							class="d-block btn btn-primary features-btn"
 							>VISIT PAGE</a
 						>
 					</div>
@@ -176,7 +204,7 @@
 					for only <span>$00.00</span>
 				</div>
 				<a
-					href="#"
+					href="javascript:void(0)"
 					class="text-uppercase btn btn-warning text-white px-5 subscribe-btn"
 					>Subscribe Now</a
 				>

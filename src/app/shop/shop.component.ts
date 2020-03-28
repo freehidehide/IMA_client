@@ -7,6 +7,7 @@ import {ServiceResponse} from '../api/models/service-response';
 import {ProductList} from '../api/models/product-list';
 import {AppConst} from '../utils/app-const';
 import {BaseComponent} from '../base.component';
+import {QueryParam} from '../api/models/query-param';
 
 @Component({
 	selector: 'app-shop',
@@ -30,7 +31,11 @@ export class ShopComponent extends BaseComponent implements OnInit {
 	getProducts(): void {
 		this.toastService.showLoading();
 		this.isNodata = true;
-		this.productService.getAll().subscribe((data) => {
+		const queryParam: QueryParam = {
+			page: 1,
+			sortby: 'desc'
+		};
+		this.productService.getAll(queryParam).subscribe((data) => {
 			this.productList = data;
 			if (
 				this.productList.error &&

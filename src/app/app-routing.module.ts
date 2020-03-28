@@ -33,7 +33,7 @@ const routes: Routes = [
 			import('./signup/signup.module').then((m) => m.SignupModule)
 	},
 	{
-		path: 'contestants',
+		path: 'contestants/:id/:name',
 		loadChildren: () =>
 			import('./contestants/contestants.module').then(
 				(m) => m.ContestantsModule
@@ -52,7 +52,7 @@ const routes: Routes = [
 			)
 	},
 	{
-		path: 'profile',
+		path: 'profile/:id',
 		loadChildren: () =>
 			import('./contestantprofile/contestantprofile.module').then(
 				(m) => m.ContestantprofileModule
