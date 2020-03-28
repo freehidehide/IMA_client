@@ -12,44 +12,44 @@
 		<button class="navbar-toggler" type="button" (click)="toggleSidebar()">
 			<i class="fa fa-bars text-muted" aria-hidden="true"></i>
 		</button>
-		 <div class="collapse navbar-collapse "> <!-- show -->
+		 <div class="collapse navbar-collapse" [ngClass]="{'show': isShow}">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/')"
+						href="/"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>HOME</a
 					>
 				</li>
 				<li class="nav-item">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/advertisers')"
+						href="/advertisers"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>ADVERTISERS</a
 					>
 				</li>
 				<li class="nav-item">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/contestants')"
+						href="/contestants"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>VOTE</a
 					>
 				</li>
 				<li class="nav-item">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/categories')"
+						href="/categories"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>CATEGORIES</a
 					>
 				</li>
 				<li class="nav-item">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/shop')"
+						href="/shop"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>SHOP</a
 					>
@@ -57,39 +57,40 @@
 				<li class="nav-item">
 					<a
 						href="javascript:void(0)"
-						(click)="redirect('/')"
+
+						(click)="toggleSidebar();redirect('/')"
 						class="nav-link"
 						>ABOUT US</a
 					>
 				</li>
 				<li class="nav-item" *ngIf="!sessionService.isAuth">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/login')"
+						href="/login"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>LOGIN</a
 					>
 				</li>
 				<li class="nav-item" *ngIf="!sessionService.isAuth">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/signup')"
+						href="/signup"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>SIGNUP</a
 					>
 				</li>
 				<li class="nav-item" *ngIf="sessionService.isAuth">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/profile')"
+						href="/profile"
 						class="nav-link"
+						(click)="toggleSidebar()"
 						>PROFILE</a
 					>
 				</li>
 				<li class="nav-item" *ngIf="sessionService.isAuth">
 					<a
 						href="javascript:void(0)"
-						(click)="sessionService.logout(); redirect('/')"
+						(click)="toggleSidebar();sessionService.logout(); redirect('/')"
 						class="nav-link"
 						>LOGOUT</a
 					>

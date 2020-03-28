@@ -12,6 +12,7 @@ import {SessionService} from '../api/services/session-service';
 export class HeaderComponent {
 	public hideHeader: boolean = false;
 	public showStaticHeader: boolean = false;
+	public isShow: boolean = false;
 	public headerRemove: string[] = [
 		'/login',
 		'/signup',
@@ -37,7 +38,9 @@ export class HeaderComponent {
 		});
 	}
 
-	toggleSidebar(): void {}
+	toggleSidebar(): void {
+		this.isShow = !this.isShow; 
+	}
 
 	redirect(url: string): void {
 		this.router.navigate([url]);
