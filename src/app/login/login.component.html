@@ -6,10 +6,12 @@
 			<div class="login-left d-flex align-items-center">
 				<div class="logininner">
 					<div class="text-center toplogo">
-						<img
-							src="assets/images/login-logo.jpg"
-							class="img-fluid"
-						/>
+						<a href="javascript:void(0)" [routerLink]="['/']">
+							<img
+								src="assets/images/login-logo.jpg"
+								class="img-fluid"
+							/>
+						</a>
 					</div>
 					<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 						<div class="form-content">
@@ -108,12 +110,14 @@
 							Sign in using your social account
 						</p>
 						<a
-							href="#"
+							href="javascript:void(0)"
 							class="facebook rounded-btn text-center mb-3"
 							><i class="fa fa-facebook" aria-hidden="true"></i
 							>Sign in with <span>Facebook</span></a
 						>
-						<a href="#" class="google rounded-btn text-center"
+						<a
+							href="javascript:void(0)"
+							class="google rounded-btn text-center"
 							><i class="fa fa-google" aria-hidden="true"></i>Sign
 							in with <span>Google</span></a
 						>

@@ -6,6 +6,7 @@ import {CategoryService} from '../api/services/category.service';
 import {CategoriesList} from '../api/models/categories-list';
 import {AppConst} from '../utils/app-const';
 import {BaseComponent} from '../base.component';
+import {QueryParam} from '../api/models/query-param';
 
 @Component({
 	selector: 'app-categories',
@@ -29,7 +30,11 @@ export class CategoriesComponent extends BaseComponent implements OnInit {
 	getCategories(): void {
 		this.toastService.showLoading();
 		this.isNodata = true;
-		this.categoryService.getAll().subscribe((data) => {
+		const queryParam: QueryParam = {
+			sort: 'name',
+			sortby: 'asc'
+		};
+		this.categoryService.getAll(queryParam).subscribe((data) => {
 			this.categoriesList = data;
 			if (
 				this.categoriesList.error &&

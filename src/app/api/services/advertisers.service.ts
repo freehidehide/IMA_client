@@ -6,13 +6,15 @@ import {AppConst} from '../../utils/app-const';
 import {Observable} from 'rxjs';
 
 import {AdvertisementList} from '../models/advertisement-list';
+import {QueryParam} from '../models/query-param';
 
 @Injectable()
 export class AdvertiserService {
 	constructor(private apiService: ApiService) {}
 
-	getAll(): Observable<AdvertisementList> {
-		const advertisementList: string = AppConst.SERVER_URL.ADVERTISEMENTS;
-		return this.apiService.httpGet(advertisementList);
+	getAll(queryParam: QueryParam): Observable<AdvertisementList> {
+		const advertisementList: string =
+			AppConst.NON_AUTH_SERVER_URL.ADVERTISEMENTS;
+		return this.apiService.httpGet(advertisementList, queryParam);
 	}
 }

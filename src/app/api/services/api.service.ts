@@ -6,10 +6,12 @@ import {Observable, throwError, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
+import {AppConst} from '../../utils/app-const';
 
 @Injectable()
 export class ApiService {
-	private baseUrl: String = environment.apiEndPoint;
+	private baseUrl: string = environment.apiEndPoint;
+	private token: string;
 	private httpOptions: any;
 	public windowTop: any = window.top;
 
@@ -17,6 +19,7 @@ export class ApiService {
 
 	getHeaders() {
 		let addHeaders: HttpHeaders = new HttpHeaders();
+		let token: string = null;
 		addHeaders = addHeaders.append('Accept', 'application/json');
 		addHeaders = addHeaders.append('Content-Type', 'application/json');
 		if (sessionStorage.getItem('user_context') !== undefined) {
@@ -24,10 +27,11 @@ export class ApiService {
 				sessionStorage.getItem('user_context')
 			);
 			if (sessionStr && sessionStr.access_token !== null) {
-				addHeaders = addHeaders.append(
+				/*addHeaders = addHeaders.append(
 					'Authorization',
 					'Bearer ' + sessionStr.access_token
-				);
+				);*/
+				this.token = sessionStr.access_token;
 			}
 		}
 		this.httpOptions = {
@@ -35,40 +39,51 @@ export class ApiService {
 		};
 	}
 
-	httpGet<T>(url): Observable<T> {
+	httpGet<T>(url: string, params: any): Observable<T> {
 		this.getHeaders();
 		return this.http
-			.get<T>(this.baseUrl + url, this.httpOptions)
+			.get<T>(
+				this.getFormattedQueryParam(url, params, 'GET'),
+				this.httpOptions
+			)
 			.pipe(catchError(this.handleNetworkErrors));
 	}
 
 	/**
 	 * Performs a request with `post` http method.
 	 */
-	httpPost(url, body: any): Observable<any> {
+	httpPost(url: string, body: any): Observable<any> {
 		this.getHeaders();
 		return this.http
-			.post(this.baseUrl + url, body, this.httpOptions)
+			.post(
+				this.getFormattedQueryParam(url, null, 'POST'),
+				body,
+				this.httpOptions
+			)
 			.pipe(catchError(this.handleNetworkErrors));
 	}
 
 	/**
 	 * Performs a request with `put` http method.
 	 */
-	httpPut(url, body: any): Observable<any> {
+	httpPut(url: string, body: any): Observable<any> {
 		this.getHeaders();
 		return this.http
-			.put(this.baseUrl + url, body, this.httpOptions)
+			.put(
+				this.getFormattedQueryParam(url, null, 'PUT'),
+				body,
+				this.httpOptions
+			)
 			.pipe(catchError(this.handleNetworkErrors));
 	}
 
 	/**
 	 * Performs a request with `delete` http method.
 	 */
-	httpDelete(url, options?: any): Observable<any> {
+	httpDelete(url: string, options?: any): Observable<any> {
 		this.getHeaders();
 		return this.http
-			.delete(this.baseUrl + url, options)
+			.delete(this.getFormattedQueryParam(url, null, 'DELETE'), options)
 			.pipe(catchError(this.handleNetworkErrors));
 	}
 
@@ -79,14 +94,44 @@ export class ApiService {
 		if (errObject.status === 0) {
 			sessionStorage.removeItem('user_context');
 			sessionStorage.setItem('backend_failure', 'true');
-			//   window.location.href = "/login";
+			window.location.href = '/login';
 		} else if (errObject.status === 401) {
 			sessionStorage.removeItem('user_context');
 			sessionStorage.setItem('session_expired', 'true');
-			// window.location.href = "/login";
+			window.location.href = '/login';
 		} else if (errObject.status === 500) {
 			alert(errObject.error.statusMessage);
 		}
 		return of(true);
+	}
+
+	/**
+	 * Formats the key value pair to query pair
+	 */
+	getFormattedQueryParam(url: string, params: any, method: string): string {
+		let formattedUrl: string = '';
+		let passToken: boolean = true;
+		if (method === 'GET') {
+			const regExp = /users/g;
+			passToken = !regExp.test(url);
+		}
+		const appendToken: string =
+			!(AppConst.NON_AUTH_SERVER_URL_LIST.indexOf(url) > -1) && passToken
+				? '?token=' + this.token
+				: '?';
+		if (params) {
+			const queryString = Object.keys(params)
+				.map(function(key) {
+					return key + '=' + params[key];
+				})
+				.join('&');
+			formattedUrl = this.baseUrl + url + appendToken + '&' + queryString;
+		} else {
+			formattedUrl =
+				appendToken !== '?'
+					? this.baseUrl + url + appendToken
+					: this.baseUrl + url;
+		}
+		return formattedUrl;
 	}
 }
