@@ -12,11 +12,12 @@
 		<button class="navbar-toggler" type="button" (click)="toggleSidebar()">
 			<i class="fa fa-bars text-muted" aria-hidden="true"></i>
 		</button>
-		 <div class="collapse navbar-collapse "> <!-- show -->
+		 <div class="collapse navbar-collapse" [ngClass]="{'show': isShow}">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<a
 						href="/"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>HOME</a
 					>
@@ -24,6 +25,7 @@
 				<li class="nav-item">
 					<a
 						href="/advertisers"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>ADVERTISERS</a
 					>
@@ -31,6 +33,7 @@
 				<li class="nav-item">
 					<a
 						href="/contestants"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>VOTE</a
 					>
@@ -38,6 +41,7 @@
 				<li class="nav-item">
 					<a
 						href="/categories"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>CATEGORIES</a
 					>
@@ -45,6 +49,7 @@
 				<li class="nav-item">
 					<a
 						href="/shop"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>SHOP</a
 					>
@@ -52,7 +57,8 @@
 				<li class="nav-item">
 					<a
 						href="javascript:void(0)"
-						(click)="redirect('/')"
+
+						(click)="toggleSidebar();redirect('/')"
 						class="nav-link"
 						>ABOUT US</a
 					>
@@ -60,6 +66,7 @@
 				<li class="nav-item" *ngIf="!sessionService.isAuth">
 					<a
 						href="/login"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>LOGIN</a
 					>
@@ -67,6 +74,7 @@
 				<li class="nav-item" *ngIf="!sessionService.isAuth">
 					<a
 						href="/signup"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>SIGNUP</a
 					>
@@ -75,13 +83,14 @@
 					<a
 						href="/profile"
 						class="nav-link"
+						(click)="toggleSidebar()"
 						>PROFILE</a
 					>
 				</li>
 				<li class="nav-item" *ngIf="sessionService.isAuth">
 					<a
 						href="javascript:void(0)"
-						(click)="sessionService.logout(); redirect('/')"
+						(click)="toggleSidebar();sessionService.logout(); redirect('/')"
 						class="nav-link"
 						>LOGOUT</a
 					>
