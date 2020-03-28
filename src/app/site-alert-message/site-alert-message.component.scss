@@ -1,1 +1,27 @@
 /** @format */
+.sitealert{
+    &.alert{
+        z-index: 9999;
+        transform: translate(-50%,-0);
+        padding: 1.2rem 3rem 1.2rem 1.25rem;
+        left: 50%;
+        top: 50%;
+        color:#fff;
+        
+        .close{
+            padding: 1.2rem 1.25rem;
+        }
+    }
+    &.alert-success{
+        background: #318431;  
+    }
+    &.alert-warning{
+        background: #856404;  
+    }
+    &.alert-danger{
+        background: #721c24;  
+    }
+    &.alert-info{
+        background: #004085;  
+    }
+}

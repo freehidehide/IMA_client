@@ -5,15 +5,14 @@
 	*ngIf="!showStaticHeader && hideHeader"
 >
 	<app-site-alert-message></app-site-alert-message>
-	<nav class="navbar navbar-expand-lg imanavbar">
+	<nav class="navbar navbar-expand-lg fixed-top imanavbar"><!--scrollheader -->
 		<a class="navbar-brand" href="#"
 			><img src="assets/images/ima-logo.png" class="img-fluid"
 		/></a>
 		<button class="navbar-toggler" type="button" (click)="toggleSidebar()">
-			<!-- <span class="navbar-toggler-icon"></span> -->
 			<i class="fa fa-bars text-muted" aria-hidden="true"></i>
 		</button>
-		<div class="collapse navbar-collapse">
+		 <div class="collapse navbar-collapse "> <!-- show -->
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<a

@@ -63,7 +63,7 @@
         width: 53px;
         height: 53px;
         border: none;
-        background: url("../../assets/images/minus-icon.jpg") no-repeat left top;
+        background: url('../../assets/images/minus-icon.jpg') no-repeat left top;
     }
 
     input.quantityinput {
@@ -80,7 +80,7 @@
         width: 53px;
         height: 53px;
         border: none;
-        background: url("../../assets/images/plus-icon.jpg") no-repeat left top;
+        background: url('../../assets/images/plus-icon.jpg') no-repeat left top;
     }
 }
 
@@ -91,12 +91,10 @@
 
 .productcartdesc {
     color: #696969;
-
     h2 {
         font-size: 75px;
         font-weight: 300;
     }
-
     p {
         font-size: 20px;
     }
@@ -155,6 +153,7 @@
         font-size: 41px;
     }
 }
+
 @media (max-width: 1440px) {
     .content-middle {
         padding: 30px 50px;
@@ -164,9 +163,11 @@
             font-size: 56px;
         }
     }
+
     .ctqtytext {
         font-size: 11px;
     }
+
     .ctquantityinput {
         .ctqtydecr {
             width: 40px;
@@ -207,6 +208,7 @@
         }
     }
 }
+
 @media (max-width: 991px) {
     .slectcolors {
         .availcolorsselect {
