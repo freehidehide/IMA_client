@@ -17,40 +17,35 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/')"
+						href="/"
 						class="nav-link"
 						>HOME</a
 					>
 				</li>
 				<li class="nav-item">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/advertisers')"
+						href="/advertisers"
 						class="nav-link"
 						>ADVERTISERS</a
 					>
 				</li>
 				<li class="nav-item">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/contestants')"
+						href="/contestants"
 						class="nav-link"
 						>VOTE</a
 					>
 				</li>
 				<li class="nav-item">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/categories')"
+						href="/categories"
 						class="nav-link"
 						>CATEGORIES</a
 					>
 				</li>
 				<li class="nav-item">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/shop')"
+						href="/shop"
 						class="nav-link"
 						>SHOP</a
 					>
@@ -65,24 +60,21 @@
 				</li>
 				<li class="nav-item" *ngIf="!sessionService.isAuth">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/login')"
+						href="/login"
 						class="nav-link"
 						>LOGIN</a
 					>
 				</li>
 				<li class="nav-item" *ngIf="!sessionService.isAuth">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/signup')"
+						href="/signup"
 						class="nav-link"
 						>SIGNUP</a
 					>
 				</li>
 				<li class="nav-item" *ngIf="sessionService.isAuth">
 					<a
-						href="javascript:void(0)"
-						(click)="redirect('/profile')"
+						href="/profile"
 						class="nav-link"
 						>PROFILE</a
 					>
