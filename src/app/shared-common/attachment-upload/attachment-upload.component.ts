@@ -18,7 +18,7 @@ export class AttachmentUploadComponent {
 
   fileUpload(event) {
       const formData = new FormData();
-      if (isMultiple) {
+      if (this.isMultiple) {
         formData.append('file', event.target.files);
       } else {
         formData.append('file', event.target.files[0]);
