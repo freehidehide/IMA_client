@@ -72,7 +72,4 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
 			});
 
     }
-
-
-
 }
