@@ -17,7 +17,6 @@ import {ApiService} from './api/services/api.service';
 import {ShopComponent} from './shop/shop.component';
 import {AdvertisersComponent} from './advertisers/advertisers.component';
 import {ContestantprofileComponent} from './contestantprofile/contestantprofile.component';
-import {EditprofileComponent} from './editprofile/editprofile.component';
 import {PurchasevoteComponent} from './purchasevote/purchasevote.component';
 import {ImalistingComponent} from './imalisting/imalisting.component';
 import {ResendlinkComponent} from './resendlink/resendlink.component';
@@ -51,7 +50,6 @@ import {AttachmentComponent} from './attachment/attachment.component';
 		ShopComponent,
 		AdvertisersComponent,
 		ContestantprofileComponent,
-		EditprofileComponent,
 		PurchasevoteComponent,
 		ImalistingComponent,
 		ResendlinkComponent,
