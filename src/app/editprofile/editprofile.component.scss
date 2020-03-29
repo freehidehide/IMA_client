@@ -13,6 +13,7 @@
 	max-width: 285px;
 	border-radius: 50%;
 	overflow: hidden;
+	height: 285px;
 }
 
 .eprofleft {
@@ -33,4 +34,11 @@
 		background-color: #e8e8e8;
 		color: #888;
 	}
+}
+@media(max-width:1440px){
+	.profile-image{
+		max-width: 214px;
+		height: 214px;
+	}
+
 }
