@@ -39,10 +39,30 @@
 		font-weight: 300;
 	}
 }
+@media (max-width: 1440px) {
+	.votepurchase-listing{
+		li{
+			padding:45px 0 !important;
+		}
+		h2{
+			font-size: 56px;
+		}
+		p{
+			font-size: 37px;
+			line-height: 45px;
+		}
+		.purchase-amount{
+			font-size: 75px;
+		}
+		.purchase-btn{
+			font-size: 25px;
+		}
+	}
+}
 
 @media (max-width: 991px) {
 	.purchase-contimg {
-		max-width: 150px;
+		max-width: 280px;
 	}
 
 	.purchase-contesttitle {
@@ -64,6 +84,24 @@
 
 		.purchase-btn {
 			font-size: 20px;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.purchase-contimg{
+		max-width: 200px;
+	}
+	.votepurchase-listing{
+		li{
+			text-align: center;
+			padding: 20px 0 !important;
+			> .row{
+				margin-top:0 !important;
+			}
+			h2{
+				margin:0 !important;
+			}
 		}
 	}
 }

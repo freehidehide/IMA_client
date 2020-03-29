@@ -1,136 +1,154 @@
 /** @format */
 
 nav.navbar {
-	background-color: #20283b;
-	padding: 12px 130px;
+    background-color: #20283b;
+    padding: 12px 130px;
 }
 
 .imacontainer {
-	max-width: 1920px;
-	margin: 0 auto;
-	width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .imanavbar {
-	position: static;
+    position: static;
 }
 
-@media (max-width: 1440px) {
-	:host {
-		.navbar {
-			.nav-item {
-				padding: 0 8px;
-
-				> a {
-					font-size: 14px;
-				}
-			}
-		}
-	}
+.profileheader {
+    app-attachment {
+        .shopattimage {
+            max-height: 450px;
+        }
+    }
 }
 
-@media (max-width: 991px) {
-	.imanavbar {
-		position: static !important;
-		background-color: #000 !important;
-		padding: 12px 25px !important;
-	}
-}
 
 .contprofileimage {
-	max-width: 560px;
-	overflow: hidden;
-	width: 100%;
-	margin: -280px auto 0;
-	border-radius: 50%;
-	position: relative;
+    max-width: 560px;
+    overflow: hidden;
+    width: 100%;
+    margin: -280px auto 0;
+    border-radius: 50%;
+    position: relative;
 }
 
 .contprofilearea {
-	h2 {
-		font-family: 'Rozha One', serif;
-		font-size: 66px;
-		line-height: normal;
-		color: #585757;
-	}
+    h2 {
+        font-family: 'Rozha One', serif;
+        font-size: 66px;
+        line-height: normal;
+        color: #585757;
+    }
 }
 
 .profile-social {
-	margin: 20px 0 30px;
+    margin: 20px 0 30px;
 
-	li {
-		a {
-			font-size: 25px;
-			color: #8f8f8f;
-			text-decoration: none;
-		}
-	}
+    li {
+        a {
+            font-size: 25px;
+            color: #8f8f8f;
+            text-decoration: none;
+        }
+    }
 }
 
 .contestvote-btn {
-	max-width: 680px;
-	width: 100%;
+    max-width: 680px;
+    width: 100%;
 }
 
 .voteandrank {
-	.voterankcounts {
-		.profilevcount {
-			color: #7a7a7a;
-			font-size: 29px;
-			line-height: 20px;
-			margin: 15px 0 0;
-			font-weight: 800;
+    .voterankcounts {
+        .profilevcount {
+            color: #7a7a7a;
+            font-size: 29px;
+            line-height: 20px;
+            margin: 15px 0 0;
+            font-weight: 800;
 
-			.contvotestext {
-				font-size: 10px;
-				font-weight: normal;
-			}
-		}
-	}
+            .contvotestext {
+                font-size: 10px;
+                font-weight: normal;
+            }
+        }
+    }
 }
 
 .contestprofile-thumb {
-	font-size: 19px;
-	font-weight: 600;
-	color: #454545;
+    font-size: 19px;
+    font-weight: 600;
+    color: #454545;
 }
 
 .contprofile-slisting {
-	li {
-		border-bottom: 1px solid #282828;
-	}
+    li {
+        border-bottom: 1px solid #282828;
+    }
 }
 
 .contprodescr {
-	font-size: 15px;
-	color: #696969;
+    font-size: 15px;
+    color: #696969;
 }
 
 .contprofile-listing {
-	border-radius: 30px;
-	overflow: hidden;
+    border-radius: 30px;
+    overflow: hidden;
 }
 
 .contprofiledetails {
-	color: #acacac;
+    color: #acacac;
+}
+
+@media (max-width: 1440px) {
+    .contprofileimage {
+		max-width: 420px;
+		margin: -320px auto 0;
+    }
+
+    .contprofilearea {
+        h2 {
+            font-size: 50px;
+        }
+    }
+
+    .contestvote-btn {
+		max-width: 510px;
+		font-size: 13px;
+    }
+
+    .voteandrank {
+        .voterankcounts {
+            li {
+                img {
+                    max-width: 61px;
+                }
+			}
+			.profilevcount{
+				font-size:21px;
+			}
+        }
+    }
 }
 
 @media (max-width: 991px) {
-	.contprofileimage {
-		max-width: 300px;
-		margin: -150px auto 0;
-	}
+    .contprofileimage {
+        max-width: 300px;
+        margin: -180px auto 0;
+    }
 
-	.contprofilearea {
-		h2 {
-			font-size: 36px;
-		}
-	}
+    .contprofilearea {
+        h2 {
+            font-size: 36px;
+        }
+    }
 }
 
 @media (max-width: 767px) {
-	.contprofileimage {
-		max-width: 150px;
-		margin: -75px auto 0;
-	}
+    .contprofileimage {
+        max-width: 150px;
+        margin: -100px auto 0;
+    }
 }
