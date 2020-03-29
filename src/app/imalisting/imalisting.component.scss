@@ -28,10 +28,9 @@
 		padding: 11px;
 	}
 }
-
-@media (max-width: 991px) {
+@media (max-width: 1440px) {
 	.homefeatures {
-		margin: 40px 0 40px;
+		margin: 100px 0 50px;
 		ul {
 			li {
 				margin-bottom: 50px;
@@ -42,6 +41,25 @@
 		}
 		p {
 			font-size: 15px;
+		}
+		.features-btn {
+			font-size: 17px;
+		}
+	}
+}
+@media (max-width: 991px) {
+	.homefeatures {
+		margin: 15px 0;
+		ul {
+			li {
+				margin-bottom: 20px;
+			}
+		}
+		h2 {
+			font-size: 23px;
+		}
+		p {
+			font-size: 13px;
 		}
 		.features-btn {
 			font-size: 16px;

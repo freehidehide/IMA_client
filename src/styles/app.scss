@@ -35,9 +35,9 @@ body {
 
     h2 {
         font-family: 'Rozha One', serif;
-        font-size: 5vw;
+        font-size: 100px;
         color: #fff;
-        line-height: 4vw;
+        line-height: 65px;
 
         span {
             font-family: 'Open Sans';
@@ -62,7 +62,18 @@ body {
 .rozhafont {
     font-family: 'Rozha One', serif;
 }
-
+@media (max-width: 1440px) {
+    .subheadings {
+        h2 {
+            font-size: 75px;
+            line-height: 65px;
+            span {
+                font-size: 25px;
+                line-height: 25px;
+            }
+        }
+    }
+}
 @media (max-width: 991px) {
     .content-middle {
         padding: 15px;
@@ -70,6 +81,15 @@ body {
 
     .subheadings {
         padding: 0 0 0 25px;
+        transform: translate(0%, -50%);
+        h2{
+            font-size: 50px;
+            line-height: 50px;
+            span{
+                font-size: 20px;
+                line-height: 20px;
+            }
+        }
     }
 }
 
@@ -78,6 +98,17 @@ body {
         >img {
             object-fit: cover;
             object-position: 80%;
+        }
+    }
+    .subheadings {
+        padding: 0 0 0 15px;
+        h2{
+            font-size: 30px;
+            line-height: 30px;
+            span{
+                font-size: 15px;
+                line-height: 15px;
+            }
         }
     }
 }
