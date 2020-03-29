@@ -19,7 +19,6 @@ import {CategoriesComponent} from './categories/categories.component';
 import {ContestantsComponent} from './contestants/contestants.component';
 import {AdvertisersComponent} from './advertisers/advertisers.component';
 import {ContestantprofileComponent} from './contestantprofile/contestantprofile.component';
-import {EditprofileComponent} from './editprofile/editprofile.component';
 import {PurchasevoteComponent} from './purchasevote/purchasevote.component';
 import {ImalistingComponent} from './imalisting/imalisting.component';
 import {ResendlinkComponent} from './resendlink/resendlink.component';
@@ -34,8 +33,6 @@ import {SiteLoaderComponent} from './site-loader/site-loader.component';
 import {CartComponent} from './cart/cart.component';
 import {CheckoutComponent} from './checkout/checkout.component';
 import {InstantvoteComponent} from './instantvote/instantvote.component';
-import {AttachmentComponent} from './attachment/attachment.component';
-import {PaginationComponent} from './pagination/pagination.component';
 
 @NgModule({
 	imports: [
@@ -56,7 +53,6 @@ import {PaginationComponent} from './pagination/pagination.component';
 		CategoriesComponent,
 		AdvertisersComponent,
 		ContestantprofileComponent,
-		EditprofileComponent,
 		PurchasevoteComponent,
 		ImalistingComponent,
 		ResendlinkComponent,
@@ -68,9 +64,7 @@ import {PaginationComponent} from './pagination/pagination.component';
 		SiteLoaderComponent,
 		CartComponent,
 		CheckoutComponent,
-		InstantvoteComponent,
-		AttachmentComponent,
-		PaginationComponent
+		InstantvoteComponent
 	],
 	providers: [AuthGuard, ApiService, ToastService, SessionService],
 	bootstrap: [AppComponent]

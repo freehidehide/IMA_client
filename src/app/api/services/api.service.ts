@@ -111,7 +111,7 @@ export class ApiService {
 	getFormattedQueryParam(url: string, params: any, method: string): string {
 		let formattedUrl: string = '';
 		let passToken: boolean = true;
-		if (method === 'GET') {
+		if (method === 'GET' && this.token === null) {
 			const regExp = /users/g;
 			passToken = !regExp.test(url);
 		}

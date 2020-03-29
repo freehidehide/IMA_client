@@ -12,13 +12,13 @@ export class User extends ServiceResponse {
 	token_type?: string;
 	scope?: string;
 	refresh_token?: string;
-	id: number;
+	id?: number;
 	username?: string;
 	email?: string;
 	mobile?: any;
-	first_name: string;
-	last_name: string;
-	votes: number;
+	first_name?: string;
+	last_name?: string;
+	votes?: number;
 	instagram_url?: any;
 	tiktok_url?: any;
 	youtube_url?: any;
@@ -33,5 +33,6 @@ export class User extends ServiceResponse {
 	cart_count?: number;
 	category?: UserCategory;
 	data?: User;
-	error: Error;
+    error: Error;
+    image?: string;
 }

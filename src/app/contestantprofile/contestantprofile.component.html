@@ -171,15 +171,15 @@
 							class="pb-3 my-4 mx-auto"
 							*ngIf="
 								sessionService.isAuth &&
-								user.data.subscribed_data.length > 0
+								user.data.subscribed_data && user.data.subscribed_data.length > 0
 							"
 						>
 							<div class="contprofile-listing">
 								<a href="javascript:void(0)">
-									<img
-										src="assets/images/cprofile-list1.png"
-										class="img-fluid"
-									/>
+									<app-attachment
+										[attachment]="user.data.attachment"
+										[type]="original"
+									></app-attachment>
 								</a>
 							</div>
 						</li>
