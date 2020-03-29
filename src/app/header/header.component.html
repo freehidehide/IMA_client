@@ -97,6 +97,15 @@
 						(click)="toggleSidebar()"
 						>PROFILE</a
 					>
+                </li>
+                <li class="nav-item" *ngIf="sessionService.isAuth">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/change-password']"
+						class="nav-link"
+						(click)="toggleSidebar()"
+						>CHANGE PASSWORD</a
+					>
 				</li>
 				<li class="nav-item" *ngIf="sessionService.isAuth">
 					<a
@@ -201,6 +210,15 @@
 						class="nav-link"
 						(click)="toggleSidebar()"
 						>PROFILE</a
+					>
+                </li>
+                <li class="nav-item" *ngIf="sessionService.isAuth">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/change-password']"
+						class="nav-link"
+						(click)="toggleSidebar()"
+						>CHANGE PASSWORD</a
 					>
 				</li>
 				<li class="nav-item" *ngIf="sessionService.isAuth">
