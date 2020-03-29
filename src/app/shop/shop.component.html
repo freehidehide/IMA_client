@@ -8,75 +8,68 @@
 		<img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
 	</div>
 	<div class="content-middle contestants-section" *ngIf="!isNodata">
-		<div
-			class="row shoplisting"
-			*ngFor="let product of productList.data; trackBy: trackById"
-		>
+		<div class="shopsearch">
+			<div class="row">
+				<div class="col-md-12">
+					<form>
+						<div class="row align-items-center shoptopsearch">
+							<div class="col-sm-5 my-1 searchinput position-relative">
+								<input type="text" class="form-control" id="inlineFormInputName"
+									placeholder="Search for items">
+								<span class="search-icon"></span>
+							</div>
+							<div class="col-auto my-1 shop-srbtn">
+								<button type="submit" class="btn btn-dark text-uppercase">Search</button>
+							</div>
+						</div>
+						<div class="row align-items-center shopfilter">
+							<div class="col-md-10">
+								<div class="row">
+									<div class="col-md-4">
+										<a href="#" class="text-decoration-none"> <i class="fa fa-caret-down"
+												aria-hidden="true"></i> Filter listings by Model</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="row shoplisting" *ngFor="let product of productList.data; trackBy: trackById">
 			<div class="col-lg-7 col-md-6">
 				<div class="cartimglisting d-flex">
 					<div class="mr-3 cartmiouter">
 						<div class="cartmainimage position-relative">
-							<app-attachment
-								[attachment]="product.details[0].attachments[0]"
-								[type]="original"
-								[cssClass]="'test'"
-							></app-attachment>
+							<app-attachment [attachment]="product.details[0].attachments[0]" [type]="original"
+								[cssClass]="'test'"></app-attachment>
 							<a href="#" class="cartuserimg">
-								<img
-								src="assets/images/contestant-profile.jpg"
-								class="img-fluid rounded-circle"
-							/>	
+								<img src="assets/images/contestant-profile.jpg" class="img-fluid rounded-circle" />
 							</a>
 						</div>
 					</div>
 					<div class="cartlistthumbnails">
 						<a href="javascript:void(0)" class="mb-3">
-							<img
-								src="assets/images/dummy-thumb.jpg"
-								class="img-fluid"
-							/>
+							<img src="assets/images/dummy-thumb.jpg" class="img-fluid" />
 						</a>
 						<a href="javascript:void(0)" class="mb-3">
-							<img
-								src="assets/images/dummy-thumb.jpg"
-								class="img-fluid"
-							/>
+							<img src="assets/images/dummy-thumb.jpg" class="img-fluid" />
 						</a>
 						<a href="javascript:void(0)" class="mb-3">
-							<img
-								src="assets/images/dummy-thumb.jpg"
-								class="img-fluid"
-							/>
+							<img src="assets/images/dummy-thumb.jpg" class="img-fluid" />
 						</a>
 						<a href="javascript:void(0)" class="">
-							<img
-								src="assets/images/dummy-thumb.jpg"
-								class="img-fluid"
-							/>
+							<img src="assets/images/dummy-thumb.jpg" class="img-fluid" />
 						</a>
 					</div>
 				</div>
 				<div class="slectcolors">
-					<span class="text-uppercase availcoltext mr-3"
-						>Available Colors</span
-					>
+					<span class="text-uppercase availcoltext mr-3">Available Colors</span>
 					<span>
-						<a
-							href=""
-							class="availcolorsselect blackavail ml-2"
-						></a>
-						<a
-							href=""
-							class="availcolorsselect blackavail ml-2"
-						></a>
-						<a
-							href=""
-							class="availcolorsselect blackavail ml-2"
-						></a>
-						<a
-							href=""
-							class="availcolorsselect blackavail ml-2"
-						></a>
+						<a href="" class="availcolorsselect blackavail ml-2"></a>
+						<a href="" class="availcolorsselect blackavail ml-2"></a>
+						<a href="" class="availcolorsselect blackavail ml-2"></a>
+						<a href="" class="availcolorsselect blackavail ml-2"></a>
 					</span>
 				</div>
 			</div>
@@ -87,11 +80,7 @@
 							<p class="text-uppercase ctqtytext">Quantity</p>
 							<div class="ctquantityinput">
 								<button class="ctqtydecr"></button>
-								<input
-									type="number"
-									class="quantityinput"
-									value="1"
-								/>
+								<input type="number" class="quantityinput" value="1" />
 								<button class="ctqtyincr"></button>
 							</div>
 							<p class="mt-2 quntyremain m-0">Only 5 items left</p>
@@ -117,15 +106,9 @@
 							<p class="text-center discount-details m-0 mt-1">
 								<span>10% discount</span> available
 							</p>
-							<input
-								class="discountcode text-center text-uppercase"
-								placeholder="Enter Code"
-							/>
+							<input class="discountcode text-center text-uppercase" placeholder="Enter Code" />
 							<button class="btn btn-primary cart-btn mt-4">
-								<i
-									class="fa fa-shopping-cart"
-									aria-hidden="true"
-								></i>
+								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 								{{ product.price | currency: 'JPY':'symbol' }}
 							</button>
 						</div>
