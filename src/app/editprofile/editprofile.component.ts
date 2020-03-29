@@ -46,7 +46,7 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
         });
 
         this.userId = this.sessionService.user.id;
-        this.getUser(this.patchuser);
+        this.getUser(true);
     }
 
     patchuser(user: User) {
