@@ -9,6 +9,8 @@ import { AppConst } from './utils/app-const';
 export abstract class UserBaseComponent {
     public user: User;
 	public userId: number;
+	public editProfileForm: FormGroup;
+    
     constructor(
         protected router: Router,
 		protected userService: UserService,
@@ -29,6 +31,13 @@ export abstract class UserBaseComponent {
 				this.patchuser(response);
 			}
 			this.toastService.clearLoading();
+		});
+	}
+
+	patchuser(user: User) {
+		console.log('user', user);
+		this.editProfileForm.patchValue({
+			first_name: user.data.first_name,
 		});
 	}
 }
