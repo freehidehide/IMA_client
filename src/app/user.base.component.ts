@@ -5,12 +5,13 @@ import { Router } from '@angular/router';
 import { UserService } from './api/services/user.service';
 import { ToastService } from './api/services/toast-service';
 import { AppConst } from './utils/app-const';
+import { FormGroup } from '@angular/forms';
 
 export abstract class UserBaseComponent {
     public user: User;
 	public userId: number;
 	public editProfileForm: FormGroup;
-    
+
     constructor(
         protected router: Router,
 		protected userService: UserService,
@@ -35,9 +36,18 @@ export abstract class UserBaseComponent {
 	}
 
 	patchuser(user: User) {
-		console.log('user', user);
 		this.editProfileForm.patchValue({
-			first_name: user.data.first_name,
+            first_name: user.data.first_name,
+            last_name: user.data.last_name,
+            email: user.data.email,
+            address: {
+                addressline1: user.data.address.addressline1,
+                addressline2: user.data.address.addressline2,
+                city: user.data.address.city,
+                state: user.data.address.state,
+                country: user.data.address.country,
+                zipcode: user.data.address.zipcode
+            }
 		});
 	}
 }

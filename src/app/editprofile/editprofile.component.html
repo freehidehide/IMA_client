@@ -25,15 +25,8 @@
                     <div class="invalid-feedback-show" *ngIf="isSubmitted && f.last_name.errors.required">
                         {{ 'lastname is required' | translate }}</div>
                 </div>
-                <div class="form-group">
-                    <label>Email*</label>
-                    <input class="form-control" type="text" formControlName="email" />
-                    <div class="invalid-feedback-show" *ngIf="isSubmitted && f.email.errors.required">
-                        {{ 'Email is required' | translate }}
-                    </div>
-                </div>
-                <!-- <div class="form-group">
-                    <label>Email Address</label>
+                 <div class="form-group">
+                    <label>Email Address*</label>
                     <input class="form-control" type="email" formControlName="email" />
                     <div class="invalid-feedback-show" *ngIf="isSubmitted && f.email.errors.required">
                         {{ 'email is required' | translate }}
