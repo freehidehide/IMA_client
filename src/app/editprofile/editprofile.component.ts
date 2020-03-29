@@ -7,6 +7,7 @@ import { ToastService } from '../api/services/toast-service';
 import { UserService } from '../api/services/user.service';
 import { SessionService } from '../api/services/session-service';
 import { UserBaseComponent } from '../user.base.component';
+import { User } from '../api/models/user';
 
 @Component({
 	selector: 'app-editprofile',
@@ -19,6 +20,7 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
     public userClass = 'UserAvatar';
     public multiple = 'multiple';
     public editProfileForm: FormGroup;
+    public user: User;
 	constructor(
         protected router: Router,
 		private formBuilder: FormBuilder,
@@ -44,8 +46,15 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
                 zipcode: ['', [Validators.required]]
             })
         });
+        this.editProfileForm.patchValue({
+            first_name: 'test',
+        });
         this.userId = this.sessionService.user.id;
         this.getUser();
+        setTimeout(() => {
+            console.log('user', this.user);
+        }, 500);
+
     }
 
     get f() {
