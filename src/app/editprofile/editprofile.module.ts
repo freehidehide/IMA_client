@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LanguageTranslationModule } from '../shared/modules/language-translation/language-translation.module';
 import { UserService } from '../api/services/user.service';
 import { SharedCommonModule } from '../shared-common/shared-common.module';
+import { ImageService } from '../api/services/image.service';
 
 @NgModule({
 	declarations: [EditprofileComponent],
@@ -20,6 +21,9 @@ import { SharedCommonModule } from '../shared-common/shared-common.module';
         LanguageTranslationModule,
         SharedCommonModule
     ],
-    providers: [UserService]
+    providers: [
+        UserService,
+        ImageService
+    ]
 })
 export class EditprofileModule {}
