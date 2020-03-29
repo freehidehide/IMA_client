@@ -101,7 +101,7 @@ const routes: Routes = [
 			)
 	},
 	{
-		path: 'password-changed',
+		path: 'change-password',
 		loadChildren: () =>
 			import('./passwordchanged/passwordchanged.module').then(
 				(m) => m.PasswordchangedModule

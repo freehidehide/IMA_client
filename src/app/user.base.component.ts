@@ -15,7 +15,7 @@ export abstract class UserBaseComponent {
         protected toastService: ToastService,
     ) {}
 
-    getUser(): void {
+    getUser(callback): void {
 		this.toastService.showLoading();
 		this.userService.findById(this.userId).subscribe((response) => {
 			this.user = response;
@@ -23,7 +23,10 @@ export abstract class UserBaseComponent {
 				this.user.error &&
 				this.user.error.code !== AppConst.SERVICE_STATUS.SUCCESS
 			) {
-				this.router.navigate(['/not-found']);
+                this.router.navigate(['/not-found']);
+                if (callback !== null) {
+                    callback();
+                }
 			}
 			this.toastService.clearLoading();
 		});

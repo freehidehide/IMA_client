@@ -27,7 +27,7 @@ export class ContestantprofileComponent extends UserBaseComponent
 	ngOnInit(): void {
 		this.userId = +this.activatedRoute.snapshot.paramMap.get('id');
 		if (this.userId) {
-			this.getUser();
+			this.getUser(null);
 		}
 	}
 

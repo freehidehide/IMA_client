@@ -46,15 +46,20 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
                 zipcode: ['', [Validators.required]]
             })
         });
-        this.editProfileForm.patchValue({
-            first_name: 'test',
-        });
+
         this.userId = this.sessionService.user.id;
-        this.getUser();
+        this.getUser(this.patchuser());
+
+
+    }
+
+    patchuser() {
         setTimeout(() => {
             console.log('user', this.user);
         }, 500);
-
+        this.editProfileForm.patchValue({
+            first_name: 'test',
+        });
     }
 
     get f() {
