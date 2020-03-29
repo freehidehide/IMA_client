@@ -26,7 +26,7 @@ export abstract class UserBaseComponent {
                 this.router.navigate(['/not-found']);
 			}
 			if (callback !== null) {
-				callback(this.user);
+				this.patchuser(response);
 			}
 			this.toastService.clearLoading();
 		});
