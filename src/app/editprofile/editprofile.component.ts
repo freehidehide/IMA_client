@@ -54,9 +54,7 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
     }
 
     patchuser() {
-        setTimeout(() => {
             console.log('user', this.user);
-        }, 500);
         this.editProfileForm.patchValue({
             first_name: 'test',
         });
