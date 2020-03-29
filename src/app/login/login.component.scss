@@ -18,7 +18,7 @@ $topnav-background-color: #222;
 		text-align: right;
 
 		img {
-			height: 100%;
+			height: 100vh;
 			object-fit: cover;
 			width: 100%;
 		}
@@ -173,8 +173,8 @@ $topnav-background-color: #222;
 
 		.limageright {
 			img {
-				object-position: 100% 100%;
-				height: 100%;
+				object-position: 83% 100%;
+				height: 100vh;
 			}
 		}
 		.input-lg {
@@ -225,6 +225,12 @@ $topnav-background-color: #222;
 			img {
 				max-width: 100px;
 			}
+		}
+		.form-group {
+			padding: 4px 0;
+		}
+		.form-content {
+			padding: 10px 0 10px;
 		}
 	}
 

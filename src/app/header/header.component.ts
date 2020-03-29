@@ -1,9 +1,9 @@
 /** @format */
 
-import {Component} from '@angular/core';
+import {Component, HostListener, Inject} from '@angular/core';
 import {RouterModule, Router, NavigationEnd} from '@angular/router';
 import {SessionService} from '../api/services/session-service';
-
+import {DOCUMENT} from '@angular/common';
 @Component({
 	selector: 'app-header',
 	templateUrl: './header.component.html',
@@ -12,6 +12,8 @@ import {SessionService} from '../api/services/session-service';
 export class HeaderComponent {
 	public hideHeader: boolean = false;
 	public showStaticHeader: boolean = false;
+	public isShow: boolean = false;
+	public isScrollheader: boolean = false;
 	public headerRemove: string[] = [
 		'/login',
 		'/signup',
@@ -27,7 +29,11 @@ export class HeaderComponent {
 		'/checkout',
 		'/edit'
 	];
-	constructor(private router: Router, public sessionService: SessionService) {
+	constructor(
+		@Inject(DOCUMENT) private document: Document,
+		private router: Router,
+		public sessionService: SessionService
+	) {
 		this.router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
 				this.hideHeader = !(this.headerRemove.indexOf(event.url) > -1);
@@ -37,7 +43,16 @@ export class HeaderComponent {
 		});
 	}
 
-	toggleSidebar(): void {}
+	@HostListener('window:scroll', [])
+	onWindowScroll() {
+		this.isScrollheader =
+			document.body.scrollTop > 367 ||
+			document.documentElement.scrollTop > 367;
+	}
+
+	toggleSidebar(): void {
+		this.isShow = !this.isShow;
+	}
 
 	redirect(url: string): void {
 		this.router.navigate([url]);

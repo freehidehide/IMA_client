@@ -1,80 +1,119 @@
 <!-- @format -->
 
-<div class="imacontainer">
+<div class="imacontainer" *ngIf="user && user.data">
 	<div class="profileheader text-center">
-		<img
-			src="assets/images/contestant-profile-banner.jpg"
-			class="img-fluid"
-		/>
+		<app-attachment
+			[attachment]="user.data.attachment"
+			[type]="original"
+		></app-attachment>
 	</div>
 	<div class="content-middle contestantprofile">
 		<div class="contprofileimage">
-			<img
-				src="assets/images/contestant-profile-img.jpg"
-				class="img-fluid"
-			/>
+			<app-attachment
+				[attachment]="user.data.attachment"
+				[type]="original"
+			></app-attachment>
 		</div>
 		<div class="container">
 			<div class="contprofilearea">
 				<div class="text-center">
-					<h2>[Contestant Name]</h2>
-					<ul class="profile-social list-inline text-center">
-						<li class="list-inline-item px-4">
-							<a href="#">
+					<h2>
+						{{ user.data.first_name }} {{ user.data.last_name }}
+					</h2>
+					<ul
+						class="profile-social list-inline text-center"
+						*ngIf="
+							user.data.instagram_url ||
+							user.data.tiktok_url ||
+							user.data.youtube_url ||
+							user.data.twitter_url ||
+							user.data.facebook_url
+						"
+					>
+						<li
+							class="list-inline-item px-4"
+							*ngIf="user.data.instagram_url"
+						>
+							<a
+								href="{{ user.data.instagram_url }}"
+								target="_bank"
+							>
 								<img
 									src="assets/images/instagram.png"
 									class="img-fluid"
 								/>
-								<span class="d-block"><em>username</em></span>
+								<span class="d-block"><em>Instagram</em></span>
 							</a>
 						</li>
-						<li class="list-inline-item px-4">
-							<a href="#">
+						<li
+							class="list-inline-item px-4"
+							*ngIf="user.data.tiktok_url"
+						>
+							<a href="{{ user.data.tiktok_url }}" target="_bank">
 								<img
 									src="assets/images/social1.png"
 									class="img-fluid"
 								/>
-								<span class="d-block"><em>username</em></span>
+								<span class="d-block"><em>Tiktok</em></span>
 							</a>
 						</li>
-						<li class="list-inline-item px-4">
-							<a href="#">
+						<li
+							class="list-inline-item px-4"
+							*ngIf="user.data.youtube_url"
+						>
+							<a
+								href="{{ user.data.youtube_url }}"
+								target="_bank"
+							>
 								<img
 									src="assets/images/youtube.png"
 									class="img-fluid"
 								/>
-								<span class="d-block"><em>username</em></span>
+								<span class="d-block"><em>Youtube</em></span>
 							</a>
 						</li>
-						<li class="list-inline-item px-4">
-							<a href="#">
+						<li
+							class="list-inline-item px-4"
+							*ngIf="user.data.twitter_url"
+						>
+							<a
+								href="{{ user.data.twitter_url }}"
+								target="_bank"
+							>
 								<img
 									src="assets/images/twitter.png"
 									class="img-fluid"
 								/>
-								<span class="d-block"><em>username</em></span>
+								<span class="d-block"><em>Twitter</em></span>
 							</a>
 						</li>
-						<li class="list-inline-item px-4">
-							<a href="#">
+						<li
+							class="list-inline-item px-4"
+							*ngIf="user.data.facebook_url"
+						>
+							<a
+								href="{{ user.data.facebook_url }}"
+								target="_bank"
+							>
 								<img
 									src="assets/images/facebook.png"
 									class="img-fluid"
 								/>
-								<span class="d-block"><em>username</em></span>
+								<span class="d-block"><em>Facebook</em></span>
 							</a>
 						</li>
 					</ul>
 					<div class="my-5">
 						<a
-							href="#"
+							href="javascript:void(0)"
 							class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
 						>
 							<i
 								class="fa fa-star fa-3x mr-3"
 								aria-hidden="true"
 							></i>
-							Vote for [CONTESTANT NAME]
+							Vote for {{ user.data.first_name }}
+							{{ user.data.last_name }}
 						</a>
 					</div>
 					<div class="voteandrank">
@@ -90,87 +129,69 @@
 									></span
 								>
 							</li>
-							<li class="list-inline-item px-4">
-								<img
-									src="assets/images/task-icon.png"
-									class="img-fluid"
-								/>
-								<span class="d-block profilevcount"
-									>01<span class="d-block contvotestext"
-										>current rank</span
-									></span
-								>
-							</li>
 						</ul>
 					</div>
 					<ul
 						class="list-unstyled text-left d-flex justify-content-center contprofile-slisting flex-column"
 					>
-						<li class="pb-3 my-4 mx-auto">
-							<div class="contestprofile-thumb">
-								<img
-									src="assets/images/user-thumbnail.png"
-									class="img-fluid"
-								/>
-								<span class="ml-3">[Contestant Name]</span>
-							</div>
-							<p class="contprodescr mt-3">
-								Photo or video captionLorem ipsum dolor sit
-								amet, consectetur adipiscing elit.
-							</p>
+						<li
+							class="pb-3 my-4 mx-auto"
+							*ngIf="
+								!sessionService.isAuth ||
+								!user.data.is_subscribed
+							"
+						>
 							<div class="contprofile-listing">
-								<a href="#">
+								<a
+									href="javascript:void(0)"
+									[routerLink]="['/login']"
+									*ngIf="!sessionService.isAuth"
+								>
 									<img
-										src="assets/images/cprofile-list1.png"
+										src="assets/images/subscribe-lock.png"
 										class="img-fluid"
 									/>
 								</a>
-							</div>
-							<div
-								class="d-flex justify-content-between contprofiledetails mt-2"
-							>
-								<p class="pt-3">[Date/Time]</p>
-								<div class="listingshares text-center">
-									<i
-										class="fa fa-paper-plane-o fa-3x"
-										aria-hidden="true"
-									></i>
-									<span class="d-block">100 shares</span>
-								</div>
-							</div>
-						</li>
-						<li class="pb-3 my-4 mx-auto">
-							<div class="contestprofile-thumb">
-								<img
-									src="assets/images/user-thumbnail.png"
-									class="img-fluid"
-								/>
-								<span class="ml-3">[Contestant Name]</span>
-							</div>
-							<p class="contprodescr mt-3">
-								Photo or video captionLorem ipsum dolor sit
-								amet, consectetur adipiscing elit.
-							</p>
-							<div class="contprofile-listing">
-								<a href="#">
+								<a
+									href="javascript:void(0)"
+									[routerLink]="['/purchase']"
+									*ngIf="
+										sessionService.isAuth &&
+										!user.data.is_subscribed
+									"
+								>
 									<img
 										src="assets/images/subscribe-lock.png"
 										class="img-fluid"
 									/>
 								</a>
 							</div>
-							<div
-								class="d-flex justify-content-between contprofiledetails mt-2"
-							>
-								<p class="pt-3">[Date/Time]</p>
-								<div class="listingshares text-center">
-									<i
-										class="fa fa-paper-plane-o fa-3x"
-										aria-hidden="true"
-									></i>
-									<span class="d-block">100 shares</span>
-								</div>
+						</li>
+						<li
+							class="pb-3 my-4 mx-auto"
+							*ngIf="
+								sessionService.isAuth &&
+								user.data.subscribed_data.length > 0
+							"
+						>
+							<div class="contprofile-listing">
+								<a href="javascript:void(0)">
+									<img
+										src="assets/images/cprofile-list1.png"
+										class="img-fluid"
+									/>
+								</a>
 							</div>
+						</li>
+						<li
+							class="pb-3 my-4 mx-auto"
+							*ngIf="
+								sessionService.isAuth &&
+								user.data.is_subscribed &&
+								user.data.subscribed_data.length === 0
+							"
+						>
+							No Records
 						</li>
 					</ul>
 				</div>

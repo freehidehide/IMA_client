@@ -1,220 +1,173 @@
 /** @format */
 
-.cartimglisting {
-	flex-direction: row;
+// shared css for the login and signup page
+@import '../login/login.component.scss';
 
-	.cartmainimage {
-		border-radius: 20px;
-		overflow: hidden;
-		display: inline-block;
+.signup-page {
+	background: #20293c;
+	height: 100vh;
+	text-align: center;
+	padding: 15px 0;
+
+	.form-content {
+		padding-top: 10px;
 	}
 
-	.cartlistthumbnails {
-		display: flex;
-		flex-direction: column;
+	.login-actions {
+		margin: 0;
 
-		a {
-			border-radius: 10px;
-			overflow: hidden;
-			display: inline-block;
+		.register-btn {
+			background: #3ea6fa;
+			font-size: 22px;
+			font-weight: 600;
+			color: #fff;
+			border: none;
+			width: 100%;
+		}
+	}
+
+	.thirdlogin {
+		margin: 0;
+	}
+
+	.toplogo {
+		img {
+			max-width: 120px;
 		}
 	}
 }
 
-.slectcolors {
-	display: flex;
-	align-items: center;
-	margin: 30px 0;
+.signupwhite {
+	background: #fff;
+	max-width: 800px;
+	width: 100%;
+	padding: 15px 0;
+	margin: 0 auto;
 
-	.availcoltext {
-		font-size: 20px;
-		color: #696969;
-	}
+	form {
+		padding: 15px 145px;
 
-	.availcolorsselect {
-		width: 52px;
-		height: 52px;
-		border-radius: 50%;
-		overflow: hidden;
-		display: inline-block;
-		margin: 0 15px 0 0;
-	}
+		input {
+			background: #ebebeb;
+			border: none;
+			color: #797979;
+			height: 47px;
+			padding: 0 15px;
+			text-align: center;
+			font-size: 21px;
 
-	.blackavail {
-		background-color: #000;
-	}
-}
+			&:focus {
+				border: none;
+			}
+		}
 
-.cartquantity {
-	display: flex;
-	justify-content: flex-end;
-	flex-direction: column;
-}
-
-.ctqtytext {
-	font-size: 15px;
-	color: #696969;
-}
-
-.ctquantityinput {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	.ctqtydecr {
-		width: 53px;
-		height: 53px;
-		border: none;
-		background: url('../../assets/images/minus-icon.jpg') no-repeat left top;
-	}
-
-	input.quantityinput {
-		border: none;
-		height: 53px;
-		width: 53px;
-		text-align: center;
-		font-size: 35px;
-		font-weight: 300;
-		color: #696969;
-	}
-
-	.ctqtyincr {
-		width: 53px;
-		height: 53px;
-		border: none;
-		background: url('../../assets/images/plus-icon.jpg') no-repeat left top;
+		.form-group {
+			padding: 0;
+			margin: 0 0 20px;
+		}
 	}
 }
 
-.quntyremain {
-	font-size: 15px;
-	color: #adadad;
-}
-
-.productcartdesc {
-	color: #696969;
-
-	h2 {
-		font-size: 75px;
-		font-weight: 300;
-	}
-
-	p {
-		font-size: 20px;
-	}
-}
-
-.product-availsizes {
-	display: flex;
-	align-items: center;
-
-	span {
-		font-size: 20px;
-		color: #696969;
-		margin: 0 10px 0 0;
-	}
+.already_acc {
+	color: #666;
+	font-size: 13px;
+	margin: 15px 0 0;
+	font-weight: 600;
 
 	a {
-		font-size: 25px;
-		height: 53px;
-		width: 53px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border: 1px solid #bdbdbd;
-		color: #bdbdbd;
-		margin: 0 10px 0 0;
-		text-decoration: none;
-	}
-}
-
-.cartdetails {
-	.discount-details {
+		text-decoration: underline;
 		font-size: 18px;
-		color: #6d6d6d;
-
-		span {
-			color: #e64f63;
-		}
-	}
-
-	input.discountcode {
-		height: 70px;
-		border: none;
-		font-size: 41px;
-		width: 300px;
-		font-weight: 300;
-		padding: 0 10px;
-		background: #e2e5e7;
-		color: #a1a1a1;
-	}
-
-	.cart-btn {
-		height: 70px;
-		width: 300px;
-		font-weight: 300;
-		padding: 0 10px;
-		font-size: 41px;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #666;
 	}
 }
+
+.ortext {
+	position: relative;
+	color: #000;
+	margin: 20px 0;
+
+	&:after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 1px;
+		background: #acacac;
+		left: 0;
+		top: 50%;
+		transform: translate(0%, -50%);
+	}
+
+	span {
+		background: #fff;
+		position: relative;
+		z-index: 9;
+		font-size: 16px;
+		padding: 0 4px;
+		top: -2px;
+	}
+}
+
 @media (max-width: 1440px) {
-	.content-middle {
-		padding: 30px 50px;
-	}
-	.productcartdesc {
-		h2 {
-			font-size: 56px;
+	.signup-page {
+		.toplogo {
+			img {
+				max-width: 100px !important;
+			}
 		}
 	}
-	.ctqtytext {
+
+	.signupwhite {
+		max-width: 600px;
+
+		form {
+			padding: 15px 100px;
+
+			.form-group {
+				margin: 0 0 15px;
+			}
+
+			input {
+				height: 40px;
+				font-size: 16px;
+			}
+		}
+	}
+
+	.signup-page {
+		.login-actions {
+			.register-btn {
+				font-size: 16px;
+				line-height: 32px;
+			}
+		}
+
+		.thirdlogin {
+			.thirdtext {
+				font-size: 13px;
+			}
+		}
+	}
+
+	.already_acc {
 		font-size: 11px;
-	}
-	.ctquantityinput {
-		.ctqtydecr {
-			width: 40px;
-			height: 40px;
-			background-size: cover;
-		}
-		input.quantityinput {
-			width: 40px;
-			height: 40px;
-			font-size: 40px;
-		}
-		.ctqtyincr {
-			width: 40px;
-			height: 40px;
-			background-size: cover;
-		}
-	}
-	.product-availsizes {
-		span {
-			font-size: 15px;
-		}
+
 		a {
-			width: 40px;
-			height: 40px;
-			font-size: 18px;
-		}
-	}
-	.cartdetails {
-		input.discountcode {
-			height: 56px;
-			font-size: 31px;
-			width: 252px;
-		}
-		.cart-btn {
-			height: 56px;
-			font-size: 31px;
-			width: 252px;
+			font-size: 14px;
 		}
 	}
 }
-@media (max-width: 991px) {
-	.slectcolors {
-		.availcolorsselect {
-			width: 32px;
-			height: 32px;
-			margin: 0 8px 0 0;
+
+@media (max-width: 767px) {
+	.signup-page {
+		padding: 0;
+		height: inherit;
+	}
+
+	.signupwhite {
+		form {
+			padding: 15px;
 		}
 	}
 }

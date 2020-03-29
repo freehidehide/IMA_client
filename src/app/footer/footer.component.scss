@@ -17,9 +17,12 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		height: auto;
+		padding: 20px 5px;
 
 		p {
 			line-height: normal;
+			font-size: 15px;
 		}
 	}
 }

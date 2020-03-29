@@ -7,7 +7,7 @@ import {ForgotpasswordRoutingModule} from './forgotpassword-routing.module';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {ForgotpasswordComponent} from './forgotpassword.component';
 import {LanguageTranslationModule} from '../shared/modules/language-translation/language-translation.module';
-import { UserService } from '../api/services/user.service';
+import {UserService} from '../api/services/user.service';
 
 @NgModule({
 	declarations: [ForgotpasswordComponent],
@@ -17,7 +17,7 @@ import { UserService } from '../api/services/user.service';
 		FormsModule,
 		ReactiveFormsModule,
 		LanguageTranslationModule
-    ],
-    providers: [UserService]
+	],
+	providers: [UserService]
 })
 export class ForgotpasswordModule {}

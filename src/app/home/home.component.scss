@@ -369,7 +369,7 @@ $topnav-background-color: #222;
 	.subheadings {
 		top: 60%;
 		width: 50%;
-
+		padding: 0 0 0 80px;
 		h2 {
 			font-size: 50px;
 			line-height: 46px;
@@ -446,7 +446,7 @@ $topnav-background-color: #222;
 				.homepticketcont {
 					max-width: 300px;
 					h2 {
-						font-size: 34px;
+						font-size: 30px;
 					}
 
 					p {
@@ -466,12 +466,13 @@ $topnav-background-color: #222;
 	}
 
 	.subscribe-section {
+		padding: 50px 0 70px;
 		.subscribetext {
 			font-size: 28px;
 		}
 
 		h3 {
-			font-size: 256px;
+			font-size: 220px;
 			line-height: 150px;
 		}
 
@@ -496,8 +497,11 @@ $topnav-background-color: #222;
 
 @media (max-width: 767px) {
 	.subheadings {
-		padding: 0 20px;
+		padding: 15px;
 		width: 100%;
+		position: static;
+		background: #000;
+		transform: inherit;
 
 		h2 {
 			font-size: 35px;
@@ -523,6 +527,11 @@ $topnav-background-color: #222;
 					height: auto;
 				}
 			}
+			.instavoteimg {
+				img {
+					width: 100px;
+				}
+			}
 		}
 	}
 	.homefeatures {
@@ -530,7 +539,9 @@ $topnav-background-color: #222;
 
 		ul {
 			li {
-				margin-bottom: 20px;
+				img {
+					max-width: 220px;
+				}
 			}
 		}
 		.features-btn {
@@ -578,7 +589,6 @@ $topnav-background-color: #222;
 }
 @media (max-width: 480px) {
 	.subheadings {
-		top: 50%;
 		h2 {
 			font-size: 26px;
 			line-height: 22px;

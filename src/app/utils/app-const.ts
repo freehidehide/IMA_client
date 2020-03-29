@@ -1,17 +1,28 @@
 /** @format */
 
 export class AppConst {
-	public static readonly SERVER_URL = {
+	public static readonly NON_AUTH_SERVER_URL = {
 		REGISTER: '/users/register',
 		LOGIN: '/users/login',
-		ROLE: '/role',
 		USER: '/users',
 		FORGETPASSWORD: '/users/forgot_password',
 		CHANGEPASSWORD: '/change_password',
 		ALLCATEGORY: '/catagories',
+		CONTESTANTS: '/contestants',
 		PRODUCTS: '/products',
 		ADVERTISEMENTS: '/advertisements'
 	};
+
+	public static readonly NON_AUTH_SERVER_URL_LIST = [
+		'/users/register',
+		'/users/login',
+		'/users/forgot_password',
+		'/change_password',
+		'/catagories',
+		'/contestants',
+		'/products',
+		'/advertisements'
+	];
 
 	public static readonly SERVICE_STATUS = {
 		SUCCESS: 0,
