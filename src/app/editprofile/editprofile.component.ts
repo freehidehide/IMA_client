@@ -51,7 +51,10 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
 
     get f() {
 		return this.editProfileForm.controls;
-	}
+    }
+    get address() {
+        return this.editProfileForm.controls['address'];
+    }
 
     onSubmit() {
         this.isSubmitted = true;
