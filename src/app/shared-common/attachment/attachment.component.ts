@@ -13,10 +13,16 @@ import { Attachment } from 'src/app/api/models/attachment';
 export class AttachmentComponent {
 	public url: string;
 	public imageClass: string = 'original';
+	public cssClassString: string;
 
 	@Input('type')
 	set class(value: string) {
 		this.imageClass = value;
+	}
+
+	@Input('cssClass')
+	set cssClass(value: string) {
+		this.cssClassString = value;
 	}
 
 	@Input('attachment')
