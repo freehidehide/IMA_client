@@ -20,10 +20,7 @@ export class AttachmentComponent {
 		this.imageClass = value;
 	}
 
-	@Input('cssClass')
-	set cssClass(value: string) {
-		this.cssClassString = value;
-	}
+	@Input('cssClass') cssClass: string;
 
 	@Input('attachment')
 	set attachment(value: Attachment) {
