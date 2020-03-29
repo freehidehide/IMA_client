@@ -9,17 +9,24 @@
 	</div>
 	<div class="content-middle contestants-section" *ngIf="!isNodata">
 		<div
-			class="row mb-4"
+			class="row shoplisting"
 			*ngFor="let product of productList.data; trackBy: trackById"
 		>
-			<div class="col-md-7">
+			<div class="col-lg-7 col-md-6">
 				<div class="cartimglisting d-flex">
-					<div class="mr-3">
-						<div class="cartmainimage">
+					<div class="mr-3 cartmiouter">
+						<div class="cartmainimage position-relative">
 							<app-attachment
 								[attachment]="product.details[0].attachments[0]"
 								[type]="original"
+								[cssClassString]="cssClass"
 							></app-attachment>
+							<a href="#" class="cartuserimg">
+								<img
+								src="assets/images/contestant-profile.jpg"
+								class="img-fluid rounded-circle"
+							/>	
+							</a>
 						</div>
 					</div>
 					<div class="cartlistthumbnails">
@@ -75,7 +82,7 @@
 			</div>
 			<div class="col-md-5">
 				<form>
-					<div class="d-flex justify-content-end">
+					<div class="shopqtyarea d-flex justify-content-end">
 						<div class="cartquantity text-center">
 							<p class="text-uppercase ctqtytext">Quantity</p>
 							<div class="ctquantityinput">
@@ -87,11 +94,11 @@
 								/>
 								<button class="ctqtyincr"></button>
 							</div>
-							<p class="mt-2 quntyremain">Only 5 items left</p>
+							<p class="mt-2 quntyremain m-0">Only 5 items left</p>
 						</div>
 					</div>
 					<div class="productcartdesc">
-						<h2 class="m-0 p-0">
+						<h2 class="m-0 mb-1 p-0 text-truncate">
 							{{ product.name }}
 						</h2>
 						<p>
@@ -99,15 +106,15 @@
 						</p>
 					</div>
 					<div class="product-availsizes">
-						<span>Available Sizes</span>
+						<span class="text-uppercase">Available Sizes</span>
 						<a href="" class="text-uppercase">xs</a>
 						<a href="" class="text-uppercase">s</a>
 						<a href="" class="text-uppercase">m</a>
 						<a href="" class="text-uppercase">l</a>
 					</div>
-					<div class="d-flex justify-content-end mt-5">
+					<div class="d-flex justify-content-end mt-1">
 						<div class="d-flex flex-column cartdetails">
-							<p class="text-center discount-details">
+							<p class="text-center discount-details m-0 mt-1">
 								<span>10% discount</span> available
 							</p>
 							<input
