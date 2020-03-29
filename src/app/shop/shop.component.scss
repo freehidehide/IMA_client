@@ -31,7 +31,7 @@
         }
 
         app-attachment {
-            img {
+            img.shopattimage {
                 max-width: 771px;
             }
         }
@@ -548,6 +548,14 @@
             .btn{
                 font-size: 20px;
                 padding: 0 40px;
+            }
+        }
+    }
+    .cartimglisting {
+        .cartmainimage {
+            .cartuserimg{
+                left: 10px;
+                bottom: 10px;
             }
         }
     }
