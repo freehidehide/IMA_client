@@ -4,11 +4,12 @@
 }
 .cartimglisting {
     flex-direction: row;
-
+    justify-content: space-between;
     .cartmiouter {
         display: flex;
         justify-content: center;
         align-items: center;
+        flex:1 1 0;
     }
 
     .cartmainimage {
@@ -356,6 +357,7 @@
             height: 51px;
             font-size: 31px;
             width: 251px;
+            margin: 14px 0 0 !important;
         }
     }
 
