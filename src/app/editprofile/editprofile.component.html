@@ -1,20 +1,17 @@
 <!-- @format -->
 
-<div class="eprofilecontainer mx-auto px-4 my-5">
+<div class="eprofilecontainer mx-auto px-4 my-5" *ngIf="user">
 	<div class="row">
 		<div class="col-md-4 text-center eprofleft">
 			<div class="profile-image mx-auto mb-4">
-				<img
-					src="assets/images/contestant-profile-img.jpg"
-					class="img-fluid"
-				/>
+                <app-attachment
+			[attachment]="user.data.attachment"
+			[type]="original"
+		></app-attachment>
 			</div>
 			<div class="mb-4">
-				<a
-					href="javascript:void(0)"
-					class="text-uppercase btn btn-outline-dark"
-					>Upload Photo</a
-				>
+                <app-attachment-upload [class]="userClass" [multiple]="multiple"></app-attachment-upload>
+
 			</div>
 		</div>
 		<div class="col-md-8 pl-5">

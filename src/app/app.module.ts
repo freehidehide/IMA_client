@@ -33,8 +33,6 @@ import {SiteLoaderComponent} from './site-loader/site-loader.component';
 import {CartComponent} from './cart/cart.component';
 import {CheckoutComponent} from './checkout/checkout.component';
 import {InstantvoteComponent} from './instantvote/instantvote.component';
-import {AttachmentComponent} from './attachment/attachment.component';
-import {PaginationComponent} from './pagination/pagination.component';
 
 @NgModule({
 	imports: [
@@ -66,9 +64,7 @@ import {PaginationComponent} from './pagination/pagination.component';
 		SiteLoaderComponent,
 		CartComponent,
 		CheckoutComponent,
-		InstantvoteComponent,
-		AttachmentComponent,
-		PaginationComponent
+		InstantvoteComponent
 	],
 	providers: [AuthGuard, ApiService, ToastService, SessionService],
 	bootstrap: [AppComponent]

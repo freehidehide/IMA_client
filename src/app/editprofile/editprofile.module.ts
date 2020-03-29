@@ -8,12 +8,18 @@ import { EditprofileComponent } from './editprofile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LanguageTranslationModule } from '../shared/modules/language-translation/language-translation.module';
 import { UserService } from '../api/services/user.service';
+import { SharedCommonModule } from '../shared-common/shared-common.module';
 
 @NgModule({
 	declarations: [EditprofileComponent],
-	imports: [CommonModule, EditprofileRoutingModule, FormsModule,
+	imports: [
+        CommonModule,
+        EditprofileRoutingModule,
+        FormsModule,
 		ReactiveFormsModule,
-        LanguageTranslationModule],
-    providers:[UserService]
+        LanguageTranslationModule,
+        SharedCommonModule
+    ],
+    providers: [UserService]
 })
 export class EditprofileModule {}
