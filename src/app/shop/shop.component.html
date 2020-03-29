@@ -7,13 +7,21 @@
 		</div>
 		<img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
 	</div>
-	<div class="content-middle contestants-section" *ngIf="!isNodata">
-		<div class="shopsearch">
+	<div class="content-middle shop-section position-relative" *ngIf="!isNodata">
+		<div class="topcartright clearfix">
+		<div class="cartsection text-center">
+			<div class="position-relative">
+				<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+				<span class="rounded-circle cartcount">5</span>
+			</div>
+		</div>
+	</div>
+		<div class="shopsearch position-relative">
 			<div class="row">
 				<div class="col-md-12">
 					<form>
 						<div class="row align-items-center shoptopsearch">
-							<div class="col-sm-5 my-1 searchinput position-relative">
+							<div class="col-md-5 my-1 searchinput position-relative">
 								<input type="text" class="form-control" id="inlineFormInputName"
 									placeholder="Search for items">
 								<span class="search-icon"></span>
@@ -22,12 +30,21 @@
 								<button type="submit" class="btn btn-dark text-uppercase">Search</button>
 							</div>
 						</div>
+
 						<div class="row align-items-center shopfilter">
 							<div class="col-md-10">
 								<div class="row">
 									<div class="col-md-4">
-										<a href="#" class="text-decoration-none"> <i class="fa fa-caret-down"
+										<a href="#" class="text-decoration-none text-truncate"> <i class="fa fa-caret-down"
 												aria-hidden="true"></i> Filter listings by Model</a>
+									</div>
+									<div class="col-md-4">
+										<a href="#" class="text-decoration-none text-truncate"> <i class="fa fa-caret-down"
+												aria-hidden="true"></i> Filter listings by Contestants</a>
+									</div>
+									<div class="col-md-4">
+										<a href="#" class="text-decoration-none text-truncate"> <i class="fa fa-caret-down"
+												aria-hidden="true"></i> Filter listings by IMA</a>
 									</div>
 								</div>
 							</div>
