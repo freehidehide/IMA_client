@@ -7,6 +7,7 @@ import {catchError} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
 import {AppConst} from '../../utils/app-const';
+import { QueryParam } from '../models/query-param';
 
 @Injectable()
 export class ApiService {
@@ -19,7 +20,6 @@ export class ApiService {
 
 	getHeaders() {
 		let addHeaders: HttpHeaders = new HttpHeaders();
-		let token: string = null;
 		addHeaders = addHeaders.append('Accept', 'application/json');
 		addHeaders = addHeaders.append('Content-Type', 'application/json');
 		if (sessionStorage.getItem('user_context') !== undefined) {
@@ -39,7 +39,7 @@ export class ApiService {
 		};
 	}
 
-	httpGet<T>(url: string, params: any): Observable<T> {
+	httpGet<T>(url: string, params: QueryParam): Observable<T> {
 		this.getHeaders();
 		return this.http
 			.get<T>(
@@ -52,11 +52,11 @@ export class ApiService {
 	/**
 	 * Performs a request with `post` http method.
 	 */
-	httpPost(url: string, body: any): Observable<any> {
+	httpPost(url: string, body: any, params?: QueryParam): Observable<any> {
 		this.getHeaders();
 		return this.http
 			.post(
-				this.getFormattedQueryParam(url, null, 'POST'),
+				this.getFormattedQueryParam(url, params, 'POST'),
 				body,
 				this.httpOptions
 			)
@@ -66,11 +66,11 @@ export class ApiService {
 	/**
 	 * Performs a request with `put` http method.
 	 */
-	httpPut(url: string, body: any): Observable<any> {
+	httpPut(url: string, body: any, params?: QueryParam): Observable<any> {
 		this.getHeaders();
 		return this.http
 			.put(
-				this.getFormattedQueryParam(url, null, 'PUT'),
+				this.getFormattedQueryParam(url, params, 'PUT'),
 				body,
 				this.httpOptions
 			)
@@ -80,10 +80,10 @@ export class ApiService {
 	/**
 	 * Performs a request with `delete` http method.
 	 */
-	httpDelete(url: string, options?: any): Observable<any> {
+	httpDelete(url: string, options?: any, params?: QueryParam): Observable<any> {
 		this.getHeaders();
 		return this.http
-			.delete(this.getFormattedQueryParam(url, null, 'DELETE'), options)
+			.delete(this.getFormattedQueryParam(url, params, 'DELETE'), options)
 			.pipe(catchError(this.handleNetworkErrors));
 	}
 

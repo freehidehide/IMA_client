@@ -10,7 +10,8 @@ export class AppConst {
 		ALLCATEGORY: '/catagories',
 		CONTESTANTS: '/contestants',
 		PRODUCTS: '/products',
-		ADVERTISEMENTS: '/advertisements'
+        ADVERTISEMENTS: '/advertisements',
+        ATTACHMENTS: '/attachments'
 	};
 
 	public static readonly NON_AUTH_SERVER_URL_LIST = [
