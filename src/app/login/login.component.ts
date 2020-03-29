@@ -85,7 +85,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
 				if (this.User.role.id === AppConst.ROLE.USER) {
 					this.router.navigate(['/admin']);
 				} else {
-					this.router.navigate(['/contestants']);
+					this.router.navigate(['/']);
 				}
 			} else {
 				this.toastService.error(this.User.error.message);
