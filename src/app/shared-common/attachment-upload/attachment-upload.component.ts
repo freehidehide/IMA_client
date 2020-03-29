@@ -10,21 +10,23 @@ import { QueryParam } from 'src/app/api/models/query-param';
 export class AttachmentUploadComponent {
 
 @Input() class: string;
-@Input() multiple: string;
+@Input() isMultiple: boolean;
 
-  constructor(public imageService: ImageService) { }
+  constructor(public imageService: ImageService) {
+    this.isMultiple = false;
+  }
 
   fileUpload(event) {
       const formData = new FormData();
-      formData.append('file', event.target.files[0]);
+      if (isMultiple) {
+        formData.append('file', event.target.files);
+      } else {
+        formData.append('file', event.target.files[0]);
+      }
       const queryParam: QueryParam = {
           class: this.class
       };
-      const fileData = {
-          file: event.target.files[0].name
-      };
-
-      this.imageService.updateUserAvatar(fileData, queryParam).subscribe((data) => {
+      this.imageService.updateUserAvatar(formData, queryParam).subscribe((data) => {
             console.log('data', data);
       });
   }

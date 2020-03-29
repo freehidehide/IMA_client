@@ -24,9 +24,9 @@ export abstract class UserBaseComponent {
 				this.user.error.code !== AppConst.SERVICE_STATUS.SUCCESS
 			) {
                 this.router.navigate(['/not-found']);
-                if (callback !== null) {
-                    callback();
-                }
+			}
+			if (callback !== null) {
+				callback(this.user);
 			}
 			this.toastService.clearLoading();
 		});

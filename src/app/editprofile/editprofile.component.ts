@@ -48,13 +48,11 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
         });
 
         this.userId = this.sessionService.user.id;
-        this.getUser(this.patchuser());
-
-
+        this.getUser(this.patchuser);
     }
 
-    patchuser() {
-            console.log('user', this.user);
+    patchuser(user: User) {
+            console.log('user', user);
         this.editProfileForm.patchValue({
             first_name: 'test',
         });
