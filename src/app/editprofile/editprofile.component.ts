@@ -20,7 +20,6 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
     public userClass = 'UserAvatar';
     public multiple = 'multiple';
     public editProfileForm: FormGroup;
-    public user: User;
 	constructor(
         protected router: Router,
 		private formBuilder: FormBuilder,
@@ -35,8 +34,7 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
         this.editProfileForm = this.formBuilder.group({
             first_name: ['', [Validators.required]],
             last_name: ['', [Validators.required]],
-            // email: ['', [Validators.required, Validators.email]],
-            username: ['', [Validators.required]],
+            email: ['', [Validators.required, Validators.email]],
             address: this.formBuilder.group({
                 addressline1: ['', [Validators.required]],
                 addressline2: ['', [Validators.required]],
@@ -52,8 +50,9 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
     }
 
     patchuser(user: User) {
+        const that = this;
             console.log('user', user);
-        this.editProfileForm.patchValue({
+        that.editProfileForm.patchValue({
             first_name: 'test',
         });
     }

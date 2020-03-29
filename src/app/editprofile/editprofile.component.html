@@ -26,19 +26,12 @@
                         {{ 'lastname is required' | translate }}</div>
                 </div>
                 <div class="form-group">
-                    <label>User Name*</label>
-                    <input class="form-control" type="text" formControlName="username" />
-                    <div class="invalid-feedback-show" *ngIf="isSubmitted && f.username.errors.required">
-                        {{ 'username is required' | translate }}
-                    </div>
-                </div>
-                <!-- <div class="form-group">
                     <label>Email Address</label>
                     <input class="form-control" type="email" formControlName="email" />
                     <div class="invalid-feedback-show" *ngIf="isSubmitted && f.email.errors.required">
                         {{ 'email is required' | translate }}
                     </div>
-                </div> -->
+                </div>
                 <div formGroupName="address">
                     <div class="form-group">
                         <label>AddressLine1*</label>
