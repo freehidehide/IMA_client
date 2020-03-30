@@ -2,7 +2,7 @@
 
 import {Component, OnInit, Input} from '@angular/core';
 import {Md5} from 'ts-md5/dist/md5';
-import { Attachment } from 'src/app/api/models/attachment';
+import {Attachment} from 'src/app/api/models/attachment';
 // import { environment } from "../../environments/environment";
 
 @Component({

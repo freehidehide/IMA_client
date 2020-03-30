@@ -4,6 +4,6 @@ export interface QueryParam {
 	page?: number;
 	category_id?: number;
 	sort?: string;
-    sortby?: string;
-    class?: string;
+	sortby?: string;
+	class?: string;
 }
