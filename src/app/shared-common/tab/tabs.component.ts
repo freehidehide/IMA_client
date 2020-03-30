@@ -7,10 +7,12 @@ import {
     Component,
     ContentChildren,
     QueryList,
-    AfterContentInit
+    AfterContentInit,
+    Output
   } from '@angular/core';
 
-  import { TabComponent } from './tab.component';
+import { TabComponent } from './tab.component';
+import { EventEmitter } from '@angular/core';
 
   @Component({
     selector: 'app-my-tabs',
@@ -34,6 +36,8 @@ import {
   })
   export class TabsComponent implements AfterContentInit {
 
+    @Output() tabSelected = new EventEmitter<string>();
+
     @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
 
     // contentChildren are set
@@ -49,7 +53,8 @@ import {
 
     selectTab(tab) {
       // deactivate all tabs
-      this.tabs.toArray().forEach(tab => tab.active = false);
+      this.tabSelected.emit(tab.class);
+      this.tabs.toArray().forEach(tabActive => tabActive.active = false);
 
       // activate the tab the user has clicked on.
       tab.active = true;

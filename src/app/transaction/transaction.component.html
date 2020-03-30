@@ -11,20 +11,20 @@
 		<div
 			class="row shoplisting"
 		>
-        <app-my-tabs>
-            <app-my-tab [tabTitle]="'Product Transaction'">
+        <app-my-tabs (tabSelected) = "tabSelected($event)">
+            <app-my-tab [tabTitle]="'Product Transaction'" [tabClass]="'Product'">
                 Product Transaction
             </app-my-tab>
-            <app-my-tab tabTitle="VotePackage Transaction">
+            <app-my-tab tabTitle="VotePackage Transaction" tabClass="VotePackage">
                 VotePackage Transaction
             </app-my-tab>
-            <app-my-tab tabTitle="Instant VotePackage Transaction">
+            <app-my-tab tabTitle="Instant VotePackage Transaction" tabClass="InstantPackage">
                 Instant VotePackage Transaction
               </app-my-tab>
-              <app-my-tab tabTitle="Subscription Transaction">
+              <app-my-tab tabTitle="Subscription Transaction" tabClass="SubscriptionPackage">
                 Subscription Transaction
               </app-my-tab>
-              <app-my-tab tabTitle="Fund Transaction">
+              <app-my-tab tabTitle="Fund Transaction" tabClass="Fund">
                 Fund Transaction
               </app-my-tab>
           </app-my-tabs>

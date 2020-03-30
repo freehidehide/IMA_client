@@ -12,4 +12,8 @@ export class TransactionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  tabSelected($event) {
+      console.log('$event', $event);
+  }
+
 }
