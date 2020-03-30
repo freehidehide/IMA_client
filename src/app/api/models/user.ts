@@ -33,6 +33,6 @@ export class User extends ServiceResponse {
 	cart_count?: number;
 	category?: UserCategory;
 	data?: User;
-    error: Error;
-    image?: string;
+	error: Error;
+	image?: string;
 }

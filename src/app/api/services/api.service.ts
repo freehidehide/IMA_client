@@ -7,7 +7,7 @@ import {catchError} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
 import {AppConst} from '../../utils/app-const';
-import { QueryParam } from '../models/query-param';
+import {QueryParam} from '../models/query-param';
 
 @Injectable()
 export class ApiService {
@@ -80,7 +80,11 @@ export class ApiService {
 	/**
 	 * Performs a request with `delete` http method.
 	 */
-	httpDelete(url: string, options?: any, params?: QueryParam): Observable<any> {
+	httpDelete(
+		url: string,
+		options?: any,
+		params?: QueryParam
+	): Observable<any> {
 		this.getHeaders();
 		return this.http
 			.delete(this.getFormattedQueryParam(url, params, 'DELETE'), options)
