@@ -15,6 +15,9 @@
 
 .profile-image {
 	padding: 0 0 50px;
+	> img{
+		max-width: 560px;
+	}
 }
 
 .profile-name {
@@ -71,6 +74,12 @@ p {
 
 	.vpcontainer {
 		max-width: 510px;
+		.profile-image{
+			> img{
+				max-width: 420px;
+				width:100%;
+			}
+		}
 	}
 
 	.profile-name {
@@ -111,6 +120,9 @@ p {
 
 	.profileupdate {
 		margin-bottom: 15px;
+	}
+	.profile-name {
+		font-size: 35px;
 	}
 
 	.view-profile {

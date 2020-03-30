@@ -15,17 +15,18 @@
 	<div class="content-middle contestants-section">
 		<div class="row" *ngIf="!isNodata">
 			<div
-				class="col-md-6"
+				class="col-md-6 col-6 text-center"
 				*ngFor="let user of userList.data; trackBy: trackById"
 			>
 				<a [routerLink]="['/profile', user.id]" class="contestant-img">
 					<app-attachment
 						[attachment]="user.attachment"
 						[type]="original"
+						[cssClass]="'contestantimg'"
 					></app-attachment>
 				</a>
 				<div class="d-flex contestant-listdetails">
-					<div class="contestant-name text-center">
+					<div class="contestant-name text-truncate text-center">
 						{{ user.first_name }} {{ user.last_name }}
 					</div>
 					<div class="contestant-counts">
