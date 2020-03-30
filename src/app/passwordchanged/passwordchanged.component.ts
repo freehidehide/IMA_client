@@ -25,10 +25,22 @@ export class PasswordchangedComponent implements OnInit {
 	ngOnInit(): void {
         this.changepasswordForm = this.formBuilder.group({
             password: ['', [Validators.required]],
-            new_password: ['', [Validators.required]],
-            confirm_password: ['', [Validators.required]]
-		});
+            new_password: ['', [Validators.required, Validators.minLength(3)]],
+            confirm_password: ['', [Validators.required, Validators.minLength(3)]]
+		}, {validator: this.pwdMatchValidator});
     }
+
+    pwdMatchValidator(frm: FormGroup) {
+		return frm.get('new_password').value === frm.get('confirm_password').value
+			? null
+			: {invalid: true};
+    }
+    get password() {
+		return this.changepasswordForm.get('new_password');
+	}
+	get confirm_password() {
+		return this.changepasswordForm.get('confirm_password');
+	}
 
     get f() {
 		return this.changepasswordForm.controls;
