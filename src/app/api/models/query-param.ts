@@ -6,4 +6,5 @@ export interface QueryParam {
 	sort?: string;
 	sortby?: string;
 	class?: string;
+	is_web?: boolean;
 }
