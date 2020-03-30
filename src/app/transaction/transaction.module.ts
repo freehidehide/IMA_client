@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LanguageTranslationModule } from '../shared/modules/language-translation/language-translation.module';
 import { TransactionComponent } from './transaction.component';
 import { TransactionRoutingModule } from './transaction-routing.module';
+import { TransactionService } from '../api/services/transaction.service';
 
 
 
@@ -17,6 +18,7 @@ import { TransactionRoutingModule } from './transaction-routing.module';
     FormsModule,
 	ReactiveFormsModule,
 	LanguageTranslationModule
-  ]
+  ],
+  providers: [TransactionService]
 })
 export class TransactionModule { }

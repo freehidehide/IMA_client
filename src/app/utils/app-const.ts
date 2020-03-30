@@ -12,7 +12,8 @@ export class AppConst {
 		PRODUCTS: '/products',
 		ADVERTISEMENTS: '/advertisements',
 		ATTACHMENTS: '/attachments',
-		SETTINGS: '/settings'
+        SETTINGS: '/settings',
+        TRANSACTIONS: '/transactions'
 	};
 
 	public static readonly NON_AUTH_SERVER_URL_LIST = [
