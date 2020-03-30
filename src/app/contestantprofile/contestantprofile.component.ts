@@ -5,7 +5,7 @@ import {Component, OnInit} from '@angular/core';
 import {ToastService} from '../api/services/toast-service';
 import {UserService} from '../api/services/user.service';
 import {SessionService} from '../api/services/session-service';
-import { UserBaseComponent } from '../user.base.component';
+import {UserBaseComponent} from '../user.base.component';
 @Component({
 	selector: 'app-contestantprofile',
 	templateUrl: './contestantprofile.component.html',
@@ -13,11 +13,10 @@ import { UserBaseComponent } from '../user.base.component';
 })
 export class ContestantprofileComponent extends UserBaseComponent
 	implements OnInit {
-
 	constructor(
 		protected router: Router,
 		protected userService: UserService,
-        protected toastService: ToastService,
+		protected toastService: ToastService,
 		private activatedRoute: ActivatedRoute,
 		public sessionService: SessionService
 	) {
@@ -27,9 +26,7 @@ export class ContestantprofileComponent extends UserBaseComponent
 	ngOnInit(): void {
 		this.userId = +this.activatedRoute.snapshot.paramMap.get('id');
 		if (this.userId) {
-			this.getUser();
+			this.getUser(null);
 		}
 	}
-
-
 }

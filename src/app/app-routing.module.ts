@@ -85,6 +85,13 @@ const routes: Routes = [
 			import('./forgotpassword/forgotpassword.module').then(
 				(m) => m.ForgotpasswordModule
 			)
+    },
+    {
+		path: 'transaction',
+		loadChildren: () =>
+			import('./transaction/transaction.module').then(
+				(m) => m.TransactionModule
+			)
 	},
 	{
 		path: 'resend-link',
@@ -101,7 +108,7 @@ const routes: Routes = [
 			)
 	},
 	{
-		path: 'password-changed',
+		path: 'change-password',
 		loadChildren: () =>
 			import('./passwordchanged/passwordchanged.module').then(
 				(m) => m.PasswordchangedModule

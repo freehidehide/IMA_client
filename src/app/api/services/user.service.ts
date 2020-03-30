@@ -45,11 +45,10 @@ export class UserService {
 	findById(id: number): Observable<User> {
 		const url: string = AppConst.NON_AUTH_SERVER_URL.USER + '/' + id;
 		return this.apiService.httpGet(url, null);
-    }
+	}
 
-    updateUser(user: User): Observable<User> {
-        const userUrl: string =
-			AppConst.NON_AUTH_SERVER_URL.USER;
+	updateUser(user: User): Observable<User> {
+		const userUrl: string = AppConst.NON_AUTH_SERVER_URL.USER;
 		return this.apiService.httpPut(userUrl, user);
-    }
+	}
 }

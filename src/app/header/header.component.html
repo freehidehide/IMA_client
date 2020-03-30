@@ -92,10 +92,28 @@
 				<li class="nav-item" *ngIf="sessionService.isAuth">
 					<a
 						href="javascript:void(0)"
-						[routerLink]="['/profile']"
+						[routerLink]="['/edit']"
 						class="nav-link"
 						(click)="toggleSidebar()"
 						>PROFILE</a
+					>
+                </li>
+                <li class="nav-item" *ngIf="sessionService.isAuth">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/transaction']"
+						class="nav-link"
+						(click)="toggleSidebar()"
+						>Transaction</a
+					>
+				</li>
+				<li class="nav-item" *ngIf="sessionService.isAuth">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/change-password']"
+						class="nav-link"
+						(click)="toggleSidebar()"
+						>CHANGE PASSWORD</a
 					>
 				</li>
 				<li class="nav-item" *ngIf="sessionService.isAuth">
@@ -118,7 +136,6 @@
 <div class="imacontainer" *ngIf="showStaticHeader">
 	<nav class="navbar navbar-expand-lg staticimanav">
 		<button class="navbar-toggler" type="button" (click)="toggleSidebar()">
-			<!-- <span class="navbar-toggler-icon"></span> -->
 			<i class="fa fa-bars text-muted" aria-hidden="true"></i>
 		</button>
 		<div class="collapse navbar-collapse">
@@ -127,6 +144,7 @@
 					<a
 						href="javascript:void(0)"
 						[routerLink]="['/']"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>HOME</a
 					>
@@ -135,6 +153,7 @@
 					<a
 						href="javascript:void(0)"
 						[routerLink]="['/advertisers']"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>ADVERTISERS</a
 					>
@@ -143,6 +162,7 @@
 					<a
 						href="javascript:void(0)"
 						[routerLink]="['/contestants']"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>VOTE</a
 					>
@@ -150,15 +170,17 @@
 				<li class="nav-item">
 					<a
 						href="javascript:void(0)"
-						[routerLink]="['/contestants']"
+						[routerLink]="['/categories']"
+						(click)="toggleSidebar()"
 						class="nav-link"
-						>CONTESTANTS</a
+						>CATEGORIES</a
 					>
 				</li>
 				<li class="nav-item">
 					<a
 						href="javascript:void(0)"
 						[routerLink]="['/shop']"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>SHOP</a
 					>
@@ -166,33 +188,68 @@
 				<li class="nav-item">
 					<a
 						href="javascript:void(0)"
-						[routerLink]="['/profile']"
+						[routerLink]="['/']"
+						(click)="toggleSidebar(); redirect('/')"
 						class="nav-link"
-						>PROFILE</a
+						>ABOUT US</a
 					>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" *ngIf="!sessionService.isAuth">
 					<a
 						href="javascript:void(0)"
 						[routerLink]="['/login']"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>LOGIN</a
 					>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" *ngIf="!sessionService.isAuth">
 					<a
 						href="javascript:void(0)"
 						[routerLink]="['/signup']"
+						(click)="toggleSidebar()"
 						class="nav-link"
 						>SIGNUP</a
 					>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" *ngIf="sessionService.isAuth">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/edit']"
+						class="nav-link"
+						(click)="toggleSidebar()"
+						>PROFILE</a
+					>
+                </li>
+                <li class="nav-item" *ngIf="sessionService.isAuth">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/transaction']"
+						class="nav-link"
+						(click)="toggleSidebar()"
+						>Transaction</a
+					>
+				</li>
+				<li class="nav-item" *ngIf="sessionService.isAuth">
+					<a
+						href="javascript:void(0)"
+						[routerLink]="['/change-password']"
+						class="nav-link"
+						(click)="toggleSidebar()"
+						>CHANGE PASSWORD</a
+					>
+				</li>
+				<li class="nav-item" *ngIf="sessionService.isAuth">
 					<a
 						href="javascript:void(0)"
 						[routerLink]="['/']"
+						(click)="
+							toggleSidebar();
+							sessionService.logout();
+							redirect('/')
+						"
 						class="nav-link"
-						>ABOUT US</a
+						>LOGOUT</a
 					>
 				</li>
 			</ul>

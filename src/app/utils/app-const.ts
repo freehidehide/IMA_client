@@ -6,12 +6,14 @@ export class AppConst {
 		LOGIN: '/users/login',
 		USER: '/users',
 		FORGETPASSWORD: '/users/forgot_password',
-		CHANGEPASSWORD: '/change_password',
+		CHANGEPASSWORD: '/users/change_password',
 		ALLCATEGORY: '/catagories',
 		CONTESTANTS: '/contestants',
 		PRODUCTS: '/products',
-        ADVERTISEMENTS: '/advertisements',
-        ATTACHMENTS: '/attachments'
+		ADVERTISEMENTS: '/advertisements',
+		ATTACHMENTS: '/attachments',
+        SETTINGS: '/settings',
+        TRANSACTIONS: '/transactions'
 	};
 
 	public static readonly NON_AUTH_SERVER_URL_LIST = [

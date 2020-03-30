@@ -16,6 +16,7 @@ import {HeaderComponent} from './header/header.component';
 import {ApiService} from './api/services/api.service';
 import {ToastService} from './api/services/toast-service';
 import {SessionService} from './api/services/session-service';
+import {SettingsService} from './api/services/settings-service';
 import {SiteAlertMessageComponent} from './site-alert-message/site-alert-message.component';
 import {SiteLoaderComponent} from './site-loader/site-loader.component';
 
@@ -35,7 +36,7 @@ import {SiteLoaderComponent} from './site-loader/site-loader.component';
 		SiteAlertMessageComponent,
 		SiteLoaderComponent
 	],
-	providers: [AuthGuard, ApiService, ToastService, SessionService],
+	providers: [AuthGuard, ApiService, ToastService, SessionService, SettingsService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

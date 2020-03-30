@@ -171,7 +171,8 @@
 							class="pb-3 my-4 mx-auto"
 							*ngIf="
 								sessionService.isAuth &&
-								user.data.subscribed_data && user.data.subscribed_data.length > 0
+								user.data.subscribed_data &&
+								user.data.subscribed_data.length > 0
 							"
 						>
 							<div class="contprofile-listing">
