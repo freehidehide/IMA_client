@@ -8,7 +8,7 @@ import {Attachment} from 'src/app/api/models/attachment';
 @Component({
 	selector: 'app-attachment',
 	templateUrl: './attachment.component.html',
-	styleUrls: ['./attachment.component.css']
+	styleUrls: ['./attachment.component.scss']
 })
 export class AttachmentComponent {
 	public url: string;
@@ -39,7 +39,7 @@ export class AttachmentComponent {
 				'.jpg';
 		} else {
 			this.url =
-				'https://i0.wp.com/www.repol.copl.ulaval.ca/wp-content/uploads/2019/01/default-user-icon.jpg';
+				'https://tanzolymp.com/images/default-non-user-no-photo-1.jpg';
 		}
 	}
 }
