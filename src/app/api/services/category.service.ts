@@ -11,16 +11,16 @@ import {QueryParam} from '../models/query-param';
 
 @Injectable()
 export class CategoryService {
-	constructor(private apiService: ApiService) {}
+    constructor(private apiService: ApiService) {}
 
-	getAll(queryParam: QueryParam): Observable<CategoriesList> {
-		const categoriesList: string = AppConst.NON_AUTH_SERVER_URL.ALLCATEGORY;
-		return this.apiService.httpGet(categoriesList, queryParam);
-	}
+    getAll(queryParam: QueryParam): Observable<CategoriesList> {
+        const categoriesList: string = AppConst.NON_AUTH_SERVER_URL.ALLCATEGORY;
+        return this.apiService.httpGet(categoriesList, queryParam);
+    }
 
-	getContestantsList(queryParam: QueryParam): Observable<UserList> {
-		const contestantsList: string =
-			AppConst.NON_AUTH_SERVER_URL.CONTESTANTS;
-		return this.apiService.httpGet(contestantsList, queryParam);
-	}
+    getContestantsList(queryParam: QueryParam): Observable<UserList> {
+        const contestantsList: string =
+            AppConst.NON_AUTH_SERVER_URL.CONTESTANTS;
+        return this.apiService.httpGet(contestantsList, queryParam);
+    }
 }

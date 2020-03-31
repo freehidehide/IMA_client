@@ -1,246 +1,246 @@
 /** @format */
 
 .carttitle {
-	background-color: #171c30;
-	height: 330px;
+    background-color: #171c30;
+    height: 330px;
 
-	h3 {
-		color: #fff;
-		font-size: 114px;
-	}
+    h3 {
+        color: #fff;
+        font-size: 114px;
+    }
 }
 
 .maincheckout {
-	form {
-		.form-group {
-			margin-bottom: 25px;
-		}
+    form {
+        .form-group {
+            margin-bottom: 25px;
+        }
 
-		label {
-			font-size: 20px;
-			color: #acacac;
-		}
+        label {
+            font-size: 20px;
+            color: #acacac;
+        }
 
-		input[type='text'],
-		input[type='number'],
-		input[type='email'] {
-			border: 1px solid #acacac;
-			border-radius: 0;
-			height: 48px;
-			color: #acacac;
-		}
+        input[type='text'],
+        input[type='number'],
+        input[type='email'] {
+            border: 1px solid #acacac;
+            border-radius: 0;
+            height: 48px;
+            color: #acacac;
+        }
 
-		.form-check {
-			padding-left: 0;
+        .form-check {
+            padding-left: 0;
 
-			> input[type='checkbox'] {
-				display: none;
+            > input[type='checkbox'] {
+                display: none;
 
-				& + label {
-					position: relative;
-					padding-left: 22px;
+                & + label {
+                    position: relative;
+                    padding-left: 22px;
 
-					&:before {
-						content: '';
-						width: 16px;
-						height: 16px;
-						position: absolute;
-						background: #d6d6d6;
-						left: 0;
-						top: 50%;
-						transform: translate(0%, -50%);
-					}
-				}
+                    &:before {
+                        content: '';
+                        width: 16px;
+                        height: 16px;
+                        position: absolute;
+                        background: #d6d6d6;
+                        left: 0;
+                        top: 50%;
+                        transform: translate(0%, -50%);
+                    }
+                }
 
-				&:checked {
-					& + label {
-						&:before {
-							background-color: #797979;
-						}
-					}
-				}
-			}
-		}
+                &:checked {
+                    & + label {
+                        &:before {
+                            background-color: #797979;
+                        }
+                    }
+                }
+            }
+        }
 
-		.emailorderstatus {
-			input {
-				border: 1px solid transparent;
-				border-bottom-color: #acacac;
-			}
-		}
+        .emailorderstatus {
+            input {
+                border: 1px solid transparent;
+                border-bottom-color: #acacac;
+            }
+        }
 
-		.form-text {
-			font-size: 20px;
-			color: #acacac;
-		}
+        .form-text {
+            font-size: 20px;
+            color: #acacac;
+        }
 
-		.custom-radio {
-			padding-left: 55px;
+        .custom-radio {
+            padding-left: 55px;
 
-			input[type='radio'] {
-				display: none;
+            input[type='radio'] {
+                display: none;
 
-				& + label {
-					position: relative;
-					padding-left: 22px;
+                & + label {
+                    position: relative;
+                    padding-left: 22px;
 
-					&:before {
-						content: '';
-						width: 16px;
-						height: 16px;
-						position: absolute;
-						background: #d6d6d6;
-						border-radius: 50%;
-						left: 0;
-						top: 50%;
-						transform: translate(0%, -50%);
-					}
+                    &:before {
+                        content: '';
+                        width: 16px;
+                        height: 16px;
+                        position: absolute;
+                        background: #d6d6d6;
+                        border-radius: 50%;
+                        left: 0;
+                        top: 50%;
+                        transform: translate(0%, -50%);
+                    }
 
-					&:after {
-						content: none;
-					}
-				}
+                    &:after {
+                        content: none;
+                    }
+                }
 
-				&:checked {
-					& + label {
-						&:before {
-							background-color: #797979;
-						}
-					}
-				}
-			}
+                &:checked {
+                    & + label {
+                        &:before {
+                            background-color: #797979;
+                        }
+                    }
+                }
+            }
 
-			&:first-child {
-				padding-left: 0;
-			}
-		}
+            &:first-child {
+                padding-left: 0;
+            }
+        }
 
-		.continuews {
-			display: flex;
-			align-items: flex-end;
-			justify-content: flex-end;
-			margin-bottom: 20px;
+        .continuews {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin-bottom: 20px;
 
-			.continue-btn {
-				font-size: 17px;
-				height: 58px;
-				width: 316px;
-			}
-		}
-	}
+            .continue-btn {
+                font-size: 17px;
+                height: 58px;
+                width: 316px;
+            }
+        }
+    }
 
-	.paymenttitle {
-		margin: 55px 0 15px;
-		font-size: 41px;
-		color: #696969;
-	}
+    .paymenttitle {
+        margin: 55px 0 15px;
+        font-size: 41px;
+        color: #696969;
+    }
 
-	.paymentoptions {
-		margin-bottom: 15px;
-	}
+    .paymentoptions {
+        margin-bottom: 15px;
+    }
 
-	.paymentblock {
-		label {
-			color: #696969;
-		}
-	}
+    .paymentblock {
+        label {
+            color: #696969;
+        }
+    }
 }
 
 .paymentoptions-right {
-	padding: 0 0 0 235px;
+    padding: 0 0 0 235px;
 
-	h4 {
-		color: #696969;
-		margin: 0 0 60px;
-		font-size: 41px;
-		font-weight: 500;
-	}
+    h4 {
+        color: #696969;
+        margin: 0 0 60px;
+        font-size: 41px;
+        font-weight: 500;
+    }
 }
 
 @media (max-width: 1440px) {
-	.carttitle {
-		height: 248px;
+    .carttitle {
+        height: 248px;
 
-		h3 {
-			font-size: 85px;
-		}
-	}
+        h3 {
+            font-size: 85px;
+        }
+    }
 
-	.maincheckout {
-		form {
-			label {
-				font-size: 15px;
-			}
+    .maincheckout {
+        form {
+            label {
+                font-size: 15px;
+            }
 
-			input[type='text'],
-			input[type='number'],
-			input[type='email'] {
-				height: 36px;
-			}
+            input[type='text'],
+            input[type='number'],
+            input[type='email'] {
+                height: 36px;
+            }
 
-			.continuews {
-				margin-bottom: 20px;
+            .continuews {
+                margin-bottom: 20px;
 
-				.continue-btn {
-					font-size: 17px;
-					height: 43px;
-					width: 235px;
-				}
-			}
+                .continue-btn {
+                    font-size: 17px;
+                    height: 43px;
+                    width: 235px;
+                }
+            }
 
-			.form-text {
-				font-size: 15px;
-			}
-		}
-	}
+            .form-text {
+                font-size: 15px;
+            }
+        }
+    }
 
-	.paymentoptions-right {
-		padding-left: 190px;
+    .paymentoptions-right {
+        padding-left: 190px;
 
-		h4 {
-			margin: 0 0 45px;
-			font-size: 30px;
-		}
-	}
+        h4 {
+            margin: 0 0 45px;
+            font-size: 30px;
+        }
+    }
 }
 
 @media (max-width: 1199px) {
-	.paymentoptions-right {
-		padding-left: 50px;
-	}
+    .paymentoptions-right {
+        padding-left: 50px;
+    }
 }
 
 @media (max-width: 991px) {
-	.carttitle {
-		height: 170px;
+    .carttitle {
+        height: 170px;
 
-		h3 {
-			font-size: 85px;
-		}
-	}
+        h3 {
+            font-size: 85px;
+        }
+    }
 }
 
 @media (max-width: 767px) {
-	.paymentoptions-right {
-		padding: 0 0 20px;
+    .paymentoptions-right {
+        padding: 0 0 20px;
 
-		img {
-			max-width: 300px;
-			width: 100%;
-		}
-	}
+        img {
+            max-width: 300px;
+            width: 100%;
+        }
+    }
 
-	.carttitle {
-		h3 {
-			font-size: 55px;
-		}
-	}
+    .carttitle {
+        h3 {
+            font-size: 55px;
+        }
+    }
 
-	.maincheckout {
-		form {
-			.custom-radio {
-				padding-left: 5px;
-			}
-		}
-	}
+    .maincheckout {
+        form {
+            .custom-radio {
+                padding-left: 5px;
+            }
+        }
+    }
 }

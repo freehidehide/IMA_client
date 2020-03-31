@@ -9,14 +9,14 @@ import {LanguageTranslationModule} from '../shared/modules/language-translation/
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserService} from '../api/services/user.service';
 @NgModule({
-	declarations: [PasswordchangedComponent],
-	imports: [
-		CommonModule,
-		PasswordchangedRoutingModule,
-		LanguageTranslationModule,
-		FormsModule,
-		ReactiveFormsModule
-	],
-	providers: [UserService]
+    declarations: [PasswordchangedComponent],
+    imports: [
+        CommonModule,
+        PasswordchangedRoutingModule,
+        LanguageTranslationModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    providers: [UserService]
 })
 export class PasswordchangedModule {}

@@ -3,13 +3,13 @@
 import {StatModule} from './stat.module';
 
 describe('StatModule', () => {
-	let statModule: StatModule;
+    let statModule: StatModule;
 
-	beforeEach(() => {
-		statModule = new StatModule();
-	});
+    beforeEach(() => {
+        statModule = new StatModule();
+    });
 
-	it('should create an instance', () => {
-		expect(statModule).toBeTruthy();
-	});
+    it('should create an instance', () => {
+        expect(statModule).toBeTruthy();
+    });
 });

@@ -1,107 +1,107 @@
 /** @format */
 
 .purchasecontainer {
-	max-width: 1490px;
-	width: 100%;
+    max-width: 1490px;
+    width: 100%;
 }
 
 .purchase-contimg {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .purchase-contesttitle {
-	font-size: 5vw;
-	font-family: 'Rozha One', serif;
+    font-size: 5vw;
+    font-family: 'Rozha One', serif;
 }
 
 .votepurchase-listing {
-	li {
-		padding-bottom: 85px;
-		border-bottom: 1px solid #333;
-	}
+    li {
+        padding-bottom: 85px;
+        border-bottom: 1px solid #333;
+    }
 
-	h2 {
-		font-weight: 300;
-		font-size: 75px;
-	}
+    h2 {
+        font-weight: 300;
+        font-size: 75px;
+    }
 
-	p {
-		font-size: 50px;
-	}
+    p {
+        font-size: 50px;
+    }
 
-	.purchase-amount {
-		font-weight: 300;
-		font-size: 100px;
-	}
+    .purchase-amount {
+        font-weight: 300;
+        font-size: 100px;
+    }
 
-	.purchase-btn {
-		font-size: 34px;
-		font-weight: 300;
-	}
+    .purchase-btn {
+        font-size: 34px;
+        font-weight: 300;
+    }
 }
 @media (max-width: 1440px) {
-	.votepurchase-listing{
-		li{
-			padding:45px 0 !important;
-		}
-		h2{
-			font-size: 56px;
-		}
-		p{
-			font-size: 37px;
-			line-height: 45px;
-		}
-		.purchase-amount{
-			font-size: 75px;
-		}
-		.purchase-btn{
-			font-size: 25px;
-		}
-	}
+    .votepurchase-listing {
+        li {
+            padding: 45px 0 !important;
+        }
+        h2 {
+            font-size: 56px;
+        }
+        p {
+            font-size: 37px;
+            line-height: 45px;
+        }
+        .purchase-amount {
+            font-size: 75px;
+        }
+        .purchase-btn {
+            font-size: 25px;
+        }
+    }
 }
 
 @media (max-width: 991px) {
-	.purchase-contimg {
-		max-width: 280px;
-	}
+    .purchase-contimg {
+        max-width: 280px;
+    }
 
-	.purchase-contesttitle {
-		text-align: center;
-	}
+    .purchase-contesttitle {
+        text-align: center;
+    }
 
-	.votepurchase-listing {
-		h2 {
-			font-size: 40px;
-		}
+    .votepurchase-listing {
+        h2 {
+            font-size: 40px;
+        }
 
-		p {
-			font-size: 20px;
-		}
+        p {
+            font-size: 20px;
+        }
 
-		.purchase-amount {
-			font-size: 40px;
-		}
+        .purchase-amount {
+            font-size: 40px;
+        }
 
-		.purchase-btn {
-			font-size: 20px;
-		}
-	}
+        .purchase-btn {
+            font-size: 20px;
+        }
+    }
 }
 
 @media (max-width: 767px) {
-	.purchase-contimg{
-		max-width: 200px;
-	}
-	.votepurchase-listing{
-		li{
-			text-align: center;
-			padding: 20px 0 !important;
-			> .row{
-				margin-top:0 !important;
-			}
-			h2{
-				margin:0 !important;
-			}
-		}
-	}
+    .purchase-contimg {
+        max-width: 200px;
+    }
+    .votepurchase-listing {
+        li {
+            text-align: center;
+            padding: 20px 0 !important;
+            > .row {
+                margin-top: 0 !important;
+            }
+            h2 {
+                margin: 0 !important;
+            }
+        }
+    }
 }

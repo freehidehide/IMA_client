@@ -1,361 +1,361 @@
 /** @format */
 
 .cartinner {
-	li {
-		margin: 0 0 110px;
+    li {
+        margin: 0 0 110px;
 
-		&:last-child {
-			margin: 0 0 20px;
-		}
-	}
+        &:last-child {
+            margin: 0 0 20px;
+        }
+    }
 }
 
 .carttitle {
-	background-color: #171c30;
-	height: 330px;
+    background-color: #171c30;
+    height: 330px;
 
-	h3 {
-		color: #fff;
-		font-size: 114px;
-	}
+    h3 {
+        color: #fff;
+        font-size: 114px;
+    }
 }
 
 .cartsubtitle {
-	font-size: 20px;
-	color: #696969;
-	font-weight: 500;
-	margin: 0 0 25px;
+    font-size: 20px;
+    color: #696969;
+    font-weight: 500;
+    margin: 0 0 25px;
 }
 
 .cartproducttitle {
-	font-size: 75px;
-	font-weight: 300;
-	color: #696969;
-	line-height: 75px;
+    font-size: 75px;
+    font-weight: 300;
+    color: #696969;
+    line-height: 75px;
 }
 
 .proddescription {
-	font-size: 25px;
-	color: #696969;
+    font-size: 25px;
+    color: #696969;
 }
 
 .cartprodamt {
-	font-size: 75px;
-	font-weight: 300;
-	color: #696969;
-	line-height: 75px;
+    font-size: 75px;
+    font-weight: 300;
+    color: #696969;
+    line-height: 75px;
 }
 
 .ctquantityinput {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-	.ctqtydecr {
-		width: 74px;
-		height: 74px;
-		border: none;
-		background: #cfcfcf url('../../assets/images/minus-symbol.png')
-			no-repeat center center;
-	}
+    .ctqtydecr {
+        width: 74px;
+        height: 74px;
+        border: none;
+        background: #cfcfcf url('../../assets/images/minus-symbol.png')
+            no-repeat center center;
+    }
 
-	input.quantityinput {
-		border: none;
-		height: 74px;
-		width: 166px;
-		text-align: center;
-		font-size: 75px;
-		font-weight: 300;
-		color: #696969;
-		background: #ededed;
+    input.quantityinput {
+        border: none;
+        height: 74px;
+        width: 166px;
+        text-align: center;
+        font-size: 75px;
+        font-weight: 300;
+        color: #696969;
+        background: #ededed;
 
-		&:hover,
-		&:focus {
-			border-color: transparent;
-			outline: none;
-		}
-	}
+        &:hover,
+        &:focus {
+            border-color: transparent;
+            outline: none;
+        }
+    }
 
-	.ctqtyincr {
-		width: 74px;
-		height: 74px;
-		border: none;
-		background: #cfcfcf url('../../assets/images/plus-symbol.png') no-repeat
-			center center;
-	}
+    .ctqtyincr {
+        width: 74px;
+        height: 74px;
+        border: none;
+        background: #cfcfcf url('../../assets/images/plus-symbol.png') no-repeat
+            center center;
+    }
 }
 
 .produtimage {
-	img {
-		border-radius: 40px;
-	}
+    img {
+        border-radius: 40px;
+    }
 }
 
 .updatecart {
-	text-align: center;
+    text-align: center;
 
-	button.btn {
-		width: 100%;
-		height: 57px;
-		font-size: 18px;
-		max-width: 314px;
-	}
+    button.btn {
+        width: 100%;
+        height: 57px;
+        font-size: 18px;
+        max-width: 314px;
+    }
 }
 
 .checkout {
-	margin: 85px 0 0;
-	text-align: center;
+    margin: 85px 0 0;
+    text-align: center;
 
-	.carttotal {
-		font-size: 20px;
-		margin: 0 0 25px;
-		font-weight: 500;
-		color: #696969;
-	}
+    .carttotal {
+        font-size: 20px;
+        margin: 0 0 25px;
+        font-weight: 500;
+        color: #696969;
+    }
 
-	.cartamount {
-		font-size: 75px;
-		color: #696969;
-		font-weight: 300;
-	}
+    .cartamount {
+        font-size: 75px;
+        color: #696969;
+        font-weight: 300;
+    }
 
-	.checkoutbtn {
-		width: 100%;
-		height: 57px;
-		font-size: 18px;
-		max-width: 314px;
-	}
+    .checkoutbtn {
+        width: 100%;
+        height: 57px;
+        font-size: 18px;
+        max-width: 314px;
+    }
 }
 
 @media (max-width: 1440px) {
-	.cartinner {
-		li {
-			margin: 0 0 85px;
-		}
-	}
+    .cartinner {
+        li {
+            margin: 0 0 85px;
+        }
+    }
 
-	.carttitle {
-		height: 248px;
+    .carttitle {
+        height: 248px;
 
-		h3 {
-			font-size: 85px;
-		}
-	}
+        h3 {
+            font-size: 85px;
+        }
+    }
 
-	.cartsubtitle {
-		font-size: 15px;
-		margin: 0 0 20px;
-	}
+    .cartsubtitle {
+        font-size: 15px;
+        margin: 0 0 20px;
+    }
 
-	.cartproducttitle {
-		font-size: 56px;
-		line-height: 56px;
-	}
+    .cartproducttitle {
+        font-size: 56px;
+        line-height: 56px;
+    }
 
-	.proddescription {
-		font-size: 18px;
-	}
+    .proddescription {
+        font-size: 18px;
+    }
 
-	.cartprodamt {
-		font-size: 56px;
-		line-height: 56px;
-	}
+    .cartprodamt {
+        font-size: 56px;
+        line-height: 56px;
+    }
 
-	.ctquantityinput {
-		.ctqtydecr {
-			width: 55px;
-			height: 55px;
-			background-size: 65%;
-		}
+    .ctquantityinput {
+        .ctqtydecr {
+            width: 55px;
+            height: 55px;
+            background-size: 65%;
+        }
 
-		input.quantityinput {
-			height: 55px;
-			width: 124px;
-			font-size: 56px;
-		}
+        input.quantityinput {
+            height: 55px;
+            width: 124px;
+            font-size: 56px;
+        }
 
-		.ctqtyincr {
-			width: 55px;
-			height: 55px;
-			background-size: 65%;
-		}
-	}
+        .ctqtyincr {
+            width: 55px;
+            height: 55px;
+            background-size: 65%;
+        }
+    }
 
-	.produtimage {
-		img {
-			border-radius: 30px;
-		}
-	}
+    .produtimage {
+        img {
+            border-radius: 30px;
+        }
+    }
 
-	.cart-middle {
-		padding-left: 75px;
-		padding-right: 75px;
-	}
+    .cart-middle {
+        padding-left: 75px;
+        padding-right: 75px;
+    }
 
-	.updatecart {
-		button.btn {
-			height: 43px;
-			font-size: 13px;
-			max-width: 235px;
-		}
-	}
+    .updatecart {
+        button.btn {
+            height: 43px;
+            font-size: 13px;
+            max-width: 235px;
+        }
+    }
 
-	.checkout {
-		margin: 60px 0 0;
+    .checkout {
+        margin: 60px 0 0;
 
-		.carttotal {
-			font-size: 15px;
-			margin: 0 0 15px;
-		}
+        .carttotal {
+            font-size: 15px;
+            margin: 0 0 15px;
+        }
 
-		.cartamount {
-			font-size: 55px;
-		}
+        .cartamount {
+            font-size: 55px;
+        }
 
-		.checkoutbtn {
-			height: 43px;
-			font-size: 13px;
-			max-width: 235px;
-		}
-	}
+        .checkoutbtn {
+            height: 43px;
+            font-size: 13px;
+            max-width: 235px;
+        }
+    }
 }
 
 @media (max-width: 1199px) {
-	.prodtitle {
-		display: none;
-	}
+    .prodtitle {
+        display: none;
+    }
 }
 
 @media (max-width: 991px) {
-	.cartinner {
-		li {
-			margin: 0 0 50px;
-		}
-	}
+    .cartinner {
+        li {
+            margin: 0 0 50px;
+        }
+    }
 
-	.carttitle {
-		height: 170px;
+    .carttitle {
+        height: 170px;
 
-		h3 {
-			font-size: 85px;
-		}
-	}
+        h3 {
+            font-size: 85px;
+        }
+    }
 
-	.cartsubtitle {
-		font-size: 15px;
-		margin: 0 0 20px;
-	}
+    .cartsubtitle {
+        font-size: 15px;
+        margin: 0 0 20px;
+    }
 
-	.cartproducttitle {
-		font-size: 38px;
-		line-height: 38px;
-	}
+    .cartproducttitle {
+        font-size: 38px;
+        line-height: 38px;
+    }
 
-	.proddescription {
-		font-size: 13px;
-	}
+    .proddescription {
+        font-size: 13px;
+    }
 
-	.cartprodamt {
-		font-size: 38px;
-		line-height: 38px;
-	}
+    .cartprodamt {
+        font-size: 38px;
+        line-height: 38px;
+    }
 
-	.ctquantityinput {
-		.ctqtydecr {
-			width: 38px;
-			height: 38px;
-			background-size: 65%;
-		}
+    .ctquantityinput {
+        .ctqtydecr {
+            width: 38px;
+            height: 38px;
+            background-size: 65%;
+        }
 
-		input.quantityinput {
-			height: 38px;
-			width: 86px;
-			font-size: 38px;
-		}
+        input.quantityinput {
+            height: 38px;
+            width: 86px;
+            font-size: 38px;
+        }
 
-		.ctqtyincr {
-			width: 38px;
-			height: 38px;
-			background-size: 65%;
-		}
-	}
+        .ctqtyincr {
+            width: 38px;
+            height: 38px;
+            background-size: 65%;
+        }
+    }
 
-	.produtimage {
-		img {
-			border-radius: 10px;
-		}
-	}
+    .produtimage {
+        img {
+            border-radius: 10px;
+        }
+    }
 
-	.cart-middle {
-		padding-left: 15px;
-		padding-right: 15px;
-	}
+    .cart-middle {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
 
 @media (max-width: 767px) {
-	.cartinner {
-		li {
-			margin: 0 0 15px;
-		}
-	}
+    .cartinner {
+        li {
+            margin: 0 0 15px;
+        }
+    }
 
-	.carttitle {
-		h3 {
-			font-size: 55px;
-		}
-	}
+    .carttitle {
+        h3 {
+            font-size: 55px;
+        }
+    }
 
-	.cartsubtitle {
-		font-size: 12px;
-		margin: 0 0 8px;
-	}
+    .cartsubtitle {
+        font-size: 12px;
+        margin: 0 0 8px;
+    }
 
-	.cartproducttitle {
-		font-size: 22px;
-		line-height: 22px;
-	}
+    .cartproducttitle {
+        font-size: 22px;
+        line-height: 22px;
+    }
 
-	.proddescription {
-		font-size: 13px;
-	}
+    .proddescription {
+        font-size: 13px;
+    }
 
-	.cartprice {
-		padding: 0;
-	}
+    .cartprice {
+        padding: 0;
+    }
 
-	.cartprodamt {
-		font-size: 22px;
-		line-height: 22px;
-	}
+    .cartprodamt {
+        font-size: 22px;
+        line-height: 22px;
+    }
 
-	.ctquantityinput {
-		.ctqtydecr {
-			width: 22px;
-			height: 22px;
-			background-size: 65%;
-		}
+    .ctquantityinput {
+        .ctqtydecr {
+            width: 22px;
+            height: 22px;
+            background-size: 65%;
+        }
 
-		input.quantityinput {
-			height: 22px;
-			width: 32px;
-			font-size: 15px;
-		}
+        input.quantityinput {
+            height: 22px;
+            width: 32px;
+            font-size: 15px;
+        }
 
-		.ctqtyincr {
-			width: 22px;
-			height: 22px;
-			background-size: 65%;
-		}
-	}
-	.updatecart {
-		text-align: right;
-	}
+        .ctqtyincr {
+            width: 22px;
+            height: 22px;
+            background-size: 65%;
+        }
+    }
+    .updatecart {
+        text-align: right;
+    }
 }
 
 @media (max-width: 480px) {
-	.cartproducttitle,
-	.cartprodamt {
-		font-size: 19px;
-		line-height: 20px;
-	}
+    .cartproducttitle,
+    .cartprodamt {
+        font-size: 19px;
+        line-height: 20px;
+    }
 }

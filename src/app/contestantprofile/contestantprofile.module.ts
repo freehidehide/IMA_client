@@ -7,8 +7,8 @@ import {ContestantprofileRoutingModule} from './contestantprofile-routing.module
 import {SharedCommonModule} from '../shared-common/shared-common.module';
 import {ContestantprofileComponent} from './contestantprofile.component';
 @NgModule({
-	declarations: [ContestantprofileComponent],
-	imports: [CommonModule, ContestantprofileRoutingModule, SharedCommonModule],
-	providers: [UserService]
+    declarations: [ContestantprofileComponent],
+    imports: [CommonModule, ContestantprofileRoutingModule, SharedCommonModule],
+    providers: [UserService]
 })
 export class ContestantprofileModule {}

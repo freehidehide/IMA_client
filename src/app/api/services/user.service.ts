@@ -10,45 +10,45 @@ import {User} from '../models/user';
 
 @Injectable()
 export class UserService {
-	constructor(private apiService: ApiService) {}
+    constructor(private apiService: ApiService) {}
 
-	register(registerForm: FormGroup): Observable<User> {
-		const register: string = AppConst.NON_AUTH_SERVER_URL.REGISTER;
-		return this.apiService.httpPost(register, registerForm.value);
-	}
+    register(registerForm: FormGroup): Observable<User> {
+        const register: string = AppConst.NON_AUTH_SERVER_URL.REGISTER;
+        return this.apiService.httpPost(register, registerForm.value);
+    }
 
-	login(loginForm: FormGroup): Observable<User> {
-		const login: string = AppConst.NON_AUTH_SERVER_URL.LOGIN;
-		return this.apiService.httpPost(login, loginForm.value);
-	}
+    login(loginForm: FormGroup): Observable<User> {
+        const login: string = AppConst.NON_AUTH_SERVER_URL.LOGIN;
+        return this.apiService.httpPost(login, loginForm.value);
+    }
 
-	update(updateForm: FormGroup): Observable<User> {
-		const updateDetail: string = AppConst.NON_AUTH_SERVER_URL.USER;
-		return this.apiService.httpPut(updateDetail, updateForm.value);
-	}
+    update(updateForm: FormGroup): Observable<User> {
+        const updateDetail: string = AppConst.NON_AUTH_SERVER_URL.USER;
+        return this.apiService.httpPut(updateDetail, updateForm.value);
+    }
 
-	changePassword(changePasswordForm: FormGroup): Observable<User> {
-		const changePassword: string =
-			AppConst.NON_AUTH_SERVER_URL.CHANGEPASSWORD;
-		return this.apiService.httpPut(
-			changePassword,
-			changePasswordForm.value
-		);
-	}
+    changePassword(changePasswordForm: FormGroup): Observable<User> {
+        const changePassword: string =
+            AppConst.NON_AUTH_SERVER_URL.CHANGEPASSWORD;
+        return this.apiService.httpPut(
+            changePassword,
+            changePasswordForm.value
+        );
+    }
 
-	forgotPassword(forgotForm: FormGroup): Observable<User> {
-		const forgotPassword: string =
-			AppConst.NON_AUTH_SERVER_URL.FORGETPASSWORD;
-		return this.apiService.httpPost(forgotPassword, forgotForm.value);
-	}
+    forgotPassword(forgotForm: FormGroup): Observable<User> {
+        const forgotPassword: string =
+            AppConst.NON_AUTH_SERVER_URL.FORGETPASSWORD;
+        return this.apiService.httpPost(forgotPassword, forgotForm.value);
+    }
 
-	findById(id: number): Observable<User> {
-		const url: string = AppConst.NON_AUTH_SERVER_URL.USER + '/' + id;
-		return this.apiService.httpGet(url, null);
-	}
+    findById(id: number): Observable<User> {
+        const url: string = AppConst.NON_AUTH_SERVER_URL.USER + '/' + id;
+        return this.apiService.httpGet(url, null);
+    }
 
-	updateUser(user: User): Observable<User> {
-		const userUrl: string = AppConst.NON_AUTH_SERVER_URL.USER;
-		return this.apiService.httpPut(userUrl, user);
-	}
+    updateUser(user: User): Observable<User> {
+        const userUrl: string = AppConst.NON_AUTH_SERVER_URL.USER;
+        return this.apiService.httpPut(userUrl, user);
+    }
 }

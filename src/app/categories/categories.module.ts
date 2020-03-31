@@ -6,8 +6,8 @@ import {CategoryService} from '../api/services/category.service';
 import {CategoriesRoutingModule} from './categories-routing.module';
 import {CategoriesComponent} from './categories.component';
 @NgModule({
-	declarations: [CategoriesComponent],
-	imports: [CommonModule, CategoriesRoutingModule],
-	providers: [CategoryService]
+    declarations: [CategoriesComponent],
+    imports: [CommonModule, CategoriesRoutingModule],
+    providers: [CategoryService]
 })
 export class CategoriesModule {}

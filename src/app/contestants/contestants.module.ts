@@ -7,8 +7,8 @@ import {ContestantsRoutingModule} from './contestants-routing.module';
 import {SharedCommonModule} from '../shared-common/shared-common.module';
 import {ContestantsComponent} from './contestants.component';
 @NgModule({
-	declarations: [ContestantsComponent],
-	imports: [CommonModule, ContestantsRoutingModule, SharedCommonModule],
-	providers: [CategoryService]
+    declarations: [ContestantsComponent],
+    imports: [CommonModule, ContestantsRoutingModule, SharedCommonModule],
+    providers: [CategoryService]
 })
 export class ContestantsModule {}

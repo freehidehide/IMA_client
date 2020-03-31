@@ -7,7 +7,7 @@ import {ImalistingRoutingModule} from './imalisting-routing.module';
 import {ImalistingComponent} from './imalisting.component';
 
 @NgModule({
-	declarations: [ImalistingComponent],
-	imports: [CommonModule, ImalistingRoutingModule]
+    declarations: [ImalistingComponent],
+    imports: [CommonModule, ImalistingRoutingModule]
 })
 export class ImalistingModule {}

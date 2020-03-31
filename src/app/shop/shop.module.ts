@@ -7,8 +7,8 @@ import {ShopRoutingModule} from './shop-routing.module';
 import {ShopComponent} from './shop.component';
 import {SharedCommonModule} from '../shared-common/shared-common.module';
 @NgModule({
-	declarations: [ShopComponent],
-	imports: [CommonModule, ShopRoutingModule, SharedCommonModule],
-	providers: [ProductService]
+    declarations: [ShopComponent],
+    imports: [CommonModule, ShopRoutingModule, SharedCommonModule],
+    providers: [ProductService]
 })
 export class ShopModule {}

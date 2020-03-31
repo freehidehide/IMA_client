@@ -1,28 +1,28 @@
 /** @format */
 
 .imafooter {
-	background-color: #333;
-	height: 200px;
-	line-height: 200px;
+    background-color: #333;
+    height: 200px;
+    line-height: 200px;
 
-	p {
-		color: #fff;
-		font-size: 20px;
-		font-weight: 300;
-	}
+    p {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 300;
+    }
 }
 
 @media (max-width: 767px) {
-	.imafooter {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: auto;
-		padding: 20px 5px;
+    .imafooter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        padding: 20px 5px;
 
-		p {
-			line-height: normal;
-			font-size: 15px;
-		}
-	}
+        p {
+            line-height: normal;
+            font-size: 15px;
+        }
+    }
 }

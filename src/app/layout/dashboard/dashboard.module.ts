@@ -10,13 +10,13 @@ import {NotificationComponent} from './components';
 import {StatModule} from '../../shared';
 
 @NgModule({
-	imports: [
-		CommonModule,
-		NgbCarouselModule,
-		NgbAlertModule,
-		DashboardRoutingModule,
-		StatModule
-	],
-	declarations: [DashboardComponent, NotificationComponent]
+    imports: [
+        CommonModule,
+        NgbCarouselModule,
+        NgbAlertModule,
+        DashboardRoutingModule,
+        StatModule
+    ],
+    declarations: [DashboardComponent, NotificationComponent]
 })
 export class DashboardModule {}

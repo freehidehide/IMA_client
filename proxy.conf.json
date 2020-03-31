@@ -1,10 +1,10 @@
 {
-	"/api/*": {
-		"target": "http://3.132.95.244",
-		"secure": false
-	},
-	"/images/original/*": {
-		"target": "http://3.132.95.244",
-		"secure": false
-	}
+    "/api/*": {
+        "target": "http://3.132.95.244",
+        "secure": false
+    },
+    "/images/original/*": {
+        "target": "http://3.132.95.244",
+        "secure": false
+    }
 }

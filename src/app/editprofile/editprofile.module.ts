@@ -12,15 +12,15 @@ import {SharedCommonModule} from '../shared-common/shared-common.module';
 import {ImageService} from '../api/services/image.service';
 
 @NgModule({
-	declarations: [EditprofileComponent],
-	imports: [
-		CommonModule,
-		EditprofileRoutingModule,
-		FormsModule,
-		ReactiveFormsModule,
-		LanguageTranslationModule,
-		SharedCommonModule
-	],
-	providers: [UserService, ImageService]
+    declarations: [EditprofileComponent],
+    imports: [
+        CommonModule,
+        EditprofileRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        LanguageTranslationModule,
+        SharedCommonModule
+    ],
+    providers: [UserService, ImageService]
 })
 export class EditprofileModule {}

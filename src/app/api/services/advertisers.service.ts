@@ -10,11 +10,11 @@ import {QueryParam} from '../models/query-param';
 
 @Injectable()
 export class AdvertiserService {
-	constructor(private apiService: ApiService) {}
+    constructor(private apiService: ApiService) {}
 
-	getAll(queryParam: QueryParam): Observable<AdvertisementList> {
-		const advertisementList: string =
-			AppConst.NON_AUTH_SERVER_URL.ADVERTISEMENTS;
-		return this.apiService.httpGet(advertisementList, queryParam);
-	}
+    getAll(queryParam: QueryParam): Observable<AdvertisementList> {
+        const advertisementList: string =
+            AppConst.NON_AUTH_SERVER_URL.ADVERTISEMENTS;
+        return this.apiService.httpGet(advertisementList, queryParam);
+    }
 }

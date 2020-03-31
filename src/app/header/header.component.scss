@@ -4,82 +4,82 @@ $topnav-background-color: #222;
 /* header starts */
 
 .navbar {
-	background-color: rgba(34, 34, 34, 0.47);
-	padding: 12px 130px;
+    background-color: rgba(34, 34, 34, 0.47);
+    padding: 12px 130px;
 
-	.navbar-brand {
-		color: #fff;
-	}
+    .navbar-brand {
+        color: #fff;
+    }
 
-	.nav-item {
-		padding: 0 15px;
+    .nav-item {
+        padding: 0 15px;
 
-		> a {
-			color: #fff;
-			font-size: 16px;
+        > a {
+            color: #fff;
+            font-size: 16px;
 
-			&:hover {
-				color: #ccc;
-			}
-		}
-	}
-	&.scrollheader {
-		background-color: rgba(34, 34, 34, 0.75);
-	}
+            &:hover {
+                color: #ccc;
+            }
+        }
+    }
+    &.scrollheader {
+        background-color: rgba(34, 34, 34, 0.75);
+    }
 }
 
 .imacontainer {
-	max-width: 1920px;
-	margin: 0 auto;
-	width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .staticimanav {
-	position: static;
-	background-color: #20293c;
-	padding-top: 10px;
-	padding-bottom: 10px;
+    position: static;
+    background-color: #20293c;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .header-alert {
-	z-index: 99;
-	width: 100%;
-	left: 0;
-	top: 15px;
+    z-index: 99;
+    width: 100%;
+    left: 0;
+    top: 15px;
 }
 @media (max-width: 1440px) {
-	:host {
-		.navbar {
-			padding: 6px 88px;
-			.nav-item {
-				padding: 0 8px;
+    :host {
+        .navbar {
+            padding: 6px 88px;
+            .nav-item {
+                padding: 0 8px;
 
-				> a {
-					font-size: 13px;
-				}
-			}
-			.navbar-brand {
-				img {
-					height: 70px;
-				}
-			}
-		}
-	}
+                > a {
+                    font-size: 13px;
+                }
+            }
+            .navbar-brand {
+                img {
+                    height: 70px;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 991px) {
-	.imanavbar {
-		position: static;
-		background: rgba(0, 0, 0, 0.95);
-		padding: 12px 25px !important;
-	}
-	.navbar {
-		.nav-item {
-			a {
-				font-size: 14px;
-				text-align: center;
-			}
-		}
-	}
+    .imanavbar {
+        position: static;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 12px 25px !important;
+    }
+    .navbar {
+        .nav-item {
+            a {
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+    }
 }
 /* header ends */

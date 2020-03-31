@@ -11,12 +11,12 @@ import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {DefaultHeaderComponent} from './components/header/default.header.component';
 
 @NgModule({
-	imports: [
-		CommonModule,
-		LayoutRoutingModule,
-		TranslateModule,
-		NgbDropdownModule
-	],
-	declarations: [LayoutComponent, SidebarComponent, DefaultHeaderComponent]
+    imports: [
+        CommonModule,
+        LayoutRoutingModule,
+        TranslateModule,
+        NgbDropdownModule
+    ],
+    declarations: [LayoutComponent, SidebarComponent, DefaultHeaderComponent]
 })
 export class LayoutModule {}

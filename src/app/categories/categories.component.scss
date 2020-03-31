@@ -33,8 +33,7 @@
     }
 }
 
-@media(max-width:1440px) {
-
+@media (max-width: 1440px) {
     .categorieslisting {
         li {
             padding: 6px 12px;
@@ -45,8 +44,8 @@
     }
 }
 
-@media(max-width:767px) {
-	.categorieslisting {
+@media (max-width: 767px) {
+    .categorieslisting {
         li {
             a {
                 font-size: 22px;

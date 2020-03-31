@@ -9,13 +9,13 @@ import {Observable} from 'rxjs';
 import {QueryParam} from '../models/query-param';
 
 @Injectable({
-	providedIn: 'root'
+    providedIn: 'root'
 })
 export class ImageService {
-	constructor(private apiService: ApiService) {}
+    constructor(private apiService: ApiService) {}
 
-	updateUserAvatar(imageData, queryParam: QueryParam): Observable<User> {
-		const imageUrl: string = AppConst.NON_AUTH_SERVER_URL.ATTACHMENTS;
-		return this.apiService.httpPost(imageUrl, imageData, queryParam);
-	}
+    updateUserAvatar(imageData, queryParam: QueryParam): Observable<User> {
+        const imageUrl: string = AppConst.NON_AUTH_SERVER_URL.ATTACHMENTS;
+        return this.apiService.httpPost(imageUrl, imageData, queryParam);
+    }
 }

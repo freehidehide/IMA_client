@@ -7,7 +7,7 @@ import {InstantvoteRoutingModule} from './instantvote-routing.module';
 import {InstantvoteComponent} from './instantvote.component';
 
 @NgModule({
-	declarations: [InstantvoteComponent],
-	imports: [CommonModule, InstantvoteRoutingModule]
+    declarations: [InstantvoteComponent],
+    imports: [CommonModule, InstantvoteRoutingModule]
 })
 export class InstantvoteModule {}

@@ -11,27 +11,27 @@
 @import 'responsive';
 
 @media print {
-	.breadcrumb {
-		display: none !important;
-	}
+    .breadcrumb {
+        display: none !important;
+    }
 }
 
 :focus {
-	outline: none;
+    outline: none;
 }
 
 html,
 body {
-	height: 100%;
+    height: 100%;
 }
 
 /* subheading starts */
 .subheadings {
-	position: absolute;
-	padding: 0 0 0 125px;
-	top: 50%;
-	left: 0;
-	transform: translate(0%, -12%);
+    position: absolute;
+    padding: 0 0 0 125px;
+    top: 50%;
+    left: 0;
+    transform: translate(0%, -12%);
 
     h2 {
         font-family: 'Rozha One', serif;
@@ -39,28 +39,28 @@ body {
         color: #fff;
         line-height: 65px;
 
-		span {
-			font-family: 'Open Sans';
-			font-size: 33px;
-			line-height: 33px;
-			display: block;
-			font-weight: 300;
-		}
-	}
+        span {
+            font-family: 'Open Sans';
+            font-size: 33px;
+            line-height: 33px;
+            display: block;
+            font-weight: 300;
+        }
+    }
 }
 
 .imacontainer {
-	max-width: 1920px;
-	margin: 0 auto;
-	width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .content-middle {
-	padding: 65px 95px;
+    padding: 65px 95px;
 }
 
 .rozhafont {
-	font-family: 'Rozha One', serif;
+    font-family: 'Rozha One', serif;
 }
 
 @media (max-width: 1440px) {
@@ -76,17 +76,17 @@ body {
     }
 }
 @media (max-width: 991px) {
-	.content-middle {
-		padding: 15px;
-	}
+    .content-middle {
+        padding: 15px;
+    }
 
     .subheadings {
         padding: 0 0 0 25px;
         transform: translate(0%, -50%);
-        h2{
+        h2 {
             font-size: 50px;
             line-height: 50px;
-            span{
+            span {
                 font-size: 20px;
                 line-height: 20px;
             }
@@ -96,17 +96,17 @@ body {
 
 @media (max-width: 767px) {
     .subheader {
-        >img {
+        > img {
             object-fit: cover;
             object-position: 80%;
         }
     }
     .subheadings {
         padding: 0 0 0 15px;
-        h2{
+        h2 {
             font-size: 30px;
             line-height: 30px;
-            span{
+            span {
                 font-size: 15px;
                 line-height: 15px;
             }
@@ -116,7 +116,7 @@ body {
 
 /* subheading ends */
 .invalid-feedback-show {
-	color: #f00;
-	font-size: 14px;
-	margin: 1px 0 0;
+    color: #f00;
+    font-size: 14px;
+    margin: 1px 0 0;
 }

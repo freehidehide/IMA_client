@@ -21,22 +21,28 @@ import {SiteAlertMessageComponent} from './site-alert-message/site-alert-message
 import {SiteLoaderComponent} from './site-loader/site-loader.component';
 
 @NgModule({
-	imports: [
-		CommonModule,
-		BrowserModule,
-		BrowserAnimationsModule,
-		HttpClientModule,
-		LanguageTranslationModule,
-		AppRoutingModule
-	],
-	declarations: [
-		AppComponent,
-		FooterComponent,
-		HeaderComponent,
-		SiteAlertMessageComponent,
-		SiteLoaderComponent
-	],
-	providers: [AuthGuard, ApiService, ToastService, SessionService, SettingsService],
-	bootstrap: [AppComponent]
+    imports: [
+        CommonModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        LanguageTranslationModule,
+        AppRoutingModule
+    ],
+    declarations: [
+        AppComponent,
+        FooterComponent,
+        HeaderComponent,
+        SiteAlertMessageComponent,
+        SiteLoaderComponent
+    ],
+    providers: [
+        AuthGuard,
+        ApiService,
+        ToastService,
+        SessionService,
+        SettingsService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

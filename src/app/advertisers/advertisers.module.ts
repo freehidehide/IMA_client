@@ -8,8 +8,8 @@ import {SharedCommonModule} from '../shared-common/shared-common.module';
 import {AdvertisersComponent} from './advertisers.component';
 
 @NgModule({
-	declarations: [AdvertisersComponent],
-	imports: [CommonModule, AdvertisersRoutingModule, SharedCommonModule],
-	providers: [AdvertiserService]
+    declarations: [AdvertisersComponent],
+    imports: [CommonModule, AdvertisersRoutingModule, SharedCommonModule],
+    providers: [AdvertiserService]
 })
 export class AdvertisersModule {}

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TransactionService } from '../api/services/transaction.service';
-import { QueryParam } from '../api/models/query-param';
+import {Component, OnInit} from '@angular/core';
+import {TransactionService} from '../api/services/transaction.service';
+import {QueryParam} from '../api/models/query-param';
 
 @Component({
     selector: 'app-transaction',
@@ -8,8 +8,7 @@ import { QueryParam } from '../api/models/query-param';
     styleUrls: ['./transaction.component.css']
 })
 export class TransactionComponent implements OnInit {
-
-    constructor(public transactionService: TransactionService) { }
+    constructor(public transactionService: TransactionService) {}
 
     ngOnInit(): void {
         this.getTransactionDetails('Product');
@@ -30,4 +29,3 @@ export class TransactionComponent implements OnInit {
             });
     }
 }
-

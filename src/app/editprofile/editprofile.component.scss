@@ -1,44 +1,43 @@
 /** @format */
 
 .imanavbar {
-	position: static;
+    position: static;
 }
 
 .eprofilecontainer {
-	max-width: 1044px;
-	width: 100%;
+    max-width: 1044px;
+    width: 100%;
 }
 
 .profile-image {
-	max-width: 285px;
-	border-radius: 50%;
-	overflow: hidden;
-	height: 285px;
+    max-width: 285px;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 285px;
 }
 
 .eprofleft {
-	.btn {
-		border-color: #aeaeae;
-		color: #aeaeae;
-	}
+    .btn {
+        border-color: #aeaeae;
+        color: #aeaeae;
+    }
 }
 
 .form-group {
-	label {
-		color: #888;
-	}
+    label {
+        color: #888;
+    }
 
-	input {
-		height: 44px;
-		border: none;
-		background-color: #e8e8e8;
-		color: #888;
-	}
+    input {
+        height: 44px;
+        border: none;
+        background-color: #e8e8e8;
+        color: #888;
+    }
 }
-@media(max-width:1440px){
-	.profile-image{
-		max-width: 214px;
-		height: 214px;
-	}
-
+@media (max-width: 1440px) {
+    .profile-image {
+        max-width: 214px;
+        height: 214px;
+    }
 }

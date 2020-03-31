@@ -23,7 +23,6 @@ nav.navbar {
     }
 }
 
-
 .contprofileimage {
     max-width: 560px;
     overflow: hidden;
@@ -104,8 +103,8 @@ nav.navbar {
 
 @media (max-width: 1440px) {
     .contprofileimage {
-		max-width: 420px;
-		margin: -320px auto 0;
+        max-width: 420px;
+        margin: -320px auto 0;
     }
 
     .contprofilearea {
@@ -115,8 +114,8 @@ nav.navbar {
     }
 
     .contestvote-btn {
-		max-width: 510px;
-		font-size: 13px;
+        max-width: 510px;
+        font-size: 13px;
     }
 
     .voteandrank {
@@ -125,10 +124,10 @@ nav.navbar {
                 img {
                     max-width: 61px;
                 }
-			}
-			.profilevcount{
-				font-size:21px;
-			}
+            }
+            .profilevcount {
+                font-size: 21px;
+            }
         }
     }
 }

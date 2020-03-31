@@ -8,26 +8,26 @@ import {SidebarComponent} from './sidebar.component';
 import {LayoutModule} from '../../layout.module';
 
 describe('SidebarComponent', () => {
-	let component: SidebarComponent;
-	let fixture: ComponentFixture<SidebarComponent>;
+    let component: SidebarComponent;
+    let fixture: ComponentFixture<SidebarComponent>;
 
-	beforeEach(async(() => {
-		TestBed.configureTestingModule({
-			imports: [
-				LayoutModule,
-				RouterTestingModule,
-				TranslateModule.forRoot()
-			]
-		}).compileComponents();
-	}));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            imports: [
+                LayoutModule,
+                RouterTestingModule,
+                TranslateModule.forRoot()
+            ]
+        }).compileComponents();
+    }));
 
-	beforeEach(() => {
-		fixture = TestBed.createComponent(SidebarComponent);
-		component = fixture.componentInstance;
-		fixture.detectChanges();
-	});
+    beforeEach(() => {
+        fixture = TestBed.createComponent(SidebarComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-	it('should create', () => {
-		expect(component).toBeTruthy();
-	});
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

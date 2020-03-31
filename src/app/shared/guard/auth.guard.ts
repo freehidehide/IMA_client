@@ -6,14 +6,14 @@ import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-	constructor(private router: Router) {}
+    constructor(private router: Router) {}
 
-	canActivate() {
-		const session: any = JSON.parse(sessionStorage.getItem('user_context'));
-		if (session && session.access_token) {
-			return true;
-		}
-		this.router.navigate(['/login']);
-		return false;
-	}
+    canActivate() {
+        const session: any = JSON.parse(sessionStorage.getItem('user_context'));
+        if (session && session.access_token) {
+            return true;
+        }
+        this.router.navigate(['/login']);
+        return false;
+    }
 }

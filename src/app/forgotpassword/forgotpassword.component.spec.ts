@@ -5,22 +5,22 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {ForgotpasswordComponent} from './forgotpassword.component';
 
 describe('ForgotpasswordComponent', () => {
-	let component: ForgotpasswordComponent;
-	let fixture: ComponentFixture<ForgotpasswordComponent>;
+    let component: ForgotpasswordComponent;
+    let fixture: ComponentFixture<ForgotpasswordComponent>;
 
-	beforeEach(async(() => {
-		TestBed.configureTestingModule({
-			declarations: [ForgotpasswordComponent]
-		}).compileComponents();
-	}));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [ForgotpasswordComponent]
+        }).compileComponents();
+    }));
 
-	beforeEach(() => {
-		fixture = TestBed.createComponent(ForgotpasswordComponent);
-		component = fixture.componentInstance;
-		fixture.detectChanges();
-	});
+    beforeEach(() => {
+        fixture = TestBed.createComponent(ForgotpasswordComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-	it('should create', () => {
-		expect(component).toBeTruthy();
-	});
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

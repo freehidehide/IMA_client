@@ -10,13 +10,13 @@ import {UserService} from '../api/services/user.service';
 import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
-	imports: [
-		CommonModule,
-		TranslateModule,
-		SignupRoutingModule,
-		ReactiveFormsModule
-	],
-	providers: [UserService],
-	declarations: [SignupComponent]
+    imports: [
+        CommonModule,
+        TranslateModule,
+        SignupRoutingModule,
+        ReactiveFormsModule
+    ],
+    providers: [UserService],
+    declarations: [SignupComponent]
 })
 export class SignupModule {}
