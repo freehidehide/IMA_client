@@ -4,12 +4,10 @@
 
 .tabcontents {
     background-color: #ededed;
-    padding: 40px 120px;
+    padding: 40px;
 }
 
 .accountlisting {
-    border-bottom: 1px solid #828282;
-    padding: 0 0 38px;
     margin: 45px 0 0;
 
     h2 {
@@ -20,6 +18,21 @@
         span {
             font-size: 33px;
             font-weight: 300;
+        }
+    }
+
+    .acvotepackage,
+    .acvotedate {
+        border-bottom: 1px solid #828282;
+        padding-bottom: 38px;
+    }
+
+    .acuserimage {
+        border-bottom: 1px solid transparent;
+
+        img {
+            max-width: 117px;
+            width: 100%;
         }
     }
 
@@ -44,11 +57,10 @@
     }
 
     .tabcontents {
-        padding: 35px 66px;
+        padding: 35px;
     }
 
     .accountlisting {
-        padding: 0 0 30px;
         margin: 36px 0 0;
 
         h2 {
@@ -58,7 +70,9 @@
                 font-size: 25px;
             }
         }
-
+        .acvotepackage, .acvotedate{
+            padding-bottom: 30px;
+        }
         .accountamount {
             font-size: 31px;
             margin: 0 0 5px;
@@ -84,7 +98,6 @@
     }
 
     .accountlisting {
-        padding: 0 0 20px;
         margin: 25px 0 0;
 
         h2 {
@@ -94,7 +107,9 @@
                 font-size: 18px;
             }
         }
-
+        .acvotepackage, .acvotedate{
+            padding-bottom: 20px;
+        }
         .accountamount {
             font-size: 22px;
             margin: 0 0 5px;
@@ -115,18 +130,23 @@
         margin: 8px 0 0 !important;
         text-align: left;
     }
-
+    .accountlisting{
+        border-bottom: 1px solid #828282;
+        .acvotepackage, .acvotedate{
+            border: none;
+        }
+    }
     .tabcontents {
         padding: 15px;
     }
 }
 
 @media(max-width:480px) {
-    .tabcontents{
-        margin:5px 0 0;
+    .tabcontents {
+        margin: 5px 0 0;
     }
+
     .accountlisting {
-        padding: 0 0 20px;
         margin: 25px 0 0;
 
         h2 {
@@ -136,7 +156,9 @@
                 font-size: 15px;
             }
         }
-
+        .acvotepackage, .acvotedate{
+            padding-bottom: 20px;
+        }
         .accountamount {
             font-size: 18px;
             margin: 0 0 5px;
