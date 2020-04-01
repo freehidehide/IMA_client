@@ -1,0 +1,153 @@
+.accounthistory-section {
+    padding: 85px 120px;
+}
+
+.tabcontents {
+    background-color: #ededed;
+    padding: 40px 120px;
+}
+
+.accountlisting {
+    border-bottom: 1px solid #828282;
+    padding: 0 0 38px;
+    margin: 45px 0 0;
+
+    h2 {
+        font-size: 41px;
+        font-weight: 600;
+        margin: 0;
+
+        span {
+            font-size: 33px;
+            font-weight: 300;
+        }
+    }
+
+    .accountamount {
+        font-size: 41px;
+        line-height: normal;
+        margin: 0 0 8px;
+    }
+
+    .packagename {
+        font-size: 25px;
+    }
+
+    .accountdate {
+        font-size: 25px;
+    }
+}
+
+@media(max-width:1440px) {
+    .accounthistory-section {
+        padding: 60px;
+    }
+
+    .tabcontents {
+        padding: 35px 66px;
+    }
+
+    .accountlisting {
+        padding: 0 0 30px;
+        margin: 36px 0 0;
+
+        h2 {
+            font-size: 31px;
+
+            span {
+                font-size: 25px;
+            }
+        }
+
+        .accountamount {
+            font-size: 31px;
+            margin: 0 0 5px;
+        }
+
+        .packagename {
+            font-size: 18px;
+        }
+
+        .accountdate {
+            font-size: 18px;
+        }
+    }
+}
+
+@media(max-width:991px) {
+    .accounthistory-section {
+        padding: 20px;
+    }
+
+    .tabcontents {
+        padding: 30px;
+    }
+
+    .accountlisting {
+        padding: 0 0 20px;
+        margin: 25px 0 0;
+
+        h2 {
+            font-size: 22px;
+
+            span {
+                font-size: 18px;
+            }
+        }
+
+        .accountamount {
+            font-size: 22px;
+            margin: 0 0 5px;
+        }
+
+        .packagename {
+            font-size: 15px;
+        }
+
+        .accountdate {
+            font-size: 15px;
+        }
+    }
+}
+
+@media(max-width:767px) {
+    .accountdate {
+        margin: 8px 0 0 !important;
+        text-align: left;
+    }
+
+    .tabcontents {
+        padding: 15px;
+    }
+}
+
+@media(max-width:480px) {
+    .tabcontents{
+        margin:5px 0 0;
+    }
+    .accountlisting {
+        padding: 0 0 20px;
+        margin: 25px 0 0;
+
+        h2 {
+            font-size: 18px;
+
+            span {
+                font-size: 15px;
+            }
+        }
+
+        .accountamount {
+            font-size: 18px;
+            margin: 0 0 5px;
+        }
+
+        .packagename {
+            font-size: 13px;
+        }
+
+        .accountdate {
+            font-size: 13px;
+        }
+    }
+}

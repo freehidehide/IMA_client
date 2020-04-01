@@ -33,17 +33,6 @@
             }
         }
     }
-
-    .cartlistthumbnails {
-        display: flex;
-        flex-direction: column;
-
-        a {
-            border-radius: 10px;
-            overflow: hidden;
-            display: inline-block;
-        }
-    }
 }
 
 .slectcolors {
@@ -590,6 +579,9 @@
                 bottom: 10px;
             }
         }
+        .cartlistthumbnails{
+            max-width: 60px;
+        }
     }
 }
 
@@ -654,6 +646,9 @@
                 left: 15px;
                 bottom: 15px;
             }
+        }
+        .cartlistthumbnails{
+            max-width: 60px;
         }
     }
 }

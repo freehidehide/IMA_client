@@ -5,7 +5,7 @@ import {QueryParam} from '../api/models/query-param';
 @Component({
     selector: 'app-transaction',
     templateUrl: './transaction.component.html',
-    styleUrls: ['./transaction.component.css']
+    styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
     constructor(public transactionService: TransactionService) {}
