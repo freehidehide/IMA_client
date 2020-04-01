@@ -1,0 +1,32 @@
+.accounthistory-section{
+    padding:85px 120px;
+}
+.tabcontents{
+    background-color: #ededed;
+    padding:40px 120px;
+}
+.accountlisting{
+    border-bottom: 1px solid #828282;
+    padding: 0 0 38px;
+    margin:45px 0 0;
+    h2{
+        font-size:41px;
+        font-weight: 600;
+        margin:0;
+        span{
+            font-size:33px;
+            font-weight: 300;
+        }
+    }
+    .accountamount{
+        font-size:41px;
+        line-height: normal;
+        margin: 0 0 8px;
+    }
+    .packagename{
+        font-size: 25px;
+    }
+    .accountdate{
+        font-size: 25px;
+    }
+}

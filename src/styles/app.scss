@@ -62,7 +62,36 @@ body {
 .rozhafont {
     font-family: 'Rozha One', serif;
 }
-
+.accounttabs{
+    .pane{
+        padding: 0;
+    }
+    ul.nav-tabs{
+        border: none;
+        li{
+            text-transform: uppercase;
+            margin:0 5px;
+            a{
+                border-radius: 10px 10px 0 0;
+                background-color:#b3b3b3;
+                color:#fff;
+                font-size: 18px;
+                padding: 20px 28px;
+                display: block;
+                &:hover,&:focus{
+                    text-decoration: none;
+                }
+                
+            }
+            &.active{
+                a{
+                    background-color: #ededed;
+                    color:#000;
+                }
+            }
+        }
+    }
+}
 @media (max-width: 1440px) {
     .subheadings {
         h2 {
