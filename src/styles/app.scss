@@ -64,30 +64,42 @@ body {
 }
 .accounttabs{
     .pane{
-        padding: 0;
+        padding: 0 !important;
     }
     ul.nav-tabs{
         border: none;
+        display: flex;
+        justify-content: space-between;
         li{
             text-transform: uppercase;
             margin:0 5px;
+            width: 19%;
+            border-radius: 10px 10px 0 0;
+            background-color:#b3b3b3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             a{
-                border-radius: 10px 10px 0 0;
-                background-color:#b3b3b3;
                 color:#fff;
-                font-size: 18px;
-                padding: 20px 28px;
+                font-size: 16px;
+                padding: 20px 10px;
                 display: block;
+                text-align: center;
                 &:hover,&:focus{
                     text-decoration: none;
                 }
-                
             }
             &.active{
+                background-color: #ededed;
                 a{
-                    background-color: #ededed;
                     color:#000;
                 }
+            }
+            &:first-child{
+                margin-left:0;
+            }
+            &:last-child{
+                margin-right:0;
             }
         }
     }
@@ -100,6 +112,15 @@ body {
             span {
                 font-size: 25px;
                 line-height: 25px;
+            }
+        }
+    }
+    .accounttabs {
+        ul.nav-tabs {
+            li {
+                a{
+                    font-size:14px;
+                }
             }
         }
     }
@@ -121,6 +142,16 @@ body {
             }
         }
     }
+    .accounttabs {
+        ul.nav-tabs {
+            li {
+                width: 18%;
+                a{
+                    font-size:12px;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 767px) {
@@ -138,6 +169,22 @@ body {
             span {
                 font-size: 15px;
                 line-height: 15px;
+            }
+        }
+    }
+}
+@media (max-width: 480px) {
+    .accounttabs {
+        ul.nav-tabs {
+            flex-direction: column;
+            li {
+                margin:5px 0;
+                border-radius: 0;
+                width: 100%;
+                a{
+                    font-size:13px;
+                    padding:10px;
+                }
             }
         }
     }

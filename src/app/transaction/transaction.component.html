@@ -10,12 +10,8 @@
     <div class="content-middle accounthistory-section">
         <div class="accounttabs">
             <app-my-tabs (tabSelected)="tabSelected($event)">
-                <app-my-tab
-                    [tabTitle]="'Product Transaction'"
-                    [tabClass]="'Product'"
-                >
-                <div class="tabcontents">
-                    <div class="">
+                <app-my-tab [tabTitle]="'Product Transaction'" [tabClass]="'Product'">
+                    <div class="tabcontents">
                         <ul class="list-unstyled">
                             <li class="row accountlisting">
                                 <div class="col-md-6">
@@ -24,35 +20,128 @@
                                     <p class="packagename m-0">Package Name - Package Details</p>
                                 </div>
                                 <div class="col-md-6 d-flex justify-content-end flex-column text-center">
-                                    <p class="accountdate m-0">dd/mm/yy | hh:mm AM</p></div>
+                                    <p class="accountdate m-0">dd/mm/yy | hh:mm AM</p>
+                                </div>
+                            </li>
+                            <li class="row accountlisting">
+                                <div class="col-md-6">
+                                    <h2>VOTE PACKAGE <span>for [Contestant Name]</span></h2>
+                                    <p class="accountamount">[$ 000.000]</p>
+                                    <p class="packagename m-0">Package Name - Package Details</p>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-end flex-column text-center">
+                                    <p class="accountdate m-0">dd/mm/yy | hh:mm AM</p>
+                                </div>
                             </li>
                         </ul>
                     </div>
-                </div>
                 </app-my-tab>
-                <app-my-tab
-                    tabTitle="VotePackage Transaction"
-                    tabClass="VotePackage"
-                >
-                    VotePackage Transaction
+                <app-my-tab tabTitle="VotePackage Transaction" tabClass="VotePackage">
+                    <div class="tabcontents">
+                        <ul class="list-unstyled">
+                            <li class="row accountlisting">
+                                <div class="col-md-6">
+                                    <h2>VOTE PACKAGE <span>for [Contestant Name]</span></h2>
+                                    <p class="accountamount">[$ 000.000]</p>
+                                    <p class="packagename m-0">Package Name - Package Details</p>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-end flex-column text-center">
+                                    <p class="accountdate m-0">dd/mm/yy | hh:mm AM</p>
+                                </div>
+                            </li>
+                            <li class="row accountlisting">
+                                <div class="col-md-6">
+                                    <h2>VOTE PACKAGE <span>for [Contestant Name]</span></h2>
+                                    <p class="accountamount">[$ 000.000]</p>
+                                    <p class="packagename m-0">Package Name - Package Details</p>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-end flex-column text-center">
+                                    <p class="accountdate m-0">dd/mm/yy | hh:mm AM</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </app-my-tab>
-                <app-my-tab
-                    tabTitle="Instant VotePackage Transaction"
-                    tabClass="InstantPackage"
-                >
-                    Instant VotePackage Transaction
+                <app-my-tab tabTitle="Instant VotePackage Transaction" tabClass="InstantPackage">
+                    <div class="tabcontents">
+                        <ul class="list-unstyled">
+                            <li class="row accountlisting">
+                                <div class="col-md-6">
+                                    <h2>VOTE PACKAGE <span>for [Contestant Name]</span></h2>
+                                    <p class="accountamount">[$ 000.000]</p>
+                                    <p class="packagename m-0">Package Name - Package Details</p>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-end flex-column text-center">
+                                    <p class="accountdate m-0">dd/mm/yy | hh:mm AM</p>
+                                </div>
+                            </li>
+                            <li class="row accountlisting">
+                                <div class="col-md-6">
+                                    <h2>VOTE PACKAGE <span>for [Contestant Name]</span></h2>
+                                    <p class="accountamount">[$ 000.000]</p>
+                                    <p class="packagename m-0">Package Name - Package Details</p>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-end flex-column text-center">
+                                    <p class="accountdate m-0">dd/mm/yy | hh:mm AM</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </app-my-tab>
-                <app-my-tab
-                    tabTitle="Subscription Transaction"
-                    tabClass="SubscriptionPackage"
-                >
-                    Subscription Transaction
+                <app-my-tab tabTitle="Subscription Transaction" tabClass="SubscriptionPackage">
+                    <div class="tabcontents">
+                        <ul class="list-unstyled">
+                            <li class="row accountlisting">
+                                <div class="col-md-6">
+                                    <h2>VOTE PACKAGE <span>for [Contestant Name]</span></h2>
+                                    <p class="accountamount">[$ 000.000]</p>
+                                    <p class="packagename m-0">Package Name - Package Details</p>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-end flex-column text-center">
+                                    <p class="accountdate m-0">dd/mm/yy | hh:mm AM</p>
+                                </div>
+                            </li>
+                            <li class="row accountlisting">
+                                <div class="col-md-6">
+                                    <h2>VOTE PACKAGE <span>for [Contestant Name]</span></h2>
+                                    <p class="accountamount">[$ 000.000]</p>
+                                    <p class="packagename m-0">Package Name - Package Details</p>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-end flex-column text-center">
+                                    <p class="accountdate m-0">dd/mm/yy | hh:mm AM</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </app-my-tab>
                 <app-my-tab tabTitle="Fund Transaction" tabClass="Fund">
-                    Fund Transaction
+                    <div class="tabcontents">
+                        <ul class="list-unstyled">
+                            <li class="row accountlisting">
+                                <div class="col-md-6">
+                                    <h2>VOTE PACKAGE <span>for [Contestant Name]</span></h2>
+                                    <p class="accountamount">[$ 000.000]</p>
+                                    <p class="packagename m-0">Package Name - Package Details</p>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-end flex-column text-center">
+                                    <p class="accountdate m-0">dd/mm/yy | hh:mm AM</p>
+                                </div>
+                            </li>
+                            <li class="row accountlisting">
+                                <div class="col-md-6">
+                                    <h2>VOTE PACKAGE <span>for [Contestant Name]</span></h2>
+                                    <p class="accountamount">[$ 000.000]</p>
+                                    <p class="packagename m-0">Package Name - Package Details</p>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-end flex-column text-center">
+                                    <p class="accountdate m-0">dd/mm/yy | hh:mm AM</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </app-my-tab>
             </app-my-tabs>
-            
+
         </div>
     </div>
 </div>
