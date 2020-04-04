@@ -5,7 +5,7 @@ import {Router, NavigationEnd} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
-    selector: 'default-header',
+    selector: 'app-default-header',
     templateUrl: './default.header.component.html',
     styleUrls: ['./default.header.component.scss']
 })

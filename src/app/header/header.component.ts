@@ -36,9 +36,11 @@ export class HeaderComponent {
     ) {
         this.router.events.subscribe((event) => {
             if (event instanceof NavigationEnd) {
-                this.hideHeader = !(this.headerRemove.indexOf(event.url) > -1);
-                this.showStaticHeader =
-                    this.staticheader.indexOf(event.url) > -1;
+                if (this.headerRemove.indexOf('/admin') !== -1) {
+                    this.hideHeader = !(this.headerRemove.indexOf(event.url) > -1);
+                    this.showStaticHeader =
+                        this.staticheader.indexOf(event.url) > -1;
+                }
             }
         });
     }

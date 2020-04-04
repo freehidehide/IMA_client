@@ -9,12 +9,14 @@ import {RouterModule, Router, NavigationEnd} from '@angular/router';
     styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-    public hideFooter: boolean = false;
+    public hideFooter = false;
     public footerRemove: string[] = ['/login', '/signup', '/forgot-password'];
     constructor(private router: Router) {
         this.router.events.subscribe((event) => {
             if (event instanceof NavigationEnd) {
-                this.hideFooter = !(this.footerRemove.indexOf(event.url) > -1);
+                if (this.headerRemove.indexOf('/admin') !== -1) {
+                    this.hideFooter = !(this.footerRemove.indexOf(event.url) > -1);
+                }
             }
         });
     }
