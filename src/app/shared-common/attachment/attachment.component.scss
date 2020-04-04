@@ -20,6 +20,9 @@
         max-width: 610px;
         max-height: 315px;
     }
+    .profiletopimg {
+        height: 450px;
+    }
 }
 @media (max-width: 1199px) and (min-width: 992px) {
     .contestantimg {
@@ -32,11 +35,17 @@
         max-width: 464px;
         max-height: 226px;
     }
+    .profiletopimg {
+        height: 300px;
+    }
 }
 @media (max-width: 767px) {
     .contestantimg {
         max-width: 350px;
         max-height: 210px;
+    }
+    .profiletopimg {
+        height: 350px;
     }
 }
 

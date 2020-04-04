@@ -10,7 +10,7 @@ import {SessionService} from '../api/services/session-service';
 @Component({
   selector: 'app-recent-winner',
   templateUrl: './recent-winner.component.html',
-  styleUrls: ['./recent-winner.component.css']
+  styleUrls: ['./recent-winner.component.scss']
 })
 export class RecentWinnerComponent extends BaseComponent implements OnInit {
   public users: User[] = [];
