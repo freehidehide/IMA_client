@@ -113,14 +113,8 @@ export class ApiService {
      * Formats the key value pair to query pair
      */
     getFormattedQueryParam(url: string, params: any, method: string): string {
-        let formattedUrl: string = '';
-        let passToken: boolean = true;
-        if (method === 'GET' && this.token === null) {
-            const regExp = /users/g;
-            passToken = !regExp.test(url);
-        }
-        const appendToken: string =
-            !(AppConst.NON_AUTH_SERVER_URL_LIST.indexOf(url) > -1) && passToken
+        let formattedUrl: string;
+        const appendToken: string = !(AppConst.NON_AUTH_SERVER_URL_LIST.indexOf(url) > -1)
                 ? '?token=' + this.token
                 : '?';
         if (params) {

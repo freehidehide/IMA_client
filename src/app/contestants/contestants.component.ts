@@ -1,12 +1,13 @@
 /** @format */
-import {ActivatedRoute} from '@angular/router';
-import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Component, OnInit, Input} from '@angular/core';
 import {ToastService} from '../api/services/toast-service';
 import {CategoryService} from '../api/services/category.service';
 import {UserList} from '../api/models/user-list';
+import {User} from '../api/models/user';
 import {QueryParam} from '../api/models/query-param';
-import {AppConst} from '../utils/app-const';
 import {BaseComponent} from '../base.component';
+import {AppConst} from '../utils/app-const';
 @Component({
     selector: 'app-contestants',
     templateUrl: './contestants.component.html',
@@ -14,24 +15,42 @@ import {BaseComponent} from '../base.component';
 })
 export class ContestantsComponent extends BaseComponent implements OnInit {
     public userList: UserList;
+    public users: User[] = [];
     public isNodata: boolean;
-    public categoryId: number = 1;
-    public categoryName: string = '';
+    public categoryId = 1;
+    public categoryName = '';
+    public pageType: number;
+    @Input('type')
+    set type(value: number) {
+        if (value) {
+            this.pageType = value;
+        }
+    }
+    @Input('usersData')
+    set usersData(value: User[]) {
+        if (value && value.length > 0) {
+            this.users = value;
+        }
+    }
     constructor(
+        protected router: Router,
         private categoryService: CategoryService,
+        private activatedRoute: ActivatedRoute,
         private toastService: ToastService,
-        private activatedRoute: ActivatedRoute
     ) {
         super();
     }
 
     ngOnInit(): void {
-        this.categoryId = +this.activatedRoute.snapshot.paramMap.get('id');
-        if (this.categoryId) {
-            this.categoryName = this.activatedRoute.snapshot.paramMap.get(
-                'name'
-            );
-            this.getContestantsByCategories();
+        if (this.router.url.indexOf(AppConst.NON_AUTH_SERVER_URL.CONTESTANTS) > -1) {
+            this.categoryId = +this.activatedRoute.snapshot.paramMap.get('id');
+            if (this.categoryId) {
+                this.pageType = 1;
+                this.categoryName = this.activatedRoute.snapshot.paramMap.get(
+                    'name'
+                );
+                this.getContestantsByCategories();
+            }
         }
     }
 
@@ -53,6 +72,7 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
                 ) {
                     this.toastService.error(this.userList.error.message);
                 } else {
+                    this.users = this.userList.data;
                     this.isNodata = this.userList.data.length === 0;
                 }
                 this.toastService.clearLoading();
@@ -61,5 +81,10 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
 
     trackById(index: number, el: any): number {
         return el.id;
+    }
+
+    redirect(user: User): void {
+        const url: string = '/profile/' + user.id + '/' + user.category.category_id;
+        this.router.navigate([url]);
     }
 }

@@ -9,11 +9,15 @@ export class AppConst {
         CHANGEPASSWORD: '/users/change_password',
         ALLCATEGORY: '/catagories',
         CONTESTANTS: '/contestants',
-        PRODUCTS: '/products',
+        HIGHEST_VOTES: '/contestants/highest_votes',
+        RECENT_WINNER: '/contestants/recent_winner',
         ADVERTISEMENTS: '/advertisements',
+        PRODUCTS: '/products',
         ATTACHMENTS: '/attachments',
-        SETTINGS: '/settings',
-        TRANSACTIONS: '/transactions'
+        SETTINGS: '/settings?is_web=true',
+        TRANSACTIONS: '/transactions',
+        VOTEPACKAGES: '/vote_packages',
+        CONTEST: '/contest'
     };
 
     public static readonly NON_AUTH_SERVER_URL_LIST = [
@@ -24,7 +28,10 @@ export class AppConst {
         '/catagories',
         '/contestants',
         '/products',
-        '/advertisements'
+        '/advertisements',
+        '/settings?is_web=true',
+        '/contestants/highest_votes',
+        '/contestants/recent_winner'
     ];
 
     public static readonly SERVICE_STATUS = {

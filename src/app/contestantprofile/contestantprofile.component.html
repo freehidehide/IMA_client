@@ -1,9 +1,9 @@
 <!-- @format -->
 
-<div class="imacontainer" *ngIf="user && user.data">
+<div class="imacontainer" *ngIf="user">
     <div class="profileheader text-center">
         <app-attachment
-            [attachment]="user.data.attachment"
+            [attachment]="user.attachment"
             [type]="original"
             [cssClass]="'profiletopimg'"
         ></app-attachment>
@@ -11,7 +11,7 @@
     <div class="content-middle contestantprofile">
         <div class="contprofileimage">
             <app-attachment
-                [attachment]="user.data.attachment"
+                [attachment]="user.attachment"
                 [type]="original"
             ></app-attachment>
         </div>
@@ -19,102 +19,55 @@
             <div class="contprofilearea">
                 <div class="text-center">
                     <h2>
-                        {{ user.data.first_name }} {{ user.data.last_name }}
+                        {{ user.first_name }} {{ user.last_name }}
                     </h2>
                     <ul
                         class="profile-social list-inline text-center"
-                        *ngIf="
-                            user.data.instagram_url ||
-                            user.data.tiktok_url ||
-                            user.data.youtube_url ||
-                            user.data.twitter_url ||
-                            user.data.facebook_url
-                        "
-                    >
+                        *ngIf="user.socials.length > 0">
                         <li
                             class="list-inline-item px-4"
-                            *ngIf="user.data.instagram_url"
+                            *ngFor="
+                        let social of user.socials;
+                        trackBy: trackById
+                    "
                         >
                             <a
-                                href="{{ user.data.instagram_url }}"
-                                target="_bank"
+                                href="{{ social.url }}"
+                                target="_bank" 
                             >
                                 <img
-                                    src="assets/images/instagram.png"
+                                    src="{{ social.web_image }}"
                                     class="img-fluid"
                                 />
-                                <span class="d-block"><em>Instagram</em></span>
-                            </a>
-                        </li>
-                        <li
-                            class="list-inline-item px-4"
-                            *ngIf="user.data.tiktok_url"
-                        >
-                            <a href="{{ user.data.tiktok_url }}" target="_bank">
-                                <img
-                                    src="assets/images/social1.png"
-                                    class="img-fluid"
-                                />
-                                <span class="d-block"><em>Tiktok</em></span>
-                            </a>
-                        </li>
-                        <li
-                            class="list-inline-item px-4"
-                            *ngIf="user.data.youtube_url"
-                        >
-                            <a
-                                href="{{ user.data.youtube_url }}"
-                                target="_bank"
-                            >
-                                <img
-                                    src="assets/images/youtube.png"
-                                    class="img-fluid"
-                                />
-                                <span class="d-block"><em>Youtube</em></span>
-                            </a>
-                        </li>
-                        <li
-                            class="list-inline-item px-4"
-                            *ngIf="user.data.twitter_url"
-                        >
-                            <a
-                                href="{{ user.data.twitter_url }}"
-                                target="_bank"
-                            >
-                                <img
-                                    src="assets/images/twitter.png"
-                                    class="img-fluid"
-                                />
-                                <span class="d-block"><em>Twitter</em></span>
-                            </a>
-                        </li>
-                        <li
-                            class="list-inline-item px-4"
-                            *ngIf="user.data.facebook_url"
-                        >
-                            <a
-                                href="{{ user.data.facebook_url }}"
-                                target="_bank"
-                            >
-                                <img
-                                    src="assets/images/facebook.png"
-                                    class="img-fluid"
-                                />
-                                <span class="d-block"><em>Facebook</em></span>
+                                <span class="d-block"><em>{{ social.name }}</em></span>
                             </a>
                         </li>
                     </ul>
-                    <div class="my-5">
+                    <div class="my-5" *ngIf="!sessionService.isAuth">
                         <a
-                            href="javascript:void(0)"
+                            href="/login"
                             class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
                         >
                             <i
                                 class="fa fa-star fa-3x mr-3"
                                 aria-hidden="true"
                             ></i>
-                            Vote for {{ user.data.first_name }}
-                            {{ user.data.last_name }}
+                            Vote for {{ user.first_name }}
+                            {{ user.last_name }}
+                        </a>
+                    </div>
+                    <div class="my-5" *ngIf="sessionService.isAuth">
+                        <a
+                            href="javascript:void(0)"
+                            (click)="redirect(user)"
+                            class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
+                        >
+                            <i
+                                class="fa fa-star fa-3x mr-3"
+                                aria-hidden="true"
+                            ></i>
+                            Vote for {{ user.first_name }}
+                            {{ user.last_name }}
                         </a>
                     </div>
                     <div class="voteandrank">
@@ -125,8 +78,10 @@
                                     class="img-fluid"
                                 />
                                 <span class="d-block profilevcount"
-                                    >99<span class="d-block contvotestext"
-                                        >votes</span
+                                *ngIf="categoryId">{{user.vote_category.votes}}<span class="d-block contvotestext">votes</span></span
+                                >
+                                <span class="d-block profilevcount"
+                                *ngIf="!categoryId">{{user.votes}}<span class="d-block contvotestext">votes</span
                                     ></span
                                 >
                             </li>
@@ -139,7 +94,7 @@
                             class="pb-3 my-4 mx-auto"
                             *ngIf="
                                 !sessionService.isAuth ||
-                                !user.data.is_subscribed
+                                !user.is_subscribed
                             "
                         >
                             <div class="contprofile-listing">
@@ -158,7 +113,7 @@
                                     [routerLink]="['/purchase']"
                                     *ngIf="
                                         sessionService.isAuth &&
-                                        !user.data.is_subscribed
+                                        !user.is_subscribed
                                     "
                                 >
                                     <img
@@ -172,25 +127,32 @@
                             class="pb-3 my-4 mx-auto"
                             *ngIf="
                                 sessionService.isAuth &&
-                                user.data.subscribed_data &&
-                                user.data.subscribed_data.length > 0
+                                user.is_subscribed &&
+                                user.subscribed_data.length > 0
                             "
                         >
-                            <div class="contprofile-listing">
-                                <a href="javascript:void(0)">
-                                    <app-attachment
-                                        [attachment]="user.data.attachment"
-                                        [type]="original"
-                                    ></app-attachment>
-                                </a>
+                            <div class="contprofile-listing" *ngFor="
+                            let subscribData of user.subscribed_data;
+                            trackBy: trackById
+                        ">
+                            <span>{{subscribData.category.name}}</span>
+                            <span *ngFor="
+                            let attachment of subscribData.attachments;
+                            trackBy: trackById
+                        ">
+                            <app-attachment
+                            [attachment]="attachment"
+                                [type]="original"
+                            ></app-attachment>
+                            </span>
                             </div>
                         </li>
                         <li
                             class="pb-3 my-4 mx-auto"
                             *ngIf="
                                 sessionService.isAuth &&
-                                user.data.is_subscribed &&
-                                user.data.subscribed_data.length === 0
+                                user.is_subscribed &&
+                                user.subscribed_data.length === 0
                             "
                         >
                             No Records

@@ -7,22 +7,32 @@
         </div>
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
-    <div class="content-middle">
+    <div class="content-middle" *ngIf="isShowTime">
         <div class="timer-container mx-auto">
-            <h3 class="timerhd text-center">Time Remaining</h3>
+            <h3 class="timerhd text-center" *ngIf="distance < 0">Contest Completed</h3>
+            <h3 class="timerhd text-center" *ngIf="distance > 0">Time Remaining</h3>
             <div class="timerblock">
-                <div class="hours timings text-center">
-                    <span class="count">24</span>
+                <div class="hours timings text-center" *ngIf="days !== 0">
+                    <span class="count" *ngIf="days && days.toString().length === 1">0{{days}}</span>
+                    <span class="count" *ngIf="days && days.toString().length > 1">{{days}}</span>
+                    <span class="timetext text-uppercase">Days</span>
+                </div>
+                <div class="timecolan"*ngIf="days !== 0">:</div>
+                <div class="hours timings text-center" *ngIf="hours !== 0">
+                    <span class="count" *ngIf="hours && hours.toString().length === 1">0{{hours}}</span>
+                    <span class="count" *ngIf="hours && hours.toString().length > 1">{{hours}}</span>
                     <span class="timetext text-uppercase">Hours</span>
                 </div>
-                <div class="timecolan">:</div>
-                <div class="minutes timings text-center">
-                    <span class="count">60</span>
+                <div class="timecolan" *ngIf="minutes !== 0">:</div>
+                <div class="minutes timings text-center" *ngIf="minutes !== 0">
+                    <span class="count" *ngIf="minutes && minutes.toString().length === 1">0{{minutes}}</span>
+                    <span class="count" *ngIf="minutes && minutes.toString().length > 1">{{minutes}}</span>
                     <span class="timetext text-uppercase">Minutes</span>
                 </div>
-                <div class="timecolan">:</div>
-                <div class="seconds timings text-center">
-                    <span class="count">60</span>
+                <div class="timecolan" *ngIf="minutes !== 0">:</div>
+                <div class="seconds timings text-center" *ngIf="seconds !== 0">
+                    <span class="count" *ngIf="seconds && seconds.toString().length === 1">0{{seconds}}</span>
+                    <span class="count" *ngIf="seconds && seconds.toString().length > 1">{{seconds}}</span>
                     <span class="timetext text-uppercase">Seconds</span>
                 </div>
             </div>
@@ -31,65 +41,17 @@
     <div class="participateblock">
         <div class="participate-inner">
             <h2 class="text-center">Participating Contestants</h2>
-            <ul class="list-unstyled instaprofilelisting">
-                <li>
-                    <a href="javascript:void(0)">
-                        <img
-                            src="assets/images/contestant-profile.jpg"
-                            class="img-fluid"
-                        />
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <img
-                            src="assets/images/contestant-profile.jpg"
-                            class="img-fluid"
-                        />
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <img
-                            src="assets/images/contestant-profile.jpg"
-                            class="img-fluid"
-                        />
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <img
-                            src="assets/images/contestant-profile.jpg"
-                            class="img-fluid"
-                        />
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <img
-                            src="assets/images/contestant-profile.jpg"
-                            class="img-fluid"
-                        />
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <img
-                            src="assets/images/contestant-profile.jpg"
-                            class="img-fluid"
-                        />
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <img
-                            src="assets/images/contestant-profile.jpg"
-                            class="img-fluid"
-                        />
+            <ul class="list-unstyled instaprofilelisting" *ngIf="users.length > 0">
+                <li *ngFor="let user of users">
+                    <a href="javascript:void(0)" (click)="redirect(user)">
+                        <app-attachment
+                            [attachment]="user.attachment"
+                            [type]="original"
+                        ></app-attachment>
                     </a>
                 </li>
             </ul>
-            <div class="voteblock text-center">
+            <!-- <div class="voteblock text-center">
                 <button class="btn btn-primary text-uppercase vote-btn">
                     Instant Vote
                 </button>
@@ -139,7 +101,7 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

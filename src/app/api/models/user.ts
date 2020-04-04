@@ -6,6 +6,8 @@ import {Attachment} from './attachment';
 import {Error} from './error';
 import {Address} from './address';
 import {UserCategory} from './user-category';
+import {Social} from './social';
+import {VoteCategory} from './vote_category';
 export class User extends ServiceResponse {
     access_token?: string;
     expires_in?: number;
@@ -35,4 +37,6 @@ export class User extends ServiceResponse {
     data?: User;
     error: Error;
     image?: string;
+    social?: Social;
+    vote_category?: VoteCategory;
 }

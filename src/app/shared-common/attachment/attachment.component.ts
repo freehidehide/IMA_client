@@ -12,8 +12,9 @@ import {Attachment} from 'src/app/api/models/attachment';
 })
 export class AttachmentComponent {
     public url: string;
-    public imageClass: string = 'original';
+    public imageClass = 'original';
     public cssClassString: string;
+    public isVideo: boolean;
 
     @Input('type')
     set class(value: string) {
@@ -24,10 +25,17 @@ export class AttachmentComponent {
 
     @Input('attachment')
     set attachment(value: Attachment) {
+        if (value.thumb) {
+            this.isVideo = true;
+        } else {
+            this.isVideo = false;
+        }
+        this.isVideo = (value.thumb) ? true : false;
         if (value && value.id) {
             const id: string = value.id.toString();
+            const filename: string = value.filename.split('.').pop();
             const hash: string = Md5.hashStr(
-                value.class + id + 'jpg' + this.imageClass
+                value.class + id + filename + this.imageClass
             ).toString();
             this.url =
                 'http://3.132.95.244/images/original/' +
@@ -36,7 +44,7 @@ export class AttachmentComponent {
                 id +
                 '.' +
                 hash +
-                '.jpg';
+                '.' + filename;
         } else {
             this.url =
                 'https://tanzolymp.com/images/default-non-user-no-photo-1.jpg';

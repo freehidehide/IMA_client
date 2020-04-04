@@ -52,6 +52,13 @@ const routes: Routes = [
             )
     },
     {
+        path: 'profile/:id/:categoryId',
+        loadChildren: () =>
+            import('./contestantprofile/contestantprofile.module').then(
+                (m) => m.ContestantprofileModule
+            )
+    },
+    {
         path: 'profile/:id',
         loadChildren: () =>
             import('./contestantprofile/contestantprofile.module').then(
@@ -59,7 +66,7 @@ const routes: Routes = [
             )
     },
     {
-        path: 'purchase',
+        path: 'purchase/:id/:categoryId',
         loadChildren: () =>
             import('./purchasevote/purchasevote.module').then(
                 (m) => m.PurchasevoteModule
@@ -148,6 +155,20 @@ const routes: Routes = [
         loadChildren: () =>
             import('./instantvote/instantvote.module').then(
                 (m) => m.InstantvoteModule
+            )
+    },
+    {
+        path: 'winner',
+        loadChildren: () =>
+            import('./winner/winner.module').then(
+                (m) => m.WinnerModule
+            )
+    },
+    {
+        path: 'recent_winner',
+        loadChildren: () =>
+            import('./recent-winner/recent-winner.module').then(
+                (m) => m.RecentWinnerModule
             )
     },
     {

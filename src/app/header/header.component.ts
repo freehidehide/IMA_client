@@ -10,10 +10,10 @@ import {DOCUMENT} from '@angular/common';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-    public hideHeader: boolean = false;
-    public showStaticHeader: boolean = false;
-    public isShow: boolean = false;
-    public isScrollheader: boolean = false;
+    public hideHeader = false;
+    public showStaticHeader = false;
+    public isShow = false;
+    public isScrollheader = false;
     public headerRemove: string[] = [
         '/login',
         '/signup',

@@ -1,10 +1,14 @@
 {
     "/api/*": {
-        "target": "http://3.132.95.244",
+        "target": "http://app.itstheimas.com",
         "secure": false
     },
     "/images/original/*": {
-        "target": "http://3.132.95.244",
+        "target": "http://app.itstheimas.com",
+        "secure": false
+    },
+    "/images/static/*": {
+        "target": "http://app.itstheimas.com",
         "secure": false
     }
 }

@@ -6,12 +6,12 @@ import {UserService} from './api/services/user.service';
 import {ToastService} from './api/services/toast-service';
 import {AppConst} from './utils/app-const';
 import {FormGroup} from '@angular/forms';
-
+import {QueryParam} from './api/models/query-param';
 export abstract class UserBaseComponent {
     public user: User;
     public userId: number;
     public editProfileForm: FormGroup;
-
+    public categoryId: number;
     constructor(
         protected router: Router,
         protected userService: UserService,
@@ -20,13 +20,21 @@ export abstract class UserBaseComponent {
 
     getUser(callback): void {
         this.toastService.showLoading();
-        this.userService.findById(this.userId).subscribe((response) => {
-            this.user = response;
+        let queryParam: QueryParam;
+            if (this.categoryId) {
+                queryParam = {
+                    category_id: this.categoryId
+                };
+            } else {
+                queryParam = null;
+            }
+        this.userService.findById(this.userId, queryParam).subscribe((response) => {
+            this.user = response.data;
             if (
                 this.user.error &&
                 this.user.error.code !== AppConst.SERVICE_STATUS.SUCCESS
             ) {
-                this.router.navigate(['/not-found']);
+                this.router.navigate(['/']);
             }
             if (callback !== null) {
                 this.patchuser(response);

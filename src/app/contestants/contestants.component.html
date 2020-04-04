@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <div class="imacontainer">
-    <div class="subheader position-relative">
+    <div class="subheader position-relative" *ngIf="pageType === 1">
         <div class="subheadings">
             <h2>
                 CONTESTANTS
@@ -16,9 +16,10 @@
         <div class="row" *ngIf="!isNodata">
             <div
                 class="col-md-6 col-6 text-center"
-                *ngFor="let user of userList.data; trackBy: trackById"
+                *ngFor="let user of users; trackBy: trackById"
             >
-                <a [routerLink]="['/profile', user.id]" class="contestant-img">
+            <!-- [routerLink]="['/profile', user.id, categoryId]" -->
+                <a (click)="redirect(user)" href="javascript:void(0)" class="contestant-img">
                     <app-attachment
                         [attachment]="user.attachment"
                         [type]="original"
@@ -30,17 +31,16 @@
                         {{ user.first_name }} {{ user.last_name }}
                     </div>
                     <div class="contestant-counts">
-                        <span class="mr-3 d-flex align-items-center"
-                            ><img
+                        <span class="mr-3 d-flex align-items-center"><img
                                 src="assets/images/star-icon.png"
                                 width="25"
                                 class="img-fluid mr-2"
                             />
-                            {{
-                                user.category && user.category.votes
-                                    ? user.category.votes
-                                    : 0
-                            }}</span
+                            {{user.category.votes}}</span
+                        >
+                        <span class="mr-3 d-flex align-items-center"
+                        *ngIf="pageType !== 1">
+                            {{user.category.name}}</span
                         >
                     </div>
                 </div>

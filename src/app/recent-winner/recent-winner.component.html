@@ -1,0 +1,83 @@
+<div class="imacontainer">
+    <div class="subheader position-relative">
+        <div class="subheadings">
+            <h2>
+                RECENT WINNERS
+            </h2>
+        </div>
+        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
+    </div>
+    <div class="content-middle contestants-section">
+<h1 *ngIf="pageTitle">{{pageTitle}}</h1>
+<div *ngIf="users">
+    <div class="imacontainer" *ngFor="let user of users">
+        <div class="profileheader text-center">
+            <app-attachment
+                [attachment]="user.attachment"
+                [type]="original"
+                [cssClass]="'profiletopimg'"
+            ></app-attachment>
+        </div>
+        <div class="content-middle contestantprofile">
+            <div class="container">
+                <div class="contprofilearea">
+                    <div class="text-center">
+                        <h2>
+                            {{ user.first_name }} {{ user.last_name }}
+                        </h2>
+                        <ul
+                            class="profile-social list-inline text-center"
+                            *ngIf="user.socials.length > 0">
+                            <li
+                                class="list-inline-item px-4"
+                                *ngFor="
+                            let social of user.socials;
+                            trackBy: trackById
+                        "
+                            >
+                                <a
+                                    href="{{ social.url }}"
+                                    target="_bank" 
+                                >
+                                    <img
+                                        src="{{ social.web_image }}"
+                                        class="img-fluid"
+                                    />
+                                    <span class="d-block"><em>{{ social.name }}</em></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="my-5" *ngIf="!sessionService.isAuth">
+                            <a
+                                href="javascript:void(0)"
+                                class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
+                            >
+                                <i
+                                    class="fa fa-star fa-3x mr-3"
+                                    aria-hidden="true"
+                                ></i>
+                                Vote for {{ user.first_name }}
+                                {{ user.last_name }}
+                            </a>
+                        </div>
+                        <div class="voteandrank">
+                            <ul class="voterankcounts list-inline text-center">
+                                <li class="list-inline-item px-4">
+                                    <img
+                                        src="assets/images/rating-icon.png"
+                                        class="img-fluid"
+                                    />
+                                    <span class="d-block profilevcount"
+                                    *ngIf="categoryId">{{user.category.votes}}<span class="d-block contvotestext">votes</span></span
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
