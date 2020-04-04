@@ -42,7 +42,7 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        if (this.router.url === AppConst.NON_AUTH_SERVER_URL.CONTESTANTS) {
+        if (this.router.url.indexOf(AppConst.NON_AUTH_SERVER_URL.CONTESTANTS) > -1) {
             this.categoryId = +this.activatedRoute.snapshot.paramMap.get('id');
             if (this.categoryId) {
                 this.pageType = 1;
@@ -81,5 +81,10 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
 
     trackById(index: number, el: any): number {
         return el.id;
+    }
+
+    redirect(user: User): void {
+        const url: string = '/profile/' + user.id + '/' + user.category.category_id;
+        this.router.navigate([url]);
     }
 }

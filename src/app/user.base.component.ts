@@ -29,7 +29,7 @@ export abstract class UserBaseComponent {
                 queryParam = null;
             }
         this.userService.findById(this.userId, queryParam).subscribe((response) => {
-            this.user = response;
+            this.user = response.data;
             if (
                 this.user.error &&
                 this.user.error.code !== AppConst.SERVICE_STATUS.SUCCESS

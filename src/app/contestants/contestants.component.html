@@ -1,23 +1,13 @@
 <!-- @format -->
 
 <div class="imacontainer">
-    <div class="subheader position-relative">
-        <div class="subheadings" *ngIf="pageType === 1">
+    <div class="subheader position-relative" *ngIf="pageType === 1">
+        <div class="subheadings">
             <h2>
                 CONTESTANTS
                 <span
                     >by <em>{{ categoryName }}</em></span
                 >
-            </h2>
-        </div>
-        <div class="subheadings" *ngIf="pageType === 2">
-            <h2>
-                HIGHEST VOTES
-            </h2>
-        </div>
-        <div class="subheadings" *ngIf="pageType === 3">
-            <h2>
-                RECENT WINNERS
             </h2>
         </div>
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
@@ -28,7 +18,8 @@
                 class="col-md-6 col-6 text-center"
                 *ngFor="let user of users; trackBy: trackById"
             >
-                <a [routerLink]="['/profile', user.id, categoryId]" class="contestant-img">
+            <!-- [routerLink]="['/profile', user.id, categoryId]" -->
+                <a (click)="redirect(user)" href="javascript:void(0)" class="contestant-img">
                     <app-attachment
                         [attachment]="user.attachment"
                         [type]="original"
@@ -48,12 +39,8 @@
                             {{user.category.votes}}</span
                         >
                         <span class="mr-3 d-flex align-items-center"
-                        *ngIf="!user.category"><img
-                                src="assets/images/star-icon.png"
-                                width="25"
-                                class="img-fluid mr-2"
-                            />
-                            {{user.votes}}</span
+                        *ngIf="pageType !== 1">
+                            {{user.category.name}}</span
                         >
                     </div>
                 </div>

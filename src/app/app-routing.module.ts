@@ -59,7 +59,14 @@ const routes: Routes = [
             )
     },
     {
-        path: 'purchase',
+        path: 'profile/:id',
+        loadChildren: () =>
+            import('./contestantprofile/contestantprofile.module').then(
+                (m) => m.ContestantprofileModule
+            )
+    },
+    {
+        path: 'purchase/:id/:categoryId',
         loadChildren: () =>
             import('./purchasevote/purchasevote.module').then(
                 (m) => m.PurchasevoteModule
@@ -160,8 +167,8 @@ const routes: Routes = [
     {
         path: 'recent_winner',
         loadChildren: () =>
-            import('./winner/winner.module').then(
-                (m) => m.WinnerModule
+            import('./recent-winner/recent-winner.module').then(
+                (m) => m.RecentWinnerModule
             )
     },
     {

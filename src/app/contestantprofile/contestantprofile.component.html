@@ -1,9 +1,9 @@
 <!-- @format -->
 
-<div class="imacontainer" *ngIf="user && user.data">
+<div class="imacontainer" *ngIf="user">
     <div class="profileheader text-center">
         <app-attachment
-            [attachment]="user.data.attachment"
+            [attachment]="user.attachment"
             [type]="original"
             [cssClass]="'profiletopimg'"
         ></app-attachment>
@@ -11,7 +11,7 @@
     <div class="content-middle contestantprofile">
         <div class="contprofileimage">
             <app-attachment
-                [attachment]="user.data.attachment"
+                [attachment]="user.attachment"
                 [type]="original"
             ></app-attachment>
         </div>
@@ -19,15 +19,15 @@
             <div class="contprofilearea">
                 <div class="text-center">
                     <h2>
-                        {{ user.data.first_name }} {{ user.data.last_name }}
+                        {{ user.first_name }} {{ user.last_name }}
                     </h2>
                     <ul
                         class="profile-social list-inline text-center"
-                        *ngIf="user.data.socials.length > 0">
+                        *ngIf="user.socials.length > 0">
                         <li
                             class="list-inline-item px-4"
                             *ngFor="
-                        let social of user.data.socials;
+                        let social of user.socials;
                         trackBy: trackById
                     "
                         >
@@ -45,15 +45,29 @@
                     </ul>
                     <div class="my-5" *ngIf="!sessionService.isAuth">
                         <a
-                            href="javascript:void(0)"
+                            href="/login"
                             class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
                         >
                             <i
                                 class="fa fa-star fa-3x mr-3"
                                 aria-hidden="true"
                             ></i>
-                            Vote for {{ user.data.first_name }}
-                            {{ user.data.last_name }}
+                            Vote for {{ user.first_name }}
+                            {{ user.last_name }}
+                        </a>
+                    </div>
+                    <div class="my-5" *ngIf="sessionService.isAuth">
+                        <a
+                            href="javascript:void(0)"
+                            (click)="redirect(user)"
+                            class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
+                        >
+                            <i
+                                class="fa fa-star fa-3x mr-3"
+                                aria-hidden="true"
+                            ></i>
+                            Vote for {{ user.first_name }}
+                            {{ user.last_name }}
                         </a>
                     </div>
                     <div class="voteandrank">
@@ -64,10 +78,10 @@
                                     class="img-fluid"
                                 />
                                 <span class="d-block profilevcount"
-                                *ngIf="categoryId">{{user.data.vote_category.votes}}<span class="d-block contvotestext">votes</span></span
+                                *ngIf="categoryId">{{user.vote_category.votes}}<span class="d-block contvotestext">votes</span></span
                                 >
                                 <span class="d-block profilevcount"
-                                *ngIf="!categoryId">{{user.data.votes}}<span class="d-block contvotestext">votes</span
+                                *ngIf="!categoryId">{{user.votes}}<span class="d-block contvotestext">votes</span
                                     ></span
                                 >
                             </li>
@@ -80,7 +94,7 @@
                             class="pb-3 my-4 mx-auto"
                             *ngIf="
                                 !sessionService.isAuth ||
-                                !user.data.is_subscribed
+                                !user.is_subscribed
                             "
                         >
                             <div class="contprofile-listing">
@@ -99,7 +113,7 @@
                                     [routerLink]="['/purchase']"
                                     *ngIf="
                                         sessionService.isAuth &&
-                                        !user.data.is_subscribed
+                                        !user.is_subscribed
                                     "
                                 >
                                     <img
@@ -113,12 +127,12 @@
                             class="pb-3 my-4 mx-auto"
                             *ngIf="
                                 sessionService.isAuth &&
-                                user.data.is_subscribed &&
-                                user.data.subscribed_data.length > 0
+                                user.is_subscribed &&
+                                user.subscribed_data.length > 0
                             "
                         >
                             <div class="contprofile-listing" *ngFor="
-                            let subscribData of user.data.subscribed_data;
+                            let subscribData of user.subscribed_data;
                             trackBy: trackById
                         ">
                             <span>{{subscribData.category.name}}</span>
@@ -131,25 +145,14 @@
                                 [type]="original"
                             ></app-attachment>
                             </span>
-                                <a
-                                    href="javascript:void(0)"
-                                    class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
-                                >
-                                    <i
-                                        class="fa fa-star fa-3x mr-3"
-                                        aria-hidden="true"
-                                    ></i>
-                                    Vote for {{ user.data.first_name }}
-                                    {{ user.data.last_name }}
-                                </a>
                             </div>
                         </li>
                         <li
                             class="pb-3 my-4 mx-auto"
                             *ngIf="
                                 sessionService.isAuth &&
-                                user.data.is_subscribed &&
-                                user.data.subscribed_data.length === 0
+                                user.is_subscribed &&
+                                user.subscribed_data.length === 0
                             "
                         >
                             No Records

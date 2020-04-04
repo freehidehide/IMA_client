@@ -15,7 +15,9 @@ export class AppConst {
         PRODUCTS: '/products',
         ATTACHMENTS: '/attachments',
         SETTINGS: '/settings?is_web=true',
-        TRANSACTIONS: '/transactions'
+        TRANSACTIONS: '/transactions',
+        VOTEPACKAGES: '/vote_packages',
+        CONTEST: '/contest'
     };
 
     public static readonly NON_AUTH_SERVER_URL_LIST = [
@@ -28,7 +30,8 @@ export class AppConst {
         '/products',
         '/advertisements',
         '/settings?is_web=true',
-        '/contestants/highest_votes'
+        '/contestants/highest_votes',
+        '/contestants/recent_winner'
     ];
 
     public static readonly SERVICE_STATUS = {

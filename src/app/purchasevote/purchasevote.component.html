@@ -7,69 +7,33 @@
         </div>
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
-    <div class="content-middle ">
-        <div class="purchasecontainer mx-auto px-4">
+    <div class="content-middle">
+        <div class="purchasecontainer mx-auto px-4" *ngIf="user">
             <div class="row align-items-center">
                 <div class="col-md-4">
                     <div class="rounded-circle purchase-contimg mx-auto">
-                        <img
-                            src="assets/images/contestant-profile-img.jpg"
-                            class="img-fluid"
-                        />
+                        <app-attachment
+                            [attachment]="user.attachment"
+                            [type]="original"
+                        ></app-attachment>
                     </div>
                 </div>
                 <div class="col-md-8 px-5">
-                    <h2 class="purchase-contesttitle">[Contest Name]</h2>
+                    <h2 class="purchase-contesttitle">{{ user.first_name }} {{ user.last_name }}</h2>
                 </div>
             </div>
         </div>
         <div class="container">
-            <ul class="list-unstyled votepurchase-listing">
+            <ul class="list-unstyled votepurchase-listing" *ngFor="let votePackage of votePackages">
                 <li class="py-5">
                     <div class="row mt-5">
                         <div class="col-md-7 pl-5">
-                            <h2 class="mt-4 mb-0">Vote Package</h2>
-                            <p>Lorem ipsum</p>
+                            <h2 class="mt-4 mb-0">{{votePackage.name}}</h2>
+                            <p>{{votePackage.description}}</p>
                         </div>
                         <div class="col-md-5 text-center">
                             <div class="text-success purchase-amount">
-                                $00.00
-                            </div>
-                            <a
-                                href="javascript:void(0)"
-                                class="btn btn-success text-uppercase px-5 purchase-btn"
-                                >Purchase</a
-                            >
-                        </div>
-                    </div>
-                </li>
-                <li class="py-5">
-                    <div class="row mt-5">
-                        <div class="col-md-7 pl-5">
-                            <h2 class="mt-4 mb-0">Vote Package</h2>
-                            <p>Lorem ipsum</p>
-                        </div>
-                        <div class="col-md-5 text-center">
-                            <div class="text-success purchase-amount">
-                                $00.00
-                            </div>
-                            <a
-                                href="javascript:void(0)"
-                                class="btn btn-success text-uppercase px-5 purchase-btn"
-                                >Purchase</a
-                            >
-                        </div>
-                    </div>
-                </li>
-                <li class="py-5">
-                    <div class="row mt-5">
-                        <div class="col-md-7 pl-5">
-                            <h2 class="mt-4 mb-0">Vote Package</h2>
-                            <p>Lorem ipsum</p>
-                        </div>
-                        <div class="col-md-5 text-center">
-                            <div class="text-success purchase-amount">
-                                $00.00
+                                {{ votePackage.price | currency: settings.CURRENCY_CODE:'symbol' }}
                             </div>
                             <a
                                 href="javascript:void(0)"

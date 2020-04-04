@@ -7,6 +7,7 @@ import {UserService} from '../api/services/user.service';
 import {SessionService} from '../api/services/session-service';
 import {UserBaseComponent} from '../user.base.component';
 import {QueryParam} from '../api/models/query-param';
+import {User} from '../api/models/user';
 @Component({
     selector: 'app-contestantprofile',
     templateUrl: './contestantprofile.component.html',
@@ -32,5 +33,10 @@ export class ContestantprofileComponent extends UserBaseComponent
         } else {
             this.router.navigate(['/']);
         }
+    }
+
+    redirect(user: User): void {
+        const url: string = '/purchase/' + user.id + '/' + this.categoryId;
+        this.router.navigate([url]);
     }
 }

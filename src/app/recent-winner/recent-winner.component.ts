@@ -6,14 +6,13 @@ import {User} from '../api/models/user';
 import {QueryParam} from '../api/models/query-param';
 import {AppConst} from '../utils/app-const';
 import {BaseComponent} from '../base.component';
-
+import {SessionService} from '../api/services/session-service';
 @Component({
-  selector: 'app-winner',
-  templateUrl: './winner.component.html',
-  styleUrls: ['./winner.component.scss']
+  selector: 'app-recent-winner',
+  templateUrl: './recent-winner.component.html',
+  styleUrls: ['./recent-winner.component.css']
 })
-export class WinnerComponent extends BaseComponent implements OnInit {
-  public usersTop: User[] = [];
+export class RecentWinnerComponent extends BaseComponent implements OnInit {
   public users: User[] = [];
   public isNodata: boolean;
   public categoryId = 1;
@@ -25,29 +24,25 @@ export class WinnerComponent extends BaseComponent implements OnInit {
       private categoryService: CategoryService,
       private activatedRoute: ActivatedRoute,
       private toastService: ToastService,
+      public sessionService: SessionService
   ) {
       super();
   }
 
   ngOnInit(): void {
-    this.pageType = 2;
-    this.getWinnerList();
+      this.getRecentWinnerList();
   }
 
-  getWinnerList(): void {
-      this.toastService.showLoading();
-      this.categoryService
-          .getWinnerList(null)
-          .subscribe((response) => {
-            if (response.data && response.data.highest_votes && response.data.highest_votes.data) {
-              this.usersTop = response.data.highest_votes.data;
-              this.pageTitle = response.data.highest_votes.title;
-            }
-            if (response.data && response.data.category_highest_votes) {
-              this.users = response.data.category_highest_votes;
-            }
-            this.toastService.clearLoading();
-          });
+  getRecentWinnerList(): void {
+    this.toastService.showLoading();
+    this.categoryService
+        .getRecentWinnerList(null)
+        .subscribe((response) => {
+          if (response.data && response.data) {
+            this.users = response.data;
+          }
+          this.toastService.clearLoading();
+        });
   }
 
   redirect(user: User): void {

@@ -7,4 +7,5 @@ export interface QueryParam {
     sortby?: string;
     class?: string;
     is_web?: boolean;
+    contest_id?: number;
 }
