@@ -70,7 +70,7 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
       }
 
     getCountTime() {
-        const contest: contest = this.contests[0];
+        const contest: Contest = this.contests[0];
         const countDownDate = new Date(contest.end_date).getTime();
         this.interVal = setInterval(() => {
             const now = new Date().getTime();
