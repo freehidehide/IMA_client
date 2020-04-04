@@ -52,7 +52,7 @@ const routes: Routes = [
             )
     },
     {
-        path: 'profile/:id',
+        path: 'profile/:id/:categoryId',
         loadChildren: () =>
             import('./contestantprofile/contestantprofile.module').then(
                 (m) => m.ContestantprofileModule
@@ -148,6 +148,20 @@ const routes: Routes = [
         loadChildren: () =>
             import('./instantvote/instantvote.module').then(
                 (m) => m.InstantvoteModule
+            )
+    },
+    {
+        path: 'winner',
+        loadChildren: () =>
+            import('./winner/winner.module').then(
+                (m) => m.WinnerModule
+            )
+    },
+    {
+        path: 'recent_winner',
+        loadChildren: () =>
+            import('./winner/winner.module').then(
+                (m) => m.WinnerModule
             )
     },
     {

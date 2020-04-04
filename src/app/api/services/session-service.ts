@@ -5,9 +5,9 @@ import {User} from '../models/user';
 
 @Injectable()
 export class SessionService {
-    public isAuth: boolean = false;
+    public isAuth: boolean;
     public user: User;
-    public auth: string = '';
+    public auth: string;
 
     isLogined(): void {
         this.auth = sessionStorage.getItem('user_context');

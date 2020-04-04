@@ -23,88 +23,27 @@
                     </h2>
                     <ul
                         class="profile-social list-inline text-center"
-                        *ngIf="
-                            user.data.instagram_url ||
-                            user.data.tiktok_url ||
-                            user.data.youtube_url ||
-                            user.data.twitter_url ||
-                            user.data.facebook_url
-                        "
-                    >
+                        *ngIf="user.data.socials.length > 0">
                         <li
                             class="list-inline-item px-4"
-                            *ngIf="user.data.instagram_url"
+                            *ngFor="
+                        let social of user.data.socials;
+                        trackBy: trackById
+                    "
                         >
                             <a
-                                href="{{ user.data.instagram_url }}"
-                                target="_bank"
+                                href="{{ social.url }}"
+                                target="_bank" 
                             >
                                 <img
-                                    src="assets/images/instagram.png"
+                                    src="{{ social.web_image }}"
                                     class="img-fluid"
                                 />
-                                <span class="d-block"><em>Instagram</em></span>
-                            </a>
-                        </li>
-                        <li
-                            class="list-inline-item px-4"
-                            *ngIf="user.data.tiktok_url"
-                        >
-                            <a href="{{ user.data.tiktok_url }}" target="_bank">
-                                <img
-                                    src="assets/images/social1.png"
-                                    class="img-fluid"
-                                />
-                                <span class="d-block"><em>Tiktok</em></span>
-                            </a>
-                        </li>
-                        <li
-                            class="list-inline-item px-4"
-                            *ngIf="user.data.youtube_url"
-                        >
-                            <a
-                                href="{{ user.data.youtube_url }}"
-                                target="_bank"
-                            >
-                                <img
-                                    src="assets/images/youtube.png"
-                                    class="img-fluid"
-                                />
-                                <span class="d-block"><em>Youtube</em></span>
-                            </a>
-                        </li>
-                        <li
-                            class="list-inline-item px-4"
-                            *ngIf="user.data.twitter_url"
-                        >
-                            <a
-                                href="{{ user.data.twitter_url }}"
-                                target="_bank"
-                            >
-                                <img
-                                    src="assets/images/twitter.png"
-                                    class="img-fluid"
-                                />
-                                <span class="d-block"><em>Twitter</em></span>
-                            </a>
-                        </li>
-                        <li
-                            class="list-inline-item px-4"
-                            *ngIf="user.data.facebook_url"
-                        >
-                            <a
-                                href="{{ user.data.facebook_url }}"
-                                target="_bank"
-                            >
-                                <img
-                                    src="assets/images/facebook.png"
-                                    class="img-fluid"
-                                />
-                                <span class="d-block"><em>Facebook</em></span>
+                                <span class="d-block"><em>{{ social.name }}</em></span>
                             </a>
                         </li>
                     </ul>
-                    <div class="my-5">
+                    <div class="my-5" *ngIf="!sessionService.isAuth">
                         <a
                             href="javascript:void(0)"
                             class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
@@ -125,8 +64,10 @@
                                     class="img-fluid"
                                 />
                                 <span class="d-block profilevcount"
-                                    >99<span class="d-block contvotestext"
-                                        >votes</span
+                                *ngIf="categoryId">{{user.data.vote_category.votes}}<span class="d-block contvotestext">votes</span></span
+                                >
+                                <span class="d-block profilevcount"
+                                *ngIf="!categoryId">{{user.data.votes}}<span class="d-block contvotestext">votes</span
                                     ></span
                                 >
                             </li>
@@ -172,16 +113,34 @@
                             class="pb-3 my-4 mx-auto"
                             *ngIf="
                                 sessionService.isAuth &&
-                                user.data.subscribed_data &&
+                                user.data.is_subscribed &&
                                 user.data.subscribed_data.length > 0
                             "
                         >
-                            <div class="contprofile-listing">
-                                <a href="javascript:void(0)">
-                                    <app-attachment
-                                        [attachment]="user.data.attachment"
-                                        [type]="original"
-                                    ></app-attachment>
+                            <div class="contprofile-listing" *ngFor="
+                            let subscribData of user.data.subscribed_data;
+                            trackBy: trackById
+                        ">
+                            <span>{{subscribData.category.name}}</span>
+                            <span *ngFor="
+                            let attachment of subscribData.attachments;
+                            trackBy: trackById
+                        ">
+                            <app-attachment
+                            [attachment]="attachment"
+                                [type]="original"
+                            ></app-attachment>
+                            </span>
+                                <a
+                                    href="javascript:void(0)"
+                                    class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
+                                >
+                                    <i
+                                        class="fa fa-star fa-3x mr-3"
+                                        aria-hidden="true"
+                                    ></i>
+                                    Vote for {{ user.data.first_name }}
+                                    {{ user.data.last_name }}
                                 </a>
                             </div>
                         </li>

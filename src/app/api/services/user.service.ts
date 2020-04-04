@@ -5,7 +5,7 @@ import {FormGroup} from '@angular/forms';
 import {ApiService} from './api.service';
 import {AppConst} from '../../utils/app-const';
 import {Observable} from 'rxjs';
-
+import {QueryParam} from '../models/query-param';
 import {User} from '../models/user';
 
 @Injectable()
@@ -42,9 +42,9 @@ export class UserService {
         return this.apiService.httpPost(forgotPassword, forgotForm.value);
     }
 
-    findById(id: number): Observable<User> {
+    findById(id: number, queryParam: QueryParam): Observable<User> {
         const url: string = AppConst.NON_AUTH_SERVER_URL.USER + '/' + id;
-        return this.apiService.httpGet(url, null);
+        return this.apiService.httpGet(url, queryParam);
     }
 
     updateUser(user: User): Observable<User> {

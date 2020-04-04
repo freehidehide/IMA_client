@@ -12,4 +12,5 @@ export interface Attachment {
     height: number;
     width: number;
     is_primary: number;
+    thumb: Attachment;
 }

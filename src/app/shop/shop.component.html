@@ -112,30 +112,13 @@
                             </a>
                         </div>
                     </div>
-                    <div class="cartlistthumbnails">
-                        <a href="javascript:void(0)" class="mb-3">
-                            <img
-                                src="assets/images/dummy-thumb.jpg"
-                                class="img-fluid"
-                            />
-                        </a>
-                        <a href="javascript:void(0)" class="mb-3">
-                            <img
-                                src="assets/images/dummy-thumb.jpg"
-                                class="img-fluid"
-                            />
-                        </a>
-                        <a href="javascript:void(0)" class="mb-3">
-                            <img
-                                src="assets/images/dummy-thumb.jpg"
-                                class="img-fluid"
-                            />
-                        </a>
-                        <a href="javascript:void(0)" class="">
-                            <img
-                                src="assets/images/dummy-thumb.jpg"
-                                class="img-fluid"
-                            />
+                    <div class="cartlistthumbnails" *ngIf="product.details[0].attachments.length > 1">
+                        <a href="javascript:void(0)" class="mb-3" *ngFor="let attachmentDetail of product.details[0].attachments">
+                            <app-attachment
+                            [attachment]="attachmentDetail"
+                            [type]="original"
+                        ></app-attachment>
+                        <!-- [cssClass]="'shopattimage'" -->
                         </a>
                     </div>
                 </div>
@@ -144,22 +127,10 @@
                         >Available Colors</span
                     >
                     <span>
-                        <a
-                            href=""
-                            class="availcolorsselect blackavail ml-2"
-                        ></a>
-                        <a
-                            href=""
-                            class="availcolorsselect blackavail ml-2"
-                        ></a>
-                        <a
-                            href=""
-                            class="availcolorsselect blackavail ml-2"
-                        ></a>
-                        <a
-                            href=""
-                            class="availcolorsselect blackavail ml-2"
-                        ></a>
+                        <a *ngFor="let color of product.colors"
+                            href="javascript:void(0)"
+                            class="availcolorsselect ml-2"
+                        >asdds</a>
                     </span>
                 </div>
             </div>
@@ -190,12 +161,9 @@
                             {{ product.description }}
                         </p>
                     </div>
-                    <div class="product-availsizes">
+                    <div class="product-availsizes" *ngIf="product.details[0].sizes.length > 1">
                         <span class="text-uppercase">Available Sizes</span>
-                        <a href="" class="text-uppercase">xs</a>
-                        <a href="" class="text-uppercase">s</a>
-                        <a href="" class="text-uppercase">m</a>
-                        <a href="" class="text-uppercase">l</a>
+                        <a href="javascript:void(0)" class="text-uppercase" *ngFor="let size of product.details[0].sizes">{{size.size.name}}</a>
                     </div>
                     <div class="d-flex justify-content-end mt-1">
                         <div class="d-flex flex-column cartdetails">

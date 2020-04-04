@@ -6,6 +6,7 @@ import {ToastService} from '../api/services/toast-service';
 import {UserService} from '../api/services/user.service';
 import {SessionService} from '../api/services/session-service';
 import {UserBaseComponent} from '../user.base.component';
+import {QueryParam} from '../api/models/query-param';
 @Component({
     selector: 'app-contestantprofile',
     templateUrl: './contestantprofile.component.html',
@@ -25,8 +26,11 @@ export class ContestantprofileComponent extends UserBaseComponent
 
     ngOnInit(): void {
         this.userId = +this.activatedRoute.snapshot.paramMap.get('id');
+        this.categoryId = +this.activatedRoute.snapshot.paramMap.get('categoryId');
         if (this.userId) {
             this.getUser(null);
+        } else {
+            this.router.navigate(['/']);
         }
     }
 }

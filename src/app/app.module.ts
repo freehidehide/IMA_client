@@ -1,5 +1,5 @@
 /** @format */
-
+import { APP_INITIALIZER } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
@@ -16,9 +16,13 @@ import {HeaderComponent} from './header/header.component';
 import {ApiService} from './api/services/api.service';
 import {ToastService} from './api/services/toast-service';
 import {SessionService} from './api/services/session-service';
-import {SettingsService} from './api/services/settings-service';
+import {StartupService} from './api/services/startup.service';
 import {SiteAlertMessageComponent} from './site-alert-message/site-alert-message.component';
 import {SiteLoaderComponent} from './site-loader/site-loader.component';
+
+export function startupServiceFactory(startupService: StartupService): Function {
+    return () => startupService.load();
+}
 
 @NgModule({
     imports: [
@@ -41,7 +45,14 @@ import {SiteLoaderComponent} from './site-loader/site-loader.component';
         ApiService,
         ToastService,
         SessionService,
-        SettingsService
+        StartupService,
+        {
+            // Provider for APP_INITIALIZER
+            provide: APP_INITIALIZER,
+            useFactory: startupServiceFactory,
+            deps: [StartupService],
+            multi: true
+        }
     ],
     bootstrap: [AppComponent]
 })
