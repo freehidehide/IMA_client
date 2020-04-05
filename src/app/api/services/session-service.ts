@@ -1,13 +1,19 @@
 
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-
+import { UserService } from './user.service';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { ApiService } from './api.service';
+import { AppConst } from '../../utils/app-const';
 @Injectable()
 export class SessionService {
     public isAuth: boolean;
     public user: User;
     public auth: string;
     public adminSettings: any;
+    constructor(public router: Router,
+        private apiService: ApiService) {}
 
     isLogined(): void {
         this.auth = sessionStorage.getItem('user_context');
@@ -21,12 +27,21 @@ export class SessionService {
         this.user = JSON.parse(sessionStorage.getItem('user_context'));
         if (this.user.role.id === 1 && (this.adminSettings !== undefined
             && this.adminSettings !== null)) {
-
+            this.getAdminSettings();
         }
     }
 
-    getAdminSettings(): void {
-        this.adminSettings = false;
+    getAdminSettings() {
+        this.getAdminSettingsHandler()
+            .subscribe((response) => {
+                this.adminSettings = response;
+                this.router.navigate(['/admin']);
+            });
+    }
+
+    getAdminSettingsHandler(): Observable<any> {
+        const adminConfigUrl: string = AppConst.NON_AUTH_SERVER_URL.ADMIN_CONFIG;
+        return this.apiService.httpGet(adminConfigUrl, null);
     }
 
     logout(): void {

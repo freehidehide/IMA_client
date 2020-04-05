@@ -82,7 +82,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
                 );
                 this.sessionService.isLogined();
                 if (this.User.role.id === AppConst.ROLE.USER) {
-                    this.router.navigate(['/admin']);
+                    this.sessionService.getAdminSettings();
                 } else {
                     this.router.navigate(['/']);
                 }

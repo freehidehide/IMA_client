@@ -16,7 +16,8 @@ export class AppConst {
         SETTINGS: '/settings?is_web=true',
         TRANSACTIONS: '/transactions',
         VOTEPACKAGES: '/vote_packages',
-        CONTEST: '/contest'
+        CONTEST: '/contest',
+        ADMIN_CONFIG: '/admin-config'
     };
 
     public static readonly NON_AUTH_SERVER_URL_LIST = [
