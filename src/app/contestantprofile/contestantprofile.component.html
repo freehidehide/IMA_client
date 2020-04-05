@@ -126,8 +126,13 @@
                         </li>
                         <li>
                             <div class="profileinitialimg mx-auto text-center">
-                                <h3 class="categoryname">Category Name</h3>
-                                <img src="http://3.132.95.244/images/original/UserProfile/654.47c65b6dca07c09281d3ab7640b0f70e.jpg" class="profilefirstimg" />
+                                <h3 class="categoryname">{{user.subscribed_data[0].category.name}}</h3>
+                                <app-attachment
+                            [attachment]="user.subscribed_data[0].attachments[0]"
+                                [type]="original"
+                                [cssClass]="'profilefirstimg'"
+                            ></app-attachment>
+                                
                             </div>
                         </li>
                         <li

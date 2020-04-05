@@ -20,7 +20,8 @@ export class HeaderComponent {
         '/resend-link',
         '/reset-password',
         '/password-changed',
-        '/admin'
+        '/admin',
+        '/change-password'
     ];
     public staticheader: string[] = [
         '/profile',
