@@ -1,12 +1,12 @@
-import {ActivatedRoute, Router} from '@angular/router';
-import {Component, OnInit, Input} from '@angular/core';
-import {ToastService} from '../api/services/toast-service';
-import {CategoryService} from '../api/services/category.service';
-import {UserList} from '../api/models/user-list';
-import {User} from '../api/models/user';
-import {QueryParam} from '../api/models/query-param';
-import {BaseComponent} from '../base.component';
-import {AppConst} from '../utils/app-const';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { ToastService } from '../api/services/toast-service';
+import { CategoryService } from '../api/services/category.service';
+import { UserList } from '../api/models/user-list';
+import { User } from '../api/models/user';
+import { QueryParam } from '../api/models/query-param';
+import { BaseComponent } from '../base.component';
+import { AppConst } from '../utils/app-const';
 @Component({
     selector: 'app-contestants',
     templateUrl: './contestants.component.html',

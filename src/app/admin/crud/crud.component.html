@@ -1,1 +1,46 @@
-<p>crud works!</p>
+<form  (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>First Name*</label>
+        <input
+            class="form-control"
+            type="text"
+            name="first_name"
+        />
+        <div
+            class="invalid-feedback-show"
+        >
+           is required
+        </div>
+    </div>
+    <div class="form-group">
+        <label>First Name*</label>
+        <textarea
+            class="form-control"
+            name="first_name"
+        ></textarea>
+        <div
+            class="invalid-feedback-show"
+        >
+           is required
+        </div>
+    </div>
+    <div class="form-group">
+        <label>First Name*</label>
+        <select
+            class="form-control"
+            name="first_name"
+        ></select>
+        <div
+            class="invalid-feedback-show"
+        >
+           is required
+        </div>
+    </div>
+    <div class="pt-5 text-right">
+        <input
+            type="submit"
+            class="btn btn-primary text-uppercase"
+            value="Update Profile"
+        />
+    </div>
+</form>

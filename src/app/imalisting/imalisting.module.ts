@@ -1,9 +1,9 @@
 
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {ImalistingRoutingModule} from './imalisting-routing.module';
-import {ImalistingComponent} from './imalisting.component';
+import { ImalistingRoutingModule } from './imalisting-routing.module';
+import { ImalistingComponent } from './imalisting.component';
 
 @NgModule({
     declarations: [ImalistingComponent],

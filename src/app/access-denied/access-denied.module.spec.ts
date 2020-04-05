@@ -1,5 +1,5 @@
 
-import {AccessDeniedModule} from './access-denied.module';
+import { AccessDeniedModule } from './access-denied.module';
 
 describe('AccessDeniedModule', () => {
     let accessDeniedModule: AccessDeniedModule;

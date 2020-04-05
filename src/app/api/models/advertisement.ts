@@ -1,6 +1,6 @@
 
-import {Attachment} from './attachment';
-import {User} from './user';
+import { Attachment } from './attachment';
+import { User } from './user';
 export interface Advertisement {
     id: number;
     user_id: number;

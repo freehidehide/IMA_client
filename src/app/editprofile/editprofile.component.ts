@@ -1,12 +1,12 @@
 
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ToastService} from '../api/services/toast-service';
-import {UserService} from '../api/services/user.service';
-import {SessionService} from '../api/services/session-service';
-import {UserBaseComponent} from '../user.base.component';
-import {User} from '../api/models/user';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastService } from '../api/services/toast-service';
+import { UserService } from '../api/services/user.service';
+import { SessionService } from '../api/services/session-service';
+import { UserBaseComponent } from '../user.base.component';
+import { User } from '../api/models/user';
 
 @Component({
     selector: 'app-editprofile',

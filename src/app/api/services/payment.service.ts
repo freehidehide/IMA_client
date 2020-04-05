@@ -1,10 +1,10 @@
 
-import {Injectable} from '@angular/core';
-import {ApiService} from './api.service';
-import {AppConst} from '../../utils/app-const';
-import {Observable} from 'rxjs';
-import {VotePackageList} from '../models/vote-package-list';
-import {QueryParam} from '../models/query-param';
+import { Injectable } from '@angular/core';
+import { ApiService } from './api.service';
+import { AppConst } from '../../utils/app-const';
+import { Observable } from 'rxjs';
+import { VotePackageList } from '../models/vote-package-list';
+import { QueryParam } from '../models/query-param';
 
 @Injectable()
 export class PaymentService {

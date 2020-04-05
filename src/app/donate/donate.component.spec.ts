@@ -1,7 +1,7 @@
 
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {DonateComponent} from './donate.component';
+import { DonateComponent } from './donate.component';
 
 describe('DonateComponent', () => {
     let component: DonateComponent;

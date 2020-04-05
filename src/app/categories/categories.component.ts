@@ -1,11 +1,11 @@
 
-import {Component, OnInit} from '@angular/core';
-import {ToastService} from '../api/services/toast-service';
-import {CategoryService} from '../api/services/category.service';
-import {CategoriesList} from '../api/models/categories-list';
-import {AppConst} from '../utils/app-const';
-import {BaseComponent} from '../base.component';
-import {QueryParam} from '../api/models/query-param';
+import { Component, OnInit } from '@angular/core';
+import { ToastService } from '../api/services/toast-service';
+import { CategoryService } from '../api/services/category.service';
+import { CategoriesList } from '../api/models/categories-list';
+import { AppConst } from '../utils/app-const';
+import { BaseComponent } from '../base.component';
+import { QueryParam } from '../api/models/query-param';
 
 @Component({
     selector: 'app-categories',

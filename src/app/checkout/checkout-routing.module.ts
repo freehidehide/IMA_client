@@ -1,7 +1,7 @@
 
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {CheckoutComponent} from './checkout.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { CheckoutComponent } from './checkout.component';
 
 const routes: Routes = [
     {

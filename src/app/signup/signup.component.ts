@@ -1,15 +1,15 @@
 
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {routerTransition} from '../router.animations';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ToastService} from '../api/services/toast-service';
-import {UserService} from '../api/services/user.service';
-import {SessionService} from '../api/services/session-service';
-import {ServiceResponse} from '../api/models/service-response';
-import {User} from '../api/models/user';
-import {AppConst} from '../utils/app-const';
-import {BaseComponent} from '../base.component';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { routerTransition } from '../router.animations';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastService } from '../api/services/toast-service';
+import { UserService } from '../api/services/user.service';
+import { SessionService } from '../api/services/session-service';
+import { ServiceResponse } from '../api/models/service-response';
+import { User } from '../api/models/user';
+import { AppConst } from '../utils/app-const';
+import { BaseComponent } from '../base.component';
 
 @Component({
     selector: 'app-signup',

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {AppConst} from '../../utils/app-const';
-import {ApiService} from './api.service';
-import {environment} from '../../../environments/environment';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { AppConst } from '../../utils/app-const';
+import { ApiService } from './api.service';
+import { environment } from '../../../environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class StartupService {
     private baseUrl: string = environment.apiEndPoint;

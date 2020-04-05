@@ -1,12 +1,12 @@
 
-import {ActivatedRoute, Router} from '@angular/router';
-import {Component, OnInit} from '@angular/core';
-import {ToastService} from '../api/services/toast-service';
-import {UserService} from '../api/services/user.service';
-import {SessionService} from '../api/services/session-service';
-import {UserBaseComponent} from '../user.base.component';
-import {QueryParam} from '../api/models/query-param';
-import {User} from '../api/models/user';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ToastService } from '../api/services/toast-service';
+import { UserService } from '../api/services/user.service';
+import { SessionService } from '../api/services/session-service';
+import { UserBaseComponent } from '../user.base.component';
+import { QueryParam } from '../api/models/query-param';
+import { User } from '../api/models/user';
 @Component({
     selector: 'app-contestantprofile',
     templateUrl: './contestantprofile.component.html',

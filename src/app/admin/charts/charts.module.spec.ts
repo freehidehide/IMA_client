@@ -1,5 +1,5 @@
 
-import {ChartsModule} from './charts.module';
+import { ChartsModule } from './charts.module';
 
 describe('ChartsModule', () => {
     let chartsModule: ChartsModule;

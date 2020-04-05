@@ -1,12 +1,12 @@
 
-import {Component, OnInit} from '@angular/core';
-import {ToastService} from '../api/services/toast-service';
-import {ProductService} from '../api/services/product.service';
-import {ServiceResponse} from '../api/models/service-response';
-import {ProductList} from '../api/models/product-list';
-import {AppConst} from '../utils/app-const';
-import {BaseComponent} from '../base.component';
-import {QueryParam} from '../api/models/query-param';
+import { Component, OnInit } from '@angular/core';
+import { ToastService } from '../api/services/toast-service';
+import { ProductService } from '../api/services/product.service';
+import { ServiceResponse } from '../api/models/service-response';
+import { ProductList } from '../api/models/product-list';
+import { AppConst } from '../utils/app-const';
+import { BaseComponent } from '../base.component';
+import { QueryParam } from '../api/models/query-param';
 
 @Component({
     selector: 'app-shop',

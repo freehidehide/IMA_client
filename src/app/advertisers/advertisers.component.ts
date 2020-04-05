@@ -1,11 +1,11 @@
 
-import {Component, OnInit} from '@angular/core';
-import {ToastService} from '../api/services/toast-service';
-import {AdvertiserService} from '../api/services/advertisers.service';
-import {AdvertisementList} from '../api/models/advertisement-list';
-import {AppConst} from '../utils/app-const';
-import {BaseComponent} from '../base.component';
-import {QueryParam} from '../api/models/query-param';
+import { Component, OnInit } from '@angular/core';
+import { ToastService } from '../api/services/toast-service';
+import { AdvertiserService } from '../api/services/advertisers.service';
+import { AdvertisementList } from '../api/models/advertisement-list';
+import { AppConst } from '../utils/app-const';
+import { BaseComponent } from '../base.component';
+import { QueryParam } from '../api/models/query-param';
 @Component({
     selector: 'app-advertisers',
     templateUrl: './advertisers.component.html',

@@ -3,16 +3,16 @@
  * instances.
  */
 
-import {
+import { 
     Component,
     ContentChildren,
     QueryList,
     AfterContentInit,
     Output
-} from '@angular/core';
+ } from '@angular/core';
 
-import {TabComponent} from './tab.component';
-import {EventEmitter} from '@angular/core';
+import { TabComponent } from './tab.component';
+import { EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-my-tabs',

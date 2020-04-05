@@ -1,11 +1,11 @@
 
-import {User} from './api/models/user';
-import {Router} from '@angular/router';
-import {UserService} from './api/services/user.service';
-import {ToastService} from './api/services/toast-service';
-import {AppConst} from './utils/app-const';
-import {FormGroup} from '@angular/forms';
-import {QueryParam} from './api/models/query-param';
+import { User } from './api/models/user';
+import { Router } from '@angular/router';
+import { UserService } from './api/services/user.service';
+import { ToastService } from './api/services/toast-service';
+import { AppConst } from './utils/app-const';
+import { FormGroup } from '@angular/forms';
+import { QueryParam } from './api/models/query-param';
 export abstract class UserBaseComponent {
     public user: User;
     public userId: number;

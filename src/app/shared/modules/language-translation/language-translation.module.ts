@@ -6,16 +6,16 @@
  * @format
  */
 
-import {NgModule} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 // import ngx-translate and the http loader
-import {
+import { 
     TranslateLoader,
     TranslateModule,
     TranslateService
-} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+ } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // ngx-translate - required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {

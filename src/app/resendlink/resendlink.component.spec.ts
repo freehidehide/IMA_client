@@ -1,7 +1,7 @@
 
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {ResendlinkComponent} from './resendlink.component';
+import { ResendlinkComponent } from './resendlink.component';
 
 describe('ResendlinkComponent', () => {
     let component: ResendlinkComponent;

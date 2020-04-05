@@ -1,7 +1,7 @@
 
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {ImalistingComponent} from './imalisting.component';
+import { ImalistingComponent } from './imalisting.component';
 
 describe('ImalistingComponent', () => {
     let component: ImalistingComponent;

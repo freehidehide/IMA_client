@@ -1,6 +1,5 @@
-
-import {Component, OnInit} from '@angular/core';
-import {SessionService} from './api/services/session-service';
+import { Component, OnInit } from '@angular/core';
+import { SessionService } from './api/services/session-service';
 
 @Component({
     selector: 'app-root',

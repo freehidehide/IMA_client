@@ -1,7 +1,7 @@
 
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {SiteAlertMessageComponent} from './site-alert-message.component';
+import { SiteAlertMessageComponent } from './site-alert-message.component';
 
 describe('SiteAlertMessageComponent', () => {
     let component: SiteAlertMessageComponent;

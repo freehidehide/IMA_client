@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {TransactionService} from '../api/services/transaction.service';
-import {QueryParam} from '../api/models/query-param';
+import { Component, OnInit } from '@angular/core';
+import { TransactionService } from '../api/services/transaction.service';
+import { QueryParam } from '../api/models/query-param';
 
 @Component({
     selector: 'app-transaction',

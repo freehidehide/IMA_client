@@ -1,7 +1,7 @@
 
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {AdminComponent} from './admin.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AdminComponent } from './admin.component';
 
 const routes: Routes = [
     {
@@ -22,7 +22,22 @@ const routes: Routes = [
                     import('./charts/charts.module').then((m) => m.ChartsModule)
             },
             {
-                path: 'crud',
+                path: 'actions/:table',
+                loadChildren: () =>
+                    import('./crud/crud.module').then((m) => m.CrudModule)
+            },
+            {
+                path: 'actions/:table/add',
+                loadChildren: () =>
+                    import('./crud/crud.module').then((m) => m.CrudModule)
+            },
+            {
+                path: 'actions/:table/edit/:id',
+                loadChildren: () =>
+                    import('./crud/crud.module').then((m) => m.CrudModule)
+            },
+            {
+                path: 'actions/:table/delete/:id',
                 loadChildren: () =>
                     import('./crud/crud.module').then((m) => m.CrudModule)
             }

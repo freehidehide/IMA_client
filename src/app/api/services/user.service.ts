@@ -1,11 +1,11 @@
 
-import {Injectable} from '@angular/core';
-import {FormGroup} from '@angular/forms';
-import {ApiService} from './api.service';
-import {AppConst} from '../../utils/app-const';
-import {Observable} from 'rxjs';
-import {QueryParam} from '../models/query-param';
-import {User} from '../models/user';
+import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ApiService } from './api.service';
+import { AppConst } from '../../utils/app-const';
+import { Observable } from 'rxjs';
+import { QueryParam } from '../models/query-param';
+import { User } from '../models/user';
 
 @Injectable()
 export class UserService {

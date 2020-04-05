@@ -1,6 +1,6 @@
 
-import {Attachment} from './attachment';
-import {ProductSize} from './product-size';
+import { Attachment } from './attachment';
+import { ProductSize } from './product-size';
 export interface Detail {
     id: number;
     product_id: number;

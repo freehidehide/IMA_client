@@ -1,7 +1,7 @@
 
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {PasswordchangedComponent} from './passwordchanged.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { PasswordchangedComponent } from './passwordchanged.component';
 
 const routes: Routes = [
     {

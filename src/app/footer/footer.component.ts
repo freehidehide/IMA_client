@@ -1,6 +1,6 @@
 
-import {Component} from '@angular/core';
-import {RouterModule, Router, NavigationEnd} from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
 
 @Component({
     selector: 'app-footer',

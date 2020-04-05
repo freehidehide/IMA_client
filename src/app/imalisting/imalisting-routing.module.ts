@@ -1,7 +1,7 @@
 
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {ImalistingComponent} from './imalisting.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ImalistingComponent } from './imalisting.component';
 
 const routes: Routes = [
     {

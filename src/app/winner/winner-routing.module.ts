@@ -1,6 +1,6 @@
 
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import { WinnerComponent } from './winner.component';
 
 const routes: Routes = [

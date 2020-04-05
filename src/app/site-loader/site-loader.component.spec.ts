@@ -1,7 +1,7 @@
 
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {SiteLoaderComponent} from './site-loader.component';
+import { SiteLoaderComponent } from './site-loader.component';
 
 describe('SiteLoaderComponent', () => {
     let component: SiteLoaderComponent;

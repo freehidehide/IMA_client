@@ -1,13 +1,13 @@
-import {ActivatedRoute, Router} from '@angular/router';
-import {Component, OnInit} from '@angular/core';
-import {CategoryService} from '../api/services/category.service';
-import {ToastService} from '../api/services/toast-service';
-import {User} from '../api/models/user';
-import {Contest} from '../api/models/contest';
-import {QueryParam} from '../api/models/query-param';
-import {AppConst} from '../utils/app-const';
-import {BaseComponent} from '../base.component';
-import {SessionService} from '../api/services/session-service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CategoryService } from '../api/services/category.service';
+import { ToastService } from '../api/services/toast-service';
+import { User } from '../api/models/user';
+import { Contest } from '../api/models/contest';
+import { QueryParam } from '../api/models/query-param';
+import { AppConst } from '../utils/app-const';
+import { BaseComponent } from '../base.component';
+import { SessionService } from '../api/services/session-service';
 @Component({
     selector: 'app-instantvote',
     templateUrl: './instantvote.component.html',

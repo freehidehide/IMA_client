@@ -1,5 +1,5 @@
 
-import {NotFoundModule} from './not-found.module';
+import { NotFoundModule } from './not-found.module';
 
 describe('NotFoundModule', () => {
     let notFoundModule: NotFoundModule;

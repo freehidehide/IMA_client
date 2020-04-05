@@ -1,7 +1,7 @@
 
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {PurchasevoteComponent} from './purchasevote.component';
+import { PurchasevoteComponent } from './purchasevote.component';
 
 describe('PurchasevoteComponent', () => {
     let component: PurchasevoteComponent;

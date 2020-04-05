@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {ApiService} from './api.service';
-import {QueryParam} from '../models/query-param';
-import {Observable} from 'rxjs';
-import {AppConst} from 'src/app/utils/app-const';
+import { Injectable } from '@angular/core';
+import { ApiService } from './api.service';
+import { QueryParam } from '../models/query-param';
+import { Observable } from 'rxjs';
+import { AppConst } from 'src/app/utils/app-const';
 
 @Injectable({
     providedIn: 'root'

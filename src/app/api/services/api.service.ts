@@ -1,12 +1,12 @@
 
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {Observable, throwError, of} from 'rxjs';
-import {catchError} from 'rxjs/operators';
-import {Router} from '@angular/router';
-import {environment} from '../../../environments/environment';
-import {AppConst} from '../../utils/app-const';
-import {QueryParam} from '../models/query-param';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Observable, throwError, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
+import { AppConst } from '../../utils/app-const';
+import { QueryParam } from '../models/query-param';
 
 @Injectable()
 export class ApiService {

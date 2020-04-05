@@ -1,15 +1,15 @@
 
-import {ActivatedRoute, Router} from '@angular/router';
-import {Component, OnInit} from '@angular/core';
-import {ToastService} from '../api/services/toast-service';
-import {UserService} from '../api/services/user.service';
-import {PaymentService} from '../api/services/payment.service';
-import {SessionService} from '../api/services/session-service';
-import {UserBaseComponent} from '../user.base.component';
-import {QueryParam} from '../api/models/query-param';
-import {User} from '../api/models/user';
-import {VotePackage} from '../api/models/vote-package';
-import {StartupService} from '../api/services/startup.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ToastService } from '../api/services/toast-service';
+import { UserService } from '../api/services/user.service';
+import { PaymentService } from '../api/services/payment.service';
+import { SessionService } from '../api/services/session-service';
+import { UserBaseComponent } from '../user.base.component';
+import { QueryParam } from '../api/models/query-param';
+import { User } from '../api/models/user';
+import { VotePackage } from '../api/models/vote-package';
+import { StartupService } from '../api/services/startup.service';
 @Component({
     selector: 'app-purchasevote',
     templateUrl: './purchasevote.component.html',

@@ -1,9 +1,9 @@
 
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {APP_BASE_HREF} from '@angular/common';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { APP_BASE_HREF } from '@angular/common';
 
-import {AppComponent} from './app.component';
-import {AppModule} from './app.module';
+import { AppComponent } from './app.component';
+import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
     let component: AppComponent;

@@ -1,8 +1,8 @@
 
-import {Component, HostListener, Inject} from '@angular/core';
-import {RouterModule, Router, NavigationEnd} from '@angular/router';
-import {SessionService} from '../api/services/session-service';
-import {DOCUMENT} from '@angular/common';
+import { Component, HostListener, Inject } from '@angular/core';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
+import { SessionService } from '../api/services/session-service';
+import { DOCUMENT } from '@angular/common';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',

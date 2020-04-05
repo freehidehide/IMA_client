@@ -1,12 +1,12 @@
 
-import {ServiceResponse} from './service-response';
-import {Role} from './role';
-import {Attachment} from './attachment';
-import {Error} from './error';
-import {Address} from './address';
-import {UserCategory} from './user-category';
-import {Social} from './social';
-import {VoteCategory} from './vote_category';
+import { ServiceResponse } from './service-response';
+import { Role } from './role';
+import { Attachment } from './attachment';
+import { Error } from './error';
+import { Address } from './address';
+import { UserCategory } from './user-category';
+import { Social } from './social';
+import { VoteCategory } from './vote_category';
 export class User extends ServiceResponse {
     access_token?: string;
     expires_in?: number;

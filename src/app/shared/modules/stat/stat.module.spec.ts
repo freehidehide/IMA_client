@@ -1,5 +1,5 @@
 
-import {StatModule} from './stat.module';
+import { StatModule } from './stat.module';
 
 describe('StatModule', () => {
     let statModule: StatModule;

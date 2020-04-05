@@ -1,5 +1,5 @@
 
-import {AppPage} from './app.po';
+import { AppPage } from './app.po';
 
 describe('test-ng8 App', () => {
     let page: AppPage;
