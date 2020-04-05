@@ -1,4 +1,3 @@
-/** @format */
 
 export class AppConst {
     public static readonly NON_AUTH_SERVER_URL = {

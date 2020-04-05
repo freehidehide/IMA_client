@@ -1,4 +1,3 @@
-/** @format */
 import {ActivatedRoute, Router} from '@angular/router';
 import {Component, OnInit, Input} from '@angular/core';
 import {ToastService} from '../api/services/toast-service';

@@ -1,4 +1,3 @@
-/** @format */
 
 import {PageHeaderModule} from './page-header.module';
 

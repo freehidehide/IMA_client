@@ -1,4 +1,3 @@
-/** @format */
 
 import {LoginModule} from './login.module';
 

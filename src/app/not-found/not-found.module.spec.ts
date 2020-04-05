@@ -1,4 +1,3 @@
-/** @format */
 
 import {NotFoundModule} from './not-found.module';
 

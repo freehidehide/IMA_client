@@ -1,4 +1,3 @@
-/** @format */
 
 export interface Attachment {
     id: number;

@@ -1,4 +1,3 @@
-/** @format */
 
 import {ServerErrorModule} from './server-error.module';
 

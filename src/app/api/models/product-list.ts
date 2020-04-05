@@ -1,4 +1,3 @@
-/** @format */
 
 import {Product} from './product';
 import {Metadata} from './metadata';

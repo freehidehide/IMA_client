@@ -1,4 +1,3 @@
-/** @format */
 
 import {AppModule} from './app.module';
 

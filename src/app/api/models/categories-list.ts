@@ -1,4 +1,3 @@
-/** @format */
 
 import {Category} from './category';
 import {Error} from './error';

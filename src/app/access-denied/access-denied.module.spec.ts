@@ -1,4 +1,3 @@
-/** @format */
 
 import {AccessDeniedModule} from './access-denied.module';
 

@@ -1,4 +1,3 @@
-/** @format */
 
 import {User} from './user';
 import {Metadata} from './metadata';

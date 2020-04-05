@@ -1,4 +1,3 @@
-/** @format */
 
 import {Advertisement} from './advertisement';
 import {Metadata} from './metadata';

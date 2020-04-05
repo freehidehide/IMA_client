@@ -1,4 +1,3 @@
-/** @format */
 
 import {ServiceResponse} from './service-response';
 import {Role} from './role';

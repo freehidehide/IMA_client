@@ -1,4 +1,3 @@
-/** @format */
 
 import {Size} from './size';
 export interface ProductSize {

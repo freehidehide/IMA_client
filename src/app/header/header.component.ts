@@ -1,4 +1,3 @@
-/** @format */
 
 import {Component, HostListener, Inject} from '@angular/core';
 import {RouterModule, Router, NavigationEnd} from '@angular/router';

@@ -1,4 +1,3 @@
-/** @format */
 
 import {Detail} from './detail';
 import {Color} from './color';

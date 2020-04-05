@@ -1,4 +1,3 @@
-/** @format */
 
 import {Component} from '@angular/core';
 import {ToastService} from '../api/services/toast-service';

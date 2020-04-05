@@ -1,4 +1,3 @@
-/** @format */
 
 import {SignupModule} from './signup.module';
 

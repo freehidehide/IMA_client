@@ -1,4 +1,3 @@
-/** @format */
 
 export interface Address {
     id: number;

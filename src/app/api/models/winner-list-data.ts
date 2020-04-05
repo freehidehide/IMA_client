@@ -1,4 +1,3 @@
-/** @format */
 
 import {HighestVotes} from './highest_votes';
 import {User} from './user';

@@ -1,4 +1,3 @@
-/** @format */
 
 export interface Metadata {
     current_page: number;

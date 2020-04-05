@@ -1,4 +1,3 @@
-/** @format */
 
 import {AppPage} from './app.po';
 

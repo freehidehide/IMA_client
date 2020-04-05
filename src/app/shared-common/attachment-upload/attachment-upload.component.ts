@@ -1,4 +1,3 @@
-/** @format */
 
 import {Component, Input} from '@angular/core';
 import {ImageService} from 'src/app/api/services/image.service';

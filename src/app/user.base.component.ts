@@ -1,4 +1,3 @@
-/** @format */
 
 import {User} from './api/models/user';
 import {Router} from '@angular/router';

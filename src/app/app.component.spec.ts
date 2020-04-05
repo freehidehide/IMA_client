@@ -1,4 +1,3 @@
-/** @format */
 
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';

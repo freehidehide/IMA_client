@@ -1,4 +1,3 @@
-/** @format */
 
 import {StatModule} from './stat.module';
 

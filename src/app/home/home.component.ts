@@ -1,4 +1,3 @@
-/** @format */
 
 import {Component, OnInit} from '@angular/core';
 import {SessionService} from '../api/services/session-service';

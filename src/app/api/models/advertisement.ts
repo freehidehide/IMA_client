@@ -1,4 +1,3 @@
-/** @format */
 
 import {Attachment} from './attachment';
 import {User} from './user';
