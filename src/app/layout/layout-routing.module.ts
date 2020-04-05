@@ -21,6 +21,11 @@ const routes: Routes = [
                 path: 'charts',
                 loadChildren: () =>
                     import('./charts/charts.module').then((m) => m.ChartsModule)
+            },
+            {
+                path: 'crud',
+                loadChildren: () =>
+                    import('./crud/crud.module').then((m) => m.CrudModule)
             }
         ]
     }
