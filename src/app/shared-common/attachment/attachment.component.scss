@@ -1,4 +1,3 @@
-
 .contestantimg {
     max-height: 510px;
     object-fit: cover;
@@ -7,6 +6,7 @@
     height: 100%;
     border-radius: 20px;
 }
+
 .profiletopimg {
     max-width: 100%;
     width: 100%;
@@ -15,75 +15,109 @@
     object-fit: cover;
     object-position: 100% 25%;
 }
-.profilecircleimg{
+
+.profilecircleimg {
     max-width: 550px;
     width: 100%;
     height: 550px;
     object-fit: cover;
     object-position: 100% 0;
 }
-.profilefulllist{
+
+.profilefulllist {
     max-width: 266px;
     width: 100%;
     height: 266px;
     object-fit: cover;
     object-position: 100% 0;
 }
+
+.instantvoteimg {
+    border-radius: 50px;
+    height:196px;
+    object-fit: cover;
+    object-position: 100% 0;
+    width: 100%;
+}
+
 @media (max-width: 1440px) {
     .contestantimg {
         max-width: 610px;
         max-height: 315px;
     }
+
     .profiletopimg {
         height: 450px;
     }
-    .profilecircleimg{
+
+    .profilecircleimg {
         max-width: 420px;
         height: 420px;
     }
-    .profilefulllist{
+
+    .profilefulllist {
         max-width: 231px;
         height: 231px;
     }
+    .instantvoteimg {
+        border-radius: 30px;
+        height:155px;
+    }
 }
+
 @media (max-width: 1199px) and (min-width: 992px) {
     .contestantimg {
         max-width: 480px;
         max-height: 247px;
     }
 }
+
 @media (max-width: 991px) and (min-width: 768px) {
     .contestantimg {
         max-width: 464px;
         max-height: 226px;
     }
+
     .profiletopimg {
         height: 300px;
     }
-    .profilecircleimg{
+
+    .profilecircleimg {
         max-width: 300px;
         height: 300px;
     }
-    .profilefulllist{
+
+    .profilefulllist {
         max-width: 200px;
         height: 200px;
     }
+    .instantvoteimg {
+        border-radius: 20px;
+        height:292px;
+    }
 }
+
 @media (max-width: 767px) {
     .contestantimg {
         max-width: 350px;
         max-height: 210px;
     }
+
     .profiletopimg {
         height: 350px;
     }
-    .profilecircleimg{
+
+    .profilecircleimg {
         max-width: 150px;
         height: 150px;
     }
-    .profilefulllist{
+
+    .profilefulllist {
         max-width: 145px;
         height: 145px;
+    }
+    .instantvoteimg {
+        height:168px;
     }
 }
 
@@ -92,8 +126,13 @@
         max-width: 140px;
         max-height: 140px;
     }
-    .profilefulllist{
+
+    .profilefulllist {
         max-width: 85px;
         height: 85px;
+    }
+    .instantvoteimg {
+        height:140px;
+        border-radius: 10px;
     }
 }
