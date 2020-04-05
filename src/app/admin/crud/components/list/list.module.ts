@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListComponent } from './list/list.component';
-import { SharedCommonContestantModule } from '../../../shared-common/shared-common-contestant.module';
+import { ListComponent } from './list.component';
+import { SharedCommonContestantModule } from '../../shared-common/shared-common-contestant.module';
 @NgModule({
   declarations: [ListComponent],
   imports: [

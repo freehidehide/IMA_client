@@ -7,10 +7,11 @@ export class SessionService {
     public isAuth: boolean;
     public user: User;
     public auth: string;
+    public adminSettings: any;
 
     isLogined(): void {
         this.auth = sessionStorage.getItem('user_context');
-        this.isAuth = this.auth !== undefined && this.auth !== null;
+        this.isAuth = (this.auth !== undefined && this.auth !== null);
         if (this.isAuth) {
             this.setAuthResponse();
         }
@@ -18,6 +19,19 @@ export class SessionService {
 
     setAuthResponse(): void {
         this.user = JSON.parse(sessionStorage.getItem('user_context'));
+        if (this.user.role.id === 1 && (this.adminSettings !== undefined
+            && this.adminSettings !== null)) {
+
+        }
+    }
+
+    getAdminSettings(): void {
+        this.adminSettings = false;
+    }
+
+    logout(): void {
+        sessionStorage.removeItem('user_context');
+        this.isAuth = false;
     }
 
     logout(): void {
