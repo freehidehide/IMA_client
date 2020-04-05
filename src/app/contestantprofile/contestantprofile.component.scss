@@ -23,10 +23,10 @@ nav.navbar {
 }
 
 .contprofileimage {
-    max-width: 560px;
+    max-width: 550px;
     overflow: hidden;
     width: 100%;
-    margin: -280px auto 0;
+    margin: -360px auto 0;
     border-radius: 50%;
     position: relative;
 }
@@ -80,26 +80,39 @@ nav.navbar {
     color: #454545;
 }
 
-.contprofile-slisting {
-    li {
-        border-bottom: 1px solid #282828;
-    }
-}
-
 .contprodescr {
     font-size: 15px;
     color: #696969;
 }
-
+.categoryname{
+    font-weight: 700;
+    font-size: 35px;
+    margin:10px 0 20px;
+}
 .contprofile-listing {
-    border-radius: 30px;
+    max-width: 800px;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    > span{
+        width:33.33%;
+        border:1px solid #ccc;
+        margin-bottom: 1px;
+    }
 }
 
 .contprofiledetails {
     color: #acacac;
 }
-
+.profileinitialimg{
+    width: 800px;
+    .profilefirstimg{
+        width: 800px;
+        height: 550px;
+        object-fit: cover;
+        object-position: 100% 22%;
+    }
+}
 @media (max-width: 1440px) {
     .contprofileimage {
         max-width: 420px;
@@ -129,6 +142,17 @@ nav.navbar {
             }
         }
     }
+
+    .contprofile-listing {
+        max-width: 700px;
+    }
+    .profileinitialimg{
+        width: 700px;
+        .profilefirstimg{
+            width: 700px;
+            height: 450px;
+        }
+    }
 }
 
 @media (max-width: 991px) {
@@ -142,11 +166,47 @@ nav.navbar {
             font-size: 36px;
         }
     }
+    .contprofile-listing {
+        max-width: 600px;
+    }
+    .profileinitialimg{
+        width: 600px;
+        .profilefirstimg{
+            width: 600px;
+            height: 400px;
+        }
+    }
 }
 
 @media (max-width: 767px) {
     .contprofileimage {
         max-width: 150px;
         margin: -100px auto 0;
+    }
+    .contprofile-listing {
+        max-width: 440px;
+    }
+    .profileinitialimg{
+        width: 440px;
+        .profilefirstimg{
+            width: 440px;
+            height: 350px;
+        }
+    }
+    .categoryname{
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contprofile-listing {
+        max-width: 260px;
+    }
+    .profileinitialimg{
+        width: 260px;
+        .profilefirstimg{
+            width: 260px;
+            height: 260px;
+        }
     }
 }

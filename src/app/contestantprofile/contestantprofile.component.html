@@ -13,6 +13,7 @@
             <app-attachment
                 [attachment]="user.attachment"
                 [type]="original"
+                [cssClass]="'profilecircleimg'"
             ></app-attachment>
         </div>
         <div class="container">
@@ -123,19 +124,25 @@
                                 </a>
                             </div>
                         </li>
+                        <li>
+                            <div class="profileinitialimg mx-auto text-center">
+                                <h3 class="categoryname">Category Name</h3>
+                                <img src="http://3.132.95.244/images/original/UserProfile/654.47c65b6dca07c09281d3ab7640b0f70e.jpg" class="profilefirstimg" />
+                            </div>
+                        </li>
                         <li
-                            class="pb-3 my-4 mx-auto"
+                            class="pb-3 mb-4 mx-auto"
                             *ngIf="
                                 sessionService.isAuth &&
                                 user.is_subscribed &&
                                 user.subscribed_data.length > 0
                             "
                         >
-                            <div class="contprofile-listing" *ngFor="
+                            <div class="contprofile-listing mx-auto" *ngFor="
                             let subscribData of user.subscribed_data;
                             trackBy: trackById
                         ">
-                            <span>{{subscribData.category.name}}</span>
+                            <!-- <span>{{subscribData.category.name}}</span> -->
                             <span *ngFor="
                             let attachment of subscribData.attachments;
                             trackBy: trackById
@@ -143,6 +150,7 @@
                             <app-attachment
                             [attachment]="attachment"
                                 [type]="original"
+                                [cssClass]="'profilefulllist'"
                             ></app-attachment>
                             </span>
                             </div>
