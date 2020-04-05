@@ -33,9 +33,4 @@ export class SessionService {
         sessionStorage.removeItem('user_context');
         this.isAuth = false;
     }
-
-    logout(): void {
-        sessionStorage.removeItem('user_context');
-        this.isAuth = false;
-    }
 }

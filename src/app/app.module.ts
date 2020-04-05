@@ -37,7 +37,7 @@ export function startupServiceFactory(startupService: StartupService): Function 
         FooterComponent,
         HeaderComponent,
         SiteAlertMessageComponent,
-        SiteLoaderComponen
+        SiteLoaderComponent
     ],
     providers: [
         AuthGuard,
