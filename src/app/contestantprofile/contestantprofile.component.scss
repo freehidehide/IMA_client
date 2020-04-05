@@ -1,4 +1,3 @@
-
 nav.navbar {
     background-color: #20283b;
     padding: 12px 130px;
@@ -84,19 +83,23 @@ nav.navbar {
     font-size: 15px;
     color: #696969;
 }
-.categoryname{
+
+.categoryname {
     font-weight: 700;
     font-size: 35px;
-    margin:10px 0 20px;
+    margin: 10px 0 20px;
 }
+
 .contprofile-listing {
     max-width: 800px;
+    min-width: 800px;
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
-    > span{
-        width:33.33%;
-        border:1px solid #ccc;
+
+    >span {
+        width: 33.33%;
+        border: 1px solid #ccc;
         margin-bottom: 1px;
     }
 }
@@ -104,10 +107,19 @@ nav.navbar {
 .contprofiledetails {
     color: #acacac;
 }
-.profileinitialimg{
+
+.profileinitialimg {
     width: 800px;
-    
 }
+.plusmore{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 600;
+    background: rgba(0,0,0,0.15);
+}
+
 @media (max-width: 1440px) {
     .contprofileimage {
         max-width: 420px;
@@ -132,6 +144,7 @@ nav.navbar {
                     max-width: 61px;
                 }
             }
+
             .profilevcount {
                 font-size: 21px;
             }
@@ -140,10 +153,13 @@ nav.navbar {
 
     .contprofile-listing {
         max-width: 700px;
+        min-width: 700px;
     }
-    .profileinitialimg{
+
+    .profileinitialimg {
         width: 700px;
-        .profilefirstimg{
+
+        .profilefirstimg {
             width: 700px;
             height: 450px;
         }
@@ -161,14 +177,30 @@ nav.navbar {
             font-size: 36px;
         }
     }
+
     .contprofile-listing {
         max-width: 600px;
+        min-width: 600px;
     }
-    .profileinitialimg{
+
+    .profileinitialimg {
         width: 600px;
-        .profilefirstimg{
+
+        .profilefirstimg {
             width: 600px;
             height: 400px;
+        }
+    }
+
+    .profile-social {
+        li {
+            a {
+                font-size: 18px;
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
         }
     }
 }
@@ -178,17 +210,22 @@ nav.navbar {
         max-width: 150px;
         margin: -100px auto 0;
     }
+
     .contprofile-listing {
         max-width: 440px;
+        min-width: 440px;
     }
-    .profileinitialimg{
+
+    .profileinitialimg {
         width: 440px;
-        .profilefirstimg{
+
+        .profilefirstimg {
             width: 440px;
             height: 350px;
         }
     }
-    .categoryname{
+
+    .categoryname {
         font-size: 25px;
     }
 }
@@ -196,12 +233,30 @@ nav.navbar {
 @media (max-width: 480px) {
     .contprofile-listing {
         max-width: 260px;
+        min-width: 260px;
     }
-    .profileinitialimg{
+
+    .profileinitialimg {
         width: 260px;
-        .profilefirstimg{
+
+        .profilefirstimg {
             width: 260px;
             height: 260px;
+        }
+    }
+
+    .profile-social {
+        li {
+            padding: 0 4px !important;
+
+            a {
+                font-size: 13px;
+
+                img {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
         }
     }
 }

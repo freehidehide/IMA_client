@@ -1,7 +1,9 @@
-<!-- @format -->
-
 <img *ngIf="!isVideo" [src]="url" class="img-fluid {{ cssClass }}" />
-<video *ngIf="isVideo" width="400" controls>
-    <source src="{{url}}" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
+<div class="videosection" *ngIf="isVideo">
+  <img [src]="url" class="img-fluid {{ cssClass }}" />
+  <img src="assets/images/video-play.png" class="img-fluid play-button" />
+</div>
+<video *ngIf="isPlayVideo" width="400" controls>
+  <source src="{{url}}" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
