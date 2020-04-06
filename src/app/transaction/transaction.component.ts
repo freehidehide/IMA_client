@@ -9,7 +9,7 @@ import { ToastService } from '../api/services/toast-service';
     styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
-    public transactionData: any;
+    public transactionData: [];
     constructor(public transactionService: TransactionService, public toastService: ToastService) {}
 
     ngOnInit(): void {
