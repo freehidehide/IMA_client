@@ -14,6 +14,7 @@ export class AttachmentComponent {
     public imageClass = 'original';
     public cssClassString: string;
     public isVideo: boolean;
+    public isPlayVideo: boolean;
 
     @Input('type')
     set class(value: string) {
@@ -30,15 +31,29 @@ export class AttachmentComponent {
             this.isVideo = false;
         }
         this.isVideo = (value.thumb) ? true : false;
-        if (value && value.id) {
+        if (!this.isVideo && value && value.id) {
             const id: string = value.id.toString();
             const filename: string = value.filename.split('.').pop();
             const hash: string = Md5.hashStr(
                 value.class + id + filename + this.imageClass
             ).toString();
             this.url =
-                'http://3.132.95.244/images/original/' +
+            'http://app.itstheimas.com/images/' + this.imageClass + '/' +
                 value.class +
+                '/' +
+                id +
+                '.' +
+                hash +
+                '.' + filename;
+        } else if (this.isVideo && value.thumb.id) {
+            const id: string = value.thumb.id.toString();
+            const filename: string = value.thumb.filename.split('.').pop();
+            const hash: string = Md5.hashStr(
+                value.thumb.class + id + filename + this.imageClass
+            ).toString();
+            this.url =
+                'http://app.itstheimas.com/images/' + this.imageClass + '/' +
+                value.thumb.class +
                 '/' +
                 id +
                 '.' +

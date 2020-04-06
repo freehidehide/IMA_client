@@ -5,45 +5,32 @@
         <div class="subheadings">
             <h2>
                 CONTESTANTS
-                <span
-                    >by <em>{{ categoryName }}</em></span
-                >
+                <span>by <em>{{ categoryName }}</em></span>
             </h2>
         </div>
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
     <div class="content-middle contestants-section">
         <div class="row" *ngIf="!isNodata">
-            <div
-                class="col-md-6 col-6 text-center"
-                *ngFor="let user of users; trackBy: trackById"
-            >
-            <!-- [routerLink]="['/profile', user.id, categoryId]" -->
+            <div class="col-md-6 col-6 text-center" *ngFor="let user of users; trackBy: trackById">
+                <!-- [routerLink]="['/profile', user.id, categoryId]" -->
                 <a (click)="redirect(user)" href="javascript:void(0)" class="contestant-img">
-                    <app-attachment
-                        [attachment]="user.attachment"
-                        [type]="original"
-                        [cssClass]="'contestantimg'"
-                    ></app-attachment>
+                    <app-attachment [attachment]="user.attachment" [type]="original" [cssClass]="'contestantimg'">
+                    </app-attachment>
                 </a>
-                <div class="d-flex contestant-listdetails">
+                <div class="d-flex contestant-listdetails flex-wrap">
                     <div class="contestant-name text-truncate text-center">
                         {{ user.first_name }} {{ user.last_name }}
                     </div>
                     <div class="contestant-counts">
-                        <span class="mr-3 d-flex align-items-center"><img
-                                src="assets/images/star-icon.png"
-                                width="25"
-                                class="img-fluid mr-2"
-                            />
-                            {{user.category.votes}}</span
-                        >
-                        <span class="mr-3 d-flex align-items-center"
-                        *ngIf="pageType !== 1">
-                            {{user.category.name}}</span
-                        >
+                        <span class="mr-3 d-flex align-items-center"><img src="assets/images/star-icon.png" width="25"
+                                class="img-fluid mr-2" />
+                            {{user.category.votes}}</span>
                     </div>
+                    <div class="py-1 usercategory" *ngIf="pageType !== 1">
+                        {{user.category.name}}</div>
                 </div>
+                
             </div>
         </div>
         <div class="row mb-4" *ngIf="isNodata">

@@ -69,6 +69,12 @@
     }
 
     .votepurchase-listing {
+        li{
+            padding:10px 0 !important;
+            .row.mt-5{
+                margin-top:0 !important;
+            }
+        }
         h2 {
             font-size: 40px;
         }

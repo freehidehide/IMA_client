@@ -1,7 +1,18 @@
 .recentwinner-section{
     padding: 65px 0;
 }
+.profilevcount {
+    color: #7a7a7a;
+    font-size: 29px;
+    line-height: 20px;
+    margin: 15px 0 0;
+    font-weight: 800;
 
+    .contvotestext {
+        font-size: 13px;
+        font-weight: normal;
+    }
+}
 @media(max-width:1440px){
     ul.voterankcounts {
         > li{

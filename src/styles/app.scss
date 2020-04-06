@@ -121,6 +121,27 @@ body {
         }
     }
 }
+.carousel-item.active, .carousel-item-next, .carousel-item-prev{
+    display: flex;
+    justify-content: center;
+}
+.carousel-control-prev-icon{
+    background: none;
+    &:before{
+        content: '\f104';
+        font-size: 50px;
+        font-family: fontawesome;
+        color: #000;
+    }
+}
+.carousel-control-next-icon{
+    &:before{
+        content: '\f105';
+        font-size: 50px;
+        font-family: fontawesome;
+        color: #000;
+    }
+}
 @media (max-width: 1440px) {
     .subheadings {
         h2 {

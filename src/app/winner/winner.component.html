@@ -13,12 +13,13 @@
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
     <div class="content-middle contestants-section">
-<h1 *ngIf="pageTitle">{{pageTitle}}</h1>
+<h1 *ngIf="pageTitle" class="mb-4">{{pageTitle}}</h1>
 <ngb-carousel *ngIf="usersTop.length > 0">
     <ng-template ngbSlide *ngFor="let user of usersTop">
             <app-attachment
                         [attachment]="user.attachment"
                         [type]="original"
+                        [cssClass]="'carouselimage'"
                     ></app-attachment>
         <div class="carousel-caption">
         <h3><a
