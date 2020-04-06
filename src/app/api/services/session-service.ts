@@ -11,7 +11,7 @@ export class SessionService {
     public isAuth: boolean;
     public user: User;
     public auth: string;
-    public adminSettings: any;
+    private _adminSettings: any;
     constructor(public router: Router,
         private apiService: ApiService) {}
 
@@ -25,18 +25,14 @@ export class SessionService {
 
     setAuthResponse(): void {
         this.user = JSON.parse(sessionStorage.getItem('user_context'));
-        if (this.user.role.id === 1 && (this.adminSettings !== undefined
-            && this.adminSettings !== null)) {
-            this.getAdminSettings();
-        }
     }
 
-    getAdminSettings() {
-        this.getAdminSettingsHandler()
-            .subscribe((response) => {
-                this.adminSettings = response;
-                this.router.navigate(['/admin']);
-            });
+    setAdminSettingList(value) {
+        this._adminSettings = value;
+    }
+
+    getAdminSettingList() {
+        return this._adminSettings;
     }
 
     getAdminSettingsHandler(): Observable<any> {

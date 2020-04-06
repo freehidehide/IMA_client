@@ -13,7 +13,7 @@ export class FooterComponent {
     constructor(private router: Router) {
         this.router.events.subscribe((event) => {
             if (event instanceof NavigationEnd) {
-                if (this.footerRemove.indexOf('/admin') !== -1) {
+                if (event.url.indexOf('/admin') === -1) {
                     this.hideFooter = !(this.footerRemove.indexOf(event.url) > -1);
                 }
             }

@@ -15,6 +15,26 @@ const routes: Routes = [
             import('./admin/admin.module').then((m) => m.AdminModule),
         canActivate: [AuthGuard]
     },
+    /*{
+        path: 'admin/:table',
+        loadChildren: () =>
+            import('./admin/crud/crud.module').then((m) => m.CrudModule)
+    },
+    {
+        path: 'admin/:table/add',
+        loadChildren: () =>
+            import('./admin/crud/crud.module').then((m) => m.CrudModule)
+    },
+    {
+        path: 'admin/:table/edit/:id',
+        loadChildren: () =>
+            import('./admin/crud/crud.module').then((m) => m.CrudModule)
+    },
+    {
+        path: 'admin/:table/delete/:id',
+        loadChildren: () =>
+            import('./admin/crud/crud.module').then((m) => m.CrudModule)
+    },*/
     {
         path: 'home',
         loadChildren: () =>

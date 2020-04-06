@@ -52,8 +52,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
         }
         this.loginForm = this.formBuilder.group({
             username: ['', [Validators.required, Validators.minLength(3)]],
-            password: ['', [Validators.required, Validators.minLength(3)]],
-            role_id: [2]
+            password: ['', [Validators.required, Validators.minLength(3)]]
         });
     }
 
@@ -81,8 +80,8 @@ export class LoginComponent extends BaseComponent implements OnInit {
                     JSON.stringify(this.User)
                 );
                 this.sessionService.isLogined();
-                if (this.User.role.id === AppConst.ROLE.USER) {
-                    this.sessionService.getAdminSettings();
+                if (this.User.role.id === AppConst.ROLE.ADMIN || this.User.role.id === AppConst.ROLE.COMPANY) {
+                    this.router.navigate(['/admin']);
                 } else {
                     this.router.navigate(['/']);
                 }

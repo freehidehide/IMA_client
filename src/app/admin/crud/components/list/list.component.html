@@ -1,1 +1,61 @@
-<p>list works!</p>
+<div class="container" *ngIf="menu">
+  <div class="table-wrapper">
+     <div class="table-title">
+        <div class="row">
+           <div class="col-sm-6">
+              <h2>Manage <b>{{menu.title}}</b></h2>
+           </div>
+           <div class="col-sm-6" *ngIf="menu.add || menu.delete">
+              <a href="#addEmployeeModal" *ngIf="menu.add" class="btn btn-success"><i class="fa fa-plus"></i> <span>Add</span></a>
+              <a href="#deleteEmployeeModal" *ngIf="menu.add" class="btn btn-danger"><i class="fa fa-trash"></i> <span>Delete</span></a>
+           </div>
+        </div>
+     </div>
+     <table class="table table-responsive table-striped table-hover">
+        <thead>
+           <tr>
+              <th>
+                 <span class="custom-checkbox">
+                 <input type="checkbox" id="selectAll">
+                 <label for="selectAll"></label>
+                 </span>
+              </th>
+              <th *ngFor="let item of menu.listview.fields">{{item.label}}</th>
+           </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let element of responseData">
+              <td>
+                 <span class="custom-checkbox">
+                 <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                 <label for="checkbox1"></label>
+                 </span>
+              </td>
+              <td *ngFor="let elementChild of menu.listview.fields">
+                 <span *ngIf="!elementChild.targetEntity && !elementChild.listActions">
+                   {{element[elementChild['name']]}}
+                  </span>
+                  <span *ngIf="elementChild.targetEntity && !elementChild.listActions && element[elementChild['targetEntity']]">
+                    {{element[elementChild['targetEntity']][elementChild['targetField']]}}
+                  </span>
+                 <span *ngIf="elementChild.listActions">
+                  <a href="javascript:void(0)" *ngFor="let button of elementChild.listActions" class="btn crud-action {{button.class}}" data-toggle="modal">&nbsp;&nbsp;<i class="{{button.icon}}"></i>{{button.label}}</a>&nbsp;
+                 </span>
+              </td>
+           </tr>
+        </tbody>
+     </table>
+     <div class="clearfix">
+        <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+        <ul class="pagination">
+           <li class="page-item disabled"><a href="#">Previous</a></li>
+           <li class="page-item"><a href="#" class="page-link">1</a></li>
+           <li class="page-item"><a href="#" class="page-link">2</a></li>
+           <li class="page-item active"><a href="#" class="page-link">3</a></li>
+           <li class="page-item"><a href="#" class="page-link">4</a></li>
+           <li class="page-item"><a href="#" class="page-link">5</a></li>
+           <li class="page-item"><a href="#" class="page-link">Next</a></li>
+        </ul>
+     </div>
+  </div>
+</div>

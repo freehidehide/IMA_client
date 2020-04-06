@@ -5,15 +5,14 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { NotificationComponent } from './components';
 import { StatModule } from '../../shared';
-import { ChartsModule } from '../charts/charts.module';
+import { SharedCommonChartModule } from '../../shared-common/shared-common.chart.module';
 @NgModule({
     imports: [
         CommonModule,
         DashboardRoutingModule,
-        ChartsModule,
+        SharedCommonChartModule,
         StatModule
     ],
-    declarations: [DashboardComponent, NotificationComponent],
-    exports: [ChartsModule]
+    declarations: [DashboardComponent, NotificationComponent]
 })
 export class DashboardModule {}

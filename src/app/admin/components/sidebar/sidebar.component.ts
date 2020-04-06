@@ -2,7 +2,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-
+import { SessionService } from '../../../api/services/session-service';
 @Component({
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html',
@@ -13,10 +13,12 @@ export class SidebarComponent implements OnInit {
     collapsed: boolean;
     showMenu: string;
     pushRightClass: string;
-
+    menus: any;
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
-    constructor(private translate: TranslateService, public router: Router) {
+    constructor(private translate: TranslateService,
+        public router: Router,
+        private sessionService: SessionService) {
         this.router.events.subscribe((val) => {
             if (
                 val instanceof NavigationEnd &&
@@ -33,6 +35,15 @@ export class SidebarComponent implements OnInit {
         this.collapsed = false;
         this.showMenu = '';
         this.pushRightClass = 'push-right';
+        this.getAdminSettings();
+    }
+
+    getAdminSettings() {
+        this.sessionService.getAdminSettingsHandler()
+            .subscribe((response) => {
+                this.menus = response.menus;
+                this.sessionService.setAdminSettingList(this.menus);
+            });
     }
 
     eventCalled() {
@@ -73,5 +84,9 @@ export class SidebarComponent implements OnInit {
 
     onLoggedout() {
         localStorage.removeItem('isLoggedin');
+    }
+
+    redirect(url: string): void {
+        this.router.navigate([ '/admin/actions' + url]);
     }
 }

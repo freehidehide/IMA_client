@@ -8,7 +8,9 @@ const routes: Routes = [
         path: '',
         component: AdminComponent,
         children: [
-            {path: '', redirectTo: 'dashboard', pathMatch: 'prefix'},
+            {
+                path: '', redirectTo: 'dashboard', pathMatch: 'prefix'
+            },
             {
                 path: 'dashboard',
                 loadChildren: () =>
@@ -17,27 +19,22 @@ const routes: Routes = [
                     )
             },
             {
-                path: 'charts',
-                loadChildren: () =>
-                    import('./charts/charts.module').then((m) => m.ChartsModule)
-            },
-            {
-                path: 'actions/:table',
+                path: 'actions/:api',
                 loadChildren: () =>
                     import('./crud/crud.module').then((m) => m.CrudModule)
             },
             {
-                path: 'actions/:table/add',
+                path: 'actions/:api/add',
                 loadChildren: () =>
                     import('./crud/crud.module').then((m) => m.CrudModule)
             },
             {
-                path: 'actions/:table/edit/:id',
+                path: 'actions/:api/edit/:id',
                 loadChildren: () =>
                     import('./crud/crud.module').then((m) => m.CrudModule)
             },
             {
-                path: 'actions/:table/delete/:id',
+                path: 'actions/:api/delete/:id',
                 loadChildren: () =>
                     import('./crud/crud.module').then((m) => m.CrudModule)
             }

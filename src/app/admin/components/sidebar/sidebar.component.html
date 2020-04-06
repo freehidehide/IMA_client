@@ -4,133 +4,29 @@
     class="sidebar"
     [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}"
 >
-    <div class="list-group">
-        <a
-            routerLink="/dashboard"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-dashboard"></i>&nbsp;
-            <span>{{ 'Dashboard' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Users' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Companies' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Contestants' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Advertisements' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Categories' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Profile Media Approval' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Constest' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Sizes' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Products' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Track Order' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Transaction' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Instant Contest' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Vote Packages' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Subscription' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Payment Gateways' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Email Templates' | translate }}</span>
-        </a>
-        <a
-            routerLink="/charts"
-            class="list-group-item"
-        >
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Static Pages' | translate }}</span>
-        </a>
+    <div class="list-group" *ngIf="menus">
+        <span *ngFor="let menu of menus">
+            <a href="javascript:void(0)" *ngIf="!menu.child_sub_menu" (click)="redirect(menu.api)" class="list-group-item" >
+                <i class="{{ menu.icon_class }}"></i>&nbsp;
+                <span>{{ menu.title }}</span>
+            </a>
+            <div class="nested-menu" *ngIf="menu.child_sub_menu">
+                <a class="list-group-item" (click)="addExpandClass(menu.title)">
+                    <i class="fa fa-plus"></i>&nbsp;
+                    <span>{{ menu.title }}</span>
+                </a>
+                <li class="nested" *ngFor="let child of menu.child_sub_menu" [class.expand]="showMenu === menu.title">
+                    <ul class="submenu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="{{ menu.icon_class }}"></i>&nbsp;
+                                <span>{{ child.title }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </span>
         <div class="header-fields">
                 <a class="list-group-item" (click)="addExpandClass('profile')">
                     <span><i class="fa fa-user"></i>&nbsp; John Smith</span>

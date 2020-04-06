@@ -40,9 +40,10 @@ export class AppConst {
     };
 
     public static readonly ROLE = {
-        ADMIN: 0,
-        USER: 1,
-        CONTESTANT: 2
+        ADMIN: 1,
+        USER: 2,
+        CONTESTANT: 3,
+        COMPANY: 4
     };
 
     public static readonly MONTH_NAMES = [
