@@ -33,9 +33,6 @@ export class LoginComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit() {
-        if (this.sessionService.auth) {
-            this.router.navigate(['/contestants']);
-        }
         const isSessionExpired = sessionStorage.getItem('session_expired');
         const isBackendFailure = sessionStorage.getItem('backend_failure');
         if (isSessionExpired !== undefined && isSessionExpired === 'true') {
@@ -69,7 +66,6 @@ export class LoginComponent extends BaseComponent implements OnInit {
         this.userService.login(this.loginForm).subscribe((data) => {
             this.submitted = false;
             this.User = data;
-            this.toastService.clearLoading();
             if (
                 this.User.error &&
                 this.User.error.code === AppConst.SERVICE_STATUS.SUCCESS
@@ -83,6 +79,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
                 if (this.User.role.id === AppConst.ROLE.ADMIN || this.User.role.id === AppConst.ROLE.COMPANY) {
                     this.router.navigate(['/admin']);
                 } else {
+                    this.toastService.clearLoading();
                     this.router.navigate(['/']);
                 }
             } else {

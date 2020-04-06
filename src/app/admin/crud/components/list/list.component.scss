@@ -1,8 +1,16 @@
 .crud-action {
     width: 100px;
-    i {
+	margin-right: 10px;
+	i {
         width: 20px;
     }
+}
+.crud-approval-action {
+	width: 150px;
+	margin-right: 10px;
+	i {
+		width: 20px;
+	}
 }
 .table-wrapper {
 	background: #fff;

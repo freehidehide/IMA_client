@@ -42,7 +42,7 @@
                     {{element | targetEntityToName: elementChild}}
                   </span>
                  <span *ngIf="elementChild.listActions">
-                  <a href="javascript:void(0)" *ngFor="let button of elementChild.listActions" class="btn crud-action {{button.class}}" data-toggle="modal">&nbsp;&nbsp;<i class="{{button.icon}}"></i>{{button.label}}</a>&nbsp;
+                  <a href="javascript:void(0)" *ngFor="let button of elementChild.listActions" class="{{button.class}}" data-toggle="modal">&nbsp;&nbsp;<i class="{{button.icon}}"></i>{{button.label}}</a>&nbsp;
                  </span>
               </td>
            </tr>
