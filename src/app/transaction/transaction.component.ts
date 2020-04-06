@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../api/services/transaction.service';
 import { QueryParam } from '../api/models/query-param';
+import { ToastService } from '../api/services/toast-service';
 
 @Component({
     selector: 'app-transaction',
@@ -8,7 +9,8 @@ import { QueryParam } from '../api/models/query-param';
     styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
-    constructor(public transactionService: TransactionService) {}
+    public transactionData: any;
+    constructor(public transactionService: TransactionService, public toastService: ToastService) {}
 
     ngOnInit(): void {
         this.getTransactionDetails('Product');
@@ -19,13 +21,15 @@ export class TransactionComponent implements OnInit {
     }
 
     getTransactionDetails(paramclass: string) {
+        this.toastService.showLoading();
         const queryParam: QueryParam = {
             class: paramclass
         };
         this.transactionService
             .getTransactionData(queryParam)
             .subscribe((data) => {
-                console.log('data', data);
+                this.toastService.clearLoading();
+                this.transactionData = data.data;
             });
     }
 }
