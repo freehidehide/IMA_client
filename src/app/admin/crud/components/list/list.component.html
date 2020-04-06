@@ -35,8 +35,11 @@
                  <span *ngIf="!elementChild.targetEntity && !elementChild.listActions">
                    {{element[elementChild['name']]}}
                   </span>
-                  <span *ngIf="elementChild.targetEntity && !elementChild.listActions && element[elementChild['targetEntity']]">
+                  <!-- <span *ngIf="elementChild.targetEntity && !elementChild.listActions && element[elementChild['targetEntity']]">
                     {{element[elementChild['targetEntity']][elementChild['targetField']]}}
+                  </span> -->
+                  <span *ngIf="elementChild.targetEntity && !elementChild.listActions && element[elementChild['targetEntity']]">
+                    {{element | targetEntityToName: elementChild}}
                   </span>
                  <span *ngIf="elementChild.listActions">
                   <a href="javascript:void(0)" *ngFor="let button of elementChild.listActions" class="btn crud-action {{button.class}}" data-toggle="modal">&nbsp;&nbsp;<i class="{{button.icon}}"></i>{{button.label}}</a>&nbsp;

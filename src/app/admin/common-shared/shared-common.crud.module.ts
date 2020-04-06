@@ -7,11 +7,14 @@ import { ListComponent } from '../crud/components/list/list.component';
 import { AddComponent } from '../crud/components/add/add.component';
 import { EditComponent } from '../crud/components/edit/edit.component';
 import { CrudService } from '../../api/services/crud.service';
+import { TargetEntityToNamePipe } from './target-entity-to-name.pipe';
+
 @NgModule({
     declarations: [
         ListComponent,
         AddComponent,
-        EditComponent
+        EditComponent,
+        TargetEntityToNamePipe
     ],
     imports: [
         CommonModule,
@@ -20,7 +23,8 @@ import { CrudService } from '../../api/services/crud.service';
     exports: [
         ListComponent,
         AddComponent,
-        EditComponent
+        EditComponent,
+        TargetEntityToNamePipe
     ],
     providers: [
         CrudService
