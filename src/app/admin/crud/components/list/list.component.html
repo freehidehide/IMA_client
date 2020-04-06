@@ -38,7 +38,7 @@
                   <!-- <span *ngIf="elementChild.targetEntity && !elementChild.listActions && element[elementChild['targetEntity']]">
                     {{element[elementChild['targetEntity']][elementChild['targetField']]}}
                   </span> -->
-                  <span *ngIf="elementChild.targetEntity && !elementChild.listActions && element[elementChild['targetEntity']]">
+                  <span *ngIf="elementChild.targetEntity && !elementChild.listActions">
                     {{element | targetEntityToName: elementChild}}
                   </span>
                  <span *ngIf="elementChild.listActions">
