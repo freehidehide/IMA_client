@@ -17,7 +17,7 @@ export class AppConst {
         TRANSACTIONS: '/transactions',
         VOTEPACKAGES: '/vote_packages',
         CONTEST: '/contest',
-        ADMIN_CONFIG: '/admin-config'
+        ADMIN_CONFIG: '/config'
     };
 
     public static readonly NON_AUTH_SERVER_URL_LIST = [
