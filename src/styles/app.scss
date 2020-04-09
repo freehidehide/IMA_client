@@ -65,12 +65,13 @@ body {
 .cartlistthumbnails {
     display: flex;
     flex-direction: column;
+    max-width:117px;
 
     a {
         border-radius: 10px;
         overflow: hidden;
         display: inline-block;
-        height: 70px;
+        height: 100px;
         border: 1px solid #ccc;
         img{
             height: 100%;
