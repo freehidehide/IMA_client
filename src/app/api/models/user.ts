@@ -27,6 +27,7 @@ export class User extends ServiceResponse {
     facebook_url?: any;
     is_paypal_connect?: number;
     is_stripe_connect?: number;
+    is_subscribed?: boolean;
     subscription_end_date?: string;
     attachment?: Attachment;
     role?: Role;

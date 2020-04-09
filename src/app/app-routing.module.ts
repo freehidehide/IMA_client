@@ -164,7 +164,7 @@ const routes: Routes = [
             import('./cart/cart.module').then((m) => m.CartModule)
     },
     {
-        path: 'checkout',
+        path: 'checkout/:type',
         loadChildren: () =>
             import('./checkout/checkout.module').then((m) => m.CheckoutModule)
     },

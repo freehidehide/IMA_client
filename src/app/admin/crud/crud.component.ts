@@ -13,7 +13,7 @@ export class CrudComponent {
   public edit: boolean;
   constructor(private activatedRoute: ActivatedRoute,
     protected router: Router) {
-      this.router.events.subscribe((event: Event) => {
+      this.router.events.subscribe((event: any) => {
         this.setPage();
       });
   }

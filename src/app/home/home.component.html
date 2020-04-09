@@ -164,7 +164,6 @@
                             href="javascript:void(0)"
                             [routerLink]="['/edit']"
                             *ngIf="sessionService.isAuth"
-                            [routerLink]="['/login']"
                             class="d-block btn btn-primary features-btn"
                             >VISIT PAGE</a
                         >
@@ -189,6 +188,13 @@
                             class="d-block btn btn-primary features-btn"
                             >VISIT PAGE</a
                         >
+                        <a
+                        href="javascript:void(0)"
+                        *ngIf="sessionService.isAuth"
+                        [routerLink]="['/checkout/fund']"
+                        class="d-block btn btn-primary features-btn"
+                        >VISIT PAGE</a
+                    >
                     </div>
                 </li>
             </ul>
@@ -224,12 +230,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7 offset-md-3 text-center">
-                <p class="subscribetext m-0">Subscribe to</p>
+                <p class="subscribetext m-0" *ngIf="!sessionService.isAuth || !sessionService.user.is_subscribed">Forgot Subscribe to</p>
+                <p class="subscribetext m-0" *ngIf="sessionService.isAuth && sessionService.user.is_subscribed">You have Subscribed to</p>
                 <h3 class="rozhafont">IMA</h3>
                 <div class="rozhafont vipmember text-uppercase">
                     vip member
                 </div>
-                <div class="membership-amount mb-5" *ngIf="settings">
+                <div class="membership-amount mb-5" *ngIf="settings && (!sessionService.isAuth || !sessionService.user.is_subscribed)">
                     for only <span>{{ settings.SUBSCRIBE_PRICE | currency: settings.CURRENCY_CODE:'symbol' }}</span>
                 </div>
                 <a
@@ -241,7 +248,8 @@
                 >
                 <a
                 href="javascript:void(0)"
-                *ngIf="sessionService.isAuth"
+                [routerLink]="['/checkout/subscription']"
+                *ngIf="!sessionService.isAuth || (sessionService.isAuth && !sessionService.user.is_subscribed)"
                 class="text-uppercase btn btn-warning text-white px-5 subscribe-btn"
                 >Subscribe Now</a
             >

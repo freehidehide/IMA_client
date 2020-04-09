@@ -12,29 +12,7 @@
             <h3 class="timerhd text-center" *ngIf="distance < 0">Contest Completed</h3>
             <h3 class="timerhd text-center" *ngIf="distance > 0">Time Remaining</h3>
             <div class="timerblock">
-                <div class="hours timings text-center" *ngIf="days !== 0">
-                    <span class="count" *ngIf="days && days.toString().length === 1">0{{days}}</span>
-                    <span class="count" *ngIf="days && days.toString().length > 1">{{days}}</span>
-                    <span class="timetext text-uppercase">Days</span>
-                </div>
-                <div class="timecolan"*ngIf="days !== 0">:</div>
-                <div class="hours timings text-center" *ngIf="hours !== 0">
-                    <span class="count" *ngIf="hours && hours.toString().length === 1">0{{hours}}</span>
-                    <span class="count" *ngIf="hours && hours.toString().length > 1">{{hours}}</span>
-                    <span class="timetext text-uppercase">Hours</span>
-                </div>
-                <div class="timecolan" *ngIf="minutes !== 0">:</div>
-                <div class="minutes timings text-center" *ngIf="minutes !== 0">
-                    <span class="count" *ngIf="minutes && minutes.toString().length === 1">0{{minutes}}</span>
-                    <span class="count" *ngIf="minutes && minutes.toString().length > 1">{{minutes}}</span>
-                    <span class="timetext text-uppercase">Minutes</span>
-                </div>
-                <div class="timecolan" *ngIf="minutes !== 0">:</div>
-                <div class="seconds timings text-center" *ngIf="seconds !== 0">
-                    <span class="count" *ngIf="seconds && seconds.toString().length === 1">0{{seconds}}</span>
-                    <span class="count" *ngIf="seconds && seconds.toString().length > 1">{{seconds}}</span>
-                    <span class="timetext text-uppercase">Seconds</span>
-                </div>
+                <!-- <countdown-timer (zeroTrigger)="stopTimer()" [end]="end_date"></countdown-timer> -->
             </div>
         </div>
     </div>

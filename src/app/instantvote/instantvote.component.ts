@@ -16,6 +16,7 @@ import { SessionService } from '../api/services/session-service';
 export class InstantvoteComponent extends BaseComponent implements OnInit {
     public users: User[] = [];
     public contests: Contest[] = [];
+    public contest: Contest;
     public isNodata: boolean;
     public categoryId = 1;
     public categoryName = '';
@@ -27,7 +28,9 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
     public minutes: number;
     public seconds: number;
     public pageTitle: string;
+    public end_date: string;
     public isShowTime = false;
+    public isShopTime = false;
     constructor(
         private router: Router,
         private categoryService: CategoryService,
@@ -64,31 +67,23 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
             .subscribe((response) => {
               if (response.data && response.data) {
                 this.contests = response.data;
-                this.getCountTime();
+                if (this.contests.length > 0) {
+                  this.contest = this.contests[0];
+                  this.end_date = this.contest.end_date + ' 00:00:00';
+                  this.isShowTime = true;
+                }
               }
             });
-      }
+    }
 
-    getCountTime() {
-        const contest: Contest = this.contests[0];
-        const countDownDate = new Date(contest.end_date).getTime();
-        this.interVal = setInterval(() => {
-            const now = new Date().getTime();
-            this.distance = countDownDate - now;
-            this.days = Math.floor(this.distance / (1000 * 60 * 60 * 24));
-           this.hours = Math.floor((this.distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            this.minutes = Math.floor((this.distance % (1000 * 60 * 60)) / (1000 * 60));
-            this.seconds = Math.floor((this.distance % (1000 * 60)) / 1000);
-            if (this.distance < 0) {
-                clearInterval(this.interVal);
-            }
-        }, 1000);
-        this.isShowTime = true;
+    stopTimer() {
+      this.isShowTime = false;
     }
 
     redirect(user: User): void {
-        //  + this.categoryId
+      if (!this.isShopTime) {
         const url: string = '/purchase/' + user.id + '/1';
         this.router.navigate([url]);
+      }
     }
   }

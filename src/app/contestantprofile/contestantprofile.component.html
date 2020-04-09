@@ -124,7 +124,7 @@
                                 </a>
                             </div>
                         </li>
-                        <li>
+                        <li *ngIf="user.is_subscribed && user.subscribed_data.length > 0">
                             <div class="profileinitialimg mx-auto text-center">
                                 <h3 class="categoryname">{{user.subscribed_data[0].category.name}}</h3>
                                 <app-attachment
