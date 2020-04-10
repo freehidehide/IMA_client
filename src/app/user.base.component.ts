@@ -11,6 +11,7 @@ export abstract class UserBaseComponent {
     public userId: number;
     public editProfileForm: FormGroup;
     public categoryId: number;
+    public albums: any = [];
     constructor(
         protected router: Router,
         protected userService: UserService,
@@ -37,6 +38,24 @@ export abstract class UserBaseComponent {
             }
             if (callback !== null) {
                 this.patchuser(response);
+            }
+            if (this.user.subscribed_data.length > 0) {
+                let i = 0;
+                let album;
+                this.user.subscribed_data.forEach(element => {
+                    element.attachments.forEach(attachment => {
+                        attachment.index = i;
+                        album = {
+                            src: 'http://app.itstheimas.com/images/original/UserAvatar/762.3940550e4f1ac87d7d22e64107173515.jpg',
+                            caption: 'test',
+                            thumb: 'http://app.itstheimas.com/images/original/UserAvatar/762.3940550e4f1ac87d7d22e64107173515.jpg'
+                        };
+                        this.albums.push(album);
+                        i++;
+                    });
+                });
+                this.albums.push(album);
+                i++;
             }
             this.toastService.clearLoading();
         });

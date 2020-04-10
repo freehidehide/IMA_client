@@ -14,7 +14,7 @@ export class ImageService {
     constructor(private apiService: ApiService) {}
 
     updateUserAvatar(imageData, queryParam: QueryParam): Observable<User> {
-        const imageUrl: string = AppConst.NON_AUTH_SERVER_URL.ATTACHMENTS;
+        const imageUrl: string = AppConst.SERVER_URL.ATTACHMENTS;
         return this.apiService.httpPost(imageUrl, imageData, queryParam);
     }
 }

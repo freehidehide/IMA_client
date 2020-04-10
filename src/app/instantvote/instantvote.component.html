@@ -7,16 +7,16 @@
         </div>
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
-    <div class="content-middle" *ngIf="isShowTime">
+    <div class="content-middle" >
         <div class="timer-container mx-auto">
             <h3 class="timerhd text-center" *ngIf="distance < 0">Contest Completed</h3>
             <h3 class="timerhd text-center" *ngIf="distance > 0">Time Remaining</h3>
             <div class="timerblock">
-                <!-- <countdown-timer (zeroTrigger)="stopTimer()" [end]="end_date"></countdown-timer> -->
+                <countdown #cd [config]="{ stopTime: 1493313440499 }" (event)="handleEvent($event)"></countdown>
             </div>
         </div>
     </div>
-    <div class="participateblock">
+    <div class="participateblock" *ngIf="isShowTime">
         <div class="participate-inner">
             <h2 class="text-center">Participating Contestants</h2>
             <ul class="list-unstyled instaprofilelisting" *ngIf="users.length > 0">

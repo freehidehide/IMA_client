@@ -6,9 +6,12 @@ import { ToastService } from '../api/services/toast-service';
 import { Payment } from '../api/models/payment';
 import { AppConst } from '../utils/app-const';
 import { QueryParam } from '../api/models/query-param';
+import { UserCategoryList } from '../api/models/user-category-list';
+import { UserCategory } from '../api/models/user-category';
 import { PaymentGatewaysListData } from '../api/models/payment-gateways-list-data';
 import { PaymentGatewaysList } from '../api/models/payment-gateways-list';
 import { StartupService } from '../api/services/startup.service';
+import { CategoryService } from '../api/services/category.service';
 @Component({
     selector: 'app-checkout',
     templateUrl: './checkout.component.html',
@@ -22,27 +25,70 @@ export class CheckoutComponent implements OnInit {
     public isFund = false;
     public fund = 'fund';
     public subscription = 'subscription';
+    public votes = 'votes';
+    public instaVotes = 'insta_votes';
     public name: string;
     public paymentType: string;
     public payment_gatewayId: number;
     public amount: number;
     public settings: any;
+    public packageId: string;
+    public categoryId: number;
+    public contestantId: string;
+    public userCategories: UserCategory[];
+    public userCategoryList: UserCategoryList;
+    public category_id: number;
+    public isCategory = false;
     constructor(public paymentService: PaymentService,
         private toastService: ToastService,
         private activatedRoute: ActivatedRoute,
-        public startupService: StartupService) {}
+        public startupService: StartupService,
+        public categoryService: CategoryService) {
+            this.paymentType = this.activatedRoute.snapshot.paramMap.get('type');
+            if (this.paymentType.indexOf('?') > -1) {
+                const params = this.paymentType.split('?');
+                this.paymentType = params[0];
+                const types = params[1].split('&');
+                const packId = types[0] ? types[0].split('=')[1] : 0;
+                this.packageId = packId.toString();
+                const contestantUserId = types[1] ? types[1].split('=')[1] : 0;
+                this.contestantId = contestantUserId.toString();
+                const catId = types[2] ? types[2].split('=')[1] : 0;
+                this.categoryId = +catId;
+            }
+        }
 
     ngOnInit(): void {
         this.settings = this.startupService.startupData();
         this.paymentGateway();
-        this.paymentType = this.activatedRoute.snapshot.paramMap.get('type');
         if (this.paymentType === this.fund) {
             this.name = 'Donate';
             this.isFund = true;
-        }
-        if (this.paymentType === this.subscription) {
+        } else if (this.paymentType === this.subscription) {
             this.name = 'Subscription';
+        } else if (this.paymentType === this.votes) {
+            this.name = 'votes';
+            this.isCategory = true;
+            this.getCategories();
+        } else if (this.paymentType === this.instaVotes) {
+            this.name = 'Instant votes';
         }
+    }
+
+    getCategories() {
+        this.toastService.showLoading();
+        this.categoryService
+            .getUserCategory(+this.contestantId, null)
+            .subscribe((response) => {
+                this.userCategoryList = response;
+                this.userCategories = this.userCategoryList.data;
+                if (this.categoryId !== 0) {
+                    this.category_id = this.categoryId;
+                } else {
+                    this.category_id = this.userCategories[0].category.id;
+                }
+                this.toastService.clearLoading();
+            });
     }
 
     switchPayment() {
@@ -63,6 +109,7 @@ export class CheckoutComponent implements OnInit {
             .subscribe((response) => {
                 this.paymentGatewaysListData = response;
                 this.paymentGateways = this.paymentGatewaysListData.data;
+                this.payment_gatewayId = this.paymentGateways[0].id;
                 this.toastService.clearLoading();
             });
     }
@@ -72,6 +119,10 @@ export class CheckoutComponent implements OnInit {
             this.donate();
         } else if (this.paymentType === this.subscription) {
             this.subscriptions();
+        } else if (this.paymentType === this.votes) {
+            this.votePurchase();
+        } else if (this.paymentType === this.instaVotes) {
+            this.instantVotePurchase();
         }
     }
 
@@ -110,6 +161,53 @@ export class CheckoutComponent implements OnInit {
         };
         this.paymentService
             .subscription(queryParam)
+            .subscribe((response) => {
+                this.payment = response;
+                if (
+                this.payment.error &&
+                this.payment.error.code === AppConst.SERVICE_STATUS.SUCCESS
+            ) {
+                window.location.href = this.payment.payUrl;
+            } else {
+                this.toastService.error(this.payment.error.message);
+            }
+                this.toastService.clearLoading();
+            });
+    }
+
+    votePurchase() {
+        this.toastService.showLoading();
+        // this.payment_gatewayId
+        const queryParam: QueryParam = {
+            payment_gateway_id: 1,
+            contestant_id: this.contestantId,
+            category_id: this.category_id
+        };
+        this.paymentService
+            .votePurchase(this.packageId, queryParam)
+            .subscribe((response) => {
+                this.payment = response;
+                if (
+                this.payment.error &&
+                this.payment.error.code === AppConst.SERVICE_STATUS.SUCCESS
+            ) {
+                window.location.href = this.payment.payUrl;
+            } else {
+                this.toastService.error(this.payment.error.message);
+            }
+                this.toastService.clearLoading();
+            });
+    }
+
+    instantVotePurchase() {
+        this.toastService.showLoading();
+        // this.payment_gatewayId
+        const queryParam: QueryParam = {
+            payment_gateway_id: 1,
+            contestant_id: this.contestantId
+        };
+        this.paymentService
+            .instantVotePurchase(this.packageId, queryParam)
             .subscribe((response) => {
                 this.payment = response;
                 if (

@@ -13,22 +13,32 @@ export class PaymentService {
     constructor(private apiService: ApiService) {}
 
     paymentGateway(queryParam: QueryParam): Observable<PaymentGatewaysListData> {
-        const url: string = AppConst.NON_AUTH_SERVER_URL.PAYMENT_GATEWAYS;
+        const url: string = AppConst.SERVER_URL.PAYMENT_GATEWAYS;
         return this.apiService.httpGet(url, queryParam);
     }
 
     votePackages(queryParam: QueryParam): Observable<VotePackageList> {
-        const votePackagesList: string = AppConst.NON_AUTH_SERVER_URL.VOTEPACKAGES;
+        const votePackagesList: string = AppConst.SERVER_URL.VOTEPACKAGES;
         return this.apiService.httpGet(votePackagesList, queryParam);
     }
 
     fund(queryParam: QueryParam): Observable<Payment> {
-        const url: string = AppConst.NON_AUTH_SERVER_URL.FUND;
+        const url: string = AppConst.SERVER_URL.FUND;
         return this.apiService.httpGet(url, queryParam);
     }
 
     subscription(queryParam: QueryParam): Observable<Payment> {
-        const url: string = AppConst.NON_AUTH_SERVER_URL.SUBSCRIPTION;
+        const url: string = AppConst.SERVER_URL.SUBSCRIPTION;
+        return this.apiService.httpGet(url, queryParam);
+    }
+
+    votePurchase(packageId: string, queryParam: QueryParam): Observable<Payment> {
+        const url: string = AppConst.SERVER_URL.VOTE_PURCHASE + packageId;
+        return this.apiService.httpGet(url, queryParam);
+    }
+
+    instantVotePurchase(contestId: string, queryParam: QueryParam): Observable<Payment> {
+        const url: string = AppConst.SERVER_URL.INSTANT_VOTE_PURCHASE + contestId;
         return this.apiService.httpGet(url, queryParam);
     }
 }

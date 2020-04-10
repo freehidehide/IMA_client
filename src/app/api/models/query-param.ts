@@ -1,7 +1,7 @@
 
 export interface QueryParam {
     page?: number;
-    category_id?: number;
+    category_id?: number | string;
     sort?: string;
     sortby?: string;
     class?: string;
@@ -10,4 +10,5 @@ export interface QueryParam {
     payment_gateway_id?: number;
     amount?: number;
     is_active?: boolean;
+    contestant_id?: string;
 }

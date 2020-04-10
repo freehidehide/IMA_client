@@ -11,7 +11,7 @@ export class ProductService {
     constructor(private apiService: ApiService) {}
 
     getAll(queryParam: QueryParam): Observable<ProductList> {
-        const products: string = AppConst.NON_AUTH_SERVER_URL.PRODUCTS;
+        const products: string = AppConst.SERVER_URL.PRODUCTS;
         return this.apiService.httpGet(products, queryParam);
     }
 }

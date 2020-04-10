@@ -84,7 +84,7 @@ const routes: Routes = [
             )
     },
     {
-        path: 'purchase/:id/:categoryId',
+        path: 'purchase/:type/:id/:categoryId',
         loadChildren: () =>
             import('./purchasevote/purchasevote.module').then(
                 (m) => m.PurchasevoteModule

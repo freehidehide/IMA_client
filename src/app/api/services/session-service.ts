@@ -36,7 +36,7 @@ export class SessionService {
     }
 
     getAdminSettingsHandler(): Observable<any> {
-        const adminConfigUrl: string = AppConst.NON_AUTH_SERVER_URL.ADMIN_CONFIG;
+        const adminConfigUrl: string = AppConst.SERVER_URL.ADMIN_CONFIG;
         return this.apiService.httpGet(adminConfigUrl, null);
     }
 

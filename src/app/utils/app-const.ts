@@ -1,6 +1,6 @@
 
 export class AppConst {
-    public static readonly NON_AUTH_SERVER_URL = {
+    public static readonly SERVER_URL = {
         REGISTER: '/users/register',
         LOGIN: '/users/login',
         USER: '/users',
@@ -20,10 +20,13 @@ export class AppConst {
         ADMIN_CONFIG: '/config',
         FUND: '/fund',
         PAYMENT_GATEWAYS: '/payment_gateways',
-        SUBSCRIPTION: '/purchase/subscription/1'
+        SUBSCRIPTION: '/purchase/subscription/1',
+        VOTE_PURCHASE: '/purchase/vote_package/',
+        USER_CATEGORY: '/user_category/',
+        INSTANT_VOTE_PURCHASE: '/purchase/contest/'
     };
 
-    public static readonly NON_AUTH_SERVER_URL_LIST = [
+    public static readonly NON_AUTH_SERVER_URL = [
         '/users/register',
         '/users/login',
         '/users/forgot_password',

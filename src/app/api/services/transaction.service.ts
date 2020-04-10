@@ -12,7 +12,7 @@ export class TransactionService {
 
     getTransactionData(queryParam: QueryParam): Observable<any> {
         const transactionUrl: string =
-            AppConst.NON_AUTH_SERVER_URL.TRANSACTIONS;
+            AppConst.SERVER_URL.TRANSACTIONS;
         return this.apiService.httpGet(transactionUrl, queryParam);
     }
 }

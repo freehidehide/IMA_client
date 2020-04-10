@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CategoryService } from '../api/services/category.service';
 import { ToastService } from '../api/services/toast-service';
 import { User } from '../api/models/user';
@@ -31,6 +31,7 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
     public end_date: string;
     public isShowTime = false;
     public isShopTime = false;
+    @ViewChild('cd', { static: false }) countdown;
     constructor(
         private router: Router,
         private categoryService: CategoryService,
@@ -70,6 +71,7 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
                 if (this.contests.length > 0) {
                   this.contest = this.contests[0];
                   this.end_date = this.contest.end_date + ' 00:00:00';
+                  this.countdown.begin();
                   this.isShowTime = true;
                 }
               }
@@ -80,9 +82,12 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
       this.isShowTime = false;
     }
 
+    handleEvent(event) {
+      this.isShowTime = false;
+    }
     redirect(user: User): void {
       if (!this.isShopTime) {
-        const url: string = '/purchase/' + user.id + '/1';
+        const url: string = '/purchase/instant/' + user.id + '/1';
         this.router.navigate([url]);
       }
     }

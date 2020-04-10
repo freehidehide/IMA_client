@@ -13,7 +13,7 @@ export class AdvertiserService {
 
     getAll(queryParam: QueryParam): Observable<AdvertisementList> {
         const advertisementList: string =
-            AppConst.NON_AUTH_SERVER_URL.ADVERTISEMENTS;
+            AppConst.SERVER_URL.ADVERTISEMENTS;
         return this.apiService.httpGet(advertisementList, queryParam);
     }
 }

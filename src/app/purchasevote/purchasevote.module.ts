@@ -6,10 +6,11 @@ import { PurchasevoteRoutingModule } from './purchasevote-routing.module';
 import { PurchasevoteComponent } from './purchasevote.component';
 import { UserService } from '../api/services/user.service';
 import { PaymentService } from '../api/services/payment.service';
-import { SharedCommonContestantModule } from '../shared-common/shared-common-contestant.module';
+import { SharedCommonModule } from '../shared-common/shared-common.module';
+
 @NgModule({
     declarations: [PurchasevoteComponent],
-    imports: [CommonModule, PurchasevoteRoutingModule, SharedCommonContestantModule],
+    imports: [CommonModule, PurchasevoteRoutingModule, SharedCommonModule],
     providers: [UserService, PaymentService]
 })
 export class PurchasevoteModule {}

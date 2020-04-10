@@ -7,4 +7,5 @@ export interface Detail {
     product_color_id: number;
     attachments: Attachment[];
     sizes: ProductSize[];
+    panelImage?: Attachment;
 }

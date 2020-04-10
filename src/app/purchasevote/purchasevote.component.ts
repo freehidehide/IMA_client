@@ -19,6 +19,7 @@ export class PurchasevoteComponent extends UserBaseComponent
 implements OnInit {
     public votePackages: VotePackage[] = [];
     public settings: any;
+    public type: string;
     constructor(
         protected router: Router,
         protected userService: UserService,
@@ -33,6 +34,7 @@ implements OnInit {
 
     ngOnInit(): void {
         this.settings = this.startupService.startupData();
+        this.type = this.activatedRoute.snapshot.paramMap.get('type');
         this.userId = +this.activatedRoute.snapshot.paramMap.get('id');
         this.categoryId = +this.activatedRoute.snapshot.paramMap.get('categoryId');
         if (this.userId) {
@@ -54,8 +56,13 @@ implements OnInit {
             });
     }
 
-    redirect(user: User): void {
-        const url: string = '/purchase/' + user.id + '/' + this.categoryId;
+    redirect(id: number): void {
+        let url: string;
+        if (this.type === 'instant') {
+            url = 'checkout/insta_votes?contest=' + id + '&contestant_id=' + this.userId;
+        } else {
+            url = 'checkout/votes?package=' + id + '&contestant_id=' + this.userId + '&category_id=' + this.categoryId;
+        }
         this.router.navigate([url]);
     }
 }

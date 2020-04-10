@@ -55,6 +55,14 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
         return this.editProfileForm.controls['address'];
     }
 
+    gotoTop() {
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+    }
+
     onSubmit() {
         this.isSubmitted = true;
         if (this.editProfileForm.invalid) {
@@ -70,6 +78,7 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
                     this.toastService.error(data.error.message);
                 } else {
                     this.toastService.success(data.error.message);
+                    this.gotoTop();
                 }
             });
     }

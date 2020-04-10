@@ -35,7 +35,15 @@ export class ContestantprofileComponent extends UserBaseComponent
     }
 
     redirect(user: User): void {
-        const url: string = '/purchase/' + user.id + '/' + this.categoryId;
+        const url: string = '/purchase/vote/' + user.id + '/' + this.categoryId;
         this.router.navigate([url]);
+    }
+
+    viewMore(data: any) {
+        data.viewmore = true;
+    }
+
+    open() {
+        console.log('1----');
     }
 }

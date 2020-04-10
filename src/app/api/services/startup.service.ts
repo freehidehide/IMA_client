@@ -14,7 +14,7 @@ export class StartupService {
     // Important: It should return a Promise
     load(): Promise<any> {
         this._startupData = null;
-        return this.httpGetPromise(AppConst.NON_AUTH_SERVER_URL.SETTINGS);
+        return this.httpGetPromise(AppConst.SERVER_URL.SETTINGS);
     }
 
     getHeaders() {

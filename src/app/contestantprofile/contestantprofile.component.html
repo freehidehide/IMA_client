@@ -124,17 +124,6 @@
                                 </a>
                             </div>
                         </li>
-                        <li *ngIf="user.is_subscribed && user.subscribed_data.length > 0">
-                            <div class="profileinitialimg mx-auto text-center">
-                                <h3 class="categoryname">{{user.subscribed_data[0].category.name}}</h3>
-                                <app-attachment
-                            [attachment]="user.subscribed_data[0].attachments[0]"
-                                [type]="original"
-                                [cssClass]="'profilefirstimg'"
-                            ></app-attachment>
-                                
-                            </div>
-                        </li>
                         <li
                             class="pb-3 mb-4 mx-auto"
                             *ngIf="
@@ -147,18 +136,27 @@
                             let subscribData of user.subscribed_data;
                             trackBy: trackById
                         ">
-                            <!-- <span>{{subscribData.category.name}}</span> -->
-                            <span *ngFor="
-                            let attachment of subscribData.attachments;
-                            trackBy: trackById
-                        ">
+                        <div class="profileinitialimg mx-auto text-center">
+                            <h3 class="categoryname">{{subscribData.category.name}}</h3>
                             <app-attachment
-                            [attachment]="attachment"
-                                [type]="original"
-                                [cssClass]="'profilefulllist'"
-                            ></app-attachment>
-                            </span>
-                            <span class="plusmore">+4 More</span>
+                        [attachment]="subscribData.attachments[0]"
+                            [type]="original"
+                            [cssClass]="'profilefirstimg'"
+                        ></app-attachment>                                
+                        </div>
+                                <span *ngFor="
+                                let attachment of subscribData.attachments | slice:1; let i = index;
+                                trackBy: trackById
+                            ">
+                                    <span class="thumb-block" [ngClass]="{'block-hide': (i > 3 && !subscribData.viewmore)}" (click)="open(attachment.index)">
+                                        <app-attachment
+                                        [attachment]="attachment"
+                                            [type]="original"
+                                            [cssClass]="'profilefulllist'"
+                                        ></app-attachment>
+                                    </span>
+                                </span>
+                                <span class="plusmore thumb-block" *ngIf="!subscribData.viewmore && subscribData.attachments.length > 3" (click)="viewMore(subscribData)">+View More</span>
                             </div>
                         </li>
                         <li

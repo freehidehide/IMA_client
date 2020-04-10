@@ -41,7 +41,7 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        if (this.router.url.indexOf(AppConst.NON_AUTH_SERVER_URL.CONTESTANTS) > -1) {
+        if (this.router.url.indexOf(AppConst.SERVER_URL.CONTESTANTS) > -1) {
             this.categoryId = +this.activatedRoute.snapshot.paramMap.get('id');
             if (this.categoryId) {
                 this.pageType = 1;

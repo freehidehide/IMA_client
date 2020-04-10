@@ -124,6 +124,29 @@
                                 id="amount"
                             />
                         </div>
+                        <h4 class="paymenttitle" *ngIf="isCategory">Choose Category</h4>
+                        <div class="paymentblock" *ngIf="isCategory">
+                            <div class="paymentoptions">
+                                <div *ngFor="
+                                let userCategory of userCategories;
+                                trackBy: trackById">
+                                    <div 
+                                        class="custom-control custom-radio custom-control-inline">
+                                        <input
+                                            type="radio"
+                                            name="userCategory"
+                                            [(ngModel)]="category_id"
+                                            [value]="userCategory.category.id"
+                                            id="userCategory_{{userCategory.category.id}}"
+                                            class="custom-control-input"
+                                        />
+                                        <label class="custom-control-label" for="userCategory_{{userCategory.category.id}}"
+                                            >{{userCategory.category.name}}</label
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <h4 class="paymenttitle">Payment</h4>
                         <div class="paymentblock">
                             <div class="paymentoptions">
@@ -131,11 +154,11 @@
                                 let paymentGateway of paymentGateways;
                                 trackBy: trackById">
                                     <div 
-                                        class="custom-control custom-radio custom-control-inline"
-                                    *ngIf="paymentGateway.id !== 3">
+                                        class="custom-control custom-radio custom-control-inline">
                                         <input
                                             type="radio"
                                             [(ngModel)]="payment_gatewayId"
+                                            [value]="paymentGateway.id"
                                             name="{{paymentGateway.name}}"
                                             id="{{paymentGateway.name}}"
                                             class="custom-control-input"
@@ -146,7 +169,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-row block-hide">
+                            <div class="form-row" [ngClass]="{'block-hide': payment_gatewayId !== 3}">
                                 <div class="form-group col-md-6">
                                     <label for="ccname">Name</label>
                                     <input
@@ -170,7 +193,7 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="col-md-6 block-hide">
+                                <div class="col-md-6 " [ngClass]="{'block-hide': payment_gatewayId !== 3}">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="expire"
