@@ -176,6 +176,13 @@ const routes: Routes = [
             )
     },
     {
+        path: 'instant-vote/:winner',
+        loadChildren: () =>
+            import('./instantvote/instantvote.module').then(
+                (m) => m.InstantvoteModule
+            )
+    },
+    {
         path: 'winner',
         loadChildren: () =>
             import('./winner/winner.module').then(

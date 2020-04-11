@@ -38,7 +38,7 @@ export class RecentWinnerComponent extends BaseComponent implements OnInit {
     this.categoryService
         .getRecentWinnerList(null)
         .subscribe((response) => {
-          if (response.data && response.data) {
+          if (response.data) {
             this.users = response.data;
           }
           this.toastService.clearLoading();

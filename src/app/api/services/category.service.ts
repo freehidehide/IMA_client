@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { CategoriesList } from '../models/categories-list';
 import { WinnerList } from '../models/winner-list';
 import { UserList } from '../models/user-list';
+import { UserContestList } from '../models/user-contest-list';
 import { ContestList } from '../models/contest-list';
 import { UserCategoryList } from '../models/user-category-list';
 import { QueryParam } from '../models/query-param';
@@ -24,6 +25,12 @@ export class CategoryService {
         const contestantsList: string =
             AppConst.SERVER_URL.CONTESTANTS;
         return this.apiService.httpGet(contestantsList, queryParam);
+    }
+
+    getContestantsWinnerList(queryParam: QueryParam): Observable<UserContestList> {
+        const url: string =
+            AppConst.SERVER_URL.INSTANT_WINNER;
+        return this.apiService.httpGet(url, queryParam);
     }
 
     getWinnerList(queryParam: QueryParam): Observable<WinnerList> {

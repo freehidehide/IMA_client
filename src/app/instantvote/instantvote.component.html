@@ -7,21 +7,19 @@
         </div>
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
-    <div class="content-middle" >
+    <div class="content-middle" *ngIf="isShowTime">
         <div class="timer-container mx-auto">
             <h3 class="timerhd text-center" *ngIf="distance < 0">Contest Completed</h3>
-            <h3 class="timerhd text-center" *ngIf="distance > 0">Time Remaining</h3>
-            <div class="timerblock">
-                <countdown #cd [config]="{ stopTime: 1493313440499 }" (event)="handleEvent($event)"></countdown>
-            </div>
+            <h3 class="timerhd text-center">Time Remaining</h3>
+            <countdown [config]="prettyConfig" class="timerblock"></countdown>
         </div>
     </div>
-    <div class="participateblock" *ngIf="isShowTime">
+    <div class="participateblock">
         <div class="participate-inner">
             <h2 class="text-center">Participating Contestants</h2>
-            <ul class="list-unstyled instaprofilelisting" *ngIf="users.length > 0">
+            <ul class="list-unstyled instaprofilelisting" *ngIf="users.length > 0 && !contestProgress">
                 <li *ngFor="let user of users">
-                    <a href="javascript:void(0)" (click)="redirect(user)">
+                    <a href="javascript:void(0)" [ngClass]="{'active': user.is_active}" (click)="chooseUser(user)">
                         <app-attachment
                             [attachment]="user.attachment"
                             [type]="original"
@@ -30,57 +28,37 @@
                     </a>
                 </li>
             </ul>
-            <!-- <div class="voteblock text-center">
-                <button class="btn btn-primary text-uppercase vote-btn">
+            <div class="voteblock text-center" *ngIf="users.length > 0 && !contestProgress">
+                <button (click)="redirect(user)" type="button" class="btn btn-primary text-uppercase vote-btn">
                     Instant Vote
                 </button>
             </div>
-            <div class="contestent-individual mx-auto">
-                <ul class=" list-unstyled">
-                    <li>
+            <div class="contestent-individual mx-auto" *ngIf="contestProgress">
+                <ul class=" list-unstyled" *ngIf="userContests.length > 0">
+                    <li *ngFor="let userContest of userContests">
                         <div class="contprofileleft">
                             <a href="javascript:void(0)">
-                                <img
-                                    src="assets/images/contestant-profile.jpg"
-                                    class="img-fluid"
-                                />
+                                <app-attachment
+                            [attachment]="userContest.user.attachment"
+                            [type]="original"
+                            [cssClass]="'instantvoteimg'"
+                        ></app-attachment>
                             </a>
                         </div>
                         <div class="contestant-details">
-                            <h2>Contestant Name</h2>
+                            <h2>{{userContest.user.first_name}} {{userContest.user.last_name}}</h2>
                             <div class="progressmain">
                                 <div class="progressbar">
-                                    <span></span>
+                                    <span>{{userContest.percentage}}</span>
                                 </div>
                                 <span class="progressvotes">
-                                    99<span>votes</span>
-                                </span>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="contprofileleft">
-                            <a href="javascript:void(0)">
-                                <img
-                                    src="assets/images/contestant-profile.jpg"
-                                    class="img-fluid"
-                                />
-                            </a>
-                        </div>
-                        <div class="contestant-details">
-                            <h2>Contestant Name</h2>
-                            <div class="progressmain">
-                                <div class="progressbar">
-                                    <span></span>
-                                </div>
-                                <span class="progressvotes">
-                                    99<span>votes</span>
+                                    {{userContest.instant_votes}}<span>votes</span>
                                 </span>
                             </div>
                         </div>
                     </li>
                 </ul>
-            </div> -->
+            </div>
         </div>
     </div>
 </div>

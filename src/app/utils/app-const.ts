@@ -26,7 +26,8 @@ export class AppConst {
         INSTANT_VOTE_PURCHASE: '/purchase/contest/',
         CART: '/cart',
         CART_PURCHASE: '/purchase/cart',
-        USER_ADDRESS: '/user_address'
+        USER_ADDRESS: '/user_address',
+        INSTANT_WINNER: '/instant_vote'
     };
 
     public static readonly NON_AUTH_SERVER_URL = [

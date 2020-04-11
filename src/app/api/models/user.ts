@@ -39,5 +39,6 @@ export class User extends ServiceResponse {
     image?: string;
     social?: Social;
     vote_category?: VoteCategory;
-    subscribed_data: any;
+    subscribed_data?: any;
+    is_active?: boolean;
 }

@@ -39,11 +39,11 @@ export class WinnerComponent extends BaseComponent implements OnInit {
       this.categoryService
           .getWinnerList(null)
           .subscribe((response) => {
-            if (response.data && response.data.highest_votes && response.data.highest_votes.data) {
+            if (response.data.highest_votes && response.data.highest_votes.data) {
               this.usersTop = response.data.highest_votes.data;
               this.pageTitle = response.data.highest_votes.title;
             }
-            if (response.data && response.data.category_highest_votes) {
+            if (response.data.category_highest_votes) {
               this.users = response.data.category_highest_votes;
             }
             this.toastService.clearLoading();

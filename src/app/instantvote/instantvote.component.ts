@@ -4,10 +4,13 @@ import { CategoryService } from '../api/services/category.service';
 import { ToastService } from '../api/services/toast-service';
 import { User } from '../api/models/user';
 import { Contest } from '../api/models/contest';
+import { UserContestList } from '../api/models/user-contest-list';
+import { UserContest } from '../api/models/user-contest';
 import { QueryParam } from '../api/models/query-param';
 import { AppConst } from '../utils/app-const';
 import { BaseComponent } from '../base.component';
 import { SessionService } from '../api/services/session-service';
+import { CountdownConfig, CountdownEvent } from 'ngx-countdown';
 @Component({
     selector: 'app-instantvote',
     templateUrl: './instantvote.component.html',
@@ -16,6 +19,8 @@ import { SessionService } from '../api/services/session-service';
 export class InstantvoteComponent extends BaseComponent implements OnInit {
     public users: User[] = [];
     public contests: Contest[] = [];
+    public userContestList: UserContestList;
+    public userContests: UserContest[] = [];
     public contest: Contest;
     public isNodata: boolean;
     public categoryId = 1;
@@ -30,8 +35,9 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
     public pageTitle: string;
     public end_date: string;
     public isShowTime = false;
-    public isShopTime = false;
-    @ViewChild('cd', { static: false }) countdown;
+    public userId: number;
+    public prettyConfig: CountdownConfig;
+    public contestProgress = false;
     constructor(
         private router: Router,
         private categoryService: CategoryService,
@@ -43,8 +49,22 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.getContestantsList();
-        this.getContest();
+      if (this.router.url.indexOf('success') > -1) {
+          this.contestProgress = true;
+          this.toastService.success('Payment completed Successfully');
+        }
+        if (this.router.url.indexOf('pending') > -1) {
+            this.toastService.warning('Payment pending');
+        }
+        if (this.router.url.indexOf('fail') > -1) {
+            this.toastService.error('Payment completed failed');
+        }
+        if (!this.contestProgress) {
+          this.getContestantsList();
+          this.getContest();
+        } else {
+          this.getContest();
+        }
     }
 
     getContestantsList(): void {
@@ -55,9 +75,23 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
       this.categoryService
           .getContestantsList(queryParam)
           .subscribe((response) => {
-            if (response.data && response.data) {
+            if (response.data) {
               this.users = response.data;
             }
+            this.toastService.clearLoading();
+          });
+    }
+
+    getContestantsWinnerList(): void {
+      this.toastService.showLoading();
+      this.categoryService
+          .getContestantsWinnerList(null)
+          .subscribe((response) => {
+            this.userContestList = response;
+            this.userContests = response.data;
+            this.userContests.forEach(contestUser => {
+              contestUser.percentage = +((contestUser.instant_votes / this.userContestList.max_limit) * 100).toFixed(2);
+            });
             this.toastService.clearLoading();
           });
     }
@@ -66,13 +100,34 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
        this.categoryService
             .getContest(null)
             .subscribe((response) => {
-              if (response.data && response.data) {
+              if (response.data) {
                 this.contests = response.data;
                 if (this.contests.length > 0) {
                   this.contest = this.contests[0];
-                  this.end_date = this.contest.end_date + ' 00:00:00';
-                  this.countdown.begin();
-                  this.isShowTime = true;
+                  if (!this.contestProgress) {
+                    this.getContestantsList();
+                    this.prettyConfig = {
+                      leftTime: response.left_time,
+                      format: 'HH:mm:ss',
+                      prettyText: (text) => {
+                        return text
+                          .split(':')
+                          .map((v, index) => {
+                            if (index === 0) {
+                              return '<div class="hours timings text-center"><span class="count">' + v + '</span><span class="timetext text-uppercase">Hours</span></div>';
+                            } else if (index === 1) {
+                              return '<div class="minutes timings text-center"><span class="count">' + v + '</span><span class="timetext text-uppercase">Minutes</span></div>';
+                            } else {
+                              return '<div class="seconds timings text-center"><span class="count">' + v + '</span><span class="timetext text-uppercase">Seconds</span></div>';
+                            }
+                          })
+                          .join('<div class="timecolan">:</div>');
+                      },
+                    };
+                    this.isShowTime = true;
+                  } else {
+                    this.getContestantsWinnerList();
+                  }
                 }
               }
             });
@@ -85,10 +140,23 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
     handleEvent(event) {
       this.isShowTime = false;
     }
+
+    chooseUser(user: User): void {
+      this.users.forEach(userMain => {
+        userMain.is_active = false;
+      });
+      user.is_active = true;
+      this.userId = user.id;
+    }
+
     redirect(user: User): void {
-      if (!this.isShopTime) {
-        const url: string = '/purchase/instant/' + user.id + '/1';
-        this.router.navigate([url]);
+      if (!this.isShowTime) {
+        if (this.userId) {
+          const url: string = '/purchase/instant/' + this.userId + '/1';
+          this.router.navigate([url]);
+        } else {
+          this.toastService.warning('Please select the contestant to vote');
+        }
       }
     }
   }
