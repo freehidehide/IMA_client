@@ -1,7 +1,7 @@
 
 export interface Address {
-    id: number;
-    user_id: number;
+    id?: number;
+    user_id?: number;
     name: string;
     addressline1: string;
     addressline2: string;
@@ -10,4 +10,5 @@ export interface Address {
     country: string;
     zipcode: string;
     is_default?: number;
+    data?: Address;
 }

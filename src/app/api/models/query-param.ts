@@ -19,4 +19,5 @@ export interface QueryParam {
     q?: string;
     role_id?: number;
     is_purchase?: boolean;
+    user_address_id?: number;
 }

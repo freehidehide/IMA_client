@@ -22,7 +22,7 @@
                         <div class="paymentblock" *ngIf="isProduct">
                             <div class="paymentoptions">
                                 <div *ngFor="
-                                let address of addressList;
+                                let address of addressArrayList;
                                 trackBy: trackById">
                                     <div 
                                         class="custom-control custom-radio custom-control-inline">
@@ -30,6 +30,7 @@
                                             type="radio"
                                             name="userCategory"
                                             [(ngModel)]="user_address_id"
+                                            (click)="changeAddress(address)"
                                             [ngModelOptions]="{standalone: true}"
                                             [value]="address.id"
                                             id="address_{{address.id}}"
@@ -91,6 +92,16 @@
                                     [(ngModel)]="address.zipcode"
                                     [ngModelOptions]="{standalone: true}"
                                     id="inputZip"
+                                />
+                            </div>
+                            <div class="form-group col-md-2" *ngIf="isProduct && address">
+                                <label for="inputPrimary">Default Address</label>
+                                <input
+                                    type="checkbox"
+                                    class="form-control"
+                                    [(ngModel)]="address.is_default"
+                                    [ngModelOptions]="{standalone: true}"
+                                    id="inputPrimary"
                                 />
                             </div>
                         </div>

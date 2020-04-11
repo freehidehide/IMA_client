@@ -7,6 +7,7 @@ import { VotePackageList } from '../models/vote-package-list';
 import { PaymentGatewaysListData } from '../models/payment-gateways-list-data';
 import { Payment } from '../models/payment';
 import { AddressList } from '../models/address-list';
+import { Address } from '../models/address';
 import { QueryParam } from '../models/query-param';
 
 @Injectable()
@@ -21,6 +22,11 @@ export class PaymentService {
     address(queryParam: QueryParam): Observable<AddressList> {
         const url: string = AppConst.SERVER_URL.USER_ADDRESS;
         return this.apiService.httpGet(url, queryParam);
+    }
+
+    addOrUpdateAddress(address: Address, queryParam: QueryParam): Observable<Address> {
+        const url: string = AppConst.SERVER_URL.USER_ADDRESS;
+        return this.apiService.httpPost(url, address, queryParam);
     }
 
     votePackages(queryParam: QueryParam): Observable<VotePackageList> {

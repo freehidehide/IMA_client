@@ -40,8 +40,9 @@ export class CheckoutComponent implements OnInit {
     public categoryId: number;
     public contestantId: string;
     public userCategories: UserCategory[];
-    public addressList: AddressList[] = [];
+    public addressList: AddressList;
     public address: Address;
+    public addressArrayList: Address[] = [];
     public userCategoryList: UserCategoryList;
     public category_id: number;
     public isCategory = false;
@@ -106,9 +107,10 @@ export class CheckoutComponent implements OnInit {
         this.paymentService
             .address(null)
             .subscribe((response) => {
-                /*this.addressList = response.data;
-                const addressDetail: Address = new Address();
-                addressDetail = {
+                this.addressList = response;
+                this.addressArrayList = (this.addressList.data.length > 0) ? this.addressList.data : [];
+                const addressDetail: Address = {
+                    id: 0,
                     name: 'Add New Address',
                     addressline1: '',
                     addressline2: '',
@@ -117,11 +119,15 @@ export class CheckoutComponent implements OnInit {
                     country: '',
                     zipcode: ''
                 };
-                this.addressList.push(addressDetail);
-                this.user_address_id = this.addressList[0].id;
-                this.address = this.addressList[0];
-                this.toastService.clearLoading();*/
+                this.addressArrayList.push(addressDetail);
+                this.user_address_id = this.addressArrayList[0].id;
+                this.address = this.addressArrayList[0];
+                this.toastService.clearLoading();
             });
+    }
+
+    changeAddress(address: Address) {
+        this.address = address;
     }
 
     switchPayment() {
@@ -262,26 +268,43 @@ export class CheckoutComponent implements OnInit {
     }
 
     cartCheckout() {
+        if (this.address.addressline1.trim() === '') {
+            this.toastService.error('Address Line 1 is required');
+            return;
+        } else if (this.address.country.trim() === '') {
+            this.toastService.error('country is required');
+            return;
+        } else if (this.address.state.trim() === '') {
+            this.toastService.error('State is required');
+            return;
+        } else if (this.address.zipcode.trim() === '') {
+            this.toastService.error('Zipcode is required');
+            return;
+        }
         this.toastService.showLoading();
-        // this.payment_gatewayId
-        const queryParam: QueryParam = {
-            payment_gateway_id: 1,
-            is_web: true
-           // user_address_id: this.contestantId
-        };
         this.paymentService
-            .cartPurchase(queryParam)
+            .addOrUpdateAddress(this.address, null)
             .subscribe((response) => {
-                this.payment = response;
-                if (
-                this.payment.error &&
-                this.payment.error.code === AppConst.SERVICE_STATUS.SUCCESS
-            ) {
-                window.location.href = this.payment.payUrl;
-            } else {
-                this.toastService.error(this.payment.error.message);
-            }
-                this.toastService.clearLoading();
+                // this.payment_gatewayId
+                const queryParam: QueryParam = {
+                    payment_gateway_id: 1,
+                    is_web: true,
+                    user_address_id: response.data.id
+                };
+                this.paymentService
+                    .cartPurchase(queryParam)
+                    .subscribe((paymentResponse) => {
+                        this.payment = paymentResponse;
+                        if (
+                        this.payment.error &&
+                        this.payment.error.code === AppConst.SERVICE_STATUS.SUCCESS
+                    ) {
+                        window.location.href = this.payment.payUrl;
+                    } else {
+                        this.toastService.error(this.payment.error.message);
+                    }
+                        this.toastService.clearLoading();
+                    });
             });
     }
 
