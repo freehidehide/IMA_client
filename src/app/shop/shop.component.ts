@@ -6,10 +6,11 @@ import { ServiceResponse } from '../api/models/service-response';
 import { ProductList } from '../api/models/product-list';
 import { User } from '../api/models/user';
 import { Attachment } from '../api/models/attachment';
-import { Product } from '../api/models/product';
 import { AppConst } from '../utils/app-const';
 import { BaseComponent } from '../base.component';
 import { QueryParam } from '../api/models/query-param';
+import { Product } from '../api/models/product';
+import { ProductSize } from '../api/models/product-size';
 import { SessionService } from '../api/services/session-service';
 import { StartupService } from '../api/services/startup.service';
 @Component({
@@ -21,6 +22,12 @@ export class ShopComponent extends BaseComponent implements OnInit {
     public productList: ProductList;
     public isNodata: boolean;
     public settings: any;
+    public productDetail: Product;
+    public productDetails: Product[] = [];
+    public role_id: number;
+    public q: string;
+    public filterBy = 'Filter By All';
+
     constructor(
         protected router: Router,
         private productService: ProductService,
@@ -33,18 +40,30 @@ export class ShopComponent extends BaseComponent implements OnInit {
 
     ngOnInit(): void {
         this.settings = this.startupService.startupData();
+        this.role_id = undefined;
+        this.q = undefined;
         this.getProducts();
+    }
+
+    role(id: number, by: string) {
+        this.role_id = (id !== 0) ? id : undefined;
+        this.filterBy = by;
     }
 
     getProducts(): void {
         this.toastService.showLoading();
         this.isNodata = true;
-        const queryParam: QueryParam = {
-            page: 1,
-            sortby: 'desc'
-        };
-        this.productService.getAll(queryParam).subscribe((data) => {
-            this.productList = data;
+        const queryParam: QueryParam = {};
+        queryParam.page = 1;
+        queryParam.sortby = 'desc';
+        if (this.role_id) {
+            queryParam.role_id = this.role_id;
+        }
+        if (this.q) {
+            queryParam.q = this.q;
+        }
+        this.productService.getAll(queryParam).subscribe((response) => {
+            this.productList = response;
             if (
                 this.productList.error &&
                 this.productList.error.code !== AppConst.SERVICE_STATUS.SUCCESS
@@ -53,6 +72,7 @@ export class ShopComponent extends BaseComponent implements OnInit {
             } else {
                 if (this.productList.data.length !== 0) {
                     this.isNodata = false;
+                    this.productDetails = this.productList.data;
                     this.addInitialProducts();
                 }
             }
@@ -61,10 +81,53 @@ export class ShopComponent extends BaseComponent implements OnInit {
     }
 
     addInitialProducts() {
-        this.productList.data.forEach(product => {
-            product.showDetail = product.details[0];
-            product.showDetail.panelImage = product.details[0].attachments[0];
+        this.productDetails.forEach(product => {
+            product = this.formatProduct(product, 0);
         });
+    }
+
+    formatProduct(product: Product, detail: number) {
+        product.showDetail = product.details[detail];
+        product.showDetail.panelImage = product.details[detail].attachments[0];
+        product.colors.forEach((color, index) => {
+            color.isactive = (index === 0);
+        });
+        product.showDetail.cart = {
+            quantity: 0,
+            sizes: [],
+            coupon: {
+                coupon_code: '',
+                isValid: false
+            }
+        };
+        if (product.showDetail.carts.length > 0) {
+            product.showDetail.cart.quantity = product.showDetail.carts[0].quantity;
+            if (product.showDetail.carts[0].coupon && product.showDetail.carts[0].coupon.coupon_code) {
+                product.showDetail.cart.coupon.isValid = true;
+                product.showDetail.cart.coupon.coupon_code = product.showDetail.carts[0].coupon.coupon_code;
+            } else {
+                product.showDetail.cart.coupon.coupon_code = '';
+            }
+            const sizes = [];
+            product.showDetail.carts.forEach(cart => {
+                if (cart.product_size_id !== 0) {
+                    sizes.push(cart.product_size_id);
+                }
+            });
+            if (product.showDetail.sizes.length > 0) {
+                if (sizes.length > 0) {
+                    product.showDetail.sizes.forEach(size => {
+                        size.isactive = (sizes.indexOf(size.id) > -1);
+                    });
+                } else {
+                    product.showDetail.sizes.forEach(size => {
+                        size.isactive = (sizes.indexOf(size.id) > -1);
+                    });
+                }
+            }
+            product.showDetail.cart.sizes = sizes;
+        }
+        return product;
     }
 
     trackById(index: number, el: any): number {
@@ -81,15 +144,85 @@ export class ShopComponent extends BaseComponent implements OnInit {
     }
 
     changeDetail(productIndex: number, index: number) {
-        this.productList.data[productIndex].showDetail = this.productList.data[productIndex].details[index];
-        this.productList.data[productIndex].showDetail.panelImage = this.productList.data[productIndex].details[index].attachments[0];
+        this.productDetails[productIndex].showDetail = this.productDetails[productIndex].details[index];
+        this.productDetails[productIndex].showDetail.panelImage = this.productDetails[productIndex].details[index].attachments[0];
+        this.productDetails[productIndex] = this.formatProduct(this.productDetails[productIndex], index);
     }
 
-    addToCart() {
-        if (sessionService.isAuth) {
-
+    addToCart(product: Product) {
+        if (this.sessionService.isAuth) {
+            let isSize = false;
+            const queryParam: QueryParam[] = [];
+            if (product.showDetail.cart.quantity === 0) {
+                this.toastService.error('Please add quantity');
+                return;
+            } else if (product.showDetail.sizes && product.showDetail.sizes.length > 1 ) {
+                isSize = true;
+                if (product.showDetail.cart.sizes.length === 0) {
+                    this.toastService.error('Please choose size');
+                    return;
+                }
+            }
+            if (isSize) {
+                product.showDetail.cart.sizes.forEach(element => {
+                    queryParam.push({
+                        product_detail_id: product.showDetail.id,
+                        product_size_id: element,
+                        quantity: product.showDetail.cart.quantity,
+                        coupon_code: product.showDetail.cart.coupon.coupon_code
+                    });
+                });
+            } else {
+                queryParam.push({
+                    product_detail_id: product.showDetail.id,
+                    product_size_id: 0,
+                    quantity: product.showDetail.cart.quantity,
+                    coupon_code: product.showDetail.cart.coupon.coupon_code
+                });
+            }
+            this.toastService.showLoading();
+            this.productService.addToCart(queryParam).subscribe((response) => {
+                this.productDetail = response;
+                if (
+                    this.productDetail.error &&
+                    this.productDetail.error.code !== AppConst.SERVICE_STATUS.SUCCESS
+                ) {
+                    product.showDetail.cart.coupon_code = '';
+                    this.toastService.error(this.productDetail.error.message);
+                } else {
+                    this.toastService.success(this.productDetail.error.message);
+                }
+                this.toastService.clearLoading();
+            });
         } else {
             this.router.navigate(['/login']);
+        }
+    }
+
+    addQuantity(product: Product) {
+        product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
+        product.showDetail.cart.quantity;
+        if (product.showDetail.cart.quantity < product.showDetail.amount_detail.quantity) {
+            product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
+        }
+    }
+
+    removeQuantity(product: Product) {
+        product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
+        product.showDetail.cart.quantity;
+        if (product.showDetail.cart.quantity !== 0) {
+            product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
+        }
+    }
+
+    chooseSize(size: ProductSize, product: Product) {
+        const indexNumber = product.showDetail.cart.sizes.indexOf(size.id);
+        if (indexNumber > -1) {
+            product.showDetail.cart.sizes.splice(indexNumber, 1);
+            size.isactive = false;
+        } else {
+            product.showDetail.cart.sizes.push(size.id);
+            size.isactive = true;
         }
     }
 }

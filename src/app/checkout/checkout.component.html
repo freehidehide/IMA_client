@@ -18,99 +18,80 @@
             <div class="col-md-7 order-md-first" >
                 <div class="maincheckout" >
                     <form >
-                        <div class="form-group emailorderstatus" *ngIf="isProduct">
-                            <label for="exampleInputEmail1"
-                                >Enter email address. This address will be used
-                                to send you order status updates.</label
-                            >
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <input
-                                        type="email"
-                                        class="form-control"
-                                        id="exampleInputEmail1"
-                                        aria-describedby="emailHelp"
-                                    />
+                        <h4 class="paymenttitle" *ngIf="isProduct">Choose Address</h4>
+                        <div class="paymentblock" *ngIf="isProduct">
+                            <div class="paymentoptions">
+                                <div *ngFor="
+                                let address of addressList;
+                                trackBy: trackById">
+                                    <div 
+                                        class="custom-control custom-radio custom-control-inline">
+                                        <input
+                                            type="radio"
+                                            name="userCategory"
+                                            [(ngModel)]="user_address_id"
+                                            [ngModelOptions]="{standalone: true}"
+                                            [value]="address.id"
+                                            id="address_{{address.id}}"
+                                            class="custom-control-input"
+                                        />
+                                        <label class="custom-control-label" for="address_{{address.id}}"
+                                            >{{address.name}}</label
+                                        >
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group form-check" *ngIf="isProduct">
-                            <input
-                                type="checkbox"
-                                class="form-check-input"
-                                id="exampleCheck1"
-                            />
-                            <label class="form-check-label" for="exampleCheck1"
-                                >I agree with
-                                <a href="javascript:void(0)">Terms & Conditions</a></label
-                            >
-                        </div>
-                        <div class="form-group" *ngIf="isProduct">
+                        <div class="form-group" *ngIf="isProduct && address">
                             <label for="address1">Address</label>
                             <input
                                 type="text"
                                 class="form-control"
+                                [(ngModel)]="address.addressline1"
+                                [ngModelOptions]="{standalone: true}"
                                 id="address1"
                             />
                         </div>
-                        <div class="form-group" *ngIf="isProduct">
+                        <div class="form-group" *ngIf="isProduct && address">
                             <label for="address2" >Address2</label>
                             <input
                                 type="text"
                                 class="form-control"
+                                [(ngModel)]="address.addressline2"
+                                [ngModelOptions]="{standalone: true}"
                                 id="address2"
                             />
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-6" *ngIf="isProduct">
+                            <div class="form-group col-md-6" *ngIf="isProduct && address">
                                 <label for="inputCountry">Country</label>
                                 <input
                                     type="text"
                                     class="form-control"
+                                    [(ngModel)]="address.country"
+                                    [ngModelOptions]="{standalone: true}"
                                     id="inputCountry"
                                 />
                             </div>
-                            <div class="form-group col-md-4" *ngIf="isProduct">
+                            <div class="form-group col-md-4" *ngIf="isProduct && address">
                                 <label for="inputState">State</label>
                                 <input
                                     type="text"
                                     class="form-control"
+                                    [(ngModel)]="address.state"
+                                    [ngModelOptions]="{standalone: true}"
                                     id="inputState"
                                 />
                             </div>
-                            <div class="form-group col-md-2" *ngIf="isProduct">
+                            <div class="form-group col-md-2" *ngIf="isProduct && address">
                                 <label for="inputZip">Zip Code</label>
                                 <input
                                     type="text"
                                     class="form-control"
+                                    [(ngModel)]="address.zipcode"
+                                    [ngModelOptions]="{standalone: true}"
                                     id="inputZip"
                                 />
-                            </div>
-                        </div>
-                        <div class="form-group" *ngIf="isProduct">
-                            <div class="form-check">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    id="shippingaddress"
-                                />
-                                <label
-                                    class="form-check-label"
-                                    for="shippingaddress"
-                                >
-                                    Shipping Address is the same as my billing
-                                    address
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    id="saveinfo"
-                                />
-                                <label class="form-check-label" for="saveinfo">
-                                    Save information for next time
-                                </label>
                             </div>
                         </div>
                         <div class="form-group" *ngIf="isFund">

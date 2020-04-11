@@ -1,5 +1,6 @@
 
 export interface QueryParam {
+    id?: number;
     page?: number;
     category_id?: number | string;
     sort?: string;
@@ -11,4 +12,11 @@ export interface QueryParam {
     amount?: number;
     is_active?: boolean;
     contestant_id?: string;
+    product_detail_id?: number;
+    product_size_id?: number;
+    quantity?: number;
+    coupon_code?: string;
+    q?: string;
+    role_id?: number;
+    is_purchase?: boolean;
 }

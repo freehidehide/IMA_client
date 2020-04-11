@@ -9,13 +9,12 @@
     </div>
     <div
         class="content-middle shop-section position-relative"
-        *ngIf="!isNodata"
     >
         <div class="topcartright clearfix" *ngIf="sessionService.isAuth">
             <div class="cartsection text-center">
-                <div class="position-relative">
+                <div class="position-relative" [routerLink]="['/cart']">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span class="rounded-circle cartcount">5</span>
+                    <span class="rounded-circle cartcount"  *ngIf="productList && productList.cart_count && productList.cart_count !== 0">{{productList.cart_count}}</span>
                 </div>
             </div>
         </div>
@@ -30,6 +29,8 @@
                                 <input
                                     type="text"
                                     class="form-control"
+                                    [(ngModel)]="q"
+                                    [ngModelOptions]="{standalone: true}"
                                     id="inlineFormInputName"
                                     placeholder="Search for items"
                                 />
@@ -38,63 +39,23 @@
                             <div
                                 class="col-md-2 my-1 searchinput position-relative"
                             >
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="inlineFormInputName"
-                                    placeholder="Search for items"
-                                />
+                            <div ngbDropdown class="d-inline-block dropdown">
+                                <button type="button" class="btn btn-outline-primary" ngbDropdownToggle>{{filterBy}}</button>
+                                <div ngbDropdownMenu>
+                                    <button type="button" class="dropdown-item" (click)="role(0, 'Filter By All')">Filter By All</button>
+                                    <button type="button" class="dropdown-item" (click)="role(1, 'Filter By Contestant')">Filter By Contestant</button>
+                                    <button type="button" class="dropdown-item" (click)="role(2, 'Filter By IMA')">Filter By IMA</button>
+                                </div>
+                            </div>
                             </div>
                             <div class="col-auto my-1 shop-srbtn">
                                 <button
-                                    type="submit"
+                                    type="button"
+                                    (click)="getProducts()"
                                     class="btn btn-dark text-uppercase"
                                 >
                                     Search
                                 </button>
-                            </div>
-                        </div>
-
-                        <div class="row align-items-center shopfilter">
-                            <div class="col-md-10">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <a
-                                            href="#"
-                                            class="text-decoration-none text-truncate"
-                                        >
-                                            <i
-                                                class="fa fa-caret-down"
-                                                aria-hidden="true"
-                                            ></i>
-                                            Filter listings by Model</a
-                                        >
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a
-                                            href="#"
-                                            class="text-decoration-none text-truncate"
-                                        >
-                                            <i
-                                                class="fa fa-caret-down"
-                                                aria-hidden="true"
-                                            ></i>
-                                            Filter listings by Contestants</a
-                                        >
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a
-                                            href="#"
-                                            class="text-decoration-none text-truncate"
-                                        >
-                                            <i
-                                                class="fa fa-caret-down"
-                                                aria-hidden="true"
-                                            ></i>
-                                            Filter listings by IMA</a
-                                        >
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </form>
@@ -103,7 +64,7 @@
         </div>
         <div
             class="row shoplisting"
-            *ngFor="let product of productList.data; let productIndex = index; trackBy: trackById"
+            *ngFor="let product of productDetails; let productIndex = index; trackBy: trackById"
         >
             <div class="col-lg-7 col-md-6">
                 <div class="cartimglisting d-flex">
@@ -141,6 +102,7 @@
                         <a *ngFor="let color of product.colors; let i = index;trackBy: trackById"
                             href="javascript:void(0)"
                             (click)="changeDetail(productIndex, i)"
+                            [ngClass]="{'active': color.isactive}"
                             [ngStyle]="{'background-color': color.color}"
                             class="availcolorsselect ml-2"
                         ></a>
@@ -153,16 +115,12 @@
                         <div class="cartquantity text-center">
                             <p class="text-uppercase ctqtytext">Quantity</p>
                             <div class="ctquantityinput">
-                                <button class="ctqtydecr"></button>
-                                <input
-                                    type="number"
-                                    class="quantityinput"
-                                    value="1"
-                                />
-                                <button class="ctqtyincr"></button>
+                                <button type="button" class="ctqtydecr" (click)="removeQuantity(product)"></button>
+                                <span class="quantityinput">{{product.showDetail.cart && product.showDetail.cart.quantity ? product.showDetail.cart.quantity : 0 }}</span>
+                                <button type="button" class="ctqtyincr" (click)="addQuantity(product)"></button>
                             </div>
                             <p class="mt-2 quntyremain m-0">
-                                Only 5 items left
+                                Only {{ product.showDetail.amount_detail.quantity}} items left
                             </p>
                         </div>
                     </div>
@@ -176,18 +134,21 @@
                     </div>
                     <div class="product-availsizes" *ngIf="product.showDetail.sizes.length > 1">
                         <span class="text-uppercase">Available Sizes</span>
-                        <a href="javascript:void(0)" class="text-uppercase" *ngFor="let size of product.showDetail.sizes">{{size.size.name}}</a>
+                        <a href="javascript:void(0)" class="text-uppercase" [ngClass]="{'active': size.isactive}" *ngFor="let size of product.showDetail.sizes" (click)="chooseSize(size, product)">{{size.size.name}}</a>
                     </div>
                     <div class="d-flex justify-content-end mt-1">
                         <div class="d-flex flex-column cartdetails">
-                            <p class="text-center discount-details m-0 mt-1" *ngIf="sessionService.isAuth">
-                                <span>10% discount</span> available
+                            <p class="text-center discount-details m-0 mt-1" *ngIf="sessionService.isAuth && product.showDetail.amount_detail.discount_percentage">
+                                <span>{{ product.showDetail.amount_detail.discount_percentage}}% discount</span> <span *ngIf="!product.showDetail.cart.coupon.isValid">available</span> <span *ngIf="product.showDetail.cart.coupon.isValid">applied</span>
+                                
                             </p>
-                            <input *ngIf="sessionService.isAuth"
+                            <input *ngIf="sessionService.isAuth && product.showDetail.amount_detail.discount_percentage"
+                                [(ngModel)]="product.showDetail.cart.coupon.coupon_code"
+                                [ngModelOptions]="{standalone: true}"
                                 class="discountcode text-center text-uppercase"
                                 placeholder="Enter Code"
                             />
-                            <button class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart()">
+                            <button class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart(product)">
                                 <i
                                     class="fa fa-shopping-cart"
                                     aria-hidden="true"

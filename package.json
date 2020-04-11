@@ -36,6 +36,7 @@
         "ng2-charts": "2.3.0",
         "ngx-countdown": "^9.0.0",
         "rxjs": "6.5.4",
+        "sweetalert2": "^9.10.10",
         "ts-md5": "^1.2.7",
         "tslib": "^1.11.0",
         "web-animations-js": "^2.3.2",

@@ -38,7 +38,7 @@ export class ApiService {
         };
     }
 
-    httpGet<T>(url: string, params: QueryParam): Observable<T> {
+    httpGet<T>(url: string, params?: QueryParam | QueryParam[]): Observable<T> {
         this.getHeaders();
         return this.http
             .get<T>(
@@ -65,7 +65,7 @@ export class ApiService {
     /**
      * Performs a request with `put` http method.
      */
-    httpPut(url: string, body: any, params?: QueryParam): Observable<any> {
+    httpPut(url: string, body: any, params?: QueryParam | QueryParam[]): Observable<any> {
         this.getHeaders();
         return this.http
             .put(
@@ -113,9 +113,8 @@ export class ApiService {
      */
     getFormattedQueryParam(url: string, params: any, method: string): string {
         let formattedUrl: string;
-        const appendToken: string = !(AppConst.NON_AUTH_SERVER_URL.indexOf(url) > -1)
-                ? '?token=' + this.token
-                : '?';
+        const appendToken: string = (!(AppConst.NON_AUTH_SERVER_URL.indexOf(url) > -1)
+        || (this.token && this.token !== '')) ? '?token=' + this.token : '?';
         if (params) {
             const queryString = Object.keys(params)
                 .map(function(key) {

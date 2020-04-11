@@ -1,49 +1,44 @@
 
 import { Injectable } from '@angular/core';
-
+import Swal from 'sweetalert2';
 @Injectable()
 export class ToastService {
-    public showMessage: boolean = false;
-    public isLoading: boolean = false;
-    public message: string = '';
-    public messageClass: string = 'alert-success';
-
+    public isLoading = false;
+    // https://sweetalert2.github.io/
     success(message) {
-        this.showMessage = true;
-        this.message = message;
-        this.messageClass = 'alert-success';
-        this.showMessagePopup();
+        Swal.fire({
+            icon: 'success',
+            title: message,
+            showConfirmButton: false,
+            timer: 2000
+          });
     }
 
     error(message) {
-        this.showMessage = true;
-        this.message = message;
-        this.messageClass = 'alert-warning';
-        this.showMessagePopup();
+        Swal.fire({
+            icon: 'error',
+            title: message,
+            showConfirmButton: false,
+            timer: 2000
+          });
     }
 
     warning(message) {
-        this.showMessage = true;
-        this.message = message;
-        this.messageClass = 'alert-warning';
-        this.showMessagePopup();
+        Swal.fire({
+            icon: 'warning',
+            title: message,
+            showConfirmButton: false,
+            timer: 2000
+          });
     }
 
     info(message) {
-        this.showMessage = true;
-        this.message = message;
-        this.messageClass = 'alert-info';
-        this.showMessagePopup();
-    }
-
-    removeToast() {
-        this.showMessage = false;
-    }
-
-    showMessagePopup() {
-        setTimeout(() => {
-            this.showMessage = false;
-        }, 3000);
+        Swal.fire({
+            icon: 'info',
+            title: message,
+            showConfirmButton: false,
+            timer: 2000
+          });
     }
 
     showLoading() {

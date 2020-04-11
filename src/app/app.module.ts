@@ -16,7 +16,6 @@ import { ApiService } from './api/services/api.service';
 import { ToastService } from './api/services/toast-service';
 import { SessionService } from './api/services/session-service';
 import { StartupService } from './api/services/startup.service';
-import { SiteAlertMessageComponent } from './site-alert-message/site-alert-message.component';
 import { SiteLoaderComponent } from './site-loader/site-loader.component';
 
 export function startupServiceFactory(startupService: StartupService): Function {
@@ -36,7 +35,6 @@ export function startupServiceFactory(startupService: StartupService): Function 
         AppComponent,
         FooterComponent,
         HeaderComponent,
-        SiteAlertMessageComponent,
         SiteLoaderComponent
     ],
     providers: [

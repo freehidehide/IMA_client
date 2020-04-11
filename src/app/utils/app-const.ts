@@ -23,7 +23,10 @@ export class AppConst {
         SUBSCRIPTION: '/purchase/subscription/1',
         VOTE_PURCHASE: '/purchase/vote_package/',
         USER_CATEGORY: '/user_category/',
-        INSTANT_VOTE_PURCHASE: '/purchase/contest/'
+        INSTANT_VOTE_PURCHASE: '/purchase/contest/',
+        CART: '/cart',
+        CART_PURCHASE: '/purchase/cart',
+        USER_ADDRESS: '/user_address'
     };
 
     public static readonly NON_AUTH_SERVER_URL = [

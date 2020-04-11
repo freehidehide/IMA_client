@@ -9,5 +9,5 @@ export interface Address {
     state: string;
     country: string;
     zipcode: string;
-    is_default: number;
+    is_default?: number;
 }
