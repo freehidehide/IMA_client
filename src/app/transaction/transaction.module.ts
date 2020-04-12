@@ -6,6 +6,7 @@ import { LanguageTranslationModule } from '../shared/modules/language-translatio
 import { TransactionComponent } from './transaction.component';
 import { TransactionRoutingModule } from './transaction-routing.module';
 import { TransactionService } from '../api/services/transaction.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [TransactionComponent],
@@ -15,7 +16,8 @@ import { TransactionService } from '../api/services/transaction.service';
         SharedCommonModule,
         FormsModule,
         ReactiveFormsModule,
-        LanguageTranslationModule
+        LanguageTranslationModule,
+        NgbModule
     ],
     providers: [TransactionService]
 })

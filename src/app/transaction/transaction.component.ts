@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../api/services/transaction.service';
 import { QueryParam } from '../api/models/query-param';
 import { ToastService } from '../api/services/toast-service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import {NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-transaction',
@@ -14,20 +16,47 @@ export class TransactionComponent implements OnInit {
     public instantTransactionData: [];
     public subscriptionTransactionData: [];
     public fundTransactionData: [];
-    constructor(public transactionService: TransactionService, public toastService: ToastService) {}
+    public searchForm: FormGroup;
+    public original = 'original';
+    public class = 'Product';
+    constructor(public transactionService: TransactionService,
+        public toastService: ToastService, private formBuilder: FormBuilder,
+        private ngbDateParserFormatter: NgbDateParserFormatter) {}
 
     ngOnInit(): void {
-        this.getTransactionDetails('Product');
+        this.searchForm = this.formBuilder.group(
+            {
+              q: [''],
+              from: [''],
+              to: ['']
+            }
+        );
+        this.getTransactionDetails(this.class, this.searchForm.value);
     }
 
     tabSelected($event) {
-        this.getTransactionDetails($event);
+        this.class = $event;
+        this.getTransactionDetails(this.class, this.searchForm.value);
     }
 
-    getTransactionDetails(paramclass: string) {
+    onSubmit() {
+        const fromDate = this.searchForm.controls['from'].value;
+        const fromMyDate = this.ngbDateParserFormatter.format(fromDate);
+        const toDate = this.searchForm.controls['to'].value;
+        const toMyDate = this.ngbDateParserFormatter.format(toDate);
+        const formValues = this.searchForm.value;
+        formValues['from'] = fromMyDate;
+        formValues['to'] = toMyDate;
+        this.getTransactionDetails(this.class, this.searchForm.value);
+    }
+
+    getTransactionDetails(paramclass: string, searchForm) {
         this.toastService.showLoading();
         const queryParam: QueryParam = {
-            class: paramclass
+            class: paramclass,
+            q: searchForm.q,
+            from: searchForm.from,
+            to: searchForm.to
         };
         this.transactionService
             .getTransactionData(queryParam)
@@ -44,7 +73,6 @@ export class TransactionComponent implements OnInit {
                 } else if (paramclass === 'Fund') {
                     this.fundTransactionData = data.data;
                 }
-
             });
     }
 }

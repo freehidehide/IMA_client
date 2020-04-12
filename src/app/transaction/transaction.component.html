@@ -8,30 +8,37 @@
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
     <div class="content-middle accounthistory-section">
-        <form>
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" autocomplete="off">
             <div class="form-row">
                 <div class="col-md-3 mb-3">
-                  <label for="validationCustom01">Search</label>
-                  <input type="text" class="form-control" id="validationCustom01" placeholder="First name" >
+                    <label for="validationCustom01">Search</label>
+                    <input type="text" class="form-control" id="validationCustom01" formControlName='q'
+                        placeholder="Enter text here">
                 </div>
                 <div class="col-md-3 mb-3">
-                  <label for="validationCustom02">From</label>
-                  <input type="text" class="form-control" id="validationCustom02" placeholder="Last name">
-                </div>
-                <div class="col-md-3 mb-3">
-                  <label for="validationCustomUsername">To</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <label for="validationCustom02">From</label>
+                    <div class="input-group datepicker-input">
+                        <input class="form-control" formControlName='from' placeholder="yyyy-mm-dd" name="from" ngbDatepicker #d="ngbDatepicker">
+                        <button class="input-group-addon" (click)="d.toggle()" type="button">
+                            <span class="fa fa-calendar"></span>
+                        </button>
                     </div>
-                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend">
-                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustomUsername">To</label>
+                    <div class="input-group datepicker-input">
+                        <input class="form-control" placeholder="yyyy-mm-dd" formControlName='to' name="to"
+                            ngbDatepicker #d1="ngbDatepicker">
+                        <button class="input-group-addon" (click)="d1.toggle()" type="button">
+                            <span class="fa fa-calendar"></span>
+                        </button>
+                    </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <button class="btn btn-primary mt-4" type="submit">Submit</button>
                 </div>
-              </div>
-          </form>
+            </div>
+        </form>
         <div class="accounttabs">
             <app-my-tabs (tabSelected)="tabSelected($event)">
                 <app-my-tab [tabTitle]="'Product Transaction'" [tabClass]="'Product'">
@@ -40,14 +47,17 @@
                             <ul class="list-unstyled">
                                 <li class="row accountlisting" *ngFor="let transaction of productTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
-                                        <app-attachment *ngIf="transaction.other_user && transaction.other_user.attachment" [attachment]="transaction.other_user.attachment"
-                                            [type]="original"></app-attachment>
+                                        <app-attachment
+                                            *ngIf="transaction.other_user && transaction.other_user.attachment"
+                                            [attachment]="transaction.other_user.attachment" [type]="original">
+                                        </app-attachment>
                                     </div>
                                     <div class="col-md-6 acvotepackage">
                                         <h2>VOTE PACKAGE <span>for [{{transaction.other_user.first_name}}]</span></h2>
                                         <p class="accountamount">[
                                             {{ transaction.amount | currency: transaction.CURRENCY_CODE:'symbol' }}]</p>
-                                        <p class="packagename m-0">Package Name - {{transaction.detail.product_detail.name}}</p>
+                                        <p class="packagename m-0">Package Name -
+                                            {{transaction.detail.product_detail.name}}</p>
                                         <p>{{transaction.payment_gateway.name}}</p>
                                     </div>
                                     <div class="col-md-4 d-flex justify-content-end flex-column text-center acvotedate">
@@ -131,7 +141,8 @@
                                         <h2>VOTE PACKAGE <span>for [{{transaction.other_user.first_name}}]</span></h2>
                                         <p class="accountamount">[
                                             {{ transaction.amount | currency: transaction.CURRENCY_CODE:'symbol' }}]</p>
-                                        <p class="packagename m-0">Package Name - {{transaction.package.name}}</p>
+                                        <p class="packagename m-0">Package Name -
+                                            {{transaction.subscription.description}}</p>
                                         <p>{{transaction.payment_gateway.name}}</p>
                                     </div>
                                     <div class="col-md-4 d-flex justify-content-end flex-column text-center acvotedate">
