@@ -6,7 +6,7 @@
         <ul class="cartinner list-unstyled">
             <li *ngFor="let product of productDetails; let productIndex = index; trackBy: trackById">
                 <div class="row">
-                    <div class="col-xl-7 col-xs-5 col-5">
+                    <div class="col-xl-5 col-xs-4 col-5">
                         <div class="row">
                             <div class="col-xl-5 col-lg-12 produtimage">
                                 <app-attachment
@@ -29,26 +29,30 @@
                                         {{ product.showDetail.product.description }}
                                     </p>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-6 cartprice">
+                                        <h5 class="cartsubtitle text-uppercase text-center">
+                                            Price
+                                        </h5>
+                                        <div class="cartprodamt text-center">
+                                            {{ product.showDetail.amount_detail.price | currency: settings.CURRENCY_CODE:'symbol' }}
+                                        </div>
+                                    </div>
+                                    <div class="col-6 cartprice">
+                                        <h5 class="cartsubtitle text-uppercase text-center">
+                                            Discount Price
+                                        </h5>
+                                        <div class="cartprodamt text-center">
+                                            {{ product.showDetail.amount_detail.discount_price | currency: settings.CURRENCY_CODE:'symbol' }}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-xs-3 col-3 cartprice">
-                        <h5 class="cartsubtitle text-uppercase text-center">
-                            Price
-                        </h5>
-                        <div class="cartprodamt text-center">
-                            {{ product.showDetail.amount_detail.price | currency: settings.CURRENCY_CODE:'symbol' }}
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-xs-3 col-3 cartprice">
-                        <h5 class="cartsubtitle text-uppercase text-center">
-                            Discount Price
-                        </h5>
-                        <div class="cartprodamt text-center">
-                            {{ product.showDetail.amount_detail.discount_price | currency: settings.CURRENCY_CODE:'symbol' }}
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-xs-3 col-3 cartprice">
+                    
+                    <div class="col-xl-2 col-xs-2 col-2 cartprice">
                         <h5 class="cartsubtitle text-uppercase text-center">
                             Coupon Code
                         </h5>
@@ -57,10 +61,11 @@
                                 [(ngModel)]="product.showDetail.cart.coupon.coupon_code"
                                 [ngModelOptions]="{standalone: true}"
                                 placeholder="Enter Code"
+                                class="form-control"
                             />
                         </div>
                     </div>
-                    <div class="col-xl-3 col-xs-4 col-4">
+                    <div class="col-xl-2 col-xs-2 col-2">
                         <h5 class="cartsubtitle text-uppercase text-center">
                             Quantity
                         </h5>
@@ -68,25 +73,25 @@
                             <button type="button" class="ctqtydecr" (click)="removeQuantity(product)"></button>
                             <span class="quantityinput">{{product.showDetail.cart && product.showDetail.cart.quantity ? product.showDetail.cart.quantity : 0 }}</span>
                             <button type="button" class="ctqtyincr" (click)="addQuantity(product)"></button>
-                            <p class="mt-2 quntyremain m-0">
-                                Only {{ product.showDetail.amount_detail.quantity}} items left
-                            </p>
                         </div>
+                        <p class="mt-2 quntyremain m-0">
+                            Only {{ product.showDetail.amount_detail.quantity}} items left
+                        </p>
                     </div>
-                    <div class="col-xl-3 col-xs-4 col-4">
+                    <div class="col-1">
                             <h5 class="cartsubtitle text-uppercase text-center">
-                                Edit
+                                &nbsp;
                             </h5>
-                            <div class="ctquantityinput">
-                                <button type="button" class="btn btn-primary" (click)="editCart(product)">Edit</button>
+                            <div class="singlecartprops">
+                                <button type="button" class="btn btn-primary" (click)="editCart(product)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                             </div>
                     </div>
-                    <div class="col-xl-3 col-xs-4 col-4">
+                    <div class="col-1">
                         <h5 class="cartsubtitle text-uppercase text-center">
-                            Delete
+                            &nbsp;
                         </h5>
-                        <div class="ctquantityinput">
-                            <button type="button" class="btn btn-danger" (click)="deleteCart(product)">Delete</button>
+                        <div class="singlecartprops">
+                            <button type="button" class="btn btn-danger" (click)="deleteCart(product)"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </div>
