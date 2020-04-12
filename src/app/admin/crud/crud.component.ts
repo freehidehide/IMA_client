@@ -13,9 +13,7 @@ export class CrudComponent {
   public edit: boolean;
   constructor(private activatedRoute: ActivatedRoute,
     protected router: Router) {
-      this.router.events.subscribe((event: any) => {
-        this.setPage();
-      });
+      this.setPage();
   }
 
   setPage() {
@@ -24,14 +22,18 @@ export class CrudComponent {
     this.list = false;
     this.add = false;
     this.edit = false;
-    if (!(this.router.url.indexOf('/add') > -1) || !(this.router.url.indexOf('/edit') > -1)) {
-     this.list = true;
+    if (!(window.location.href.indexOf('/add') > -1) || !(window.location.href.indexOf('/edit') > -1)) {
+      this.list = true;
     }
-    if (this.router.url.indexOf('/add') > -1) {
+    if (window.location.href.indexOf('/add') > -1) {
+      this.list = false;
+      this.edit = false;
       this.add = true;
     }
-    if (this.router.url.indexOf('/edit') > -1) {
+    if (window.location.href.indexOf('/edit') > -1) {
       this.edit = true;
+      this.list = false;
+      this.add = false;
     }
   }
 }
