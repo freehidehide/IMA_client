@@ -184,8 +184,8 @@ export class ShopComponent extends BaseComponent implements OnInit {
                     cartObj.push(value);
                 }
             });
-            this.toastService.showLoading();
             if (cartObj.length > 0) {
+                this.toastService.showLoading();
                 this.productService.addToCart(cartObj).subscribe((response) => {
                     this.productDetail = response;
                     if (
@@ -195,6 +195,7 @@ export class ShopComponent extends BaseComponent implements OnInit {
                         product.showDetail.cart.coupon_code = '';
                         this.toastService.error(this.productDetail.error.message);
                     } else {
+                        this.productList.cart_count = response.data.length;
                         this.toastService.success(this.productDetail.error.message);
                     }
                     this.toastService.clearLoading();
