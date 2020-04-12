@@ -81,7 +81,8 @@ $topnav-background-color: #222;
 
     p {
         font-weight: 300;
-        font-size: 20px;
+        font-size: 17px;
+        min-height: 75px;
     }
 
     .features-btn {
@@ -417,7 +418,7 @@ $topnav-background-color: #222;
         }
 
         p {
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .features-btn {
@@ -535,7 +536,9 @@ $topnav-background-color: #222;
     }
     .homefeatures {
         margin: 20px 0;
-
+        p{
+            min-height: inherit;
+        }
         ul {
             li {
                 img {
