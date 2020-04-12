@@ -8,6 +8,30 @@
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
     <div class="content-middle accounthistory-section">
+        <form>
+            <div class="form-row">
+                <div class="col-md-3 mb-3">
+                  <label for="validationCustom01">Search</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="First name" >
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="validationCustom02">From</label>
+                  <input type="text" class="form-control" id="validationCustom02" placeholder="Last name">
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="validationCustomUsername">To</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    </div>
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend">
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+                </div>
+              </div>
+          </form>
         <div class="accounttabs">
             <app-my-tabs (tabSelected)="tabSelected($event)">
                 <app-my-tab [tabTitle]="'Product Transaction'" [tabClass]="'Product'">
@@ -32,7 +56,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="" *ngIf="!transactionData.length">
+                        <div class="" *ngIf="transactionData && transactionData.length === 0">
                             Sorry no records found
                         </div>
                     </div>
@@ -59,7 +83,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="" *ngIf="!transactionData.length">
+                        <div class="" *ngIf="transactionData && transactionData.length === 0">
                             Sorry no records found
                         </div>
                     </div>
@@ -86,7 +110,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="" *ngIf="!transactionData.length">
+                        <div class="" *ngIf="transactionData && transactionData.length === 0">
                             Sorry no records found
                         </div>
                     </div>
@@ -113,7 +137,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="" *ngIf="!transactionData.length">
+                        <div class="" *ngIf="transactionData && transactionData.length === 0">
                             Sorry no records found
                         </div>
                     </div>
@@ -142,7 +166,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="" *ngIf="!transactionData.length">
+                        <div class="" *ngIf="transactionData && transactionData.length === 0">
                             Sorry no records found
                         </div>
                     </div>
