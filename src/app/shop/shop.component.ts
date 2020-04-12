@@ -149,54 +149,12 @@ export class ShopComponent extends BaseComponent implements OnInit {
         this.productDetails[productIndex] = this.formatProduct(this.productDetails[productIndex], index);
     }
 
-    addToCart(product: Product) {
-        if (this.sessionService.isAuth) {
-            let isSize = false;
-            const queryParam: QueryParam[] = [];
-            if (product.showDetail.cart.quantity === 0) {
-                this.toastService.error('Please add quantity');
-                return;
-            } else if (product.showDetail.sizes && product.showDetail.sizes.length > 1 ) {
-                isSize = true;
-                if (product.showDetail.cart.sizes.length === 0) {
-                    this.toastService.error('Please choose size');
-                    return;
-                }
-            }
-            if (isSize) {
-                product.showDetail.cart.sizes.forEach(element => {
-                    queryParam.push({
-                        product_detail_id: product.showDetail.id,
-                        product_size_id: element,
-                        quantity: product.showDetail.cart.quantity,
-                        coupon_code: product.showDetail.cart.coupon.coupon_code
-                    });
-                });
-            } else {
-                queryParam.push({
-                    product_detail_id: product.showDetail.id,
-                    product_size_id: 0,
-                    quantity: product.showDetail.cart.quantity,
-                    coupon_code: product.showDetail.cart.coupon.coupon_code
-                });
-            }
-            this.toastService.showLoading();
-            this.productService.addToCart(queryParam).subscribe((response) => {
-                this.productDetail = response;
-                if (
-                    this.productDetail.error &&
-                    this.productDetail.error.code !== AppConst.SERVICE_STATUS.SUCCESS
-                ) {
-                    product.showDetail.cart.coupon_code = '';
-                    this.toastService.error(this.productDetail.error.message);
-                } else {
-                    this.toastService.success(this.productDetail.error.message);
-                }
-                this.toastService.clearLoading();
-            });
-        } else {
-            this.router.navigate(['/login']);
-        }
+    addToCart() {
+        // if (sessionService.isAuth) {
+
+        // } else {
+        //     this.router.navigate(['/login']);
+        // }
     }
 
     addQuantity(product: Product) {
