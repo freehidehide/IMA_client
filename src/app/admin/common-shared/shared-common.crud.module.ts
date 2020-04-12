@@ -8,6 +8,9 @@ import { AddComponent } from '../crud/components/add/add.component';
 import { EditComponent } from '../crud/components/edit/edit.component';
 import { CrudService } from '../../api/services/crud.service';
 import { TargetEntityToNamePipe } from './target-entity-to-name.pipe';
+import { NgxTextEditorModule } from 'ngx-text-editor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
     declarations: [
@@ -18,13 +21,17 @@ import { TargetEntityToNamePipe } from './target-entity-to-name.pipe';
     ],
     imports: [
         CommonModule,
-        NgbDropdownModule
+        NgbDropdownModule,
+        NgxTextEditorModule,
+        NgbModule
     ],
     exports: [
         ListComponent,
         AddComponent,
         EditComponent,
-        TargetEntityToNamePipe
+        TargetEntityToNamePipe,
+        NgxTextEditorModule,
+        NgbModule
     ],
     providers: [
         CrudService
