@@ -89,9 +89,7 @@ export class ShopComponent extends BaseComponent implements OnInit {
     formatProduct(product: Product, detail: number) {
         product.showDetail = product.details[detail];
         product.showDetail.panelImage = product.details[detail].attachments[0];
-        product.colors.forEach((color, index) => {
-            color.isactive = (index === 0);
-        });
+        product.colors[0].isactive = true;
         product.showDetail.cart = {
             quantity: 0,
             sizes: [],
@@ -111,20 +109,12 @@ export class ShopComponent extends BaseComponent implements OnInit {
             const sizes = [];
             product.showDetail.carts.forEach(cart => {
                 if (cart.product_size_id !== 0) {
-                    sizes.push(cart.product_size_id);
+                    sizes.push({
+                        product_size_id: cart.product_size_id,
+                        quantity: cart.quantity
+                    });
                 }
             });
-            if (product.showDetail.sizes.length > 0) {
-                if (sizes.length > 0) {
-                    product.showDetail.sizes.forEach(size => {
-                        size.isactive = (sizes.indexOf(size.id) > -1);
-                    });
-                } else {
-                    product.showDetail.sizes.forEach(size => {
-                        size.isactive = (sizes.indexOf(size.id) > -1);
-                    });
-                }
-            }
             product.showDetail.cart.sizes = sizes;
         }
         return product;
@@ -164,11 +154,11 @@ export class ShopComponent extends BaseComponent implements OnInit {
                 }
             }
             if (isSize) {
-                product.showDetail.cart.sizes.forEach(element => {
+                product.showDetail.cart.sizes.forEach(sizesElement => {
                     queryParam.push({
                         product_detail_id: product.showDetail.id,
-                        product_size_id: element,
-                        quantity: product.showDetail.cart.quantity,
+                        product_size_id: sizesElement.product_size_id,
+                        quantity: sizesElement.quantity,
                         coupon_code: product.showDetail.cart.coupon.coupon_code
                     });
                 });
@@ -213,16 +203,16 @@ export class ShopComponent extends BaseComponent implements OnInit {
         if (product.showDetail.cart.quantity !== 0) {
             product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
         }
+
+        product.showDetail.cart.sizes.forEach(sizeElement => {
+            sizeElement.isactive = false;
+        });
     }
 
     chooseSize(size: ProductSize, product: Product) {
-        const indexNumber = product.showDetail.cart.sizes.indexOf(size.id);
-        if (indexNumber > -1) {
-            product.showDetail.cart.sizes.splice(indexNumber, 1);
-            size.isactive = false;
-        } else {
-            product.showDetail.cart.sizes.push(size.id);
-            size.isactive = true;
-        }
+        product.showDetail.cart.sizes.forEach(sizeElement => {
+            sizeElement.isactive = false;
+        });
+        size.isactive = true;
     }
 }
