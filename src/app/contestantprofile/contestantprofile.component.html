@@ -44,6 +44,43 @@
                             </a>
                         </li>
                     </ul>
+                    <ul
+                        class="profile-social list-inline text-center"
+                        *ngIf="user.socials.length > 0">
+                        <li>
+                            <a
+                                href="javascript:void(0)"
+                                (click)="image()"
+                            >
+                                <img
+                                    src="http://localhost:4200/images/static/instagram.png"
+                                    class="img-fluid"
+                                />
+                                <span class="d-block"><em>Upload Image</em></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="video()">
+                                <img
+                                    src="http://localhost:4200/images/static/instagram.png"
+                                    class="img-fluid"
+                                />
+                                <span class="d-block"><em>Upload Video</em></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="my-5" *ngIf="sessionService.isAuth">
+                        <a
+                            href="/login"
+                            class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
+                        >
+                            <i
+                                class="fa fa-star fa-3x mr-3"
+                                aria-hidden="true"
+                            ></i>
+                            Request For Admin
+                        </a>
+                    </div>
                     <div class="my-5" *ngIf="!sessionService.isAuth">
                         <a
                             href="/login"

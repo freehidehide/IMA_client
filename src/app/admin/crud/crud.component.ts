@@ -25,14 +25,13 @@ export class CrudComponent {
     this.add = false;
     this.edit = false;
     if (!(this.router.url.indexOf('/add') > -1) || !(this.router.url.indexOf('/edit') > -1)) {
-     // this.list = true;
+     this.list = true;
     }
     if (this.router.url.indexOf('/add') > -1) {
       this.add = true;
     }
-    this.add = true;
     if (this.router.url.indexOf('/edit') > -1) {
-      // this.edit = true;
+      this.edit = true;
     }
   }
 }

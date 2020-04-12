@@ -46,4 +46,12 @@ export class ContestantprofileComponent extends UserBaseComponent
     open() {
         console.log('1----');
     }
+
+    image() {
+
+    }
+
+    video() {
+
+    }
 }

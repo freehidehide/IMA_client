@@ -89,6 +89,33 @@
                 <li class="nav-item" *ngIf="sessionService.isAuth">
                     <a
                         href="javascript:void(0)"
+                        [routerLink]="['/view-profile']"
+                        class="nav-link"
+                        (click)="toggleSidebar()"
+                        >MY ORDERS</a
+                    >
+                </li>
+                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id === 3">
+                    <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/view-profile']"
+                        class="nav-link"
+                        (click)="toggleSidebar()"
+                        >MY PRODUCTS</a
+                    >
+                </li>
+                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id === 3">
+                    <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/profile/' + sessionService.user.id]"
+                        class="nav-link"
+                        (click)="toggleSidebar()"
+                        >UPLOAD SUBSCRIPTION</a
+                    >
+                </li>
+                <li class="nav-item" *ngIf="sessionService.isAuth">
+                    <a
+                        href="javascript:void(0)"
                         [routerLink]="['/transaction']"
                         class="nav-link"
                         (click)="toggleSidebar()"
@@ -197,6 +224,33 @@
                         (click)="toggleSidebar()"
                         class="nav-link"
                         >SIGNUP</a
+                    >
+                </li>
+                <li class="nav-item" *ngIf="sessionService.isAuth">
+                    <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/view-profile']"
+                        class="nav-link"
+                        (click)="toggleSidebar()"
+                        >MY ORDERS</a
+                    >
+                </li>
+                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id === 3">
+                    <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/view-profile']"
+                        class="nav-link"
+                        (click)="toggleSidebar()"
+                        >My Products</a
+                    >
+                </li>
+                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id === 3">
+                    <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/profile/' + sessionService.user.id]"
+                        class="nav-link"
+                        (click)="toggleSidebar()"
+                        >UPLOAD SUBSCRIPTION</a
                     >
                 </li>
                 <li class="nav-item" *ngIf="sessionService.isAuth">

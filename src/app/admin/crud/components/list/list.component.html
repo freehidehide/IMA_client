@@ -6,8 +6,8 @@
               <h2>Manage <b>{{menu.title}}</b></h2>
            </div>
            <div class="col-sm-6" *ngIf="menu.add || menu.delete">
-              <a href="#addEmployeeModal" *ngIf="menu.add" class="btn btn-success"><i class="fa fa-plus"></i> <span>Add</span></a>
-              <a href="#deleteEmployeeModal" *ngIf="menu.add" class="btn btn-danger"><i class="fa fa-trash"></i> <span>Delete</span></a>
+              <a href="javascript:void(0)" (click)="redirect('add')" *ngIf="menu.add" class="btn btn-success"><i class="fa fa-plus"></i> <span>Add</span></a>
+              <a href="javascript:void(0)" (click)="redirect('edit')" *ngIf="menu.delete" class="btn btn-danger"><i class="fa fa-trash"></i> <span>Delete</span></a>
            </div>
         </div>
      </div>
