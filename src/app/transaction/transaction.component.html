@@ -36,9 +36,9 @@
             <app-my-tabs (tabSelected)="tabSelected($event)">
                 <app-my-tab [tabTitle]="'Product Transaction'" [tabClass]="'Product'">
                     <div class="tabcontents">
-                        <div *ngIf="transactionData && transactionData.length">
+                        <div *ngIf="productTransactionData && productTransactionData.length">
                             <ul class="list-unstyled">
-                                <li class="row accountlisting" *ngFor="let transaction of transactionData">
+                                <li class="row accountlisting" *ngFor="let transaction of productTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
                                         <app-attachment *ngIf="transaction.other_user && transaction.other_user.attachment" [attachment]="transaction.other_user.attachment"
                                             [type]="original"></app-attachment>
@@ -47,7 +47,8 @@
                                         <h2>VOTE PACKAGE <span>for [{{transaction.other_user.first_name}}]</span></h2>
                                         <p class="accountamount">[
                                             {{ transaction.amount | currency: transaction.CURRENCY_CODE:'symbol' }}]</p>
-                                        <p class="packagename m-0">Package Name - {{transaction.package.name}}</p>
+                                        <p class="packagename m-0">Package Name - {{transaction.detail.product_detail.name}}</p>
+                                        <p>{{transaction.payment_gateway.name}}</p>
                                     </div>
                                     <div class="col-md-4 d-flex justify-content-end flex-column text-center acvotedate">
                                         <p class="accountdate m-0">{{transaction.created_at | date: 'short'}}</p>
@@ -56,16 +57,16 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="" *ngIf="transactionData && transactionData.length === 0">
+                        <div class="" *ngIf="productTransactionData && productTransactionData.length === 0">
                             Sorry no records found
                         </div>
                     </div>
                 </app-my-tab>
                 <app-my-tab tabTitle="VotePackage Transaction" tabClass="VotePackage">
                     <div class="tabcontents">
-                        <div *ngIf="transactionData && transactionData.length">
+                        <div *ngIf="votePackageTransactionData && votePackageTransactionData.length">
                             <ul class="list-unstyled">
-                                <li class="row accountlisting" *ngFor="let transaction of transactionData">
+                                <li class="row accountlisting" *ngFor="let transaction of votePackageTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
                                         <app-attachment [attachment]="transaction.other_user.attachment"
                                             [type]="original"></app-attachment>
@@ -75,6 +76,7 @@
                                         <p class="accountamount">[
                                             {{ transaction.amount | currency: transaction.CURRENCY_CODE:'symbol' }}]</p>
                                         <p class="packagename m-0">Package Name - {{transaction.package.name}}</p>
+                                        <p>{{transaction.payment_gateway.name}}</p>
                                     </div>
                                     <div class="col-md-4 d-flex justify-content-end flex-column text-center acvotedate">
                                         <p class="accountdate m-0">{{transaction.created_at | date: 'short'}}</p>
@@ -83,16 +85,16 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="" *ngIf="transactionData && transactionData.length === 0">
+                        <div class="" *ngIf="votePackageTransactionData && votePackageTransactionData.length === 0">
                             Sorry no records found
                         </div>
                     </div>
                 </app-my-tab>
                 <app-my-tab tabTitle="Instant VotePackage Transaction" tabClass="InstantPackage">
                     <div class="tabcontents">
-                        <div *ngIf="transactionData && transactionData.length">
+                        <div *ngIf="instantTransactionData && instantTransactionData.length">
                             <ul class="list-unstyled">
-                                <li class="row accountlisting" *ngFor="let transaction of transactionData">
+                                <li class="row accountlisting" *ngFor="let transaction of instantTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
                                         <app-attachment [attachment]="transaction.other_user.attachment"
                                             [type]="original"></app-attachment>
@@ -102,6 +104,7 @@
                                         <p class="accountamount">[
                                             {{ transaction.amount | currency: transaction.CURRENCY_CODE:'symbol' }}]</p>
                                         <p class="packagename m-0">Package Name - {{transaction.package.name}}</p>
+                                        <p>{{transaction.payment_gateway.name}}</p>
                                     </div>
                                     <div class="col-md-4 d-flex justify-content-end flex-column text-center acvotedate">
                                         <p class="accountdate m-0">{{transaction.created_at | date: 'short'}}</p>
@@ -110,16 +113,16 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="" *ngIf="transactionData && transactionData.length === 0">
+                        <div class="" *ngIf="instantTransactionData && instantTransactionData.length === 0">
                             Sorry no records found
                         </div>
                     </div>
                 </app-my-tab>
                 <app-my-tab tabTitle="Subscription Transaction" tabClass="SubscriptionPackage">
                     <div class="tabcontents">
-                        <div *ngIf="transactionData && transactionData.length">
+                        <div *ngIf="subscriptionTransactionData && subscriptionTransactionData.length">
                             <ul class="list-unstyled">
-                                <li class="row accountlisting" *ngFor="let transaction of transactionData">
+                                <li class="row accountlisting" *ngFor="let transaction of subscriptionTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
                                         <app-attachment [attachment]="transaction.other_user.attachment"
                                             [type]="original"></app-attachment>
@@ -129,6 +132,7 @@
                                         <p class="accountamount">[
                                             {{ transaction.amount | currency: transaction.CURRENCY_CODE:'symbol' }}]</p>
                                         <p class="packagename m-0">Package Name - {{transaction.package.name}}</p>
+                                        <p>{{transaction.payment_gateway.name}}</p>
                                     </div>
                                     <div class="col-md-4 d-flex justify-content-end flex-column text-center acvotedate">
                                         <p class="accountdate m-0">{{transaction.created_at | date: 'short'}}</p>
@@ -137,27 +141,24 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="" *ngIf="transactionData && transactionData.length === 0">
+                        <div class="" *ngIf="subscriptionTransactionData && subscriptionTransactionData.length === 0">
                             Sorry no records found
                         </div>
                     </div>
                 </app-my-tab>
                 <app-my-tab tabTitle="Fund Transaction" tabClass="Fund">
                     <div class="tabcontents">
-                        <div *ngIf="transactionData && transactionData.length">
+                        <div *ngIf="fundTransactionData && fundTransactionData.length">
                             <ul class="list-unstyled">
-                                <li class="row accountlisting" *ngFor="let transaction of transactionData">
+                                <li class="row accountlisting" *ngFor="let transaction of fundTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
-                                        <img
-                                        src="assets/images/login-logo.jpg"
-                                        class="img-fluid"
-                                    />
+                                        <app-attachment [attachment]="transaction.other_user.attachment"
+                                            [type]="original"></app-attachment>
                                     </div>
                                     <div class="col-md-6 acvotepackage">
-                                        <h2>VOTE PACKAGE <span>for [{{transaction.other_user.first_name}}]</span></h2>
                                         <p class="accountamount">[
                                             {{ transaction.amount | currency: transaction.CURRENCY_CODE:'symbol' }}]</p>
-                                        <p class="packagename m-0">Package Name - {{transaction.package.name}}</p>
+                                        <p class="packagename m-0">IMA - {{transaction.payment_gateway.name}}</p>
                                     </div>
                                     <div class="col-md-4 d-flex justify-content-end flex-column text-center acvotedate">
                                         <p class="accountdate m-0">{{transaction.created_at | date: 'short'}}</p>
@@ -166,7 +167,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="" *ngIf="transactionData && transactionData.length === 0">
+                        <div class="" *ngIf="fundTransactionData && fundTransactionData.length === 0">
                             Sorry no records found
                         </div>
                     </div>

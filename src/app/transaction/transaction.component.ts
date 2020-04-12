@@ -9,7 +9,11 @@ import { ToastService } from '../api/services/toast-service';
     styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
-    public transactionData: [];
+    public productTransactionData: [];
+    public votePackageTransactionData: [];
+    public instantTransactionData: [];
+    public subscriptionTransactionData: [];
+    public fundTransactionData: [];
     constructor(public transactionService: TransactionService, public toastService: ToastService) {}
 
     ngOnInit(): void {
@@ -29,7 +33,18 @@ export class TransactionComponent implements OnInit {
             .getTransactionData(queryParam)
             .subscribe((data) => {
                 this.toastService.clearLoading();
-                this.transactionData = data.data;
+                if (paramclass === 'Product') {
+                    this.productTransactionData = data.data;
+                } else if (paramclass === 'VotePackage') {
+                    this.votePackageTransactionData = data.data;
+                } else if (paramclass === 'InstantPackage') {
+                    this.instantTransactionData = data.data;
+                } else if (paramclass === 'SubscriptionPackage') {
+                    this.subscriptionTransactionData = data.data;
+                } else if (paramclass === 'Fund') {
+                    this.fundTransactionData = data.data;
+                }
+
             });
     }
 }
