@@ -49,7 +49,7 @@ export class ListComponent implements OnInit {
   }
 
   redirect(url: string): void {
-      this.router.navigate([ '/admin/actions' + url]);
+      this.router.navigate([ '/admin/actions/' + this.apiEndPoint + '/' + url]);
   }
 
 }

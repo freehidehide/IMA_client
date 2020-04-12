@@ -19,6 +19,7 @@ export interface Product {
     colors: Color[];
     showDetail?: any;
     product_detail_id?: number;
+    data?: any;
     coupon?: Coupon;
     error: Error;
 }
