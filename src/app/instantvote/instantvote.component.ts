@@ -90,7 +90,7 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
             this.userContestList = response;
             this.userContests = response.data;
             this.userContests.forEach(contestUser => {
-              contestUser.percentage = +((contestUser.instant_votes / this.userContestList.max_limit) * 100).toFixed(2);
+              contestUser.percentage = ((contestUser.instant_votes / this.userContestList.max_limit) * 100).toFixed(2) + '%';
             });
             this.toastService.clearLoading();
           });
@@ -150,7 +150,7 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
     }
 
     redirect(user: User): void {
-      if (!this.isShowTime) {
+      if (this.isShowTime) {
         if (this.userId) {
           const url: string = '/purchase/instant/' + this.userId + '/1';
           this.router.navigate([url]);

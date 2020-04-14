@@ -37,7 +37,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
         const isBackendFailure = sessionStorage.getItem('backend_failure');
         if (isSessionExpired !== undefined && isSessionExpired === 'true') {
             sessionStorage.removeItem('session_expired');
-            this.toastService.error('Session Expired');
+            this.toastService.warning('Session Expired');
         } else if (
             isBackendFailure !== undefined &&
             isBackendFailure === 'true'
@@ -79,12 +79,12 @@ export class LoginComponent extends BaseComponent implements OnInit {
                 if (this.User.role.id === AppConst.ROLE.ADMIN || this.User.role.id === AppConst.ROLE.COMPANY) {
                     this.router.navigate(['/admin']);
                 } else {
-                    this.toastService.clearLoading();
                     this.router.navigate(['/']);
                 }
             } else {
                 this.toastService.error(this.User.error.message);
             }
+            this.toastService.clearLoading();
         });
     }
 

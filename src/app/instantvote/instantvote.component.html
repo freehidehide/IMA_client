@@ -48,8 +48,8 @@
                         <div class="contestant-details">
                             <h2>{{userContest.user.first_name}} {{userContest.user.last_name}}</h2>
                             <div class="progressmain">
-                                <div class="progressbar">
-                                    <span>{{userContest.percentage}}</span>
+                                <div class="progressbar" >
+                                    <span [ngStyle]="{'width': userContest.percentage}"></span>
                                 </div>
                                 <span class="progressvotes">
                                     {{userContest.instant_votes}}<span>votes</span>

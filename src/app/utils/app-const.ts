@@ -17,7 +17,6 @@ export class AppConst {
         TRANSACTIONS: '/transactions',
         VOTEPACKAGES: '/vote_packages',
         CONTEST: '/contest',
-        ADMIN_CONFIG: '/config',
         FUND: '/fund',
         PAYMENT_GATEWAYS: '/payment_gateways',
         SUBSCRIPTION: '/purchase/subscription/1',

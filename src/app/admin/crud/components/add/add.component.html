@@ -1,71 +1,68 @@
-//Text
-//Text Area
-// Checkbox
-// file upload
-// Text Editor
-// searchable dropdown
-// radio
-// datepicker
-
-<form>
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect2">Text Editor</label>
-        <ngx-text-editor [placeholder]="'Enter text here...'" [spellcheck]="true"></ngx-text-editor>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlFile1">Example file input</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-        <label class="form-check-label" for="inlineCheckbox1">1</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">2</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-        <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
-    </div>
-    <div class="form-group">
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-        <label class="form-check-label" for="inlineRadio1">1</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-        <label class="form-check-label" for="inlineRadio2">2</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"
-            disabled>
-        <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
-    </div>
-</div>
-    <div class="form-check">
-        <input class="form-control" placeholder="yyyy-mm-dd" formControlName='to' name="to" ngbDatepicker
-            #d1="ngbDatepicker">
-        <button class="input-group-addon" (click)="d1.toggle()" type="button">
-            <span class="fa fa-calendar"></span>
+<div class="container" *ngIf="menu">
+    <div class="table-wrapper">
+       <div class="table-title">
+          <div class="row">
+             <div class="col-sm-6">
+                <h2>Create <b>{{menu.title}}</b></h2>
+             </div>
+          </div>
+       </div>
+       <div *ngFor="let item of menu.add.fields">      
+            <div class="form-group" *ngIf="item.type === 'text'">
+                <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                <input type="email" [(ngModel)]="item.value" [ngModelOptions]="{standalone: true}" class="form-control" id="{{item.name}}" placeholder="{{item.placeholder}}">
+            </div>
+            <div class="form-group" *ngIf="item.type === 'select'">
+                <label for="exampleFormControlSelect1">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-group" *ngIf="item.type === 'smart_editor'">
+                <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                <ngx-text-editor [placeholder]="'Enter text here...'" [spellcheck]="true"></ngx-text-editor>
+            </div>
+            <div class="form-group" *ngIf="item.type === 'textarea'">
+                <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                <textarea class="form-control" id="{{item.name}}" rows="3"></textarea>
+            </div>
+            <div class="form-group" *ngIf="item.type === 'file'">
+                <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                <input type="file" (change)="uploadImage($event, item)" [(ngModel)]="item.value" [ngModelOptions]="{standalone: true}" class="form-control-file" id="{{item.name}}">
+            </div>
+            <div class="form-check form-check-inline" *ngIf="item.type === 'checkbox'">
+                <input class="form-check-input" type="checkbox" id="{{item.name}}" value="option1">
+                <label class="form-check-label" for="{{item.name}}">1</label>
+            </div>
+            <div class="form-group" *ngIf="item.type === 'radio'">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="{{item.name}}1" value="option1">
+                    <label class="form-check-label" for="{{item.name}}1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="{{item.name}}2" value="option2">
+                    <label class="form-check-label" for="{{item.name}}2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="{{item.name}}3" value="option3"
+                        disabled>
+                    <label class="form-check-label" for="{{item.name}}3">3 (disabled)</label>
+                </div>
+            </div>
+            <div class="form-check" *ngIf="item.type === 'date'">
+                <input class="form-control" placeholder="yyyy-mm-dd" formControlName='to' name="to" ngbDatepicker
+                    #d1="ngbDatepicker">
+                <button class="input-group-addon" (click)="d1.toggle()" type="button">
+                    <span class="fa fa-calendar"></span>
+                </button>
+            </div>
+       </div>
+       <button class="btn btn-primary" (click)="submit()" type="button">
+            submit
         </button>
     </div>
-</form>
+  </div>

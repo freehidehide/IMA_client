@@ -34,6 +34,11 @@ const routes: Routes = [
                     import('./crud/crud.module').then((m) => m.CrudModule)
             },
             {
+                path: 'actions/:api/view/:id',
+                loadChildren: () =>
+                    import('./crud/crud.module').then((m) => m.CrudModule)
+            },
+            {
                 path: 'actions/:api/delete/:id',
                 loadChildren: () =>
                     import('./crud/crud.module').then((m) => m.CrudModule)

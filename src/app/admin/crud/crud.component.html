@@ -1,3 +1,4 @@
-<app-list *ngIf="list" [api]="api"></app-list>
-<app-add *ngIf="add" [api]="api"></app-add>
-<app-edit *ngIf="edit" [api]="api"></app-edit>
+<app-list *ngIf="list" [menu_detail]="menu" [reload]="reload"></app-list>
+<app-add *ngIf="add" [menu_detail]="menu" [reload]="reload"></app-add>
+<app-edit *ngIf="edit" [menu_detail]="menu" [reload]="reload"></app-edit>
+<app-view *ngIf="view" [menu_detail]="menu" [reload]="reload"></app-view>

@@ -17,19 +17,25 @@ export class ApiService {
 
     constructor(private http: HttpClient) {}
 
-    getHeaders() {
+    getHeaders(isFile: boolean) {
         let addHeaders: HttpHeaders = new HttpHeaders();
-        addHeaders = addHeaders.append('Accept', 'application/json');
-        addHeaders = addHeaders.append('Content-Type', 'application/json');
+        if (isFile) {
+            addHeaders = addHeaders.append('Accept', 'multipart/form-data; charset=utf-8; boundary='
+            + Math.random().toString().substr(2));
+            addHeaders.set('Content-Type', null);
+        } else {
+            addHeaders = addHeaders.append('Accept', 'application/json');
+            addHeaders = addHeaders.append('Content-Type', 'application/json');
+        }
         if (sessionStorage.getItem('user_context') !== undefined) {
             const sessionStr = JSON.parse(
                 sessionStorage.getItem('user_context')
             );
             if (sessionStr && sessionStr.access_token !== null) {
                 /*addHeaders = addHeaders.append(
-					'Authorization',
-					'Bearer ' + sessionStr.access_token
-				);*/
+                    'Authorization',
+                    'Bearer ' + sessionStr.access_token
+                );*/
                 this.token = sessionStr.access_token;
             }
         }
@@ -39,7 +45,7 @@ export class ApiService {
     }
 
     httpGet<T>(url: string, params?: QueryParam | QueryParam[]): Observable<T> {
-        this.getHeaders();
+        this.getHeaders(false);
         return this.http
             .get<T>(
                 this.getFormattedQueryParam(url, params, 'GET'),
@@ -52,7 +58,21 @@ export class ApiService {
      * Performs a request with `post` http method.
      */
     httpPost(url: string, body: any, params?: QueryParam): Observable<any> {
-        this.getHeaders();
+        this.getHeaders(false);
+        return this.http
+            .post(
+                this.getFormattedQueryParam(url, params, 'POST'),
+                body,
+                this.httpOptions
+            )
+            .pipe(catchError(this.handleNetworkErrors));
+    }
+
+    /**
+     * Performs a request with `post` http method.
+     */
+    httpPostFile(url: string, body: any, params?: QueryParam): Observable<any> {
+        this.getHeaders(true);
         return this.http
             .post(
                 this.getFormattedQueryParam(url, params, 'POST'),
@@ -66,7 +86,7 @@ export class ApiService {
      * Performs a request with `put` http method.
      */
     httpPut(url: string, body: any, params?: QueryParam | QueryParam[]): Observable<any> {
-        this.getHeaders();
+        this.getHeaders(false);
         return this.http
             .put(
                 this.getFormattedQueryParam(url, params, 'PUT'),
@@ -84,7 +104,7 @@ export class ApiService {
         options?: any,
         params?: QueryParam
     ): Observable<any> {
-        this.getHeaders();
+        this.getHeaders(false);
         return this.http
             .delete(this.getFormattedQueryParam(url, params, 'DELETE'), options)
             .pipe(catchError(this.handleNetworkErrors));

@@ -5,5 +5,5 @@ export class UserContest {
     instant_votes: number;
     user_id: number;
     user: User;
-    percentage: number;
+    percentage: string;
 }

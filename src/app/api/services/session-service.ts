@@ -27,19 +27,6 @@ export class SessionService {
         this.user = JSON.parse(sessionStorage.getItem('user_context'));
     }
 
-    setAdminSettingList(value) {
-        this._adminSettings = value;
-    }
-
-    getAdminSettingList() {
-        return this._adminSettings;
-    }
-
-    getAdminSettingsHandler(): Observable<any> {
-        const adminConfigUrl: string = AppConst.SERVER_URL.ADMIN_CONFIG;
-        return this.apiService.httpGet(adminConfigUrl, null);
-    }
-
     logout(): void {
         sessionStorage.removeItem('user_context');
         this.isAuth = false;

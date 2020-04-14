@@ -6,7 +6,7 @@
 >
     <div class="list-group" *ngIf="menus">
         <span *ngFor="let menu of menus">
-            <a href="javascript:void(0)" *ngIf="!menu.child_sub_menu" (click)="redirect(menu.api)" class="list-group-item" >
+            <a href="javascript:void(0)" *ngIf="!menu.child_sub_menu" (click)="redirect(menu.route)" class="list-group-item" >
                 <i class="{{ menu.icon_class }}"></i>&nbsp;
                 <span>{{ menu.title }}</span>
             </a>

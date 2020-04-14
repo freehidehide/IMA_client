@@ -3,6 +3,7 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SessionService } from '../../../api/services/session-service';
+import { StartupService } from '../../../api/services/startup.service';
 import { ToastService } from '../../../api/services/toast-service';
 @Component({
     selector: 'app-sidebar',
@@ -14,12 +15,14 @@ export class SidebarComponent implements OnInit {
     collapsed: boolean;
     showMenu: string;
     pushRightClass: string;
+    settings: any;
     menus: any;
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
     constructor(private translate: TranslateService,
         public router: Router,
         private sessionService: SessionService,
+        public startupService: StartupService,
         private toastService: ToastService) {
         this.router.events.subscribe((val) => {
             if (
@@ -37,16 +40,8 @@ export class SidebarComponent implements OnInit {
         this.collapsed = false;
         this.showMenu = '';
         this.pushRightClass = 'push-right';
-        this.getAdminSettings();
-    }
-
-    getAdminSettings() {
-        this.sessionService.getAdminSettingsHandler()
-            .subscribe((response) => {
-                this.menus = response.menus;
-                this.toastService.clearLoading();
-                this.sessionService.setAdminSettingList(this.menus);
-            });
+        this.settings = this.startupService.startupData();
+        this.menus = this.settings.MENU;
     }
 
     eventCalled() {
@@ -94,7 +89,6 @@ export class SidebarComponent implements OnInit {
             this.sessionService.logout();
             this.router.navigate([ '/' ]);
         } else {
-            url = (url === '/dashboard') ? url : ('/admin/actions' + url);
             this.router.navigate([ url ]);
         }
     }
