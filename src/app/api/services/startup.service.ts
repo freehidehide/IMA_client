@@ -38,4 +38,8 @@ export class StartupService {
     startupData(): any {
         return this._startupData;
     }
+
+    setStartupData(data: any): any {
+        this._startupData = data;
+    }
 }

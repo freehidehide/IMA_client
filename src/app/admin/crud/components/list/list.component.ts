@@ -22,14 +22,20 @@ export class ListComponent implements OnInit {
     public router: Router) { }
 
   @Input('menu_detail')
-  set meunuItem(value: string) {
-      this.menu = value;
-      this.getRecords();
+  set meunuItem(value: any) {
+    if (value) {
+      this.menu = value.listview.fields.filter((x) => (x.list === true));
+      if (this.menu && this.menu.api) {
+        this.getRecords();
+      }
+    }
   }
 
   @Input('reload')
   set reloadPage(value: string) {
+    if (this.menu && this.menu.api) {
       this.getRecords();
+    }
   }
 
   ngOnInit(): void {
@@ -38,15 +44,19 @@ export class ListComponent implements OnInit {
 
   getRecords() {
     this.toastService.showLoading();
-      const queryParam: QueryParam = {
-        class: this.menu.query
-      };
+      const queryParam: QueryParam = {};
+      if (this.menu && this.menu.query) {
+        queryParam.class = this.menu.query;
+      }
       this.crudService.get(this.menu.api, queryParam)
       .subscribe((responseApi) => {
           this.responseData = responseApi.data;
-         // console.log('dfdfgdfg', dot.object(this.responseData));
           this.toastService.clearLoading();
       });
+  }
+
+  getValue(name: any, obj: any) {
+    return (name && name !== 'actions') ? dot.pick(name, obj) : '';
   }
 
   redirect(url: string): void {

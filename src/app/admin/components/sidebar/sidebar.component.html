@@ -18,7 +18,7 @@
                 <li class="nested" *ngFor="let child of menu.child_sub_menu" [class.expand]="showMenu === menu.title">
                     <ul class="submenu">
                         <li>
-                            <a href="javascript:void(0)">
+                            <a (click)="redirect(child.route)" href="javascript:void(0)">
                                 <i class="{{ menu.icon_class }}"></i>&nbsp;
                                 <span>{{ child.title }}</span>
                             </a>

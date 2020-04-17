@@ -12,6 +12,7 @@ import { TargetEntityToNamePipe } from './target-entity-to-name.pipe';
 import { NgxTextEditorModule } from 'ngx-text-editor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedCommonModule } from '../../shared-common/shared-common.module';
+import { NgxTagsInputModule } from 'ngx-tags-input';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { SharedCommonModule } from '../../shared-common/shared-common.module';
         NgxTextEditorModule,
         NgbModule,
         FormsModule,
-        SharedCommonModule
+        SharedCommonModule,
+        NgxTagsInputModule
     ],
     exports: [
         ListComponent,

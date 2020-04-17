@@ -36,6 +36,7 @@
         "ng2-charts": "2.3.0",
         "ngx-bootstrap": "^5.6.1",
         "ngx-countdown": "^9.0.0",
+        "ngx-tags-input": "^2.0.1",
         "ngx-text-editor": "^2.2.3",
         "rxjs": "6.5.4",
         "sweetalert2": "^9.10.10",

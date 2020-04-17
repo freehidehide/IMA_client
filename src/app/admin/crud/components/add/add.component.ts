@@ -8,6 +8,9 @@ import { AppConst } from '../../../../utils/app-const';
 import { QueryParam } from '../../../../api/models/query-param';
 import * as dot from 'dot-object';
 import {Location} from '@angular/common';
+import { TagsChangedEvent } from 'ngx-tags-input/public-api';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -18,18 +21,52 @@ export class AddComponent implements OnInit {
   public apiEndPoint: string;
   public menu: any;
   public responseData: any;
-  public settings: any;
+  public settings: any; 
+  public optionsArray = [{
+    displayValue: 'English'
+  }, {
+    displayValue: 'Dutch'
+  }, {
+    displayValue: 'French'
+  }, {
+    displayValue: 'German'
+  }, {
+    displayValue: 'Swedish'
+  }, {
+    displayValue: 'Finnish'
+  }, {
+    displayValue: 'Russian'
+  }, {
+    displayValue: 'Chinese'
+  }, {
+    displayValue: 'Japanese'
+  }, {
+    displayValue: 'Spanish'
+  }, {
+    displayValue: 'Portugese'
+  }];
 
   constructor(private crudService: CrudService,
     private toastService: ToastService,
     private sessionService: SessionService,
     public startupService: StartupService,
     private _location: Location,
-    public router: Router) { }
+    public router: Router,
+    private httpClient: HttpClient) { }
 
   @Input('menu_detail')
   set meunuItem(value: string) {
+    if (value) {
       this.menu = value;
+      this.menu.add.fields.forEach((element, index) => {
+        if (element.type === 'tags') {
+          this.crudService.get(element.reference, null)
+          .subscribe((response) => {
+            element.options = response.data;
+          });
+        }
+      });
+    }
   }
 
   @Input('reload')
@@ -37,6 +74,17 @@ export class AddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onTagsChangedEventHandler(event: TagsChangedEvent, item): void {
+    if (event.change === 'add') {
+      const index = item.options.findIndex(x => (x.id === event.tag.id));
+      item.options.splice(index, 1);
+    } else {
+      const index = item.value.findIndex(x => (x.id === event.tag.id));
+      item.options.push(event.tag);
+    }
+    item.options.sort((a, b) => (a.name > b.name) ? 1 : -1);
   }
 
   uploadImage(event, item) {

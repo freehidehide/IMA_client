@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
 import { StartupService } from '../../api/services/startup.service';
@@ -43,34 +44,71 @@ export class CrudComponent {
   setMenu() {
     this.settings = this.startupService.startupData();
     const menus = this.settings.MENU;
-    menus.forEach(element => {
-      if (element.title === 'Companies' || element.title === 'Contestant') {
-        element.api = menus[1].api;
-        element.listview = {
-          fields: menus[1].listview.fields
-        };
-        element.add = {
-          fields: menus[1].add.fields
-        };
-        element.edit = {
-          fields: menus[1].edit.fields
-        };
-        element.view = {
-          fields: menus[1].view.fields
-        };
-      } else if (element.title === 'Users') {
-        element.listview.fields = [...element.listview.fields, ...menus[1].add.fields];
-        element.edit = {
-          fields: menus[1].add.fields
-        };
-        element.view = {
-          fields: menus[1].add.fields
-        };
+    if (!menus[1].isFormat) {
+        menus.forEach(formatMenu => {
+          if (formatMenu.title === 'Companies' || formatMenu.title === 'Contestant') {
+              formatMenu.api = menus[1].api;
+              if (formatMenu.title === 'Contestant') {
+                const menusList = [...formatMenu.listview.fields, ...menus[1].add.fields];
+                formatMenu.listview = menusList;
+              } else {
+                formatMenu.listview = menus[1].listview;
+              }
+            formatMenu.add = menus[1].add.fields;
+            formatMenu.edit = menus[1].edit.fields;
+            formatMenu.view = menus[1].view.fields;
+          } else if (formatMenu.title === 'Users') {
+            formatMenu.listview.fields = [...formatMenu.listview.fields, ...menus[1].add.fields];
+            formatMenu.listview.fields = formatMenu.listview.fields.filter((x) => (x.list === true));
+            formatMenu.edit = menus[1].add.fields.filter((x) => (x.edit === true));
+            formatMenu.view = menus[1].add.fields.filter((x) => (x.view === true));
+          } else if (formatMenu.child_sub_menu) {
+              formatMenu.child_sub_menu.forEach(childMenu => {
+                if (childMenu.listview) {
+                  childMenu.listview.fields = [...formatMenu.listview.fields, ...childMenu.listview.fields];
+                  childMenu.add = {
+                    fields: childMenu.listview.fields
+                  };
+                  childMenu.edit = {
+                    fields: childMenu.listview.fields
+                  };
+                  childMenu.view = {
+                    fields: childMenu.listview.fields
+                  };
+                } else if (formatMenu.listview) {
+                  childMenu.listview = {
+                    fields: formatMenu.listview.fields
+                  };
+                  childMenu.add = {
+                    fields: childMenu.listview.fields
+                  };
+                  childMenu.edit = {
+                    fields: childMenu.listview.fields
+                  };
+                  childMenu.view = {
+                    fields: childMenu.listview.fields
+                  };
+                }
+              });
+          }
+      });
+      menus[1].isFormat = true;
+      this.settings.MENU = menus;
+      this.startupService.setStartupData(this.settings);
+    }
+    const apiService = '/admin/actions' + this.apiEndPoint;
+    menus.forEach(menuItem => {
+      if (menuItem.route === apiService) {
+        this.menu = menuItem;
+      }
+      if (menuItem.child_sub_menu) {
+        menuItem.child_sub_menu.forEach(childMenuItem => {
+          if (childMenuItem.route === apiService) {
+            this.menu = childMenuItem;
+          }
+        });
       }
     });
-    const apiService = '/admin/actions' + this.apiEndPoint;
-    const menuItem = menus.find(x => x.route === apiService);
-    this.menu = menuItem;
     this.reload = !this.reload;
   }
 }
