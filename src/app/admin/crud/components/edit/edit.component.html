@@ -9,9 +9,10 @@
        </div>
        <div *ngIf="responseData">
             <div *ngFor="let item of menu.edit.fields">      
-                    <div class="form-group" *ngIf="item.type === 'text' && item.name !== 'username'">
+                    <div class="form-group" *ngIf="(item.type === 'text' || item.isNotEdit) && item.name !== 'username'">
                         <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
-                        <input type="text" [(ngModel)]="item.value" [ngModelOptions]="{standalone: true}" class="form-control" id="{{item.name}}" placeholder="{{item.placeholder}}">
+                        <label for="{{item.name}}" *ngIf="item.isNotEdit" class="form-control" readonly="readonly" >{{item.value}}</label>
+                        <input type="text" [(ngModel)]="item.value" *ngIf="!item.isNotEdit" [ngModelOptions]="{standalone: true}" class="form-control" id="{{item.name}}" placeholder="{{item.placeholder}}">
                     </div>
                     <div class="form-group" *ngIf="item.type === 'select'">
                         <label for="exampleFormControlSelect1">{{item.label}} <span *ngIf="item.is_required">*</span></label>
@@ -34,8 +35,8 @@
                     <div class="form-group" *ngIf="item.type === 'file'">
                         <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
                         <input type="file" (change)="uploadImage($event, item)" [(ngModel)]="item.value" [ngModelOptions]="{standalone: true}" class="form-control-file" id="{{item.name}}">
-                        <div class="contprofileimage">
-                            <app-attachment [attachment]="responseData.attachment" [type]="original" [cssClass]="'profilecircleimg'"></app-attachment>
+                        <div class="contprofileimage" *ngIf="!item.isUploaded">
+                            <app-attachment [attachment]="responseData.attachment" [type]="original"></app-attachment>
                         </div>
                     </div>
                     <div class="form-check form-check-inline" *ngIf="item.type === 'checkbox'">
@@ -64,10 +65,17 @@
                             <span class="fa fa-calendar"></span>
                         </button>
                     </div>
+                    <div class="form-group" *ngIf="item.type === 'tags'">
+                        <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                        <ngx-tags-input class="form-control input-lg" [(ngModel)]="item.value" [options]="item.options" displayField="name" [removeLastOnBackspace]="true" (onTagsChanged)="onTagsChangedEventHandler($event, item)"></ngx-tags-input>
+                    </div>
             </div>
         </div>
        <button class="btn btn-primary" (click)="submit()" type="button">
             submit
+        </button>
+        <button class="btn btn-default" (click)="cancel()" type="button">
+            cancel
         </button>
     </div>
   </div>

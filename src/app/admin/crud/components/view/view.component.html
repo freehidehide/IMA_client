@@ -8,7 +8,7 @@
           </div>
        </div>
        <div *ngIf="responseData">
-            <div *ngFor="let item of menu.edit.fields">
+            <div *ngFor="let item of menu.view.fields">
                 <div class="row" *ngIf="item.name !== 'username'">
                     <div class="col-md-2">
                         <label for="{{item.name}}">{{item.label}}</label>
@@ -17,7 +17,9 @@
                         <label for="{{item.name}}">{{item.value}}</label>
                     </div>
                     <div class="col-md-2" *ngIf="item.type === 'file'">
-                        <app-attachment [attachment]="responseData.attachment" [type]="original" [cssClass]="'profilecircleimg'"></app-attachment>
+                        <div class="contprofileimage">
+                            <app-attachment [attachment]="responseData.attachment" [type]="original"></app-attachment>
+                        </div>
                     </div>
                   </div>
             </div>

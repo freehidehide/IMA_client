@@ -29,11 +29,12 @@ export class ViewComponent implements OnInit {
     @Input('menu_detail')
     set meunuItem(value: string) {
         this.menu = value;
+        this.getRecords();
     }
 
     @Input('reload')
     set reloadPage(value: string) {
-        this.getRecords();
+
     }
 
     ngOnInit(): void {
@@ -47,7 +48,7 @@ export class ViewComponent implements OnInit {
             this.responseData = response.data;
             const formatObj = {};
             dot.dot(this.responseData, formatObj);
-            this.menu.edit.fields.forEach(element => {
+            this.menu.view.fields.forEach(element => {
               if (formatObj[element.name]) {
                 element.value = formatObj[element.name];
               }

@@ -8,21 +8,21 @@
            <div class="col-sm-4" *ngIf="menu.add || menu.approve ">
               <a href="javascript:void(0)" (click)="redirect('add')" *ngIf="menu.add" class="btn btn-success"><i class="fa fa-plus"></i> <span>Add</span></a>
               <a href="javascript:void(0)" (click)="redirect('delete')" *ngIf="menu.delete" class="btn btn-danger"><i class="fa fa-trash"></i> <span>Delete</span></a>
-              <a href="javascript:void(0)" (click)="approve()" *ngIf="menu.approve" class="btn btn-success"><i class="fa fa-plus"></i> <span>Approve All</span></a>
-              <a href="javascript:void(0)" (click)="disapprove()" *ngIf="menu.disapprove" class="btn btn-danger"><i class="fa fa-trash"></i> <span>Disapprove All</span></a>
+              <a href="javascript:void(0)" (click)="approveAll()" *ngIf="menu.approve" class="btn btn-success"><i class="fa fa-plus"></i> <span>Approve All</span></a>
+              <a href="javascript:void(0)" (click)="disapproveAll()" *ngIf="menu.disapprove" class="btn btn-danger"><i class="fa fa-trash"></i> <span>Disapprove All</span></a>
            </div>
         </div>
      </div>
-     <table class="table table-overflow table-responsive table-striped table-hover table-bordered">
+     <table class="table table-overflow table-striped table-hover table-bordered">
         <thead class="thead-info">
            <tr>
-              <!-- <th>
+              <!-- <th>table-responsive
                  <span class="custom-checkbox">
                  <input type="checkbox" id="selectAll">
                  <label for="selectAll"></label>
                  </span>
               </th> -->
-              <th *ngFor="let item of menu.listview.fields">{{item.label}}</th>
+              <th class="text-center" *ngFor="let item of menu.listview.fields">{{item.label}}</th>
            </tr>
         </thead>
         <tbody>
@@ -33,12 +33,12 @@
                  <label for="checkbox1"></label>
                  </span>
               </td> -->
-              <td *ngFor="let elementChild of menu.listview.fields">
+              <td class="text-center" *ngFor="let elementChild of menu.listview.fields">
                  <span *ngIf="!elementChild.listActions">
                    {{getValue(elementChild['name'], element)}}
                   </span>
                   <span *ngIf="elementChild.listActions">
-                  <a href="javascript:void(0)" (click)="action(button.api, element)" *ngFor="let button of elementChild.listActions" class="{{button.class}}" data-toggle="modal">&nbsp;&nbsp;<i class="{{button.icon}}"></i></a>&nbsp;
+                  <a href="javascript:void(0)" (click)="action(element, button.label)" *ngFor="let button of elementChild.listActions" class="{{button.class}}" data-toggle="modal">&nbsp;&nbsp;<i class="{{button.icon}}"></i></a>&nbsp;
                  </span>
               </td>
            </tr>

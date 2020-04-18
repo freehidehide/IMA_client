@@ -21,30 +21,7 @@ export class AddComponent implements OnInit {
   public apiEndPoint: string;
   public menu: any;
   public responseData: any;
-  public settings: any; 
-  public optionsArray = [{
-    displayValue: 'English'
-  }, {
-    displayValue: 'Dutch'
-  }, {
-    displayValue: 'French'
-  }, {
-    displayValue: 'German'
-  }, {
-    displayValue: 'Swedish'
-  }, {
-    displayValue: 'Finnish'
-  }, {
-    displayValue: 'Russian'
-  }, {
-    displayValue: 'Chinese'
-  }, {
-    displayValue: 'Japanese'
-  }, {
-    displayValue: 'Spanish'
-  }, {
-    displayValue: 'Portugese'
-  }];
+  public settings: any;
 
   constructor(private crudService: CrudService,
     private toastService: ToastService,
@@ -64,6 +41,9 @@ export class AddComponent implements OnInit {
           .subscribe((response) => {
             element.options = response.data;
           });
+          element.value = [];
+        } else {
+          element.value = '';
         }
       });
     }
@@ -85,6 +65,10 @@ export class AddComponent implements OnInit {
       item.options.push(event.tag);
     }
     item.options.sort((a, b) => (a.name > b.name) ? 1 : -1);
+  }
+
+  cancel() {
+    this._location.back();
   }
 
   uploadImage(event, item) {
@@ -110,17 +94,22 @@ export class AddComponent implements OnInit {
     const formData = {};
     const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     this.menu.add.fields.forEach((element, index) => {
-      if (element.is_required && element.value.trim() === '') {
+      if (element.is_required && (Array.isArray(element.value)
+      && element.value.length === 0) || (!Array.isArray(element.value) && element.value.trim() === '')) {
         inValid.push(element.label);
       } else if (element.name === 'email' && reg.test(element.value) === false) {
         inValid.push('Enter the valid email');
       } else {
-        formData[element.name] = (element.type === 'file') ? element. file : element.value;
+        formData[element.name] = (element.type === 'file') ? element.file : element.value;
       }
     });
     if (inValid.length === 0) {
       this.toastService.showLoading();
-      this.crudService.post(this.menu.add.url, dot.object(formData), null)
+      const queryParam: QueryParam = {};
+      if (this.menu && this.menu.query) {
+        queryParam.class = this.menu.query;
+      }
+      this.crudService.post(this.menu.add.url, dot.object(formData), queryParam)
       .subscribe((response) => {
         if (response.error && response.error.code === AppConst.SERVICE_STATUS.SUCCESS) {
             this.toastService.success(response.error.message);

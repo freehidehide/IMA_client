@@ -46,50 +46,23 @@ export class CrudComponent {
     const menus = this.settings.MENU;
     if (!menus[1].isFormat) {
         menus.forEach(formatMenu => {
-          if (formatMenu.title === 'Companies' || formatMenu.title === 'Contestant') {
-              formatMenu.api = menus[1].api;
-              if (formatMenu.title === 'Contestant') {
-                const menusList = [...formatMenu.listview.fields, ...menus[1].add.fields];
-                formatMenu.listview = menusList;
-              } else {
-                formatMenu.listview = menus[1].listview;
-              }
-            formatMenu.add = menus[1].add.fields;
-            formatMenu.edit = menus[1].edit.fields;
-            formatMenu.view = menus[1].view.fields;
-          } else if (formatMenu.title === 'Users') {
+         if (formatMenu.title === 'Users') {
             formatMenu.listview.fields = [...formatMenu.listview.fields, ...menus[1].add.fields];
             formatMenu.listview.fields = formatMenu.listview.fields.filter((x) => (x.list === true));
-            formatMenu.edit = menus[1].add.fields.filter((x) => (x.edit === true));
-            formatMenu.view = menus[1].add.fields.filter((x) => (x.view === true));
+            const addFields = menus[1].add.fields.filter((x) => (x.add === true));
+            formatMenu.add.fields = menus[1].add.fields.filter((x) => (x.add === true));
+            formatMenu.edit = {
+              fields: menus[1].add.fields.filter((x) => (x.edit === true))
+            };
+            formatMenu.view = {
+              fields: menus[1].add.fields.filter((x) => (x.view === true))
+            };
           } else if (formatMenu.child_sub_menu) {
               formatMenu.child_sub_menu.forEach(childMenu => {
-                if (childMenu.listview) {
-                  childMenu.listview.fields = [...formatMenu.listview.fields, ...childMenu.listview.fields];
-                  childMenu.add = {
-                    fields: childMenu.listview.fields
-                  };
-                  childMenu.edit = {
-                    fields: childMenu.listview.fields
-                  };
-                  childMenu.view = {
-                    fields: childMenu.listview.fields
-                  };
-                } else if (formatMenu.listview) {
-                  childMenu.listview = {
-                    fields: formatMenu.listview.fields
-                  };
-                  childMenu.add = {
-                    fields: childMenu.listview.fields
-                  };
-                  childMenu.edit = {
-                    fields: childMenu.listview.fields
-                  };
-                  childMenu.view = {
-                    fields: childMenu.listview.fields
-                  };
-                }
+                this.addChildMenus(formatMenu, childMenu);
               });
+          } else {
+            this.addParentMenus(formatMenu, menus);
           }
       });
       menus[1].isFormat = true;
@@ -110,5 +83,86 @@ export class CrudComponent {
       }
     });
     this.reload = !this.reload;
+  }
+
+  addChildMenus(formatMenu: any, elementData: any) {
+    if (elementData.listview) {
+      elementData.listview.fields = [...formatMenu.listview.fields, ...elementData.listview.fields];
+      elementData.add = {
+        fields: elementData.listview.fields
+      };
+      elementData.edit = {
+        fields: elementData.listview.fields
+      };
+      elementData.view = {
+        fields: elementData.listview.fields
+      };
+    } else if (formatMenu.listview) {
+      elementData.listview = {
+        fields: formatMenu.listview.fields
+      };
+      elementData.add = {
+        fields: elementData.listview.fields
+      };
+      elementData.edit = {
+        fields: elementData.listview.fields
+      };
+      elementData.view = {
+        fields: elementData.listview.fields
+      };
+    }
+  }
+
+  addParentMenus(formatMenu: any, menus: any) {
+    if (formatMenu.title === 'Companies' || formatMenu.title === 'Contestants') {
+      formatMenu.api = menus[1].api;
+      const listFields = (formatMenu.listview && formatMenu.listview.fields && formatMenu.listview.fields.length > 0 ) ?
+      [...formatMenu.listview.fields, ...menus[1].listview.fields] : menus[1].listview.fields;
+      formatMenu.listview = {
+        fields: listFields
+      };
+      const addFields = (formatMenu.add && formatMenu.add.fields && formatMenu.add.fields.length > 0 ) ?
+      [...formatMenu.add.fields, ...menus[1].add.fields] :
+      ((menus[1].add && menus[1].add.fields && menus[1].add.fields.length > 0) ? menus[1].add.fields : []);
+      formatMenu.add = {
+        fields: addFields,
+        url: menus[1].add.url
+      };
+      const editFields = (formatMenu.edit && formatMenu.edit.fields && formatMenu.edit.fields.length > 0 ) ?
+      [...formatMenu.edit.fields, ...menus[1].edit.fields] :
+      ((menus[1].edit && menus[1].edit.fields && menus[1].edit.fields.length > 0) ? menus[1].edit.fields : []);
+      formatMenu.edit = {
+        fields: editFields
+      };
+      const viewFields = (formatMenu.view && formatMenu.view.fields && formatMenu.view.fields.length > 0 ) ?
+      [...formatMenu.view.fields, ...menus[1].view.fields] :
+      ((menus[1].view && menus[1].view.fields && menus[1].view.fields.length > 0) ? menus[1].view.fields : []);
+      formatMenu.view = {
+        fields: viewFields
+      };
+    } else if (formatMenu.listview && formatMenu.listview.fields && formatMenu.listview.fields.length > 0) {
+      const listviewFields = formatMenu.listview.fields;
+      if (listviewFields.length > 0) {
+        formatMenu.listview.fields = listviewFields.filter((x) => (x.list === true));
+        const addField = listviewFields.filter((x) => (x.add === true));
+        if (addField.length > 0) {
+          formatMenu.add = {
+            fields: addField
+          };
+        }
+        const editField = listviewFields.filter((x) => (x.edit === true));
+        if (editField.length > 0) {
+          formatMenu.edit = {
+            fields: editField
+          };
+        }
+        const viewField = listviewFields.filter((x) => (x.view === true));
+        if (viewField.length > 0) {
+          formatMenu.view = {
+            fields: viewField
+          };
+        }
+      }
+    }
   }
 }
