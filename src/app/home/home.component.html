@@ -249,7 +249,7 @@
                 <a
                 href="javascript:void(0)"
                 [routerLink]="['/checkout/subscription']"
-                *ngIf="!sessionService.isAuth || (sessionService.isAuth && !sessionService.user.is_subscribed)"
+                *ngIf="(sessionService.isAuth && !sessionService.user.is_subscribed)"
                 class="text-uppercase btn btn-warning text-white px-5 subscribe-btn"
                 >Subscribe Now</a
             >

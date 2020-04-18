@@ -50,4 +50,14 @@ export class UserService {
         const userUrl: string = AppConst.SERVER_URL.USER;
         return this.apiService.httpPut(userUrl, user);
     }
+
+    getAllPages(): Observable<any> {
+        const url: string = AppConst.SERVER_URL.PAGES;
+        return this.apiService.httpGet(url, null);
+    }
+
+    getPageContent(slug: number): Observable<any> {
+        const url: string = AppConst.SERVER_URL.PAGES + '/' + slug;
+        return this.apiService.httpGet(url, null);
+    }
 }

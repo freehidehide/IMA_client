@@ -49,10 +49,6 @@ export class AddComponent implements OnInit {
     }
   }
 
-  @Input('reload')
-  set reloadPage(value: string) {
-  }
-
   ngOnInit(): void {
   }
 

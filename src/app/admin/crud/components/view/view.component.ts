@@ -32,11 +32,6 @@ export class ViewComponent implements OnInit {
         this.getRecords();
     }
 
-    @Input('reload')
-    set reloadPage(value: string) {
-
-    }
-
     ngOnInit(): void {
     }
 

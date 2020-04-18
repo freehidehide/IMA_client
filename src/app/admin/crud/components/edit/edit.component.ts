@@ -47,11 +47,6 @@ export class EditComponent implements OnInit {
       }
     }
 
-    @Input('reload')
-    set reloadPage(value: string) {
-
-    }
-
     ngOnInit(): void {
     }
 

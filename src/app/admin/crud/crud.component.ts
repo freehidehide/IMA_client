@@ -17,7 +17,6 @@ export class CrudComponent {
   public add: boolean;
   public edit: boolean;
   public view: boolean;
-  public reload = false;
   constructor(private activatedRoute: ActivatedRoute,
     public startupService: StartupService,
     private sessionService: SessionService,
@@ -35,7 +34,6 @@ export class CrudComponent {
     this.list = (!(window.location.href.indexOf('/add') > -1) && !(window.location.href.indexOf('/edit') > -1)
     && !(window.location.href.indexOf('/view') > -1));
     this.setMenu();
-    this.reload = !this.reload;
     this.add = (window.location.href.indexOf('/add') > -1);
     this.edit = (window.location.href.indexOf('/edit') > -1);
     this.view = (window.location.href.indexOf('/view') > -1);
@@ -82,33 +80,32 @@ export class CrudComponent {
         });
       }
     });
-    this.reload = !this.reload;
   }
 
   addChildMenus(formatMenu: any, elementData: any) {
     if (elementData.listview) {
       elementData.listview.fields = [...formatMenu.listview.fields, ...elementData.listview.fields];
       elementData.add = {
-        fields: elementData.listview.fields
+        fields: elementData.listview.fields.filter((x) => (x.add === true))
       };
       elementData.edit = {
-        fields: elementData.listview.fields
+        fields: elementData.listview.fields.filter((x) => (x.edit === true))
       };
       elementData.view = {
-        fields: elementData.listview.fields
+        fields: elementData.listview.fields.filter((x) => (x.view === true))
       };
     } else if (formatMenu.listview) {
       elementData.listview = {
-        fields: formatMenu.listview.fields
+        fields: formatMenu.listview.fields.filter((x) => (x.list === true))
       };
       elementData.add = {
-        fields: elementData.listview.fields
+        fields: elementData.listview.fields.filter((x) => (x.add === true))
       };
       elementData.edit = {
-        fields: elementData.listview.fields
+        fields: elementData.listview.fields.filter((x) => (x.edit === true))
       };
       elementData.view = {
-        fields: elementData.listview.fields
+        fields: elementData.listview.fields.filter((x) => (x.view === true))
       };
     }
   }

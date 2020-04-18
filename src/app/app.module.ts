@@ -16,6 +16,7 @@ import { ApiService } from './api/services/api.service';
 import { ToastService } from './api/services/toast-service';
 import { SessionService } from './api/services/session-service';
 import { StartupService } from './api/services/startup.service';
+import { UserService } from './api/services/user.service';
 import { SiteLoaderComponent } from './site-loader/site-loader.component';
 
 export function startupServiceFactory(startupService: StartupService): Function {
@@ -43,6 +44,7 @@ export function startupServiceFactory(startupService: StartupService): Function 
         ToastService,
         SessionService,
         StartupService,
+        UserService,
         {
             // Provider for APP_INITIALIZER
             provide: APP_INITIALIZER,

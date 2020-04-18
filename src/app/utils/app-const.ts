@@ -26,7 +26,8 @@ export class AppConst {
         CART: '/cart',
         CART_PURCHASE: '/purchase/cart',
         USER_ADDRESS: '/user_address',
-        INSTANT_WINNER: '/instant_vote'
+        INSTANT_WINNER: '/instant_vote',
+        PAGES: '/pages'
     };
 
     public static readonly NON_AUTH_SERVER_URL = [
@@ -40,7 +41,14 @@ export class AppConst {
         '/advertisements',
         '/settings?is_web=true',
         '/contestants/highest_votes',
-        '/contestants/recent_winner'
+        '/contestants/recent_winner',
+        '/pages',
+        '/pages/aboutus',
+        '/pages/term-and-conditions',
+        '/pages/privacy',
+        '/pages/how-it-works',
+        '/pages/aup',
+        '/pages/faq'
     ];
 
     public static readonly SERVICE_STATUS = {
