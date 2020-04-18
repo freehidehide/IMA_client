@@ -9,7 +9,7 @@ import { EditComponent } from '../crud/components/edit/edit.component';
 import { ViewComponent } from '../crud/components/view/view.component';
 import { CrudService } from '../../api/services/crud.service';
 import { TargetEntityToNamePipe } from './target-entity-to-name.pipe';
-import { NgxTextEditorModule } from 'ngx-text-editor';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedCommonModule } from '../../shared-common/shared-common.module';
 import { NgxTagsInputModule } from 'ngx-tags-input';
@@ -25,7 +25,7 @@ import { NgxTagsInputModule } from 'ngx-tags-input';
     imports: [
         CommonModule,
         NgbDropdownModule,
-        NgxTextEditorModule,
+        AngularEditorModule,
         NgbModule,
         FormsModule,
         SharedCommonModule,
@@ -37,7 +37,7 @@ import { NgxTagsInputModule } from 'ngx-tags-input';
         EditComponent,
         ViewComponent,
         TargetEntityToNamePipe,
-        NgxTextEditorModule,
+        AngularEditorModule,
         NgbModule
     ],
     providers: [

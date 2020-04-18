@@ -24,7 +24,7 @@
             </div>
             <div class="form-group" *ngIf="item.type === 'smart_editor'">
                 <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
-                <ngx-text-editor [placeholder]="'Enter text here...'" [spellcheck]="true"></ngx-text-editor>
+                <angular-editor [placeholder]="'Enter text here...'" [spellcheck]="true"></angular-editor>
             </div>
             <div class="form-group" *ngIf="item.type === 'textarea'">
                 <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>

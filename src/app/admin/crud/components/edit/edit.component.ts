@@ -120,7 +120,7 @@ export class EditComponent implements OnInit {
         if (element.name !== 'username') {
           if (element.is_required && (Array.isArray(element.value)
           && element.value.length === 0) || (!element.isNotEdit &&
-          !Array.isArray(element.value) && element.value.trim() === '')) {
+          !Array.isArray(element.value) && element.value.toString().trim() === '')) {
             inValid.push(element.label);
           } else if (element.name === 'email' && reg.test(element.value) === false) {
             inValid.push('Enter the valid email');

@@ -91,7 +91,7 @@ export class AddComponent implements OnInit {
     const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     this.menu.add.fields.forEach((element, index) => {
       if (element.is_required && (Array.isArray(element.value)
-      && element.value.length === 0) || (!Array.isArray(element.value) && element.value.trim() === '')) {
+      && element.value.length === 0) || (!Array.isArray(element.value) && element.value.toString().trim() === '')) {
         inValid.push(element.label);
       } else if (element.name === 'email' && reg.test(element.value) === false) {
         inValid.push('Enter the valid email');
@@ -105,7 +105,7 @@ export class AddComponent implements OnInit {
       if (this.menu && this.menu.query) {
         queryParam.class = this.menu.query;
       }
-      this.crudService.post(this.menu.add.url, dot.object(formData), queryParam)
+      this.crudService.post(this.menu.api, dot.object(formData), queryParam)
       .subscribe((response) => {
         if (response.error && response.error.code === AppConst.SERVICE_STATUS.SUCCESS) {
             this.toastService.success(response.error.message);
