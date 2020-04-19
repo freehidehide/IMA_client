@@ -84,11 +84,7 @@ export class SignupComponent extends BaseComponent implements OnInit {
                     JSON.stringify(this.User)
                 );
                 this.sessionService.isLogined();
-                if (this.User.role.id === AppConst.ROLE.USER) {
-                    this.router.navigate(['/admin']);
-                } else {
-                    this.router.navigate(['/contestants']);
-                }
+                this.router.navigate(['/']);
             } else {
                 this.toastService.error(this.User.error.message);
             }

@@ -19,6 +19,7 @@ export class EditComponent implements OnInit {
   public menu: any;
   public responseData: any;
   public settings: any;
+  public menuEditFields: any;
 
   constructor(private activatedRoute: ActivatedRoute,
     private crudService: CrudService,
@@ -31,18 +32,23 @@ export class EditComponent implements OnInit {
     set meunuItem(value: string) {
       if (value) {
         this.menu = value;
-        this.menu.edit.fields.forEach((element, index) => {
-          if (element.type === 'tags') {
-            this.crudService.get(element.reference, null)
-            .subscribe((response) => {
-              element.options = response.data;
-              this.setTags(element);
-            });
-            element.value = [];
-          } else {
-            element.value = '';
-          }
-        });
+        if (this.menu.api !== '/admin/settings' && this.menu.api !== '/admin/payment_gateways') {
+          this.menu.edit.fields.forEach((element, index) => {
+            if (element.type === 'tags' || element.type === 'select') {
+              this.crudService.get(element.reference, null)
+              .subscribe((response) => {
+                element.options = response.data;
+                if (element.type === 'tags') {
+                  this.setTags(element);
+                }
+              });
+              element.value = [];
+            } else {
+              element.value = '';
+            }
+          });
+          this.menuEditFields = this.menu.edit.fields;
+        }
         this.getRecords();
       }
     }
@@ -58,17 +64,30 @@ export class EditComponent implements OnInit {
             this.responseData = response.data;
             const formatObj = {};
             dot.dot(this.responseData, formatObj);
-            this.menu.edit.fields.forEach(element => {
-              if (formatObj[element.name]) {
-                  element.value = formatObj[element.name];
-              } else if (element.type === 'tags') {
-                  element.value = this.responseData[element.name];
-                  this.setTags(element);
-              } else if (element.type === 'file') {
-                element.value = (this.responseData['attachment'] && this.responseData['attachment']['filename'])
-                ? this.responseData['attachment']['filename'] : '';
-              }
-            });
+            this.menuEditFields = (this.menu.api === '/admin/settings' ||
+            this.menu.api === '/admin/payment_gateways') ? this.responseData : this.menu.edit.fields;
+            if (this.menu.api !== '/admin/payment_gateways') {
+              this.menuEditFields.forEach(element => {
+                if (formatObj[element.name]) {
+                    element.value = formatObj[element.name];
+                } else if (element.type === 'select') {
+                  if (element.reference) {
+                        this.crudService.get(element.reference, null)
+                          .subscribe((responseRef) => {
+                            element.options = responseRef.data;
+                          });
+                  } else if (element.option_values) {
+                    element.options = element.option_values.split(',');
+                  }
+                } else if (element.type === 'tags') {
+                    element.value = this.responseData[element.name];
+                    this.setTags(element);
+                } else if (element.type === 'file') {
+                  element.value = (this.responseData['attachment'] && this.responseData['attachment']['filename'])
+                  ? this.responseData['attachment']['filename'] : '';
+                }
+              });
+            }
             this.toastService.clearLoading();
         });
     }
@@ -116,10 +135,10 @@ export class EditComponent implements OnInit {
       const inValid = [];
       const formData = {};
       const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-      this.menu.edit.fields.forEach((element, index) => {
+      this.menuEditFields.forEach((element, index) => {
         if (element.name !== 'username') {
-          if (element.is_required && (Array.isArray(element.value)
-          && element.value.length === 0) || (!element.isNotEdit &&
+          if ((element.is_required && element.is_required !== 0) && (Array.isArray(element.value)
+          && element.value.length === 0) || ((element.is_required && element.is_required !== 0) && !element.isNotEdit &&
           !Array.isArray(element.value) && element.value.toString().trim() === '')) {
             inValid.push(element.label);
           } else if (element.name === 'email' && reg.test(element.value) === false) {
@@ -162,5 +181,4 @@ export class EditComponent implements OnInit {
     redirect(url: string): void {
         this.router.navigate([ '/admin/actions/' + this.apiEndPoint + '/' + url]);
     }
-
 }

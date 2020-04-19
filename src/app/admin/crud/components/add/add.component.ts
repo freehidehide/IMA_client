@@ -10,6 +10,7 @@ import * as dot from 'dot-object';
 import {Location} from '@angular/common';
 import { TagsChangedEvent } from 'ngx-tags-input/public-api';
 import { HttpClient } from '@angular/common/http';
+import {NgbDate, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-add',
@@ -22,6 +23,9 @@ export class AddComponent implements OnInit {
   public menu: any;
   public responseData: any;
   public settings: any;
+  public hoveredDate: NgbDate | null = null;
+  public fromDate: NgbDate;
+  public toDate: NgbDate | null = null;
 
   constructor(private crudService: CrudService,
     private toastService: ToastService,
@@ -29,7 +33,11 @@ export class AddComponent implements OnInit {
     public startupService: StartupService,
     private _location: Location,
     public router: Router,
-    private httpClient: HttpClient) { }
+    private httpClient: HttpClient,
+    calendar: NgbCalendar) {
+      this.fromDate = calendar.getToday();
+      this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+    }
 
   @Input('menu_detail')
   set meunuItem(value: string) {
@@ -42,6 +50,22 @@ export class AddComponent implements OnInit {
             element.options = response.data;
           });
           element.value = [];
+        } else if (element.type === 'select') {
+          if (element.reference) {
+                let query = null;
+                if (element.query) {
+                  query = {
+                    class: element.query
+                  };
+                }
+                this.crudService.get(element.reference, query)
+                  .subscribe((responseRef) => {
+                    element.options = responseRef.data;
+                    element.value = element.options[0];
+                  });
+          } else if (element.option_values) {
+            element.options = element.option_values.split(',');
+          }
         } else {
           element.value = '';
         }
@@ -67,6 +91,10 @@ export class AddComponent implements OnInit {
     this._location.back();
   }
 
+  changeSelect(item, event) {
+    item.value = event.target.value;
+  }
+
   uploadImage(event, item) {
     this.toastService.showLoading();
     const formData: any = new FormData();
@@ -83,6 +111,29 @@ export class AddComponent implements OnInit {
       }
         this.toastService.clearLoading();
     });
+  }
+
+  onDateSelection(date: NgbDate) {
+    if (!this.fromDate && !this.toDate) {
+      this.fromDate = date;
+    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+      this.toDate = date;
+    } else {
+      this.toDate = null;
+      this.fromDate = date;
+    }
+  }
+
+  isHovered(date: NgbDate) {
+    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
+  }
+
+  isInside(date: NgbDate) {
+    return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
+  }
+
+  isRange(date: NgbDate) {
+    return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
   }
 
   submit() {

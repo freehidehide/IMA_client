@@ -83,30 +83,42 @@ export class CrudComponent {
   }
 
   addChildMenus(formatMenu: any, elementData: any) {
-    if (elementData.listview) {
-      elementData.listview.fields = [...formatMenu.listview.fields, ...elementData.listview.fields];
-      elementData.add = {
-        fields: elementData.listview.fields.filter((x) => (x.add === true))
-      };
-      elementData.edit = {
-        fields: elementData.listview.fields.filter((x) => (x.edit === true))
-      };
-      elementData.view = {
-        fields: elementData.listview.fields.filter((x) => (x.view === true))
-      };
-    } else if (formatMenu.listview) {
-      elementData.listview = {
-        fields: formatMenu.listview.fields.filter((x) => (x.list === true))
-      };
-      elementData.add = {
-        fields: elementData.listview.fields.filter((x) => (x.add === true))
-      };
-      elementData.edit = {
-        fields: elementData.listview.fields.filter((x) => (x.edit === true))
-      };
-      elementData.view = {
-        fields: elementData.listview.fields.filter((x) => (x.view === true))
-      };
+    if (elementData.listview || formatMenu.listview) {
+      let listFields = formatMenu.listview.fields;
+      if (elementData.listview) {
+        if (elementData.api === '/admin/instant_contestants') {
+          listFields = [];
+          listFields.push(formatMenu.listview.fields[0]);
+         // listFields.push(formatMenu.listview.fields[1]);
+          listFields = [...listFields, ...elementData.listview.fields];
+          elementData.listview.fields = listFields;
+        } else {
+          listFields = [...formatMenu.listview.fields, ...elementData.listview.fields];
+          elementData.listview.fields = listFields;
+        }
+      } else {
+        elementData.listview = {
+          fields: formatMenu.listview.fields.filter((x) => (x.list === true))
+        };
+      }
+      const add = listFields.filter((x) => (x.add === true));
+      if (add.length > 0) {
+        elementData.add = {
+          fields: add
+        };
+      }
+      const edit = listFields.filter((x) => (x.edit === true));
+      if (edit.length > 0) {
+        elementData.edit = {
+          fields: edit
+        };
+      }
+      const view = listFields.filter((x) => (x.view === true));
+      if (view.length > 0) {
+        elementData.view = {
+          fields: view
+        };
+      }
     }
   }
 
