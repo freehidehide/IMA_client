@@ -22,4 +22,6 @@ export interface QueryParam {
     user_address_id?: number;
     from?: string;
     to?: string;
+    location?: string;
+    caption?: string;
 }

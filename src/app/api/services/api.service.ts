@@ -133,7 +133,8 @@ export class ApiService {
      */
     getFormattedQueryParam(url: string, params: any, method: string): string {
         let formattedUrl: string;
-        const appendToken: string = (!(AppConst.NON_AUTH_SERVER_URL.indexOf(url) > -1)
+        const appendToken: string = (!(AppConst.NON_AUTH_SERVER_URL.indexOf(url) > -1 || url.includes('pages')
+        || url.includes('page'))
         || (this.token && this.token !== '')) ? '?token=' + this.token : '?';
         if (params) {
             const queryString = Object.keys(params)

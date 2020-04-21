@@ -43,9 +43,12 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
                 zipcode: ['', [Validators.required]]
             })
         });
-
-        this.userId = this.sessionService.user.id;
-        this.getUser(true);
+        if (this.sessionService.user) {
+            this.userId = this.sessionService.user.id;
+            this.getUser(true);
+        } else {
+            this.router.navigate(['/']);
+        }
     }
 
     get f() {
@@ -61,6 +64,22 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
           left: 0,
           behavior: 'smooth'
         });
+    }
+
+    attachment(event: any) {
+       if (event.attachment) {
+            this.userService
+                .updateImage({image: event.attachment})
+                .subscribe((response) => {
+                    this.toastService.clearLoading();
+                    if (response.error.code) {
+                        this.toastService.error(response.error.message);
+                    } else {
+                        this.getUser(true);
+                        this.gotoTop();
+                    }
+                });
+        }
     }
 
     onSubmit() {

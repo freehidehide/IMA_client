@@ -5,6 +5,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { SessionService } from '../../../api/services/session-service';
 import { StartupService } from '../../../api/services/startup.service';
 import { ToastService } from '../../../api/services/toast-service';
+import { UserService } from 'src/app/api/services/user.service';
+import { AppConst } from 'src/app/utils/app-const';
 @Component({
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html',
@@ -23,6 +25,7 @@ export class SidebarComponent implements OnInit {
         public router: Router,
         private sessionService: SessionService,
         public startupService: StartupService,
+        private userService: UserService,
         private toastService: ToastService) {
         this.router.events.subscribe((val) => {
             if (
@@ -85,11 +88,25 @@ export class SidebarComponent implements OnInit {
     }
 
     redirect(url: string): void {
-        if (url === '/logout') {
-            this.sessionService.logout();
-            this.router.navigate([ '/' ]);
+        if (url === '/admin/actions/logout') {
+            this.logout();
         } else {
             this.router.navigate([ url ]);
         }
+    }
+
+    logout(): void {
+        this.userService.logout().subscribe((response) => {
+            if (
+                response.error &&
+                response.error.code === AppConst.SERVICE_STATUS.SUCCESS
+            ) {
+                this.sessionService.logout();
+                this.router.navigate(['/']);
+            } else {
+                this.toastService.error(response.error.message);
+            }
+            this.toastService.clearLoading();
+        });
     }
 }

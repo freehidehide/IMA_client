@@ -30,5 +30,6 @@ export class SessionService {
     logout(): void {
         sessionStorage.removeItem('user_context');
         this.isAuth = false;
+        this.user = null;
     }
 }

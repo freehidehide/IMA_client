@@ -10,8 +10,7 @@
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
     <div class="content-middle">
-        <div class="col-md-7 order-md-first">
-            {{pageData.content}}
+        <div class="col-md-7 order-md-first" [innerHTML]="pageData.content">
         </div>
     </div>
 </div>

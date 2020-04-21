@@ -14,11 +14,19 @@
         </button>
         <div class="collapse navbar-collapse" [ngClass]="{show: isShow}">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="!sessionService.isAuth || (sessionService.isAuth && !sessionService.user.role.id === 2)">
                     <a
                         href="javascript:void(0)"
                         [routerLink]="['/']"
                         (click)="toggleSidebar()"
+                        class="nav-link"
+                        >HOME</a
+                    >
+                </li>
+                <li class="nav-item" *ngIf="(sessionService.isAuth && !sessionService.user.role.id !== 2)">
+                    <a
+                        href="javascript:void(0)"
+                        (click)="toggleSidebar();redirect('/profile/', sessionService.user.id)"
                         class="nav-link"
                         >HOME</a
                     >
@@ -32,7 +40,7 @@
                         >ADVERTISERS</a
                     >
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="!sessionService.isAuth || (sessionService.isAuth && !sessionService.user.role.id === 2)">
                     <a
                         href="javascript:void(0)"
                         [routerLink]="['/categories']"
@@ -77,7 +85,7 @@
                         >SIGNUP</a
                     >
                 </li>
-                <li class="nav-item" *ngIf="sessionService.isAuth">
+                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id === 2">
                     <a
                         href="javascript:void(0)"
                         [routerLink]="['/view-profile']"
@@ -86,31 +94,31 @@
                         >PROFILE</a
                     >
                 </li>
+                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id !== 2">
+                    <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/edit']"
+                        class="nav-link"
+                        (click)="toggleSidebar()"
+                        >PROFILE</a
+                    >
+                </li>
                 <li class="nav-item" *ngIf="sessionService.isAuth">
                     <a
                         href="javascript:void(0)"
-                        [routerLink]="['/view-profile']"
+                        [routerLink]="['/shop']"
                         class="nav-link"
                         (click)="toggleSidebar()"
                         >MY ORDERS</a
                     >
                 </li>
-                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id === 3">
+                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id !== 2">
                     <a
                         href="javascript:void(0)"
-                        [routerLink]="['/view-profile']"
+                        [routerLink]="['/shop']"
                         class="nav-link"
                         (click)="toggleSidebar()"
                         >MY PRODUCTS</a
-                    >
-                </li>
-                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id === 3">
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/profile/' + sessionService.user.id]"
-                        class="nav-link"
-                        (click)="toggleSidebar()"
-                        >UPLOAD SUBSCRIPTION</a
                     >
                 </li>
                 <li class="nav-item" *ngIf="sessionService.isAuth">
@@ -134,11 +142,7 @@
                 <li class="nav-item" *ngIf="sessionService.isAuth">
                     <a
                         href="javascript:void(0)"
-                        (click)="
-                            toggleSidebar();
-                            sessionService.logout();
-                            redirect('/')
-                        "
+                        (click)="logout();"
                         class="nav-link"
                         >LOGOUT</a
                     >
@@ -181,7 +185,7 @@
                         >VOTE</a
                     >
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="!sessionService.isAuth || (sessionService.isAuth && !sessionService.user.role.id === 2)">
                     <a
                         href="javascript:void(0)"
                         [routerLink]="['/categories']"
@@ -229,31 +233,31 @@
                 <li class="nav-item" *ngIf="sessionService.isAuth">
                     <a
                         href="javascript:void(0)"
-                        [routerLink]="['/view-profile']"
+                        [routerLink]="['/shop']"
                         class="nav-link"
                         (click)="toggleSidebar()"
                         >MY ORDERS</a
                     >
                 </li>
-                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id === 3">
+                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id !== 2">
                     <a
                         href="javascript:void(0)"
-                        [routerLink]="['/view-profile']"
+                        [routerLink]="['/shop']"
                         class="nav-link"
                         (click)="toggleSidebar()"
                         >My Products</a
                     >
                 </li>
-                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id === 3">
+                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id === 2">
                     <a
                         href="javascript:void(0)"
-                        [routerLink]="['/profile/' + sessionService.user.id]"
+                        [routerLink]="['/edit']"
                         class="nav-link"
                         (click)="toggleSidebar()"
-                        >UPLOAD SUBSCRIPTION</a
+                        >PROFILE</a
                     >
                 </li>
-                <li class="nav-item" *ngIf="sessionService.isAuth">
+                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id !== 2">
                     <a
                         href="javascript:void(0)"
                         [routerLink]="['/edit']"
@@ -284,11 +288,7 @@
                     <a
                         href="javascript:void(0)"
                         [routerLink]="['/']"
-                        (click)="
-                            toggleSidebar();
-                            sessionService.logout();
-                            redirect('/')
-                        "
+                        (click)="logout();"
                         class="nav-link"
                         >LOGOUT</a
                     >

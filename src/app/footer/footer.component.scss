@@ -11,6 +11,14 @@
     }
 }
 
+.footer-link {
+    display: flex;
+    color: white;
+    li {
+        height: 30px;
+    }
+}
+
 @media (max-width: 767px) {
     .imafooter {
         display: flex;

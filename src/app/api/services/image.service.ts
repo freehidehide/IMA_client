@@ -15,6 +15,6 @@ export class ImageService {
 
     updateUserAvatar(imageData, queryParam: QueryParam): Observable<User> {
         const imageUrl: string = AppConst.SERVER_URL.ATTACHMENTS;
-        return this.apiService.httpPost(imageUrl, imageData, queryParam);
+        return this.apiService.httpPostFile(imageUrl, imageData, queryParam);
     }
 }
