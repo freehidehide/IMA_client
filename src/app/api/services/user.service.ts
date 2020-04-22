@@ -26,6 +26,11 @@ export class UserService {
         return this.apiService.httpPut(updateDetail, updateForm.value);
     }
 
+    updateImage(image: any): Observable<User> {
+        const updateDetail: string = AppConst.SERVER_URL.USER_IMAGE;
+        return this.apiService.httpPut(updateDetail, image);
+    }
+
     changePassword(changePasswordForm: FormGroup): Observable<User> {
         const changePassword: string =
             AppConst.SERVER_URL.CHANGEPASSWORD;
@@ -58,6 +63,16 @@ export class UserService {
 
     getPageContent(slug: number): Observable<any> {
         const url: string = AppConst.SERVER_URL.PAGES + '/' + slug;
+        return this.apiService.httpGet(url, null);
+    }
+
+    postFile(request: any, queryParam: QueryParam): Observable<any> {
+        const url: string = AppConst.SERVER_URL.ATTACHMENTS;
+        return this.apiService.httpPostFile(url, request, queryParam);
+    }
+
+    logout(): Observable<any> {
+        const url: string = AppConst.SERVER_URL.LOGOUT;
         return this.apiService.httpGet(url, null);
     }
 }

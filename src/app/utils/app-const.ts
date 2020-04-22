@@ -27,7 +27,9 @@ export class AppConst {
         CART_PURCHASE: '/purchase/cart',
         USER_ADDRESS: '/user_address',
         INSTANT_WINNER: '/instant_vote',
-        PAGES: '/pages'
+        PAGES: '/pages',
+        USER_IMAGE: '/user_image',
+        LOGOUT: '/users/logout'
     };
 
     public static readonly NON_AUTH_SERVER_URL = [

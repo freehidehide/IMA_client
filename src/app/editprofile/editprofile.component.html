@@ -13,6 +13,7 @@
                 <app-attachment-upload
                     [class]="userClass"
                     [multiple]="multiple"
+                    (attachment)="attachment($event)"
                 ></app-attachment-upload>
             </div>
         </div>

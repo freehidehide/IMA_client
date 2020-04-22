@@ -1,8 +1,11 @@
 
 import { Component, HostListener, Inject } from '@angular/core';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
-import { SessionService } from '../api/services/session-service';
+import { SessionService } from 'src/app/api/services/session-service';
+import { UserService } from 'src/app/api/services/user.service';
 import { DOCUMENT } from '@angular/common';
+import { AppConst } from 'src/app/utils/app-const';
+import { ToastService } from 'src/app/api/services/toast-service';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
@@ -33,7 +36,9 @@ export class HeaderComponent {
     constructor(
         @Inject(DOCUMENT) private document: Document,
         private router: Router,
-        public sessionService: SessionService
+        private userService: UserService,
+        public sessionService: SessionService,
+        private toastService: ToastService
     ) {
         this.router.events.subscribe((event) => {
             if (event instanceof NavigationEnd) {
@@ -57,7 +62,22 @@ export class HeaderComponent {
         this.isShow = !this.isShow;
     }
 
-    redirect(url: string): void {
-        this.router.navigate([url]);
+    redirect(url: string, id: string): void {
+        this.router.navigate([url + id]);
+    }
+
+    logout(): void {
+        this.userService.logout().subscribe((response) => {
+            if (
+                response.error &&
+                response.error.code === AppConst.SERVICE_STATUS.SUCCESS
+            ) {
+                this.sessionService.logout();
+                this.router.navigate(['/']);
+            } else {
+                this.toastService.error(response.error.message);
+            }
+            this.toastService.clearLoading();
+        });
     }
 }

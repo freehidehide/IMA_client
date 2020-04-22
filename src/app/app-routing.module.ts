@@ -96,6 +96,13 @@ const routes: Routes = [
             )
     },
     {
+        path: 'addproduct',
+        loadChildren: () =>
+            import('./addproduct/addproduct.module').then(
+                (m) => m.AddproductModule
+            )
+    },
+    {
         path: 'imalisting',
         loadChildren: () =>
             import('./imalisting/imalisting.module').then(
