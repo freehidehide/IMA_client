@@ -1,12 +1,20 @@
 <!-- @format -->
 
-<footer class="imafooter" *ngIf="hideFooter">
-    <p class="text-center m-0">
-        COPYRIGHT 2020 [IMA]. All rights reserved.
-    </p>
-    <!-- <ul *ngIf="pages" class="text-center m-0">
-        <li *ngFor="let page of pages"  (click)="redirect(page.url)">
-            {{page.title}}
-        </li>
-    </ul> -->
+<footer *ngIf="hideFooter">
+    <div class="footer-menu">
+        <div class="container">
+            <ul *ngIf="pages">
+                <li *ngFor="let page of pages" (click)="redirect(page.url)">
+                    {{page.title}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="container">
+            <p class="text-center m-0">
+                COPYRIGHT 2020 [IMA]. All rights reserved.
+            </p>
+        </div>
+    </div>
 </footer>

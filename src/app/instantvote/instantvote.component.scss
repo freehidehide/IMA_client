@@ -144,7 +144,17 @@
     }
 }
 
+
+// overwrite styles
+.instaprofilelisting a.active {
+    display: inline-block;
+    box-shadow: 0 0 6px 3px rgba(0,0,0,0.25);
+    border-radius: 30px;
+}
+
 /*individual ends */
+
+
 
 @media (max-width: 1440px) {
     .timer-container {
@@ -414,3 +424,5 @@
         }
     }
 }
+
+
