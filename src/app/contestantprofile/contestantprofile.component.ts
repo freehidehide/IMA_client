@@ -1,6 +1,6 @@
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit, ElementRef, OnDestroy, AfterViewInit  } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { ToastService } from '../api/services/toast-service';
 import { UserService } from '../api/services/user.service';
 import { SessionService } from '../api/services/session-service';
@@ -12,31 +12,15 @@ import { CategoryService } from '../api/services/category.service';
 import { UserCategoryList } from '../api/models/user-category-list';
 import { UserCategory } from '../api/models/user-category';
 import { AppConst } from '../utils/app-const';
-/* import * as adapter from 'webrtc-adapter/out/adapter_no_global';
-import * as RecordRTC from 'recordrtc';
-import * as Record from 'videojs-record/dist/videojs.record';
-import videojs from 'video.js';*/
 @Component({
     selector: 'app-contestantprofile',
     templateUrl: './contestantprofile.component.html',
     styleUrls: ['./contestantprofile.component.scss']
 })
-export class ContestantprofileComponent extends UserBaseComponent
-    implements OnInit, OnDestroy, AfterViewInit {
-    // reference to the element itself: used to access events and methods
-    // https://github.com/collab-project/videojs-record/wiki/Angular
-    // https://www.npmjs.com/package/videojs-record
-    // https://collab-project.github.io/videojs-record/examples/audio-video.html
-    private _elementRef: ElementRef;
-
-    // index to create unique ID for component
-    idx = 'clip1';
+export class ContestantprofileComponent extends UserBaseComponent{
     public userCategoryList: UserCategoryList;
     public userCategories: UserCategory[];
     public category_id: number;
-    private config: any;
-    private player: any;
-    private plugin: any;
     public catId: any;
     public location = '';
     public caption = '';
@@ -55,43 +39,6 @@ export class ContestantprofileComponent extends UserBaseComponent
         private modalService: NgbModal
     ) {
         super(router, userService, toastService);
-        this.player = false;
-
-        // save reference to plugin (so it initializes)
-        // this.plugin = Record;
-
-        // video.js configuration
-        this.config = {
-        controls: true,
-        autoplay: false,
-        fluid: false,
-        loop: false,
-        width: 320,
-        height: 240,
-        controlBar: {
-            volumePanel: false
-        },
-        plugins: {
-            /*
-            // wavesurfer section is only needed when recording audio-only
-            wavesurfer: {
-                src: 'live',
-                waveColor: '#36393b',
-                progressColor: 'black',
-                debug: true,
-                cursorWidth: 1,
-                msDisplayMax: 20,
-                hideScrollbar: true
-            },
-            */
-            // configure videojs-record plugin
-            record: {
-            audio: false,
-            video: true,
-            debug: true
-            }
-        }
-        };
     }
 
     getCategories() {
@@ -128,6 +75,55 @@ export class ContestantprofileComponent extends UserBaseComponent
         }
     }
 
+    uploadVideo(event) {
+        /*const file: any = event.target.files[0];
+        const fileReader: any = new FileReader();
+        fileReader.onload = function() {
+            const blob: any = new File([fileReader.result], {type: file.type});
+            const url: any = URL.createObjectURL(blob);
+            const video: any = document.createElement('video');
+            const timeupdate = function() {
+              if (snapImage()) {
+                video.removeEventListener('timeupdate', timeupdate);
+                video.pause();
+              }
+            };
+            video.addEventListener('loadeddata', function() {
+              if (snapImage()) {
+                video.removeEventListener('timeupdate', timeupdate);
+              }
+            });
+            const snapImage = function() {
+                const canvas = document.createElement('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+                    const image = canvas.toDataURL();
+                    const success = image.length > 100000;
+                    if (success) {
+                        console.log('image--------', image);
+                    }
+                    URL.revokeObjectURL(url);
+              return success;
+            };
+            video.addEventListener('timeupdate', timeupdate);
+            video.preload = 'metadata';
+            video.src = url;
+            // Load video in Safari / IE11
+            video.muted = true;
+            video.playsInline = true;
+            video.play();
+
+          };
+        const formData: any = new FormData();
+        if (event.target.files.length > 0) {
+            formData.append('file', event.target.files[0], event.target.files[0].name);
+
+        } else {
+            this.imageList = '';
+        }*/
+    }
+
     profileUpload() {
         if (this.location.trim() !== '' &&  this.caption.trim() !== '') {
             this.toastService.showLoading();
@@ -162,48 +158,6 @@ export class ContestantprofileComponent extends UserBaseComponent
         }
     }
 
-    ngAfterViewInit() {
-        // ID with which to access the template's video element
-        const el = 'video_' + this.idx;
-
-        // setup the player via the unique element ID
-        /* this.player = videojs(document.getElementById(el), this.config, () => {
-          console.log('player ready! id:', el);
-
-          // print version information at startup
-          const msg = 'Using video.js ' + videojs.VERSION +
-            ' with videojs-record ' + videojs.getPluginVersion('record') +
-            ' and recordrtc ' + RecordRTC.version;
-          videojs.log(msg);
-        });
-
-        // device is ready
-        this.player.on('deviceReady', () => {
-          console.log('device is ready!');
-        });
-
-        // user clicked the record button and started recording
-        this.player.on('startRecord', () => {
-          console.log('started recording!');
-        });
-
-        // user completed recording and stream is available
-        this.player.on('finishRecord', () => {
-          // recordedData is a blob object containing the recorded data that
-          // can be downloaded by the user, stored on server etc.
-          console.log('finished recording: ', this.player.recordedData);
-        });
-
-        // error handling
-        this.player.on('error', (element, error) => {
-          console.warn(error);
-        });
-
-        this.player.on('deviceError', () => {
-          console.error('device error:', this.player.deviceErrorCode);
-        });*/
-    }
-
     ngOnInit(): void {
         this.userId = +this.activatedRoute.snapshot.paramMap.get('id');
         this.categoryId = +this.activatedRoute.snapshot.paramMap.get('categoryId');
@@ -221,12 +175,5 @@ export class ContestantprofileComponent extends UserBaseComponent
 
     viewMore(data: any) {
         data.viewmore = true;
-    }
-
-    ngOnDestroy() {
-        if (this.player) {
-            this.player.dispose();
-            this.player = false;
-        }
     }
 }
