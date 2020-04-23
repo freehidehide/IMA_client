@@ -6,17 +6,9 @@
         </button>
         <div class="collapse navbar-collapse" [ngClass]="{show: isShow}">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="javascript:void(0)" [routerLink]="['/']" (click)="toggleSidebar()"
-                        class="nav-link">HOME</a>
-                </li>
                 <li class="nav-item" *ngIf="(sessionService.isAuth && !sessionService.user.role.id !== 2)">
-                    <a
-                        href="javascript:void(0)"
-                        (click)="toggleSidebar();redirect('/profile/', sessionService.user.id)"
-                        class="nav-link"
-                        >HOME</a
-                    >
+                    <a href="javascript:void(0)" (click)="toggleSidebar();redirect('/profile/', sessionService.user.id)"
+                        class="nav-link">HOME</a>
                 </li>
                 <li class="nav-item">
                     <a href="javascript:void(0)" [routerLink]="['/advertisers']" (click)="toggleSidebar()"
@@ -73,7 +65,6 @@
                             redirect('/')
                         " class="nav-link">LOGOUT</a>
                 </li>
-
             </ul>
         </div>
     </nav>
