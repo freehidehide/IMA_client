@@ -1,6 +1,6 @@
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, Injectable, Inject, OnInit } from '@angular/core';
 import { ToastService } from '../api/services/toast-service';
 import { UserService } from '../api/services/user.service';
 import { SessionService } from '../api/services/session-service';
@@ -12,12 +12,13 @@ import { CategoryService } from '../api/services/category.service';
 import { UserCategoryList } from '../api/models/user-category-list';
 import { UserCategory } from '../api/models/user-category';
 import { AppConst } from '../utils/app-const';
+import { DOCUMENT } from '@angular/common';
 @Component({
     selector: 'app-contestantprofile',
     templateUrl: './contestantprofile.component.html',
     styleUrls: ['./contestantprofile.component.scss']
 })
-export class ContestantprofileComponent extends UserBaseComponent{
+export class ContestantprofileComponent extends UserBaseComponent  implements OnInit {
     public userCategoryList: UserCategoryList;
     public userCategories: UserCategory[];
     public category_id: number;
@@ -36,7 +37,8 @@ export class ContestantprofileComponent extends UserBaseComponent{
         private activatedRoute: ActivatedRoute,
         public sessionService: SessionService,
         public categoryService: CategoryService,
-        private modalService: NgbModal
+        private modalService: NgbModal,
+        @Inject(DOCUMENT) private document: Document
     ) {
         super(router, userService, toastService);
     }
@@ -75,53 +77,52 @@ export class ContestantprofileComponent extends UserBaseComponent{
         }
     }
 
-    uploadVideo(event) {
-        /*const file: any = event.target.files[0];
-        const fileReader: any = new FileReader();
-        fileReader.onload = function() {
-            const blob: any = new File([fileReader.result], {type: file.type});
-            const url: any = URL.createObjectURL(blob);
-            const video: any = document.createElement('video');
-            const timeupdate = function() {
-              if (snapImage()) {
-                video.removeEventListener('timeupdate', timeupdate);
-                video.pause();
-              }
-            };
-            video.addEventListener('loadeddata', function() {
-              if (snapImage()) {
-                video.removeEventListener('timeupdate', timeupdate);
-              }
+    uploadVideo(parentEvent) {
+        // https://stackblitz.com/edit/video-thumbnail?file=app%2Fvideo-processing-service.ts
+        const formData: FormData = new FormData();
+        const videoName: string = parentEvent.target.files[0].name;
+        const file: any = parentEvent.target.files[0];
+        const video: HTMLVideoElement = this.document.createElement('video');
+        const canvas: HTMLCanvasElement = this.document.createElement('canvas');
+        const context: CanvasRenderingContext2D = canvas.getContext('2d');
+        return new Promise<string>((resolve, reject) => {
+            canvas.addEventListener('error',  reject);
+            video.addEventListener('error',  reject);
+            video.addEventListener('canplay', event => {
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+                formData.append('file[]', parentEvent.target.files[0], videoName);
+                const imageName = videoName.split('.');
+                formData.append('image[]', this.dataURItoBlob(canvas.toDataURL('image/jpeg')), 'thumb_' + imageName[0] + '.jpg');
+                this.imageList = formData;
+                resolve(canvas.toDataURL());
             });
-            const snapImage = function() {
-                const canvas = document.createElement('canvas');
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
-                    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-                    const image = canvas.toDataURL();
-                    const success = image.length > 100000;
-                    if (success) {
-                        console.log('image--------', image);
-                    }
-                    URL.revokeObjectURL(url);
-              return success;
-            };
-            video.addEventListener('timeupdate', timeupdate);
-            video.preload = 'metadata';
-            video.src = url;
-            // Load video in Safari / IE11
-            video.muted = true;
-            video.playsInline = true;
-            video.play();
+            if (file.type) {
+                video.setAttribute('type', file.type);
+            }
+            video.preload = 'auto';
+            video.src = window.URL.createObjectURL(file);
+            video.load();
+        });
+    }
 
-          };
-        const formData: any = new FormData();
-        if (event.target.files.length > 0) {
-            formData.append('file', event.target.files[0], event.target.files[0].name);
-
+    dataURItoBlob(dataURI) {
+        // convert base64/URLEncoded data component to raw binary data held in a string
+        let byteString;
+        if (dataURI.split(',')[0].indexOf('base64') >= 0) {
+            byteString = atob(dataURI.split(',')[1]);
         } else {
-            this.imageList = '';
-        }*/
+            byteString = unescape(dataURI.split(',')[1]);
+        }
+        // separate out the mime component
+        const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+        // write the bytes of the string to a typed array
+        const ia = new Uint8Array(byteString.length);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([ia], {type: mimeString});
     }
 
     profileUpload() {
