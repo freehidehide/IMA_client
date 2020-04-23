@@ -14,7 +14,7 @@
                     <a href="javascript:void(0)" [routerLink]="['/advertisers']" (click)="toggleSidebar()"
                         class="nav-link">ADVERTISERS</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="!sessionService.isAuth || (sessionService.isAuth && sessionService.user.role.id === 2)">
                     <a href="javascript:void(0)" [routerLink]="['/categories']" (click)="toggleSidebar()"
                         class="nav-link">CATEGORIES</a>
                 </li>
@@ -88,9 +88,14 @@
                     <a href="javascript:void(0)" [routerLink]="['/contestants']" (click)="toggleSidebar()"
                         class="nav-link">VOTE</a>
                 </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)" [routerLink]="['/categories']" (click)="toggleSidebar()"
-                        class="nav-link">CATEGORIES</a>
+                <li class="nav-item" *ngIf="!sessionService.isAuth || (sessionService.isAuth && sessionService.user.role.id === 2)">
+                    <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/categories']"
+                        (click)="toggleSidebar()"
+                        class="nav-link"
+                        >CATEGORIES</a
+                    >
                 </li>
                 <li class="nav-item">
                     <a href="javascript:void(0)" [routerLink]="['/shop']" (click)="toggleSidebar()"
