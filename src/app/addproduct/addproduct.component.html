@@ -1,10 +1,169 @@
 <div class="imacontainer">
     <div class="subheader position-relative">
         <div class="subheadings">
-            <h2 class="text-uppercase">Add Products</h2>
+            <h2 class="text-uppercase">Shop</h2>
         </div>
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
+
+    <!-- List Product Start -->
     <div class="content-middle">
+	    <div class="container">
+	    	<h3 class="text-center h3_title">List your Product</h3>
+	    	<div class="row">
+
+		    	<div class="col-md-6">
+                    <div class="imgUploadbx">
+                        <div class="pictureContainer">
+                            <div class="pictureSec productPic">
+                                <img src="#" class="input_img pictureSrc" title="" class="img-responsive" />
+                                <input type="file" onchange="readURL(this);">
+                                <h6 class="addPoto">Upload product Image<br>
+                                <i class="fa fa-camera" aria-hidden="true"></i>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+			    <div class="col-md-6">	
+                
+                    <div class="customSizeadd">
+                        <h6 class="titleh6">Choose Color</h6> 
+                    </div>	
+
+                    <div class="customSizebox">
+                        <h6 class="titleh6">List your Product</h6> 
+                        <input type="checkbox" id="box-1" checked>
+                        <label for="box-1">XS</label>
+
+                        <input type="checkbox" id="box-2" checked>
+                        <label for="box-2">S</label>
+
+                        <input type="checkbox" id="box-3" checked>
+                        <label for="box-3">M</label>
+
+                        <input type="checkbox" id="box-4">
+                        <label for="box-4">L</label>
+
+                        <input type="checkbox" id="box-5">
+                        <label for="box-5">XL</label>
+
+                        <input type="checkbox" id="box-6">
+                        <label for="box-6">XXl</label>
+                    </div>       
+			    </div>
+
+			    <div class="col-md-12">
+			    	<form class="productForm">
+					  	<div class="form-row">
+						    <div class="form-group col-md-6">
+						    	<label for="inputEmail4">Product Name</label>
+						    	<input type="text" class="form-control" id="inputEmail4" placeholder="What are you Selling?">
+						    </div>
+						    <div class="form-group col-md-3">
+						    	<label for="inputEmail4">Quantity</label>
+						    	<input type="text" class="form-control" id="inputEmail4" placeholder="Set Quantity">
+						    </div>
+						    <div class="form-group col-md-3">
+						    	<label for="inputEmail4">Discount</label>
+						    	<input type="text" class="form-control" id="inputEmail4" placeholder="Set Discount">
+						    </div>
+					  	</div>
+					  	<div class="form-row">
+						    <div class="form-group col-md-6">
+						    	<label for="inputAddress">Product Description</label>
+						    	<input type="text" class="form-control" id="inputAddress" placeholder="Describe Your Product">
+						    </div>
+						    <div class="form-group col-md-6">
+						    	<label for="inputEmail4">Discount Code</label>
+						    	<input type="text" class="form-control" id="inputEmail4" placeholder="Set your Discount Code">
+						    </div>
+					  	</div>
+					  	<div class="text-center">
+    	  					<button type="submit" class="btn btn-primary primaryBtn mt-5">Continue</button>
+    	  				</div>
+					</form>
+			    </div>
+		    </div>
+	    </div>
+	</div>
+    <!-- List Product End -->
+
+    <!-- Congratulations Status Start -->
+    <div class="content-middle">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6">
+                    <div class="prductDetails">   
+                        <h6 class="titleh6">Product Name</h6>  
+                        <h4>Lorem Ipsum</h4> 
+                        <h6 class="titleh6">Product Description</h6>
+                        <p class="textp">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="titleh6">Discount</h6>
+                                <h5>10% off</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="titleh6">Discount Code</h6>
+                                <h5>I Love IMAS</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="titleh6">Quantity</h6>
+                                <h5>10 items</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="titleh6">Colors</h6>
+                            </div>
+                            <div class="col-md-12">
+                                <h6 class="titleh6">Size</h6>
+                                <h5>XS <span class="lightLine">|</span> S <span class="lightLine">|</span> M <span class="lightLine">|</span> L <span class="lightLine">|</span>  XXL</h5>
+                            </div>
+                        </div>   
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary primaryBtn mt-4">Add to Listings</button>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- Congratulations Status End -->
+
+    <!-- Congratulations Status Start -->
+    <div class="content-middle">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-4 col-md-4 text-center">
+                    <div class="prductStatus">
+                        <i class="fa fa-check" aria-hidden="true"></i>    
+                        <p class="textp pt-4">Congratulations!</p>   
+                        <p class="textp pb-5">Your <span class="bold400">Product</span> is<br>now being listed</p>   
+                        <button type="submit" class="btn btn-primary primaryBtn mt-4">Add more Products</button>
+                        <button type="submit" class="btn btn-primary secondryBtn mt-3">Visit Shop</button>
+                    </div>            
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Congratulations Status End -->
+
 </div>
+
+<!-- Browse Input Image Start -->
+<script>
+    function readURL(input) {
+    if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+    $('.input_img')
+    .attr('src', e.target.result)
+    .width()
+    .height();
+    };
+    reader.readAsDataURL(input.files[0]);
+    }
+    }
+</script>
+<!-- Browse Input Image End -->
