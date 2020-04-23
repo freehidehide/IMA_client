@@ -6,6 +6,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { AttachmentUploadComponent } from './attachment-upload/attachment-upload.component';
 import { TabComponent } from './tab/tab.component';
 import { TabsComponent } from './tab/tabs.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,7 @@ import { TabsComponent } from './tab/tabs.component';
         TabComponent,
         TabsComponent
     ],
-    imports: [CommonModule],
+    imports: [CommonModule, NgbModule],
     exports: [
         AttachmentComponent,
         AttachmentUploadComponent,

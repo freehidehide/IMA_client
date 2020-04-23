@@ -15,7 +15,9 @@ export class AttachmentComponent {
     public cssClassString: string;
     public isVideo: boolean;
     public isPlayVideo: boolean;
-
+    public modalReference = null;
+    constructor(private modalService: NgbModal) {
+    }
     @Input('type')
     set class(value: string) {
         this.imageClass = value;
@@ -61,5 +63,12 @@ export class AttachmentComponent {
             this.url =
                 'https://tanzolymp.com/images/default-non-user-no-photo-1.jpg';
         }
+    }
+
+    open(content) {
+        this.modalReference = this.modalService.open(content);
+        this.modalReference.result.then((result) => {
+        }, (reason) => {
+        });
     }
 }

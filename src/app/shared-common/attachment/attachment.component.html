@@ -1,9 +1,29 @@
 <img *ngIf="!isVideo" [src]="url" class="img-fluid {{ cssClassString }}" />
 <div class="videosection" *ngIf="isVideo">
-  <img [src]="url" class="img-fluid {{ cssClassString }}" />
-  <img src="assets/images/video-play.png" class="img-fluid play-button" />
+    <img [src]="url" class="img-fluid {{ cssClassString }}" />
+    <img src="assets/images/video-play.png" class="img-fluid play-button" (click)="open(mymodal)"/>
 </div>
-<video *ngIf="isPlayVideo" width="400" controls>
-  <source src="{{url}}" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Upload Image/Video</h4>
+        <button
+            type="button"
+            class="close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+        >
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <video *ngIf="isPlayVideo" width="400" controls>
+            <source src="{{ url }}" type="video/mp4" />
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+    <div class="modal-footer">
+        <button type="button" (click)="profileUpload()" class="btn btn-primary">
+            Submit
+        </button>
+    </div>
+</ng-template>
