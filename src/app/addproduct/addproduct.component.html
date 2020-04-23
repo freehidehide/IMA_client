@@ -19,20 +19,40 @@
                                 <img src="#" class="input_img pictureSrc" title="" class="img-responsive" />
                                 <input type="file" onchange="readURL(this);">
                                 <h6 class="addPoto">Upload product Image<br>
-                                <i class="fa fa-camera" aria-hidden="true"></i>
+                                <i class="fa fa-camera"></i>
                                 </h6>
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="titleh6 pt-1"><i class="fa fa-plus addMorebtn"></i> Add more Images</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-md-inline d-sm-inline d-inline">
+                                <img src="assets/images/dummy-thumb.jpg" class="selectImg" />
+                                <img src="assets/images/dummy-thumb.jpg" class="selectImg" />
+                                <img src="assets/images/dummy-thumb.jpg" class="selectImg" />
+                            </div>
+                            <h6 class="titleh6 pt-1 text-right mb-4">Select Featured Image</h6>
+                        </div>
+                    </div>
+
                 </div>
 
 			    <div class="col-md-6">	
                 
-                    <div class="customSizeadd">
+                    <div class="customSizeadd pt-4">
                         <h6 class="titleh6">Choose Color</h6> 
+                        <div class="chooseColor colorOne"></div>
+                        <div class="chooseColor colorTwo"></div>
+                        <div class="addColor">
+                            <i class="fa fa-plus"></i>
+                        </div>
                     </div>	
 
-                    <div class="customSizebox">
+                    <div class="customSizebox pt-3">
                         <h6 class="titleh6">List your Product</h6> 
                         <input type="checkbox" id="box-1" checked>
                         <label for="box-1">XS</label>
@@ -90,15 +110,21 @@
 	</div>
     <!-- List Product End -->
 
-    <!-- Congratulations Status Start -->
+    <!-- Product Details Start -->
     <div class="content-middle">
         <div class="container">
             <div class="row">
                 <div class="offset-md-3 col-md-6">
+                    <img src="assets/images/productdet.jpg" class="proDetimg" />
+                    <div class="d-md-inline d-sm-inline d-inline">
+                        <img src="assets/images/dummy-thumb.jpg" class="selectImg" />
+                        <img src="assets/images/dummy-thumb.jpg" class="selectImg" />
+                        <img src="assets/images/dummy-thumb.jpg" class="selectImg" />
+                    </div>
                     <div class="prductDetails">   
-                        <h6 class="titleh6">Product Name</h6>  
+                        <h6 class="titleh6 pt-2">Product Name</h6>  
                         <h4>Lorem Ipsum</h4> 
-                        <h6 class="titleh6">Product Description</h6>
+                        <h6 class="titleh6 pt-1">Product Description</h6>
                         <p class="textp">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
                         <div class="row">
                             <div class="col-md-6">
@@ -115,9 +141,11 @@
                             </div>
                             <div class="col-md-6">
                                 <h6 class="titleh6">Colors</h6>
+                                <div class="chooseColor colorOne"></div>
+                                <div class="chooseColor colorTwo"></div>
                             </div>
                             <div class="col-md-12">
-                                <h6 class="titleh6">Size</h6>
+                                <h6 class="titleh6">Sizes</h6>
                                 <h5>XS <span class="lightLine">|</span> S <span class="lightLine">|</span> M <span class="lightLine">|</span> L <span class="lightLine">|</span>  XXL</h5>
                             </div>
                         </div>   
@@ -129,7 +157,7 @@
             </div>
         </div>
     </div>
-    <!-- Congratulations Status End -->
+    <!-- Product Details End -->
 
     <!-- Congratulations Status Start -->
     <div class="content-middle">
@@ -137,7 +165,7 @@
             <div class="row">
                 <div class="offset-md-4 col-md-4 text-center">
                     <div class="prductStatus">
-                        <i class="fa fa-check" aria-hidden="true"></i>    
+                        <i class="fa fa-check"></i>    
                         <p class="textp pt-4">Congratulations!</p>   
                         <p class="textp pb-5">Your <span class="bold400">Product</span> is<br>now being listed</p>   
                         <button type="submit" class="btn btn-primary primaryBtn mt-4">Add more Products</button>
