@@ -46,6 +46,23 @@ $topnav-background-color: #222;
     left: 0;
     top: 15px;
 }
+
+li.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dropdown-menu ul li.dropdown-item a {
+    color: #000000;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+
 @media (max-width: 1440px) {
     :host {
         .navbar {
@@ -55,6 +72,8 @@ $topnav-background-color: #222;
 
                 > a {
                     font-size: 13px;
+                    padding-left: 0;
+                    padding-right: 0;
                 }
             }
             .navbar-brand {

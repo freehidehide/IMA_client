@@ -69,13 +69,13 @@
 
 .cartquantity {
     display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
+    align-items: center;
 }
 
 .ctqtytext {
     font-size: 15px;
     color: #696969;
+    margin: 0 10px 0 0;
 }
 
 .ctquantityinput {
@@ -84,8 +84,8 @@
     align-items: center;
 
     .ctqtydecr {
-        width: 53px;
-        height: 53px;
+        width: 30px;
+        height: 30px;
         border: none;
         background: url("../../assets/images/minus-icon.jpg") no-repeat left top;
     }
@@ -101,9 +101,10 @@
     }
 
     .ctqtyincr {
-        width: 53px;
-        height: 53px;
-        border: none;
+        width: 30px;
+        height: 30px;
+        background-size: cover;
+        border: 0;
         background: url("../../assets/images/plus-icon.jpg") no-repeat left top;
     }
 }
@@ -111,6 +112,7 @@
 .quntyremain {
     font-size: 15px;
     color: #adadad;
+    margin: 0 0 0 10px;
 }
 
 .productcartdesc {
@@ -307,8 +309,6 @@
 
     .ctquantityinput {
         .ctqtydecr {
-            width: 40px;
-            height: 40px;
             background-size: cover;
         }
 
@@ -319,8 +319,6 @@
         }
 
         .ctqtyincr {
-            width: 40px;
-            height: 40px;
             background-size: cover;
         }
     }
@@ -343,15 +341,15 @@
         }
 
         input.discountcode {
-            height: 51px;
-            font-size: 31px;
-            width: 251px;
+            height: 40px;
+            font-size: 18px;
+            margin-top: 30px;
         }
 
         .cart-btn {
-            height: 51px;
-            font-size: 31px;
-            width: 251px;
+            height: 40px;
+            font-size: 18px;
+            max-width: 150px;
             margin: 14px 0 0 !important;
         }
     }

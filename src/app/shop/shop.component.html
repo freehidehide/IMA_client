@@ -108,7 +108,7 @@
                                     class="quantityinput">{{product.showDetail.cart && product.showDetail.cart.quantity ? product.showDetail.cart.quantity : 0 }}</span>
                                 <button type="button" class="ctqtyincr" (click)="addQuantity(product)"></button>
                             </div>
-                            <p class="mt-2 quntyremain m-0">
+                            <p class="quntyremain">
                                 Only {{ product.showDetail.amount_detail.quantity}} items left
                             </p>
                         </div>
@@ -122,7 +122,7 @@
                     </div>
                     <div class="d-flex mt-1">
                         <div class="d-flex flex-column cartdetails">
-                            <p class="text-center discount-details m-0 mt-1"
+                            <p class="discount-details m-0 mt-3"
                                 *ngIf="sessionService.isAuth && product.showDetail.amount_detail.discount_percentage">
                                 <span>{{ product.showDetail.amount_detail.discount_percentage}}%
                                     discount</span>&nbsp;<span
@@ -132,7 +132,7 @@
                             </p>
                             <input *ngIf="sessionService.isAuth && product.showDetail.amount_detail.discount_percentage"
                                 [(ngModel)]="product.showDetail.cart.coupon.coupon_code"
-                                [ngModelOptions]="{standalone: true}" class="discountcode text-center text-uppercase"
+                                [ngModelOptions]="{standalone: true}" class="discountcode"
                                 placeholder="Enter Code" />
                             <button class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart(product)">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
