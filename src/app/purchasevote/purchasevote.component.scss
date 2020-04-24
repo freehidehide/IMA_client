@@ -1,4 +1,3 @@
-
 .purchasecontainer {
     max-width: 1490px;
     width: 100%;
@@ -10,7 +9,7 @@
 
 .purchase-contesttitle {
     font-size: 5vw;
-    font-family: 'Rozha One', serif;
+    font-family: "Rozha One", serif;
 }
 
 .votepurchase-listing {
@@ -19,13 +18,21 @@
         border-bottom: 1px solid #333;
     }
 
+    &:last-child {
+        li {
+            border-bottom: 0;
+        }
+    }
+
     h2 {
         font-weight: 300;
         font-size: 75px;
+        margin: 0;
     }
 
     p {
         font-size: 50px;
+        margin: 0;
     }
 
     .purchase-amount {
@@ -40,21 +47,24 @@
 }
 @media (max-width: 1440px) {
     .votepurchase-listing {
+        margin: 0;
+
         li {
-            padding: 10px 0 !important;
+            padding: 0;
+            display: inline-block;
+            width: 100%;
         }
         h2 {
-            font-size: 56px;
+            font-size: 42px;
         }
         p {
-            font-size: 37px;
-            line-height: 45px;
+            font-size: 28px;
         }
         .purchase-amount {
-            font-size: 75px;
+            font-size: 42px;
         }
         .purchase-btn {
-            font-size: 25px;
+            font-size: 16px;
         }
     }
 }
@@ -69,26 +79,26 @@
     }
 
     .votepurchase-listing {
-        li{
-            padding:10px 0 !important;
-            .row.mt-5{
-                margin-top:0 !important;
+        li {
+            padding: 10px 0 !important;
+            .row.mt-5 {
+                margin-top: 0 !important;
             }
         }
         h2 {
-            font-size: 40px;
+            font-size: 30px;
         }
 
         p {
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .purchase-amount {
-            font-size: 40px;
+            font-size: 30px;
         }
 
         .purchase-btn {
-            font-size: 20px;
+            font-size: 14px;
         }
     }
 }
@@ -106,6 +116,13 @@
             }
             h2 {
                 margin: 0 !important;
+                font-size: 24px;
+            }
+            p {
+                font-size: 14px;
+            }
+            .purchase-amount {
+                font-size: 24px;
             }
         }
     }

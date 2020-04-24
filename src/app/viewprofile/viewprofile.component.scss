@@ -13,7 +13,10 @@
 }
 
 .profile-image {
-    padding: 0 0 50px;
+    padding: 0;
+    width: 200px;
+    height: 200px;
+    margin: 50px auto 0 auto;
     > img {
         max-width: 560px;
     }
@@ -46,7 +49,9 @@ p {
 }
 
 .subscribe-button {
-    margin-top: 30px 0 0;
+    margin-top: 30px;
+    max-width: 200px;
+    margin: 0 auto;
 
     a {
         height: 58px;
@@ -108,7 +113,10 @@ p {
     .subscribedicon {
         width: 69px;
         height: 69px;
-        bottom: -18px;
+        bottom: 0;
+        right: 0;
+        left: auto;
+        transform: unset;
     }
 }
 
