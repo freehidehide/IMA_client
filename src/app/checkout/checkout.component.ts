@@ -52,7 +52,7 @@ export class CheckoutComponent implements OnInit {
         public startupService: StartupService,
         public categoryService: CategoryService) {
             this.paymentType = this.activatedRoute.snapshot.paramMap.get('type');
-            if (this.paymentType.indexOf('?') > -1) {
+            if (this.paymentType && this.paymentType.indexOf('?') > -1) {
                 const params = this.paymentType.split('?');
                 this.paymentType = params[0];
                 const types = params[1].split('&');

@@ -46,7 +46,7 @@ export class UserService {
         return this.apiService.httpPost(forgotPassword, forgotForm.value);
     }
 
-    findById(id: number, queryParam: QueryParam): Observable<User> {
+    findById(id: number|string, queryParam: QueryParam): Observable<User> {
         const url: string = AppConst.SERVER_URL.USER + '/' + id;
         return this.apiService.httpGet(url, queryParam);
     }

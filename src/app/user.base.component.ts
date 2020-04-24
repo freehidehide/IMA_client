@@ -12,6 +12,7 @@ export abstract class UserBaseComponent {
     public editProfileForm: FormGroup;
     public categoryId: number;
     public albums: any = [];
+    public username: string;
     constructor(
         protected router: Router,
         protected userService: UserService,
@@ -28,7 +29,11 @@ export abstract class UserBaseComponent {
             } else {
                 queryParam = null;
             }
-        this.userService.findById(this.userId, queryParam).subscribe((response) => {
+        let usernameDetailId: string | number = this.userId;
+        if (this.username) {
+            usernameDetailId = this.username;
+        }
+        this.userService.findById(usernameDetailId, queryParam).subscribe((response) => {
             this.user = response.data;
             if (
                 this.user.error &&

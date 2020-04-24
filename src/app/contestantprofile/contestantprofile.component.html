@@ -41,6 +41,21 @@
                                 <span class="d-block"><em>{{ social.name }}</em></span>
                             </a>
                         </li>
+                        <li
+                            class="list-inline-item px-4">
+                            <a href="javascript:void(0)"
+                            (click)="openFb()"><i class="fa fa-facebook-square social-share" aria-hidden="true"></i></a>
+                            <a href="javascript:void(0)"
+                            (click)="openTwitter()"><i class="fa fa-twitter social-share" aria-hidden="true"></i></a>
+                            </li>
+                    </ul>
+                    <ul *ngIf="user.socials.length === 0">
+                        <li>
+                            <a href="javascript:void(0)"
+                            (click)="openFb()"><i class="fa fa-facebook-square social-share" aria-hidden="true"></i></a>
+                            <a href="javascript:void(0)"
+                            (click)="openTwitter()"><i class="fa fa-twitter social-share" aria-hidden="true"></i></a>
+                        </li>
                     </ul>
                     <ul class="profile-social list-inline text-center" *ngIf="(sessionService.isAuth && sessionService.user.id === user.id)">
                         <li class="list-inline-item px-4">

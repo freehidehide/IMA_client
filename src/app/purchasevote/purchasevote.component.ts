@@ -36,8 +36,9 @@ implements OnInit {
         this.settings = this.startupService.startupData();
         this.type = this.activatedRoute.snapshot.paramMap.get('type');
         this.userId = +this.activatedRoute.snapshot.paramMap.get('id');
+        this.username = this.activatedRoute.snapshot.paramMap.get('username');
         this.categoryId = +this.activatedRoute.snapshot.paramMap.get('categoryId');
-        if (this.userId) {
+        if (this.userId || this.username) {
             this.getUser(null);
             this.getvotePackagesList();
         } else {

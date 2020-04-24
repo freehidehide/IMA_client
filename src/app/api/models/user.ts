@@ -14,6 +14,7 @@ export class User extends ServiceResponse {
     scope?: string;
     refresh_token?: string;
     id?: number;
+    slug?: string;
     username?: string;
     email?: string;
     mobile?: any;

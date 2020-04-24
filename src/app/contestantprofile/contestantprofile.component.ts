@@ -30,6 +30,7 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
     public video: any;
     public isvideo = false;
     public modalReference = null;
+    public linkToShare = 'https://www.google.com/';
     constructor(
         protected router: Router,
         protected userService: UserService,
@@ -169,8 +170,18 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
         }
     }
 
+    openFb() {
+        window.open('https://www.facebook.com/sharer/sharer.php?u=http://app.itstheimas.com/', 'pop'
+        , 'width=600, height=400, scrollbars=no');
+    }
+
+    openTwitter() {
+        window.open('https://twitter.com/intent/tweet?url=http://app.itstheimas.com/&via=anne-hathaway&text=Anne Hathaway', 'pop',
+        'width=600, height=400, scrollbars=no');
+    }
+
     redirect(user: User): void {
-        const url: string = '/purchase/vote/' + user.id + '/' + this.categoryId;
+        const url: string = '/vote/' + user.slug + '/' + this.categoryId;
         this.router.navigate([url]);
     }
 

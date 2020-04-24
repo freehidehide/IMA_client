@@ -10,6 +10,20 @@ const routes: Routes = [
             import('./home/home.module').then((m) => m.HomeModule)
     },
     {
+        path: 'vote/:username',
+        loadChildren: () =>
+            import('./purchasevote/purchasevote.module').then(
+                (m) => m.PurchasevoteModule
+            )
+    },
+    {
+        path: 'vote/:username/:categoryId',
+        loadChildren: () =>
+            import('./purchasevote/purchasevote.module').then(
+                (m) => m.PurchasevoteModule
+            )
+    },
+    {
         path: 'admin',
         loadChildren: () =>
             import('./admin/admin.module').then((m) => m.AdminModule),
@@ -20,26 +34,6 @@ const routes: Routes = [
         loadChildren: () =>
             import('./page/page.module').then((m) => m.PageModule)
     },
-    /*{
-        path: 'admin/:table',
-        loadChildren: () =>
-            import('./admin/crud/crud.module').then((m) => m.CrudModule)
-    },
-    {
-        path: 'admin/:table/add',
-        loadChildren: () =>
-            import('./admin/crud/crud.module').then((m) => m.CrudModule)
-    },
-    {
-        path: 'admin/:table/edit/:id',
-        loadChildren: () =>
-            import('./admin/crud/crud.module').then((m) => m.CrudModule)
-    },
-    {
-        path: 'admin/:table/delete/:id',
-        loadChildren: () =>
-            import('./admin/crud/crud.module').then((m) => m.CrudModule)
-    },*/
     {
         path: 'home',
         loadChildren: () =>
