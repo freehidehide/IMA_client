@@ -8,15 +8,6 @@
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
     <div class="content-middle shop-section position-relative">
-        <div class="topcartright clearfix" *ngIf="sessionService.isAuth">
-            <div class="cartsection text-center">
-                <div class="position-relative" [routerLink]="['/cart']">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span class="rounded-circle cartcount"
-                        *ngIf="productList && productList.cart_count && productList.cart_count !== 0">{{productList.cart_count}}</span>
-                </div>
-            </div>
-        </div>
         <div class="shopsearch position-relative">
             <div class="row">
                 <div class="col-md-12">
@@ -28,7 +19,7 @@
                                     placeholder="Search for items" />
                                 <span class="search-icon"></span>
                             </div>
-                            
+
                             <div class="col-md-4 my-1 shopfilter position-relative">
                                 <div ngbDropdown class="d-inline-block filterddown dropdown">
                                     <button type="button" class="btn btn-outline-primary"
@@ -43,14 +34,24 @@
                                     </div>
                                 </div>
                             </div>
-                        
-                        <div class="col-md-12 col-auto my-1 shop-srbtn">
-                            <button type="button" (click)="getProducts()" class="btn btn-dark text-uppercase">
-                                Search
-                            </button>
-                        </div>
 
-                    </div>
+                            <div class="col-md-3 col-auto my-1 shop-srbtn">
+                                <button type="button" (click)="getProducts()" class="btn btn-dark text-uppercase">
+                                    Search
+                                </button>
+                            </div>
+
+                            <div class="col-md-1 topcartright" *ngIf="sessionService.isAuth">
+                                <div class="cartsection text-center">
+                                    <div class="position-relative" [routerLink]="['/cart']">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        <span class="rounded-circle cartcount"
+                                            *ngIf="productList && productList.cart_count && productList.cart_count !== 0">{{productList.cart_count}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </form>
                 </div>
             </div>
@@ -90,20 +91,6 @@
             </div>
             <div class="col-md-5">
                 <form>
-                    <div class="shopqtyarea d-flex justify-content-end" *ngIf="sessionService.isAuth">
-                        <div class="cartquantity text-center">
-                            <p class="text-uppercase ctqtytext">Quantity</p>
-                            <div class="ctquantityinput">
-                                <button type="button" class="ctqtydecr" (click)="removeQuantity(product)"></button>
-                                <span
-                                    class="quantityinput">{{product.showDetail.cart && product.showDetail.cart.quantity ? product.showDetail.cart.quantity : 0 }}</span>
-                                <button type="button" class="ctqtyincr" (click)="addQuantity(product)"></button>
-                            </div>
-                            <p class="mt-2 quntyremain m-0">
-                                Only {{ product.showDetail.amount_detail.quantity}} items left
-                            </p>
-                        </div>
-                    </div>
                     <div class="productcartdesc">
                         <h2 class="m-0 mb-1 p-0 text-truncate">
                             {{ product.name }}
@@ -112,24 +99,40 @@
                             {{ product.description }}
                         </p>
                     </div>
+                    <div class="shopqtyarea d-flex" *ngIf="sessionService.isAuth">
+                        <div class="cartquantity text-center">
+                            <p class="text-uppercase ctqtytext">Quantity</p>
+                            <div class="ctquantityinput">
+                                <button type="button" class="ctqtydecr" (click)="removeQuantity(product)"></button>
+                                <span
+                                    class="quantityinput">{{product.showDetail.cart && product.showDetail.cart.quantity ? product.showDetail.cart.quantity : 0 }}</span>
+                                <button type="button" class="ctqtyincr" (click)="addQuantity(product)"></button>
+                            </div>
+                            <p class="quntyremain">
+                                Only {{ product.showDetail.amount_detail.quantity}} items left
+                            </p>
+                        </div>
+                    </div>
+                    
                     <div class="product-availsizes" *ngIf="product.showDetail.sizes.length > 1">
                         <span class="text-uppercase">Available Sizes</span>
                         <a href="javascript:void(0)" class="text-uppercase" [ngClass]="{'active': size.isactive}"
                             *ngFor="let size of product.showDetail.sizes"
                             (click)="chooseSize(size, product)">{{size.size.name}}</a>
                     </div>
-                    <div class="d-flex justify-content-end mt-1">
+                    <div class="d-flex mt-1">
                         <div class="d-flex flex-column cartdetails">
-                            <p class="text-center discount-details m-0 mt-1"
+                            <p class="discount-details m-0 mt-3"
                                 *ngIf="sessionService.isAuth && product.showDetail.amount_detail.discount_percentage">
-                                <span>{{ product.showDetail.amount_detail.discount_percentage}}% discount</span>&nbsp;<span
+                                <span>{{ product.showDetail.amount_detail.discount_percentage}}%
+                                    discount</span>&nbsp;<span
                                     *ngIf="!product.showDetail.cart.coupon.isValid">available</span> <span
                                     *ngIf="product.showDetail.cart.coupon.isValid">applied</span>
 
                             </p>
                             <input *ngIf="sessionService.isAuth && product.showDetail.amount_detail.discount_percentage"
                                 [(ngModel)]="product.showDetail.cart.coupon.coupon_code"
-                                [ngModelOptions]="{standalone: true}" class="discountcode text-center text-uppercase"
+                                [ngModelOptions]="{standalone: true}" class="discountcode"
                                 placeholder="Enter Code" />
                             <button class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart(product)">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>

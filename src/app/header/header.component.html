@@ -16,18 +16,15 @@
                     >
                 </li>
                 <li class="nav-item" *ngIf="(sessionService.isAuth && !sessionService.user.role.id !== 2)">
-                    <a
-                        href="javascript:void(0)"
-                        (click)="toggleSidebar();redirect('/profile/', sessionService.user.id)"
-                        class="nav-link"
-                        >HOME</a
-                    >
+                    <a href="javascript:void(0)" (click)="toggleSidebar();redirect('/profile/', sessionService.user.id)"
+                        class="nav-link">HOME</a>
                 </li>
                 <li class="nav-item">
                     <a href="javascript:void(0)" [routerLink]="['/advertisers']" (click)="toggleSidebar()"
                         class="nav-link">ADVERTISERS</a>
                 </li>
-                <li class="nav-item" *ngIf="!sessionService.isAuth || (sessionService.isAuth && sessionService.user.role.id === 2)">
+                <li class="nav-item"
+                    *ngIf="!sessionService.isAuth || (sessionService.isAuth && sessionService.user.role.id === 2)">
                     <a href="javascript:void(0)" [routerLink]="['/categories']" (click)="toggleSidebar()"
                         class="nav-link">CATEGORIES</a>
                 </li>
@@ -47,26 +44,37 @@
                     <a href="javascript:void(0)" [routerLink]="['/signup']" (click)="toggleSidebar()"
                         class="nav-link">SIGNUP</a>
                 </li>
-                <li class="nav-item" *ngIf="sessionService.isAuth">
-                    <a href="javascript:void(0)" [routerLink]="['/view-profile']" class="nav-link"
-                        (click)="toggleSidebar()">PROFILE</a>
+
+                <li class="nav-item dropdown" *ngIf="sessionService.isAuth">
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0)">
+                        PROFILE
+                    </a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li class="dropdown-item">
+                                <a href="javascript:void(0)" [routerLink]="['/view-profile']" 
+                                    (click)="toggleSidebar()">PROFILE</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="javascript:void(0)" [routerLink]="['/view-profile']" 
+                                    (click)="toggleSidebar()">MY ORDERS</a>
+                            </li>
+                            <li class="dropdown-item" *ngIf="sessionService.isAuth && sessionService.user.role.id === 3">
+                                <a href="javascript:void(0)" [routerLink]="['/view-profile']" 
+                                    (click)="toggleSidebar()">MY PRODUCTS</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="javascript:void(0)" [routerLink]="['/transaction']" 
+                                    (click)="toggleSidebar()">TRANSACTION</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="javascript:void(0)" [routerLink]="['/change-password']" 
+                                    (click)="toggleSidebar()">CHANGE PASSWORD</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="nav-item" *ngIf="sessionService.isAuth">
-                    <a href="javascript:void(0)" [routerLink]="['/view-profile']" class="nav-link"
-                        (click)="toggleSidebar()">MY ORDERS</a>
-                </li>
-                <li class="nav-item" *ngIf="sessionService.isAuth && sessionService.user.role.id === 3">
-                    <a href="javascript:void(0)" [routerLink]="['/view-profile']" class="nav-link"
-                        (click)="toggleSidebar()">MY PRODUCTS</a>
-                </li>
-                <li class="nav-item" *ngIf="sessionService.isAuth">
-                    <a href="javascript:void(0)" [routerLink]="['/transaction']" class="nav-link"
-                        (click)="toggleSidebar()">TRANSACTION</a>
-                </li>
-                <li class="nav-item" *ngIf="sessionService.isAuth">
-                    <a href="javascript:void(0)" [routerLink]="['/change-password']" class="nav-link"
-                        (click)="toggleSidebar()">CHANGE PASSWORD</a>
-                </li>
+
                 <li class="nav-item" *ngIf="sessionService.isAuth">
                     <a href="javascript:void(0)" (click)="
                             toggleSidebar();
