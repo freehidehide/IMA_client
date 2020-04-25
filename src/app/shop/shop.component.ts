@@ -25,6 +25,7 @@ export class ShopComponent extends BaseComponent implements OnInit {
     public settings: any;
     public productDetail: Product;
     public productDetails: Product[] = [];
+    public isMyproduct = false;
     public role_id: number;
     public q: string;
     public filterBy = 'Filter By All';
@@ -37,6 +38,7 @@ export class ShopComponent extends BaseComponent implements OnInit {
         public startupService: StartupService,
     ) {
         super();
+        this.isMyproduct = (this.router.url === '/myproducts');
     }
 
     ngOnInit(): void {
@@ -62,6 +64,9 @@ export class ShopComponent extends BaseComponent implements OnInit {
         }
         if (this.q) {
             queryParam.q = this.q;
+        }
+        if (this.isMyproduct) {
+            queryParam.filter_by = 'me';
         }
         this.productService.getAll(queryParam).subscribe((response) => {
             this.productList = response;

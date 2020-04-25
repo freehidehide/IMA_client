@@ -33,9 +33,7 @@ const routes: Routes = [
     {
         path: 'myproducts',
         loadChildren: () =>
-            import('./myproducts/myproducts.module').then(
-                (m) => m.MyproductsModule
-            )
+            import('./shop/shop.module').then((m) => m.ShopModule)
     },
     {
         path: 'instant_vote_success/:slug',

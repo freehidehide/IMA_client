@@ -65,7 +65,7 @@
                             <app-attachment [attachment]="product.showDetail.panelImage" [type]="original"
                                 [cssClass]="'shopattimage'"></app-attachment>
                             <a href="javascript:void(0)" (click)="redirect(product.user)" class="cartuserimg">
-                                <app-attachment [attachment]="product.user.attachment" [type]="original"
+                                <app-attachment *ngIf="product.user" [attachment]="product.user.attachment" [type]="original"
                                     [cssClass]="'rounded-circle'"></app-attachment>
                             </a>
                         </div>
@@ -134,8 +134,12 @@
                                 [(ngModel)]="product.showDetail.cart.coupon.coupon_code"
                                 [ngModelOptions]="{standalone: true}" class="discountcode"
                                 placeholder="Enter Code" />
-                            <button class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart(product)">
+                            <button *ngIf="sessionService.isAuth && !isMyproduct" class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart(product)">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                {{ product.showDetail.amount_detail.price | currency: settings.CURRENCY_CODE:'symbol' }}
+                            </button>
+                            <button *ngIf="sessionService.isAuth && isMyproduct" class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart(product)">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
                                 {{ product.showDetail.amount_detail.price | currency: settings.CURRENCY_CODE:'symbol' }}
                             </button>
                         </div>

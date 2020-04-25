@@ -24,4 +24,5 @@ export interface QueryParam {
     to?: string;
     location?: string;
     caption?: string;
+    filter_by?: string;
 }

@@ -67,8 +67,9 @@
                             Coupon Code
                         </h5>
                         <div class="cartprodamt text-center">
+                            <span *ngIf="isMyOrder">{{product.showDetail.cart.coupon.coupon_code}}</span>
                             <input
-                                *ngIf="
+                                *ngIf="!isMyOrder &&
                                     product.showDetail.amount_detail
                                         .discount_percentage
                                 "
