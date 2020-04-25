@@ -19,6 +19,7 @@ export class CartComponent implements OnInit {
     public totalAmount = 0;
     public settings: any;
     public isNodata: boolean;
+    public isMyOrder: boolean;
     public productDetail: Product;
     public productDetails: Product[] = [];
     constructor(protected router: Router,
@@ -26,19 +27,19 @@ export class CartComponent implements OnInit {
         private toastService: ToastService,
         public sessionService: SessionService,
         public startupService: StartupService) {
-
-        }
+    }
 
     ngOnInit(): void {
         this.settings = this.startupService.startupData();
         this.toastService.showLoading();
+        this.isMyOrder = (this.router.url === '/myorder');
         this.getCart();
     }
 
     getCart(): void {
         this.isNodata = true;
         const queryParam: QueryParam = {
-            is_purchase: false
+            is_purchase: this.isMyOrder
         };
         this.productService.cart(queryParam).subscribe((response) => {
             this.cartList = response;
