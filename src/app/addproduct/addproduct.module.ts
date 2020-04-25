@@ -6,13 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { CategoryService } from '../api/services/category.service';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { UserService } from '../api/services/user.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [AddproductComponent],
   imports: [
     CommonModule,
     AddproductRoutingModule,
     FormsModule,
-    ColorPickerModule
+    ColorPickerModule,
+    NgbModule
   ],
   providers: [CategoryService, UserService]
 })
