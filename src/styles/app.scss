@@ -303,4 +303,24 @@ body {
     font-weight: 300;
     padding-bottom: 20px;
 }
-
+.uploadSli {
+    .carousel-indicators {
+        display: none !important;
+    }
+    .carousel-control-prev-icon {
+        &:before {
+            font-size: 35px;
+        }
+    }
+    .carousel-control-next-icon {
+        &:before {
+            font-size: 35px;
+        }
+    }
+    .carousel-control-prev {
+        top: -26px;
+    }
+    .carousel-control-next {
+        top: -26px;
+    }
+}

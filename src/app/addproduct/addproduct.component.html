@@ -34,8 +34,10 @@
                                 Images
                             </h6>
                         </div>
+
                         <div class="col-lg-6 col-md-12" *ngIf="images_details && images_details.length > 0">
-                            <div class="d-md-inline d-sm-inline d-inline">
+                            <div class="d-md-inline d-sm-inline d-inline uploadSli">
+
                                 <ngb-carousel>
                                     <ng-template ngbSlide *ngFor="let images of images_details">
                                         <img (click)="changeImage(images)" src="{{images}}" class="selectImg" />
@@ -55,10 +57,11 @@
                     </div>
                     <div class="customSizebox pt-3"  *ngIf="product && product.details && product.details[0] && product.details[0].images_details && product.details[0].images_details.length > 0">
                         <h6 class="titleh6">Choose Sizes</h6>
-                        <div *ngFor="let size of sizes">
+                        <span *ngFor="let size of sizes">
                             <input type="checkbox" id="{{size.id}}" [(ngModel)]="size.isActive" />
                             <label for="{{size.id}}" (click)="chooseSize(size)">{{size.name}}</label>
-                        </div>
+                        </span>
+
                     </div>
                 </div>
                 <div class="col-md-12">
