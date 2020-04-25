@@ -13,7 +13,11 @@
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
     <div class="content-middle contestants-section">
-<h1 *ngIf="pageTitle" class="mb-4">{{pageTitle}}</h1>
+<h1 *ngIf="pageTitle" class="mb-4 text-center">{{pageTitle}}</h1>
+<div class="offset-md-2 col-md-8 remindTime">
+    <h4 class="pb-3">You have<br> 4 days, 2 hours, 21 minutes, 41 seconds<br>to finalize the results!</h4>
+    <h6>Keep supporting your favourite models by casting votes while you can</h6> 
+</div>
 <div class="content-middle" *ngIf="isShowTime">
     <div class="timer-container mx-auto">
         <h3 class="timerhd text-center" *ngIf="left_time === 0">Contest Completed</h3>
