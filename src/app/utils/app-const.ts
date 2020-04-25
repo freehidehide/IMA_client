@@ -29,6 +29,7 @@ export class AppConst {
         INSTANT_WINNER: '/instant_vote',
         PAGES: '/pages',
         USER_IMAGE: '/user_image',
+        SIZES: '/sizes',
         LOGOUT: '/users/logout'
     };
 

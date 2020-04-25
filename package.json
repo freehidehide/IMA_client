@@ -38,6 +38,7 @@
         "jw-angular-social-buttons": "^1.0.0",
         "ng2-charts": "2.3.0",
         "ngx-bootstrap": "^5.6.1",
+        "ngx-color-picker": "^9.1.0",
         "ngx-countdown": "^9.0.0",
         "ngx-tags-input": "^2.0.1",
         "rxjs": "6.5.4",

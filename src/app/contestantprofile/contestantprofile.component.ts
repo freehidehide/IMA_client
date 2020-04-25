@@ -49,7 +49,7 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
 
     getCategories() {
         this.categoryService
-            .getUserCategory(+this.sessionService.user.id, null)
+            .getUserCategory(this.sessionService.user.slug, null)
             .subscribe((response) => {
                 this.userCategoryList = response;
                 this.userCategories = this.userCategoryList.data;

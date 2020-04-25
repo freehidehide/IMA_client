@@ -16,7 +16,7 @@
                     >
                 </li>
                 <li class="nav-item" *ngIf="(sessionService.isAuth && sessionService.user.role.id !== 2)">
-                    <a href="javascript:void(0)" (click)="toggleSidebar();redirect('/profile/', sessionService.user.id)"
+                    <a href="javascript:void(0)" (click)="toggleSidebar();redirect('/profile/', sessionService.user.slug)"
                         class="nav-link">HOME</a>
                 </li>
                 <li class="nav-item">
@@ -55,7 +55,7 @@
                                 <a href="javascript:void(0)" 
                                     (click)="toggleSidebar()">PROFILE</a>
                             </li>
-                            <li class="dropdown-item" [routerLink]="['/view-profile']" *ngIf="sessionService.isAuth && sessionService.user.role.id !== 2">
+                            <li class="dropdown-item" [routerLink]="['/myproducts']" *ngIf="sessionService.isAuth && sessionService.user.role.id !== 2">
                                 <a href="javascript:void(0)" 
                                     (click)="toggleSidebar()">MY PRODUCTS</a>
                             </li>

@@ -10,6 +10,7 @@ import { UserList } from '../models/user-list';
 import { UserContestList } from '../models/user-contest-list';
 import { ContestList } from '../models/contest-list';
 import { UserCategoryList } from '../models/user-category-list';
+import { SizeList } from '../models/size-list';
 import { QueryParam } from '../models/query-param';
 
 @Injectable()
@@ -55,5 +56,11 @@ export class CategoryService {
         const url: string =
             AppConst.SERVER_URL.USER_CATEGORY + userId;
         return this.apiService.httpGet(url, queryParam);
+    }
+
+    sizes(): Observable<SizeList> {
+        const url: string =
+            AppConst.SERVER_URL.SIZES;
+        return this.apiService.httpGet(url, null);
     }
 }
