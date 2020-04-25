@@ -27,7 +27,7 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
     public categoryName = '';
     public pageType: number;
     public interVal: number;
-    public distance: number;
+    public left_time: number;
     public days: number;
     public hours: number;
     public minutes: number;
@@ -106,6 +106,7 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
                   this.contest = this.contests[0];
                   if (!this.contestProgress) {
                     this.getContestantsList();
+                    this.left_time = response.left_time;
                     this.prettyConfig = {
                       leftTime: response.left_time,
                       format: 'HH:mm:ss',

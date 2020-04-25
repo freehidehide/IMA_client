@@ -5,7 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedCommonModule } from './shared-common.module';
 import { ContestantsComponent } from '../contestants/contestants.component';
 import { WinnerComponent } from '../winner/winner.component';
-
+import { CountdownModule } from 'ngx-countdown';
 @NgModule({
     declarations: [
         ContestantsComponent,
@@ -14,7 +14,8 @@ import { WinnerComponent } from '../winner/winner.component';
     imports: [
         CommonModule,
         SharedCommonModule,
-        NgbModule
+        NgbModule,
+        CountdownModule
     ],
     exports: [
         ContestantsComponent,

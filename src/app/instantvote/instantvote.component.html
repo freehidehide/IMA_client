@@ -9,9 +9,9 @@
     </div>
     <div class="content-middle" *ngIf="isShowTime">
         <div class="timer-container mx-auto">
-            <h3 class="timerhd text-center" *ngIf="distance < 0">Contest Completed</h3>
-            <h3 class="timerhd text-center">Time Remaining</h3>
-            <countdown [config]="prettyConfig" class="timerblock"></countdown>
+            <h3 class="timerhd text-center" *ngIf="left_time === 0">Contest Completed</h3>
+            <h3 class="timerhd text-center" *ngIf="left_time !== 0">Time Remaining</h3>
+            <countdown [config]="prettyConfig" *ngIf="left_time !== 0" class="timerblock"></countdown>
         </div>
     </div>
     <div class="participateblock">

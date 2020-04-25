@@ -6,7 +6,7 @@ import { User } from '../api/models/user';
 import { QueryParam } from '../api/models/query-param';
 import { AppConst } from '../utils/app-const';
 import { BaseComponent } from '../base.component';
-
+import { CountdownConfig, CountdownEvent } from 'ngx-countdown';
 @Component({
   selector: 'app-winner',
   templateUrl: './winner.component.html',
@@ -20,6 +20,9 @@ export class WinnerComponent extends BaseComponent implements OnInit {
   public categoryName = '';
   public pageType: number;
   public pageTitle: string;
+  public left_time: number;
+  public isShowTime = false;
+  public prettyConfig: CountdownConfig;
   constructor(
       private router: Router,
       private categoryService: CategoryService,
@@ -46,6 +49,26 @@ export class WinnerComponent extends BaseComponent implements OnInit {
             if (response.data.category_highest_votes) {
               this.users = response.data.category_highest_votes;
             }
+            this.left_time = response.data.left_time;
+            this.prettyConfig = {
+              leftTime: response.data.left_time,
+              format: 'HH:mm:ss',
+              prettyText: (text) => {
+                return text
+                  .split(':')
+                  .map((v, index) => {
+                    if (index === 0) {
+                      return '<div class="hours timings text-center"><span class="count">' + v + '</span><span class="timetext text-uppercase">Hours</span></div>';
+                    } else if (index === 1) {
+                      return '<div class="minutes timings text-center"><span class="count">' + v + '</span><span class="timetext text-uppercase">Minutes</span></div>';
+                    } else {
+                      return '<div class="seconds timings text-center"><span class="count">' + v + '</span><span class="timetext text-uppercase">Seconds</span></div>';
+                    }
+                  })
+                  .join('<div class="timecolan">:</div>');
+              },
+            };
+            this.isShowTime = true;
             this.toastService.clearLoading();
           });
   }

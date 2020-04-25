@@ -14,6 +14,13 @@
     </div>
     <div class="content-middle contestants-section">
 <h1 *ngIf="pageTitle" class="mb-4">{{pageTitle}}</h1>
+<div class="content-middle" *ngIf="isShowTime">
+    <div class="timer-container mx-auto">
+        <h3 class="timerhd text-center" *ngIf="left_time === 0">Contest Completed</h3>
+        <h3 class="timerhd text-center" *ngIf="left_time !== 0">Time Remaining</h3>
+        <countdown [config]="prettyConfig" class="timerblock" *ngIf="left_time !== 0"></countdown>
+    </div>
+</div>
 <ngb-carousel *ngIf="usersTop.length > 0">
     <ng-template ngbSlide *ngFor="let user of usersTop">
             <app-attachment
