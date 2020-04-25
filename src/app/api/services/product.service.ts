@@ -31,4 +31,10 @@ export class ProductService {
         const url: string = AppConst.SERVER_URL.CART;
         return this.apiService.httpGet(url, queryParam);
     }
+
+    productAdd(request: any): Observable<any> {
+        const url: string =
+            AppConst.SERVER_URL.PRODUCT;
+        return this.apiService.httpPost(url, request);
+    }
 }

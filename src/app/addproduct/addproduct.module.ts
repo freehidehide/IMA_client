@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CategoryService } from '../api/services/category.service';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { UserService } from '../api/services/user.service';
+import { ProductService } from '../api/services/product.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [AddproductComponent],
@@ -16,6 +17,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ColorPickerModule,
     NgbModule
   ],
-  providers: [CategoryService, UserService]
+  providers: [CategoryService, UserService, ProductService]
 })
 export class AddproductModule { }

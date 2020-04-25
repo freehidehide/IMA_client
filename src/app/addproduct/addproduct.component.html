@@ -19,8 +19,7 @@
                                     title=""
                                     class="img-responsive"
                                 />
-                                <input type="file" id="imageupload" (change)="uploadImage($event)" accept="image/x-png,image/jpeg" multiple/>
-                                <h6 class="addPoto">
+                                <h6 class="addPoto" (click)="selectFile()" *ngIf="images_details && images_details.length === 0">
                                     Upload product Image<br />
                                     <i class="fa fa-camera"></i>
                                 </h6>
@@ -29,7 +28,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-12" *ngIf="images_details && images_details.length > 0">
-                            <h6 class="titleh6 pt-1" for="imageupload">
+                            <h6 class="titleh6 pt-1" (click)="selectFile()">
                                 <i class="fa fa-plus addMorebtn"></i> Add more
                                 Images
                             </h6>
@@ -37,7 +36,6 @@
 
                         <div class="col-lg-6 col-md-12" *ngIf="images_details && images_details.length > 0">
                             <div class="d-md-inline d-sm-inline d-inline uploadSli">
-
                                 <ngb-carousel>
                                     <ng-template ngbSlide *ngFor="let images of images_details">
                                         <img (click)="changeImage(images)" src="{{images}}" class="selectImg" />
@@ -50,7 +48,7 @@
                 <div class="col-md-6">
                     <div class="customSizeadd pt-4">
                         <h6 class="titleh6">Choose Color</h6>
-                        <div *ngFor="let detail of product.details" class="chooseColor" [ngClass]="{'active': detail.is_active}" [style.background]="detail.color"></div>
+                        <div *ngFor="let detail of product.details; let i = index;" class="chooseColor" [ngClass]="{'active': detail.is_active}" [style.background]="detail.color" (click)="editColor(i)"></div>
                         <div class="addColor" [(colorPicker)]="color" (colorPickerClose)="addColor($event)" [style.background]="color">
                             <i class="fa fa-plus" for="color"></i>
                         </div>
@@ -153,3 +151,4 @@
         </div>
     </div>
 </div>
+<input type="file" #imageupload class="hide-file" (change)="uploadImage($event)" accept="image/x-png,image/jpeg" multiple/>

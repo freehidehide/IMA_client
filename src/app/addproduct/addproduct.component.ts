@@ -6,6 +6,7 @@ import { SizeList } from '../api/models/size-list';
 import { CategoryService } from '../api/services/category.service';
 import { ToastService } from '../api/services/toast-service';
 import { UserService } from '../api/services/user.service';
+import { ProductService } from '../api/services/product.service';
 import { QueryParam } from '../api/models/query-param';
 import { AppConst } from '../utils/app-const';
 
@@ -33,10 +34,23 @@ export class AddproductComponent implements OnInit {
   public mainImage: any;
   constructor(private categoryService: CategoryService,
     protected userService: UserService,
+    protected productService: ProductService,
     protected toastService: ToastService) { }
 
   ngOnInit(): void {
     this.getSizes();
+  }
+
+  editColor(index: number) {
+    if (this.product.details.length > 0) {
+      this.product.details.forEach(color => {
+        color.is_active = false;
+      });
+    }
+    this.selectedColorIndex = index;
+    this.product.details[this.selectedColorIndex].is_active = true;
+    this.images_details = this.product.details[this.selectedColorIndex].images_details;
+    this.mainImage = (this.images_details.length > 0) ? this.images_details[0] : '#';
   }
 
   addColor(value: string) {
@@ -45,32 +59,39 @@ export class AddproductComponent implements OnInit {
         color.is_active = false;
       });
     }
-    if (!this.product.details[this.selectedColorIndex] || !this.product.details[this.selectedColorIndex].images_details) {
-      const detail = {
-        color: value,
-        is_active: true,
-        images: [],
-        images_details: []
-      };
-      this.product.details.push(detail);
-    } else {
-      this.product.details[this.selectedColorIndex].color = value;
-      this.product.details[this.selectedColorIndex].is_active = true;
-    }
+    this.selectedColorIndex = this.product.details.length;
+    this.product.details[this.selectedColorIndex] = {
+      color: value,
+      is_active: true,
+      images: [],
+      images_details: []
+    };
+    this.images_details = [];
+    this.mainImage = '#';
   }
 
-  choosedColorIndex(value: string) {
+  selectFile() {
+    if (this.product.details.length === 0 || this.product.details[this.selectedColorIndex].color === '') {
+      this.toastService.error('Choose colour and then upload images');
+    } else {
+      const fileElement: HTMLElement = document.querySelector('input[type="file"]') as HTMLElement;
+      fileElement.click();
+    }
   }
 
   addproduct() {
     let message = '';
+    if (this.product.details.length === 0) {
+      this.toastService.error('Images and colour is required');
+      return;
+    }
     this.product.details.forEach((colorDetail, index) => {
       if (colorDetail.color === '') {
-        message = 'Choose Color' + index;
+        message = 'Choose colour' + index;
         return;
       }
       if (colorDetail.images.length === 0) {
-        message = 'Add images for color ' + index;
+        message = 'Add images for colour ' + index;
         return;
       }
     });
@@ -91,8 +112,10 @@ export class AddproductComponent implements OnInit {
       return;
     } else if (this.product.discount_percentage !== '' &&
     (!Number.isInteger(this.product.discount_percentage) || this.product.discount_percentage >= 100)) {
-      this.toastService.error('Enter discount Percentage');
+      this.toastService.error('Enter discount Percentage and it\'s should be less than 100%');
       return;
+    } else if (this.product.discount_percentage !== '' && this.product.coupon_code === '') {
+      this.toastService.error('Coupon is required');
     }
     const details = [];
     const sizeSelected = this.sizes.filter(size => {
@@ -114,7 +137,20 @@ export class AddproductComponent implements OnInit {
       description: this.product.description,
       product_details: details
     };
-    console.log('this.requestParams.---------', requestParams);
+    this.toastService.showLoading();
+    this.productService.productAdd(requestParams).subscribe((response) => {
+      const serverResponse = response;
+      if (
+          serverResponse.error &&
+          serverResponse.error.code === AppConst.SERVICE_STATUS.SUCCESS
+      ) {
+          this.toastService.success(serverResponse.error.message);
+          this.router.navigate(['/myproducts']);
+      } else {
+          this.toastService.error(serverResponse.error.message);
+      }
+      this.toastService.clearLoading();
+    });
   }
 
   changeImage(value: any) {
@@ -136,10 +172,10 @@ export class AddproductComponent implements OnInit {
               is_active: true,
             };
           }
-          Array.from(event.target.files).forEach((element: any, index: number) => {
-              formData.append('file[]', element, element.name);
+          Array.from(event.target.files).forEach((image: any, index: number) => {
+              formData.append('file[]', image, image.name);
               const reader = new FileReader();
-              reader.readAsDataURL(element);
+              reader.readAsDataURL(image);
               reader.onload = (imageEvent) => {
                 if (index === 0) {
                   this.mainImage = reader.result;

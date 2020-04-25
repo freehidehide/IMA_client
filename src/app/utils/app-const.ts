@@ -12,6 +12,7 @@ export class AppConst {
         RECENT_WINNER: '/contestants/recent_winner',
         ADVERTISEMENTS: '/advertisements',
         PRODUCTS: '/products',
+        PRODUCT: '/product',
         ATTACHMENTS: '/attachments',
         SETTINGS: '/settings?is_web=true',
         TRANSACTIONS: '/transactions',
