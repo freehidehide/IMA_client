@@ -15,8 +15,8 @@
         </button>
     </div>
     <div class="modal-body">
-        <video  width="400" controls>
-            <source src="{{ url }}" type="video/mp4" />
+        <video controls autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+            <source src="{{ videoUrl }}" type="video/mp4" />
             Your browser does not support HTML5 video.
         </video>
     </div>

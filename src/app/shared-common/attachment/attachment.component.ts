@@ -18,6 +18,7 @@ export class AttachmentComponent {
     public isVideo: boolean;
     public isPlayVideo: boolean;
     public modalReference = null;
+    public screenWidth = window.screen.width;
     constructor(private modalService: NgbModal) {
     }
     @Input('type')

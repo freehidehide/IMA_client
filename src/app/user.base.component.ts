@@ -44,7 +44,7 @@ export abstract class UserBaseComponent {
             if (callback !== null) {
                 this.patchuser(response);
             }
-            if (this.user.subscribed_data.length > 0) {
+            if (this.user.subscribed_data && this.user.subscribed_data.length > 0) {
                 let i = 0;
                 let album;
                 this.user.subscribed_data.forEach(element => {
