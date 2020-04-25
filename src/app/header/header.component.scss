@@ -51,9 +51,14 @@ li.nav-item.dropdown:hover .dropdown-menu {
     display: block;
 }
 
-.dropdown-menu ul {
-    list-style: none;
-    padding: 0;
+.dropdown-menu {
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+            border-bottom: 1px solid #eee;
+        }
+    }
 }
 
 .dropdown-menu ul li.dropdown-item a {
@@ -68,7 +73,7 @@ li.nav-item.dropdown:hover .dropdown-menu {
         .navbar {
             padding: 6px 88px;
             .nav-item {
-                padding: 0 8px;
+                padding: 0 15px;
 
                 > a {
                     font-size: 13px;
@@ -95,7 +100,6 @@ li.nav-item.dropdown:hover .dropdown-menu {
         .nav-item {
             a {
                 font-size: 14px;
-                text-align: center;
             }
         }
     }
