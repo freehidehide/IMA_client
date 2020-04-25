@@ -36,10 +36,11 @@
                         </div>
                         <div class="col-lg-6 col-md-12" *ngIf="product && product.details && product.details[0] && product.details[0].images_details && product.details[0].images_details.length > 0">
                             <div class="d-md-inline d-sm-inline d-inline">
-                                <img *ngFor="let images of product.details[0].images_details"
-                                    src="{{images}}"
-                                    class="selectImg"
-                                />
+                                <ngb-carousel>
+                                    <ng-template ngbSlide *ngFor="let images of product.details[0].images_details">
+                                        <img src="{{images}}" class="selectImg" />
+                                    </ng-template>
+                                </ngb-carousel>
                             </div>
                         </div>
                     </div>
