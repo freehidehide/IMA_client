@@ -15,7 +15,6 @@
     margin: 0 auto;
     display: block;
 }
-
 .footer-menu ul {
     display: flex;
     align-items: center;
@@ -24,16 +23,23 @@
     justify-content: space-between;
 }
 
-.footer-menu ul li {
-    color: #ffff;
-    display: inline-block;
-    font-size: 14px;
+.footer-menu {
+    ul {
+        li {
+            color: #fff;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            &:hover {
+                color: #3ea6fa;
+            }
+        }
+    }
 }
-
 .footer-menu {
     display: inline-block;
     width: 100%;
-    background: gray;
+    background: #343a40;
 }
 
 .copyright {
@@ -46,7 +52,7 @@
     display: inline-block;
     text-align: center;
     width: 100%;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 

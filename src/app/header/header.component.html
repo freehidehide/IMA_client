@@ -37,19 +37,19 @@
                         class="nav-link">ABOUT US</a>
                 </li>
                 <li class="nav-item" *ngIf="!sessionService.isAuth">
-                    <a href="javascript:void(0)" [routerLink]="['/login']" (click)="toggleSidebar()"
-                        class="nav-link">LOGIN</a>
-                </li>
-                <li class="nav-item" *ngIf="!sessionService.isAuth">
                     <a href="javascript:void(0)" [routerLink]="['/signup']" (click)="toggleSidebar()"
                         class="nav-link">SIGNUP</a>
                 </li>
+                <li class="nav-item" *ngIf="!sessionService.isAuth">
+                    <a href="javascript:void(0)" [routerLink]="['/login']" (click)="toggleSidebar()"
+                        class="nav-link logBtn">LOGIN</a>
+                </li>                
 
                 <li class="nav-item dropdown" *ngIf="sessionService.isAuth">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0)">
                         SETTINGS
                     </a>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu dropdown">
                         <ul>
                             <li class="dropdown-item" *ngIf="sessionService.user.role.id === 2" [routerLink]="['/view-profile']" >
                                 <a href="javascript:void(0)" 
@@ -84,7 +84,7 @@
                 </li>
 
                 <li class="nav-item" *ngIf="sessionService.isAuth">
-                    <a href="javascript:void(0)" (click)="toggleSidebar();logout();" class="nav-link">LOGOUT</a>
+                    <a href="javascript:void(0)" (click)="toggleSidebar();logout();" class="nav-link logBtn">LOGOUT</a>
                 </li>
 
             </ul>
