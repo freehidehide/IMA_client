@@ -1,3 +1,64 @@
+<style>
+    .qtyremain{
+        color: #dc3545;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .cartSize{
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #d6d6d6;
+        color: #736f6f;
+        margin: 0 10px 10px 0;
+        text-transform: uppercase;
+        padding: 4px 6px;
+        display: inline-flex;
+    }
+    .cartColor{
+        width: 26px;
+        height: 26px;
+        border-radius: 50px;
+        display: inline-block;
+        margin-right: 10px;
+        cursor: pointer;        
+    }
+    .cartColor.one{
+        background: #e80000;        
+    }
+    .cartColor.two{
+        background: #ddd;        
+    }
+    .cartColor.three{
+        background: #e8e8e8;        
+    }
+    .editCart{
+        background: var(--success);
+        color: var(--light);
+        margin: 5px 10px 5px 0;
+        border: none;
+        cursor: pointer;
+        border-radius: 50px;
+        width: 26px;
+        height: 26px;
+        font-size: 14px;
+        padding: 3px;
+    }
+    .deleteCart{
+        background: var(--danger);
+        color: var(--light);
+        margin: 5px 10px 5px 0;
+        border: none;
+        cursor: pointer;
+        border-radius: 50px;
+        width: 26px;
+        height: 26px;
+        font-size: 14px;
+        padding: 2px;
+    }
+</style>
 <div class="imacontainer">
     <div class="carttitle d-flex justify-content-center align-items-center">
         <h3 class="rozhafont text-uppercase">Cart</h3>
@@ -5,55 +66,49 @@
     <div class="content-middle cart-middle">
         <ul class="cartinner list-unstyled">
             <li *ngFor="let product of productDetails; let productIndex = index; trackBy: trackById">
-                <div class="row">
-                    <div class="col-xl-5 col-xs-4 col-5">
-                        <div class="row">
-                            <div class="col-xl-5 col-lg-12 produtimage">
-                                <app-attachment
-                                [attachment]="product.showDetail.panelImage"
-                                [type]="original"
-                                [cssClass]="'shopattimage'"
-                            ></app-attachment>
-                            </div>
-                            <div class="col-xl-7 col-lg-12">
-                                <div>
-                                    <h5
-                                        class="prodtitle cartsubtitle text-uppercase text-center"
-                                    >
-                                        Product
-                                    </h5>
-                                    <h2 class="cartproducttitle text-truncate">
-                                        {{ product.showDetail.product.name }}
-                                    </h2>
-                                    <p class="proddescription m-0">
-                                        {{ product.showDetail.product.description }}
-                                    </p>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-6 cartprice">
-                                        <h5 class="cartsubtitle text-uppercase text-center">
-                                            Price
-                                        </h5>
-                                        <div class="cartprodamt text-center">
-                                            {{ product.showDetail.amount_detail.price | currency: settings.CURRENCY_CODE:'symbol' }}
-                                        </div>
-                                    </div>
-                                    <div class="col-6 cartprice">
-                                        <h5 class="cartsubtitle text-uppercase text-center">
-                                            Discount Price
-                                        </h5>
-                                        <div class="cartprodamt text-center">
-                                            {{ product.showDetail.amount_detail.discount_price | currency: settings.CURRENCY_CODE:'symbol' }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <app-attachment
+                            [attachment]="product.showDetail.panelImage"
+                            [type]="original"
+                            [cssClass]="'shopattimage'"
+                        ></app-attachment>
                     </div>
-                    
-                    <div class="col-xl-2 col-xs-2 col-2 cartprice" *ngIf="!isMyOrder">
-                        <h5 class="cartsubtitle text-uppercase text-center">
+
+                    <div class="col-md-3">
+                        <h5 class="prodtitle cartsubtitle text-uppercase">Product
+                        </h5>
+                        <h2 class="cartproducttitle text-truncate">
+                            {{ product.showDetail.product.name }}
+                        </h2>
+                        <p class="proddescription m-0">
+                            {{ product.showDetail.product.description }}
+                        </p>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="cartprice">
+                            <h5 class="cartsubtitle text-uppercase">
+                                Price
+                            </h5>
+                            <div class="">
+                                <b>{{ product.showDetail.amount_detail.price | currency: settings.CURRENCY_CODE:'symbol' }}</b>
+                            </div>
+                       
+                            <h5 class="cartsubtitle text-uppercase pt-3">
+                                Discount Price
+                            </h5>
+
+                            <div class="">
+                                <b>{{ product.showDetail.amount_detail.discount_price | currency: settings.CURRENCY_CODE:'symbol' }}</b>
+                            </div>
+                        </div>                        
+                    </div>
+
+                    <div class="col-md-3">
+                        <h5 class="cartsubtitle text-uppercase">
                             Coupon Code
                         </h5>
                         <div class="cartprodamt text-center">
@@ -61,43 +116,55 @@
                                 [(ngModel)]="product.showDetail.cart.coupon.coupon_code"
                                 [ngModelOptions]="{standalone: true}"
                                 placeholder="Enter Code"
-                                class="form-control"
+                                class="form-control mt-3"
                             />
                         </div>
+                        <div class="row">
+                            <div class="col-md-6 pt-3">
+                                <h5 class="cartsubtitle text-uppercase">Color</h5>
+                                <div class="cartColor one"></div>
+                                <div class="cartColor two"></div>
+                                <div class="cartColor three"></div>
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <h5 class="cartsubtitle text-uppercase">Size</h5>
+                                <div class="cartSize"><sapn>xs</sapn></div>
+                                <div class="cartSize"><sapn>m</sapn></div>
+                                <div class="cartSize"><sapn>s</sapn></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-xl-2 col-xs-2 col-2">
-                        <h5 class="cartsubtitle text-uppercase text-center">
+
+                    <div class="col-md-2">
+                        <h5 class="cartsubtitle text-uppercase">
                             Quantity
                         </h5>
-                        <div class="ctquantityinput" *ngIf="!isMyOrder">
+                        <div class="ctquantityinput mt-3" *ngIf="!isMyOrder">
                             <button type="button" class="ctqtydecr" (click)="removeQuantity(product)"></button>
                             <span class="quantityinput">{{product.showDetail.cart && product.showDetail.cart.quantity ? product.showDetail.cart.quantity : 0 }}</span>
                             <button type="button" class="ctqtyincr" (click)="addQuantity(product)"></button>
                         </div>
-                        <p class="mt-2 quntyremain m-0" *ngIf="!isMyOrder">
+                        <p class="mt-2 quntyremain m-0 qtyremain" *ngIf="!isMyOrder">
                             Only {{ product.showDetail.amount_detail.quantity}} items left
                         </p>
                         <p class="mt-2 quntyremain m-0" *ngIf="isMyOrder">
                             {{ product.showDetail.cart.quantity }}
                         </p>
-                    </div>
-                    <div class="col-1" *ngIf="!isMyOrder">
-                            <h5 class="cartsubtitle text-uppercase text-center">
-                                &nbsp;
-                            </h5>
-                            <div class="singlecartprops">
-                                <button type="button" class="btn btn-primary" (click)="editCart(product)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                            </div>
-                    </div>
-                    <div class="col-1" *ngIf="!isMyOrder">
-                        <h5 class="cartsubtitle text-uppercase text-center">
-                            &nbsp;
-                        </h5>
-                        <div class="singlecartprops">
-                            <button type="button" class="btn btn-danger" (click)="deleteCart(product)"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+                        
+                        <div class="pull-right mt-4">
+                            <sapn *ngIf="!isMyOrder">                            
+                                <button type="button" class="editCart" (click)="editCart(product)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            </sapn>
+                            <sapn *ngIf="!isMyOrder">                                
+                                <button type="button" class="deleteCart" (click)="deleteCart(product)"><i class="fa fa-times" aria-hidden="true"></i></button>
+                            </sapn>
                         </div>
+
                     </div>
                 </div>
+
+                <hr>
+                
             </li>
         </ul>
         <div class="cartupdate" *ngIf="!isMyOrder">
