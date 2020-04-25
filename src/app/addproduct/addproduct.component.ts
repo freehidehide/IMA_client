@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Size } from './../api/models/size';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../api/models/product';
@@ -20,7 +21,7 @@ export class AddproductComponent implements OnInit {
     price: '',
     description: '',
     coupon_code: '',
-    discount: '',
+    discount_percentage: '',
     details: [],
   };
   public sizeList: SizeList;
@@ -62,26 +63,50 @@ export class AddproductComponent implements OnInit {
   }
 
   addproduct() {
-    if (this.product.name.trim() === '') {
-
-    } else if (this.product.name.trim() === '') {
-    } else if (this.product.name.trim() === '') {
-    } else if (this.product.name.trim() === '') {
-    }
-    console.log('this.product.---------', this.product);
-    const details = [];
-    const sizeSelected = this.sizes.filter(element => {
-      return (element.isActive);
+    let message = '';
+    this.product.details.forEach((colorDetail, index) => {
+      if (colorDetail.color === '') {
+        message = 'Choose Color' + index;
+        return;
+      }
+      if (colorDetail.images.length === 0) {
+        message = 'Add images for color ' + index;
+        return;
+      }
     });
-    this.product.details.forEach(element => {
+    if (message !== '') {
+      this.toastService.error(message);
+      return;
+    } else if (this.product.name.trim() === '') {
+      this.toastService.error('Product Name is required');
+      return;
+    } else if (this.product.description.trim() === '') {
+      this.toastService.error('Product Description is required');
+      return;
+    } else if (this.product.quantity <= 0 || !Number.isInteger(this.product.quantity)) {
+      this.toastService.error('Quantity is required');
+      return;
+    } else if (this.product.price <= 0  || !Number.isInteger(this.product.price)) {
+      this.toastService.error('Price is required');
+      return;
+    } else if (this.product.discount_percentage !== '' &&
+    (!Number.isInteger(this.product.discount_percentage) || this.product.discount_percentage >= 100)) {
+      this.toastService.error('Enter discount Percentage');
+      return;
+    }
+    const details = [];
+    const sizeSelected = this.sizes.filter(size => {
+      return (size.isActive);
+    });
+    this.product.details.forEach(detail => {
       details.push({
-        color: element.color,
+        color: detail.color,
         quantity: this.product.quantity,
         price: this.product.price,
-        discount_percentage: this.product.discount,
+        discount_percentage: this.product.discount_percentage,
         coupon_code: this.product.coupon_code,
         sizes: (sizeSelected.length > 0) ? sizeSelected : [0],
-        images: element.images[0]
+        images: detail.images[0]
       });
     });
     const requestParams = {
