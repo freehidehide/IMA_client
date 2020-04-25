@@ -51,7 +51,11 @@
                     </a>
                     <div class="dropdown-menu dropdown">
                         <ul>
-                            <li class="dropdown-item" [routerLink]="['/view-profile']" >
+                            <li class="dropdown-item" *ngIf="sessionService.user.role.id === 2" [routerLink]="['/view-profile']" >
+                                <a href="javascript:void(0)" 
+                                    (click)="toggleSidebar()">PROFILE</a>
+                            </li>
+                            <li class="dropdown-item" *ngIf="sessionService.user.role.id !== 2" [routerLink]="['/edit']" >
                                 <a href="javascript:void(0)" 
                                     (click)="toggleSidebar()">PROFILE</a>
                             </li>

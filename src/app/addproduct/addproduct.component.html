@@ -1,7 +1,7 @@
 <div class="imacontainer">
     <div class="subheader position-relative">
         <div class="subheadings">
-            <h2 class="text-uppercase">Shop</h2>
+            <h2 class="text-uppercase">Add Products</h2>
         </div>
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
@@ -13,8 +13,8 @@
                     <div class="imgUploadbx">
                         <div class="pictureContainer">
                             <div class="pictureSec productPic">
-                                <img *ngIf="product && product.details && product.details[0] && product.details[0].images_details && product.details[0].images_details.length > 0"
-                                    src="{{product.details[0].images_details[0]}}"
+                                <img *ngIf="images_details && images_details.length > 0"
+                                    src="{{mainImage}}"
                                     class="input_img pictureSrc"
                                     title=""
                                     class="img-responsive"
@@ -28,17 +28,19 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 col-md-12" *ngIf="product && product.details && product.details[0] && product.details[0].images_details && product.details[0].images_details.length > 0">
+                        <div class="col-lg-6 col-md-12" *ngIf="images_details && images_details.length > 0">
                             <h6 class="titleh6 pt-1" for="imageupload">
                                 <i class="fa fa-plus addMorebtn"></i> Add more
                                 Images
                             </h6>
                         </div>
-                        <div class="col-lg-6 col-md-12" *ngIf="product && product.details && product.details[0] && product.details[0].images_details && product.details[0].images_details.length > 0">
+
+                        <div class="col-lg-6 col-md-12" *ngIf="images_details && images_details.length > 0">
                             <div class="d-md-inline d-sm-inline d-inline uploadSli">
+
                                 <ngb-carousel>
-                                    <ng-template ngbSlide *ngFor="let images of product.details[0].images_details">
-                                        <img src="{{images}}" class="selectImg" />
+                                    <ng-template ngbSlide *ngFor="let images of images_details">
+                                        <img (click)="changeImage(images)" src="{{images}}" class="selectImg" />
                                     </ng-template>
                                 </ngb-carousel>
                             </div>
@@ -49,16 +51,17 @@
                     <div class="customSizeadd pt-4">
                         <h6 class="titleh6">Choose Color</h6>
                         <div *ngFor="let detail of product.details" class="chooseColor" [ngClass]="{'active': detail.is_active}" [style.background]="detail.color"></div>
-                        <div class="addColor" [(colorPicker)]="color" (colorPickerClose)="choosedColor($event)" [style.background]="color">
+                        <div class="addColor" [(colorPicker)]="color" (colorPickerClose)="addColor($event)" [style.background]="color">
                             <i class="fa fa-plus" for="color"></i>
                         </div>
                     </div>
                     <div class="customSizebox pt-3"  *ngIf="product && product.details && product.details[0] && product.details[0].images_details && product.details[0].images_details.length > 0">
-                        <h6 class="titleh6">List your Product</h6>
+                        <h6 class="titleh6">Choose Sizes</h6>
                         <span *ngFor="let size of sizes">
-                            <input type="checkbox" id="{{size.id}}" checked />
-                            <label for="{{size.id}}">{{size.name}}</label>
+                            <input type="checkbox" id="{{size.id}}" [(ngModel)]="size.isActive" />
+                            <label for="{{size.id}}" (click)="chooseSize(size)">{{size.name}}</label>
                         </span>
+
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -78,7 +81,7 @@
                             <div class="form-group col-md-3">
                                 <label for="quantity">Quantity</label>
                                 <input
-                                    type="text"
+                                    type="number"
                                     class="form-control"
                                     id="quantity"
                                     [(ngModel)]="product.quantity"
@@ -89,7 +92,7 @@
                             <div class="form-group col-md-3">
                                 <label for="price">Price</label>
                                 <input
-                                    type="text"
+                                    type="number"
                                     class="form-control"
                                     id="price"
                                     [(ngModel)]="product.price"
@@ -113,6 +116,17 @@
                                 />
                             </div>
                             <div class="form-group col-md-3">
+                                <label for="discount">Discount Percentage</label>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="discount"
+                                    [(ngModel)]="product.discount"
+                                    [ngModelOptions]="{standalone: true}"
+                                    placeholder="Set Discount Percentage"
+                                />
+                            </div>
+                            <div class="form-group col-md-3">
                                 <label for="coupon_code">Discount Code</label>
                                 <input
                                     type="text"
@@ -123,21 +137,11 @@
                                     placeholder="Set your Discount Code"
                                 />
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="discount">Discount</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="discount"
-                                    [(ngModel)]="product.discount"
-                                    [ngModelOptions]="{standalone: true}"
-                                    placeholder="Set Discount"
-                                />
-                            </div>
                         </div>
                         <div class="text-center">
                             <button
                                 type="button"
+                                (click)="addproduct()"
                                 class="btn btn-primary primaryBtn mt-5"
                             >
                                 Continue
