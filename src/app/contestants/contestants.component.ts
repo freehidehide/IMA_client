@@ -2,6 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { ToastService } from '../api/services/toast-service';
 import { CategoryService } from '../api/services/category.service';
+import { CategoriesList } from '../api/models/categories-list';
 import { UserList } from '../api/models/user-list';
 import { User } from '../api/models/user';
 import { QueryParam } from '../api/models/query-param';
@@ -13,12 +14,13 @@ import { AppConst } from '../utils/app-const';
     styleUrls: ['./contestants.component.scss']
 })
 export class ContestantsComponent extends BaseComponent implements OnInit {
+    public categoriesList: CategoriesList;
     public userList: UserList;
     public users: User[] = [];
     public isNodata: boolean;
-    public categoryId = 1;
-    public categoryName = '';
+    public slug = '';
     public pageType: number;
+
     @Input('type')
     set type(value: number) {
         if (value) {
@@ -42,24 +44,32 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
 
     ngOnInit(): void {
         if (this.router.url.indexOf(AppConst.SERVER_URL.CONTESTANTS) > -1) {
-            this.categoryId = +this.activatedRoute.snapshot.paramMap.get('id');
-            if (this.categoryId) {
+            this.slug = this.activatedRoute.snapshot.paramMap.get('slug');
+            if (this.slug) {
                 this.pageType = 1;
-                this.categoryName = this.activatedRoute.snapshot.paramMap.get(
-                    'name'
+                this.slug = this.activatedRoute.snapshot.paramMap.get(
+                    'slug'
                 );
-                this.getContestantsByCategories();
+                this.categoryService.getAll(null).subscribe((response) => {
+                    this.categoriesList = response;
+                    this.categoriesList.data.forEach(category => {
+                        if (category.slug === this.slug) {
+                            this.getContestantsByCategories(category.id);
+                            return;
+                        }
+                    });
+                });
             }
         }
     }
 
-    getContestantsByCategories(): void {
+    getContestantsByCategories(catId): void {
         this.toastService.showLoading();
         this.isNodata = true;
         const queryParam: QueryParam = {
             page: 1,
             sortby: 'desc',
-            category_id: this.categoryId
+            category_id: catId
         };
         this.categoryService
             .getContestantsList(queryParam)
@@ -83,7 +93,7 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
     }
 
     redirect(user: User): void {
-        const url: string = '/profile/' + user.slug + '/' + user.category.category_id;
+        const url: string = '/profile/' + user.category.category.slug + '/' + user.slug;
         this.router.navigate([url]);
     }
 }

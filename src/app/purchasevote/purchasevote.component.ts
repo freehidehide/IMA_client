@@ -35,10 +35,9 @@ implements OnInit {
     ngOnInit(): void {
         this.settings = this.startupService.startupData();
         this.type = this.activatedRoute.snapshot.paramMap.get('type');
-        this.userId = +this.activatedRoute.snapshot.paramMap.get('id');
         this.username = this.activatedRoute.snapshot.paramMap.get('username');
-        this.categoryId = +this.activatedRoute.snapshot.paramMap.get('categoryId');
-        if (this.userId || this.username) {
+        this.categoryId = window.history.state.category_id;
+        if (this.username) {
             this.getUser(null);
             this.getvotePackagesList();
         } else {
@@ -59,11 +58,12 @@ implements OnInit {
 
     redirect(id: number): void {
         let url: string;
-        if (this.type === 'instant') {
-            url = 'checkout/insta_votes?contest=' + id + '&contestant_id=' + this.userId;
+        if (this.router.url.includes('/instant_vote/')) {
+            url = 'checkout/instant_votes?contest=' + id + '&contestant_id=' + this.username;
+            this.router.navigate([url]);
         } else {
-            url = 'checkout/votes?package=' + id + '&contestant_id=' + this.userId + '&category_id=' + this.categoryId;
+            url = 'checkout/votes?package=' + id + '&contestant_id=' + this.username;
+            this.router.navigateByUrl(url, { state: { category_id: this.categoryId } });
         }
-        this.router.navigate([url]);
     }
 }

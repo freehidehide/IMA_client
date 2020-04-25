@@ -10,16 +10,20 @@ import { AppConst } from '../../utils/app-const';
 export class SessionService {
     public isAuth: boolean;
     public user: User;
+    public authCheck: boolean;
     public auth: string;
     private _adminSettings: any;
     constructor(public router: Router,
         private apiService: ApiService) {}
 
     isLogined(): void {
-        this.auth = sessionStorage.getItem('user_context');
-        this.isAuth = (this.auth !== undefined && this.auth !== null);
-        if (this.isAuth) {
-            this.setAuthResponse();
+        this.authCheck = (sessionStorage.getItem('user_context') && sessionStorage.getItem('user_context') !== '');
+        if (this.authCheck) {
+            this.auth = sessionStorage.getItem('user_context');
+            this.isAuth = (this.auth !== undefined && this.auth !== null);
+            if (this.isAuth) {
+                this.setAuthResponse();
+            }
         }
     }
 
@@ -29,6 +33,10 @@ export class SessionService {
 
     logout(): void {
         sessionStorage.removeItem('user_context');
+        sessionStorage.setItem(
+            'user_context',
+            ''
+        );
         this.isAuth = false;
         this.user = null;
     }

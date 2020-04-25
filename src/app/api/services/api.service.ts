@@ -27,7 +27,7 @@ export class ApiService {
             addHeaders = addHeaders.append('Accept', 'application/json');
             addHeaders = addHeaders.append('Content-Type', 'application/json');
         }
-        if (sessionStorage.getItem('user_context') !== undefined) {
+        if (sessionStorage.getItem('user_context') !== undefined && sessionStorage.getItem('user_context') !== '') {
             const sessionStr = JSON.parse(
                 sessionStorage.getItem('user_context')
             );
@@ -38,6 +38,8 @@ export class ApiService {
                 );*/
                 this.token = sessionStr.access_token;
             }
+        } else {
+            this.token = '';
         }
         this.httpOptions = {
             headers: addHeaders
@@ -133,9 +135,12 @@ export class ApiService {
      */
     getFormattedQueryParam(url: string, params: any, method: string): string {
         let formattedUrl: string;
-        const appendToken: string = (!(AppConst.NON_AUTH_SERVER_URL.indexOf(url) > -1 || url.includes('pages')
+        let appendToken = '';
+        if (!url.includes('pages')) {
+            appendToken = (!(AppConst.NON_AUTH_SERVER_URL.indexOf(url) > -1 || url.includes('pages')
         || url.includes('page'))
         || (this.token && this.token !== '')) ? '?token=' + this.token : '?';
+        }
         if (params) {
             const queryString = Object.keys(params)
                 .map(function(key) {

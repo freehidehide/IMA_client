@@ -51,7 +51,7 @@ export class CategoryService {
         return this.apiService.httpGet(contestList, queryParam);
     }
 
-    getUserCategory(userId: number, queryParam: QueryParam): Observable<UserCategoryList> {
+    getUserCategory(userId: number|string, queryParam: QueryParam): Observable<UserCategoryList> {
         const url: string =
             AppConst.SERVER_URL.USER_CATEGORY + userId;
         return this.apiService.httpGet(url, queryParam);

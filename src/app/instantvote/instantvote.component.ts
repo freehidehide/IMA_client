@@ -35,7 +35,7 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
     public pageTitle: string;
     public end_date: string;
     public isShowTime = false;
-    public userId: number;
+    public userId: string;
     public prettyConfig: CountdownConfig;
     public contestProgress = false;
     constructor(
@@ -146,13 +146,13 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
         userMain.is_active = false;
       });
       user.is_active = true;
-      this.userId = user.id;
+      this.userId = user.slug;
     }
 
     redirect(user: User): void {
       if (this.isShowTime) {
         if (this.userId) {
-          const url: string = '/purchase/instant/' + this.userId + '/1';
+          const url: string = '/instant_vote/' + this.userId;
           this.router.navigate([url]);
         } else {
           this.toastService.warning('Please select the contestant to vote');

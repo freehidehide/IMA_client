@@ -24,6 +24,41 @@ const routes: Routes = [
             )
     },
     {
+        path: 'instant_vote/:username',
+        loadChildren: () =>
+            import('./purchasevote/purchasevote.module').then(
+                (m) => m.PurchasevoteModule
+            )
+    },
+    {
+        path: 'myproducts',
+        loadChildren: () =>
+            import('./myproducts/myproducts.module').then(
+                (m) => m.MyproductsModule
+            )
+    },
+    {
+        path: 'instant_vote_success/:slug',
+        loadChildren: () =>
+            import('./instant-success/instant-success.module').then(
+                (m) => m.InstantSuccessModule
+            )
+    },
+    {
+        path: 'vote_success/:slug',
+        loadChildren: () =>
+            import('./vote-success/vote-success.module').then(
+                (m) => m.VoteSuccessModule
+            )
+    },
+    {
+        path: 'product-success/:slug',
+        loadChildren: () =>
+            import('./product-success/product-success.module').then(
+                (m) => m.ProductSuccessModule
+            )
+    },
+    {
         path: 'admin',
         loadChildren: () =>
             import('./admin/admin.module').then((m) => m.AdminModule),
@@ -50,7 +85,7 @@ const routes: Routes = [
             import('./signup/signup.module').then((m) => m.SignupModule)
     },
     {
-        path: 'contestants/:id/:name',
+        path: 'contestants/:slug',
         loadChildren: () =>
             import('./contestants/contestants.module').then(
                 (m) => m.ContestantsModule
@@ -69,24 +104,17 @@ const routes: Routes = [
             )
     },
     {
-        path: 'profile/:id/:categoryId',
+        path: 'profile/:slug/:username',
         loadChildren: () =>
             import('./contestantprofile/contestantprofile.module').then(
                 (m) => m.ContestantprofileModule
             )
     },
     {
-        path: 'profile/:id',
+        path: 'profile/:username',
         loadChildren: () =>
             import('./contestantprofile/contestantprofile.module').then(
                 (m) => m.ContestantprofileModule
-            )
-    },
-    {
-        path: 'purchase/:type/:id/:categoryId',
-        loadChildren: () =>
-            import('./purchasevote/purchasevote.module').then(
-                (m) => m.PurchasevoteModule
             )
     },
     {

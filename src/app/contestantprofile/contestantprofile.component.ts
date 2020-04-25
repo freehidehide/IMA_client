@@ -11,6 +11,7 @@ import { User } from '../api/models/user';
 import { CategoryService } from '../api/services/category.service';
 import { UserCategoryList } from '../api/models/user-category-list';
 import { UserCategory } from '../api/models/user-category';
+import { CategoriesList } from '../api/models/categories-list';
 import { AppConst } from '../utils/app-const';
 import { DOCUMENT } from '@angular/common';
 @Component({
@@ -21,6 +22,7 @@ import { DOCUMENT } from '@angular/common';
 export class ContestantprofileComponent extends UserBaseComponent  implements OnInit {
     public userCategoryList: UserCategoryList;
     public userCategories: UserCategory[];
+    public categoriesList: CategoriesList;
     public category_id: number;
     public catId: any;
     public location = '';
@@ -29,6 +31,7 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
     public image: any;
     public video: any;
     public isvideo = false;
+    public slug = '';
     public modalReference = null;
     public linkToShare = 'https://www.google.com/';
     constructor(
@@ -161,9 +164,20 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
     }
 
     ngOnInit(): void {
-        this.userId = +this.activatedRoute.snapshot.paramMap.get('id');
-        this.categoryId = +this.activatedRoute.snapshot.paramMap.get('categoryId');
-        if (this.userId) {
+        this.username = this.activatedRoute.snapshot.paramMap.get('username');
+        this.slug = this.activatedRoute.snapshot.paramMap.get('slug');
+        if (this.activatedRoute.snapshot.paramMap.get('slug')) {
+            this.categoryService.getAll(null).subscribe((response) => {
+                this.categoriesList = response;
+                this.categoriesList.data.forEach(category => {
+                    if (category.slug === this.activatedRoute.snapshot.paramMap.get('slug')) {
+                        this.categoryId = category.id;
+                        this.getUser(null);
+                        return;
+                    }
+                });
+            });
+        } else if (this.username) {
             this.getUser(null);
         } else {
             this.router.navigate(['/']);
@@ -171,18 +185,18 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
     }
 
     openFb() {
-        window.open('https://www.facebook.com/sharer/sharer.php?u=http://app.itstheimas.com/', 'pop'
+        window.open('https://www.facebook.com/sharer/sharer.php?u=http://app.itstheimas.com/vote/' + this.slug, 'pop'
         , 'width=600, height=400, scrollbars=no');
     }
 
     openTwitter() {
-        window.open('https://twitter.com/intent/tweet?url=http://app.itstheimas.com/&via=anne-hathaway&text=Anne Hathaway', 'pop',
+        window.open('https://twitter.com/intent/tweet?url=http://app.itstheimas.com/vote/' + this.slug + '&via=' + this.slug, 'pop',
         'width=600, height=400, scrollbars=no');
     }
 
     redirect(user: User): void {
-        const url: string = '/vote/' + user.slug + '/' + this.categoryId;
-        this.router.navigate([url]);
+        const url: string = '/vote/' + user.slug;
+        this.router.navigateByUrl(url, { state: { category_id: this.categoryId } });
     }
 
     viewMore(data: any) {

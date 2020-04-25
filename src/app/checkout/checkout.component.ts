@@ -29,7 +29,7 @@ export class CheckoutComponent implements OnInit {
     public subscription = 'subscription';
     public cart = 'cart';
     public votes = 'votes';
-    public instaVotes = 'insta_votes';
+    public instaVotes = 'instant_vote';
     public name: string;
     public paymentType: string;
     public payment_gatewayId: number;
@@ -52,7 +52,12 @@ export class CheckoutComponent implements OnInit {
         public startupService: StartupService,
         public categoryService: CategoryService) {
             this.paymentType = this.activatedRoute.snapshot.paramMap.get('type');
-            if (this.paymentType && this.paymentType.indexOf('?') > -1) {
+            if (this.activatedRoute.snapshot.queryParams.contestant_id) {
+                this.packageId = this.activatedRoute.snapshot.queryParams.package;
+                this.contestantId = this.activatedRoute.snapshot.queryParams.contestant_id;
+                const catId = (window.history.state.category_id) ? window.history.state.category_id : 0;
+                this.categoryId = +catId;
+            } else if (this.paymentType && this.paymentType.indexOf('?') > -1) {
                 const params = this.paymentType.split('?');
                 this.paymentType = params[0];
                 const types = params[1].split('&');
@@ -74,10 +79,10 @@ export class CheckoutComponent implements OnInit {
         } else if (this.paymentType === this.subscription) {
             this.name = 'Subscription';
         } else if (this.paymentType === this.votes) {
-            this.name = 'votes';
+            this.name = 'Votes';
             this.isCategory = true;
             this.getCategories();
-        } else if (this.paymentType === this.instaVotes) {
+        } else if (this.paymentType.includes(this.instaVotes)) {
             this.name = 'Instant votes';
         } else if (this.paymentType === this.cart) {
             this.name = 'Cart';
@@ -89,7 +94,7 @@ export class CheckoutComponent implements OnInit {
     getCategories() {
         this.toastService.showLoading();
         this.categoryService
-            .getUserCategory(+this.contestantId, null)
+            .getUserCategory(this.contestantId, null)
             .subscribe((response) => {
                 this.userCategoryList = response;
                 this.userCategories = this.userCategoryList.data;
@@ -160,7 +165,7 @@ export class CheckoutComponent implements OnInit {
             this.subscriptions();
         } else if (this.paymentType === this.votes) {
             this.votePurchase();
-        } else if (this.paymentType === this.instaVotes) {
+        } else if (this.paymentType.includes(this.instaVotes)) {
             this.instantVotePurchase();
         } else if (this.paymentType === this.cart) {
             this.cartCheckout();
