@@ -23,7 +23,6 @@
     font-size: 20px;
     color: #696969;
     font-weight: 500;
-    margin: 0 0 25px;
 }
 
 .cartproducttitle {
@@ -51,7 +50,6 @@
 }
 .ctquantityinput {
     display: flex;
-    justify-content: center;
     align-items: center;
 
     .ctqtydecr {
@@ -147,16 +145,17 @@
 
     .cartsubtitle {
         font-size: 15px;
-        margin: 0 0 20px;
     }
 
     .cartproducttitle {
-        font-size: 56px;
-        line-height: 56px;
+        font-size: 25px;
+        line-height: 25px;
+        font-weight: 500;
     }
 
     .proddescription {
-        font-size: 18px;
+        font-size: 15px;
+        line-height: 20px;
     }
 
     .cartprodamt {
@@ -166,21 +165,22 @@
 
     .ctquantityinput {
         .ctqtydecr {
-            width: 55px;
-            height: 55px;
-            background-size: 65%;
+            width: 35px;
+            height: 36px;
+            background-size: 60%;
         }
 
         .quantityinput {
-            height: 55px;
-            width: 124px;
-            font-size: 39px;
+            height: 36px;
+            width: 100px;
+            font-size: 22px;
+            font-weight: 400;
         }
 
         .ctqtyincr {
-            width: 55px;
-            height: 55px;
-            background-size: 65%;
+            width: 35px;
+            height: 36px;
+            background-size: 60%;
         }
     }
 
