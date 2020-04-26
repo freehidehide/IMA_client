@@ -21,6 +21,7 @@ export class WinnerComponent extends BaseComponent implements OnInit {
   public pageType: number;
   public pageTitle: string;
   public left_time: number;
+  public message: string;
   public isShowTime = false;
   public prettyConfig: CountdownConfig;
   constructor(
@@ -37,6 +38,23 @@ export class WinnerComponent extends BaseComponent implements OnInit {
     this.getWinnerList();
   }
 
+  dhms(t) {
+      let days, hours, minutes, seconds = 0;
+      days = Math.floor(t / 86400);
+      t -= days * 86400;
+      hours = Math.floor(t / 3600) % 24;
+      t -= hours * 3600;
+      minutes = Math.floor(t / 60) % 60;
+      t -= minutes * 60;
+      seconds = t % 60;
+      return [
+          days + ' days',
+          hours + ' hours',
+          minutes + ' minutes',
+          seconds + ' seconds'
+      ].join(', ');
+  }
+
   getWinnerList(): void {
       this.toastService.showLoading();
       this.categoryService
@@ -50,24 +68,13 @@ export class WinnerComponent extends BaseComponent implements OnInit {
               this.users = response.data.category_highest_votes;
             }
             this.left_time = response.data.left_time;
-            this.prettyConfig = {
-              leftTime: response.data.left_time,
-              format: 'HH:mm:ss',
-              prettyText: (text) => {
-                return text
-                  .split(':')
-                  .map((v, index) => {
-                    if (index === 0) {
-                      return '<div class="hours timings text-center"><span class="count">' + v + '</span><span class="timetext text-uppercase">Hours</span></div>';
-                    } else if (index === 1) {
-                      return '<div class="minutes timings text-center"><span class="count">' + v + '</span><span class="timetext text-uppercase">Minutes</span></div>';
-                    } else {
-                      return '<div class="seconds timings text-center"><span class="count">' + v + '</span><span class="timetext text-uppercase">Seconds</span></div>';
-                    }
-                  })
-                  .join('<div class="timecolan">:</div>');
-              },
-            };
+            // this.counter$ = Observable.timer(0, this.left_time)
+            //   .takeWhile(() => this.alive) // only fires when component is alive
+            //   .subscribe(() => {
+            //     return Math.floor((this.left_time - new Date().getTime()) / 1000);
+            //   });
+            // this.subscription = this.counter$.subscribe((x) => this.message = this.dhms(x));
+            this.message = '4 days, 2 hours, 21 minutes, 41 seconds';
             this.isShowTime = true;
             this.toastService.clearLoading();
           });

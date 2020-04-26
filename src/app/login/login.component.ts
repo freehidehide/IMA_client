@@ -21,7 +21,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
     public loginForm: FormGroup;
     public serviceResponse: ServiceResponse = new ServiceResponse();
     public submitted: Boolean;
-    public User: User = new User();
+    public user: User = new User();
     constructor(
         public router: Router,
         private formBuilder: FormBuilder,
@@ -65,26 +65,33 @@ export class LoginComponent extends BaseComponent implements OnInit {
         this.toastService.showLoading();
         this.userService.login(this.loginForm).subscribe((data) => {
             this.submitted = false;
-            this.User = data;
+            this.user = data;
             if (
-                this.User.error &&
-                this.User.error.code === AppConst.SERVICE_STATUS.SUCCESS
+                this.user.error &&
+                this.user.error.code === AppConst.SERVICE_STATUS.SUCCESS
             ) {
-                this.toastService.success(this.User.error.message);
+                this.toastService.success(this.user.error.message);
                 sessionStorage.setItem(
                     'user_context',
-                    JSON.stringify(this.User)
+                    JSON.stringify(this.user)
+                );
+                sessionStorage.setItem('access_token', this.user.access_token);
+                sessionStorage.setItem('refresh_token', this.user.refresh_token);
+                const dt = new Date();
+                dt.setMinutes( dt.getMinutes() + 60 );
+                sessionStorage.setItem(
+                    'login_time', dt.toString()
                 );
                 this.sessionService.isLogined();
-                if (this.User.role.id === AppConst.ROLE.ADMIN || this.User.role.id === AppConst.ROLE.COMPANY) {
+                if (this.user.role.id === AppConst.ROLE.ADMIN || this.user.role.id === AppConst.ROLE.COMPANY) {
                     this.router.navigate(['/admin']);
-                } else if (this.User.role.id === AppConst.ROLE.CONTESTANT) {
-                    this.router.navigate(['/profile/' + this.User.slug]);
+                } else if (this.user.role.id === AppConst.ROLE.CONTESTANT) {
+                    this.router.navigate(['/profile/' + this.user.slug]);
                 } else {
                     this.router.navigate(['/']);
                 }
             } else {
-                this.toastService.error(this.User.error.message);
+                this.toastService.error(this.user.error.message);
             }
             this.toastService.clearLoading();
         });

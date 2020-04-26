@@ -71,6 +71,11 @@ export class UserService {
         return this.apiService.httpPostFile(url, request, queryParam);
     }
 
+    approval(): Observable<any> {
+        const url: string = AppConst.SERVER_URL.ATTACHMENTS;
+        return this.apiService.httpPut(url, null, null);
+    }
+
     logout(): Observable<any> {
         const url: string = AppConst.SERVER_URL.LOGOUT;
         return this.apiService.httpGet(url, null);

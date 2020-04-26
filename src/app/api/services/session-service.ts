@@ -33,6 +33,9 @@ export class SessionService {
 
     logout(): void {
         sessionStorage.removeItem('user_context');
+        sessionStorage.removeItem('login_time');
+        sessionStorage.removeItem('access_token');
+        sessionStorage.removeItem('refresh_token');
         sessionStorage.setItem(
             'user_context',
             ''

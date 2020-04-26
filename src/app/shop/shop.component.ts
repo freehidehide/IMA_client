@@ -212,21 +212,39 @@ export class ShopComponent extends BaseComponent implements OnInit {
     }
 
     addQuantity(product: Product) {
-        product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
-        product.showDetail.cart.quantity;
-        if (product.showDetail.cart.quantity < product.showDetail.amount_detail.quantity) {
-            product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
-            this.setQty(product);
+        if (this.isMyproduct) {
+            product.showDetail.cart.quantity = (product.showDetail.cart.quantity === 0)
+            ? product.showDetail.amount_detail.quantity : product.showDetail.cart.quantity;
+            if (product.showDetail.cart.quantity >= product.showDetail.amount_detail.quantity) {
+                product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
+                this.setQty(product);
+            }
+        } else {
+            product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
+            product.showDetail.cart.quantity;
+            if (product.showDetail.cart.quantity < product.showDetail.amount_detail.quantity) {
+                product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
+                this.setQty(product);
+            }
         }
     }
 
     removeQuantity(product: Product) {
-        product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
-        product.showDetail.cart.quantity;
-        if (product.showDetail.cart.quantity !== 0) {
-            product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
+        if (this.isMyproduct) {
+            product.showDetail.cart.quantity = (product.showDetail.cart.quantity === 0)
+            ? product.showDetail.amount_detail.quantity : product.showDetail.cart.quantity;
+            if (product.showDetail.cart.quantity > product.showDetail.amount_detail.quantity) {
+                product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
+                this.setQty(product);
+            }
+        } else {
+            product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
+            product.showDetail.cart.quantity;
+            if (product.showDetail.cart.quantity !== 0) {
+                product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
+            }
+            this.setQty(product);
         }
-        this.setQty(product);
     }
 
     setQty(product: Product) {
@@ -248,20 +266,22 @@ export class ShopComponent extends BaseComponent implements OnInit {
     }
 
     chooseSize(size: ProductSize, product: Product) {
-        product.showDetail.cart.sizes.forEach(sizeElement => {
-            sizeElement.isactive = false;
-        });
-        size.isactive = true;
-        const cartObj = product.showDetail.carts.filter((value) => {
-            return (size.id === value.product_size_id);
-        });
-        if (cartObj[0]) {
-            product.showDetail.cart.quantity = cartObj[0].quantity;
-            product.showDetail.cart.coupon.coupon_code = (cartObj[0].coupon &&
-                cartObj[0].coupon.coupon_code) ? cartObj[0].coupon.coupon_code : '';
-        } else {
-            product.showDetail.cart.quantity = 0;
-            product.showDetail.cart.coupon.coupon_code = '';
+        if (!this.isMyproduct) {
+            product.showDetail.cart.sizes.forEach(sizeElement => {
+                sizeElement.isactive = false;
+            });
+            size.isactive = true;
+            const cartObj = product.showDetail.carts.filter((value) => {
+                return (size.id === value.product_size_id);
+            });
+            if (cartObj[0]) {
+                product.showDetail.cart.quantity = cartObj[0].quantity;
+                product.showDetail.cart.coupon.coupon_code = (cartObj[0].coupon &&
+                    cartObj[0].coupon.coupon_code) ? cartObj[0].coupon.coupon_code : '';
+            } else {
+                product.showDetail.cart.quantity = 0;
+                product.showDetail.cart.coupon.coupon_code = '';
+            }
         }
     }
 }

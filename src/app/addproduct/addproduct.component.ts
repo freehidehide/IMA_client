@@ -9,6 +9,7 @@ import { UserService } from '../api/services/user.service';
 import { ProductService } from '../api/services/product.service';
 import { QueryParam } from '../api/models/query-param';
 import { AppConst } from '../utils/app-const';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addproduct',
@@ -34,6 +35,7 @@ export class AddproductComponent implements OnInit {
   public mainImage: any;
   constructor(private categoryService: CategoryService,
     protected userService: UserService,
+    public router: Router,
     protected productService: ProductService,
     protected toastService: ToastService) { }
 

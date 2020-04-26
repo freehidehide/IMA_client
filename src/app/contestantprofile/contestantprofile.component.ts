@@ -129,6 +129,20 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
         return new Blob([ia], {type: mimeString});
     }
 
+    approval() {
+        this.toastService.showLoading();
+        this.userService.approval()
+            .subscribe((response) => {
+                if (response.error && response.error.code === AppConst.SERVICE_STATUS.SUCCESS) {
+                    this.getUser(null);
+                    this.toastService.success(response.error.message);
+                } else {
+                    this.toastService.error(response.error.message);
+                }
+                this.toastService.clearLoading();
+            });
+    }
+
     profileUpload() {
         if (this.location.trim() !== '' &&  this.caption.trim() !== '') {
             this.toastService.showLoading();
