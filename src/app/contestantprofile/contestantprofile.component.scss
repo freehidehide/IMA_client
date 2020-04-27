@@ -39,7 +39,7 @@ nav.navbar {
 }
 
 .camera {
-    font-size: 150px;
+    font-size: 100px;
 }
 
 .contprofilearea {
@@ -78,7 +78,9 @@ nav.navbar {
             font-weight: 800;
 
             .contvotestext {
-                font-size: 10px;
+                font-size: 20px;
+                padding-top: 10px;
+                color: #333;
                 font-weight: normal;
             }
         }
@@ -153,12 +155,12 @@ nav.navbar {
         .voterankcounts {
             li {
                 img {
-                    max-width: 61px;
+                    max-width: 75px;
                 }
             }
 
             .profilevcount {
-                font-size: 21px;
+                font-size: 28px;
             }
         }
     }

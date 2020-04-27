@@ -1,213 +1,261 @@
+<style type="text/css">
+    .proSec{
+        margin-top: 120px;
+    }
+    .proSec h2{
+        font-family: Rozha One,serif;
+        font-size: 42px;
+        color: #585757;
+        padding-top: 20px;
+    }
+    .secBorder{
+        border: 1px solid #eee;
+    }
+    .socialSec .faIcon{
+        width: 70px;
+        height: 70px;
+    }
+    .shareFace{
+        background: #1877f2;
+        color: #fff !important;
+        padding: 5px 23px;
+        border-radius: 3px;
+        font-size: 18px !important;
+        margin: 5px 8px;
+    }
+    .shareTwit{
+        background: #03a9f4;
+        color: #fff !important;
+        padding: 5px 23px;
+        border-radius: 3px;
+        font-size: 18px !important;
+        margin: 5px 8px;
+    }
+</style>
 <div class="imacontainer" *ngIf="user">
-    <div class="profileheader text-center">
-        <app-attachment
-            [attachment]="user.attachment"
-            [type]="original"
-            [cssClass]="'profiletopimg'"
-        ></app-attachment>
-    </div>
-    <div class="content-middle contestantprofile">
-        <div class="contprofileimage">
-            <app-attachment
-                [attachment]="user.attachment"
-                [type]="original"
-                [cssClass]="'profilecircleimg'"
-            ></app-attachment>
-        </div>
-        <div class="container">
-            <div class="contprofilearea">
-                <div class="text-center">
-                    <h2>
-                        {{ user.first_name }} {{ user.last_name }}
-                    </h2>
-                    <ul
-                        class="profile-social list-inline text-center"
-                        *ngIf="user.socials.length > 0">
-                        <li
-                            class="list-inline-item px-4"
-                            *ngFor="
-                        let social of user.socials;
-                        trackBy: trackById
-                    "
-                        >
-                            <a
-                                href="{{ social.url }}"
-                                target="_bank" 
+    <div class="container">
+        <div class="row proSec">
+            <div class="offset-md-2 col-md-8">
+                <div class="secBorder">
+                    <div class="profileheader text-center">
+                        <app-attachment
+                            [attachment]="user.attachment"
+                            [type]="original"
+                            [cssClass]="'profiletopimg'"
+                        ></app-attachment>
+                    </div>
+                    <div class="contprofileimage">
+                        <app-attachment
+                            [attachment]="user.attachment"
+                            [type]="original"
+                            [cssClass]="'profilecircleimg'"
+                        ></app-attachment>
+                    </div>
+
+                    <div class="socialSec">
+                        <h2 class="text-center">{{ user.first_name }} {{ user.last_name }}</h2>
+                        <ul
+                            class="profile-social list-inline text-center"
+                            *ngIf="user.socials.length > 0">
+                            <li
+                                class="list-inline-item px-4 pt-3"
+                                *ngFor="
+                            let social of user.socials;
+                            trackBy: trackById
+                        "
                             >
-                                <img
-                                    src="{{ social.web_image }}"
-                                    class="img-fluid"
-                                />
-                                <span class="d-block"><em>{{ social.name }}</em></span>
-                            </a>
-                        </li>
-                        <li
-                            class="list-inline-item px-4">
-                            <a href="javascript:void(0)"
-                            (click)="openFb()"><i class="fa fa-facebook-square social-share" aria-hidden="true"></i></a>
-                            <a href="javascript:void(0)"
-                            (click)="openTwitter()"><i class="fa fa-twitter social-share" aria-hidden="true"></i></a>
+                                <a
+                                    href="{{ social.url }}"
+                                    target="_bank" 
+                                >
+                                    <img
+                                        src="{{ social.web_image }}"
+                                        class="img-fluid faIcon"
+                                    />
+                                    <span class="d-block"><em>{{ social.name }}</em></span>
+                                </a>
                             </li>
-                    </ul>
-                    <ul *ngIf="user.socials.length === 0">
-                        <li>
-                            <a href="javascript:void(0)"
-                            (click)="openFb()"><i class="fa fa-facebook-square social-share" aria-hidden="true"></i></a>
-                            <a href="javascript:void(0)"
-                            (click)="openTwitter()"><i class="fa fa-twitter social-share" aria-hidden="true"></i></a>
-                        </li>
-                    </ul>
-                    <ul class="profile-social list-inline text-center" *ngIf="(sessionService.isAuth && sessionService.user.id === user.id)">
-                        <li class="list-inline-item px-4">
-                            <a
-                            href="javascript:void(0)"
-                            (click)="open(mymodal)"
-                            >
-                            <i _ngcontent-bye-c27="" aria-hidden="true" class="fa camera fa-camera fa-6"></i>
-                                <span class="d-block"><em>Upload Image/Video</em></span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="my-5" *ngIf="(sessionService.isAuth && sessionService.user.id === user.id && user.is_admin_approval)">
-                        <a
-                            href="javascript:void(0)"
-                            (click)="approval()"
-                            class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
-                        >
-                            <i
-                                class="fa fa-star fa-3x mr-3"
-                                aria-hidden="true"
-                            ></i>
-                            Request For Admin
-                        </a>
-                    </div>
-                    <div class="my-5" *ngIf="!sessionService.isAuth">
-                        <a
-                            href="javascript:void(0)"
-                            [routerLink]="['/login']"
-                            class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
-                        >
-                            <i
-                                class="fa fa-star fa-3x mr-3"
-                                aria-hidden="true"
-                            ></i>
-                            Vote for {{ user.first_name }}
-                            {{ user.last_name }}
-                        </a>
-                    </div>
-                    <div class="my-5" *ngIf="sessionService.isAuth && sessionService.user.id !== user.id">
-                        <a
-                            href="javascript:void(0)"
-                            (click)="redirect(user)"
-                            class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
-                        >
-                            <i
-                                class="fa fa-star fa-3x mr-3"
-                                aria-hidden="true"
-                            ></i>
-                            Vote for {{ user.first_name }}
-                            {{ user.last_name }}
-                        </a>
-                    </div>
-                    <div class="voteandrank">
-                        <ul class="voterankcounts list-inline text-center">
-                            <li class="list-inline-item px-4">
-                                <img
-                                    src="assets/images/rating-icon.png"
-                                    class="img-fluid"
-                                />
-                                <span class="d-block profilevcount"
-                                *ngIf="categoryId">{{user.vote_category.votes}}<span class="d-block contvotestext">votes</span></span
-                                >
-                                <span class="d-block profilevcount"
-                                *ngIf="!categoryId">{{user.votes}}<span class="d-block contvotestext">votes</span
-                                    ></span
-                                >
+                            <li class="list-inline-item px-4 pt-4">
+
+                                <a href="javascript:void(0)" (click)="openFb()" class="shareFace">Share <i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+                                <a href="javascript:void(0)" (click)="openTwitter()" class="shareTwit">Share <i class="fa fa-twitter" aria-hidden="true"></i></a>
+
                             </li>
                         </ul>
+                        <ul *ngIf="user.socials.length === 0">
+                            <li>
+                                <a href="javascript:void(0)"
+                                (click)="openFb()"><i class="fa fa-facebook social-share" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0)"
+                                (click)="openTwitter()"><i class="fa fa-twitter social-share" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                        <ul class="profile-social list-inline text-center" *ngIf="(sessionService.isAuth && sessionService.user.id === user.id)">
+                            <li class="list-inline-item px-4">
+                                <a
+                                href="javascript:void(0)"
+                                (click)="open(mymodal)"
+                                >
+                                <i _ngcontent-bye-c27="" aria-hidden="true" class="fa camera fa-camera fa-6"></i>
+                                    <span class="d-block"><em>Upload Image/Video</em></span>
+                                </a>
+                            </li>
+                        </ul>
+
                     </div>
-                    <ul
-                        class="list-unstyled text-left d-flex justify-content-center contprofile-slisting flex-column"
-                    >
-                        <li
-                            class="pb-3 my-4 mx-auto"
-                            *ngIf="
-                                !sessionService.isAuth ||
-                                !user.is_subscribed
-                            "
-                        >
-                            <div class="contprofile-listing">
-                                <a
-                                    href="javascript:void(0)"
-                                    [routerLink]="['/login']"
-                                    *ngIf="!sessionService.isAuth"
+
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="content-middle contestantprofile">                    
+                    <div class="container">
+                        <div class="contprofilearea">
+                            <div class="text-center">  
+                                <div class="my-5" *ngIf="(sessionService.isAuth && sessionService.user.id === user.id && user.is_admin_approval)">
+                                    <a
+                                        href="javascript:void(0)"
+                                        (click)="approval()"
+                                        class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
+                                    >
+                                        <i
+                                            class="fa fa-star fa-3x mr-3"
+                                            aria-hidden="true"
+                                        ></i>
+                                        Request For Admin
+                                    </a>
+                                </div>
+                                <div class="mb-5" *ngIf="!sessionService.isAuth">
+                                    <a
+                                        href="javascript:void(0)"
+                                        [routerLink]="['/login']"
+                                        class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
+                                    >
+                                        <i
+                                            class="fa fa-star fa-3x mr-3"
+                                            aria-hidden="true"
+                                        ></i>
+                                        Vote for {{ user.first_name }}
+                                        {{ user.last_name }}
+                                    </a>
+                                </div>
+                                <div class="my-5" *ngIf="sessionService.isAuth && sessionService.user.id !== user.id">
+                                    <a
+                                        href="javascript:void(0)"
+                                        (click)="redirect(user)"
+                                        class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
+                                    >
+                                        <i
+                                            class="fa fa-star fa-3x mr-3"
+                                            aria-hidden="true"
+                                        ></i>
+                                        Vote for {{ user.first_name }}
+                                        {{ user.last_name }}
+                                    </a>
+                                </div>
+                                <div class="voteandrank">
+                                    <ul class="voterankcounts list-inline text-center">
+                                        <li class="list-inline-item px-4">
+                                            <img
+                                                src="assets/images/rating-icon.png"
+                                                class="img-fluid"
+                                            />
+                                            <span class="d-block profilevcount"
+                                            *ngIf="categoryId">{{user.vote_category.votes}}<span class="d-block contvotestext">votes</span></span
+                                            >
+                                            <span class="d-block profilevcount"
+                                            *ngIf="!categoryId">{{user.votes}}<span class="d-block contvotestext">votes</span
+                                                ></span
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                                <ul
+                                    class="list-unstyled text-left d-flex justify-content-center contprofile-slisting flex-column"
                                 >
-                                    <img
-                                        src="assets/images/subscribe-lock.png"
-                                        class="img-fluid"
-                                    />
-                                </a>
-                                <a
-                                    href="javascript:void(0)"
-                                    [routerLink]="['/purchase']"
-                                    *ngIf="
-                                        sessionService.isAuth &&
-                                        !user.is_subscribed
-                                    "
-                                >
-                                    <img
-                                        src="assets/images/subscribe-lock.png"
-                                        class="img-fluid"
-                                    />
-                                </a>
-                            </div>
-                        </li>
-                        <li
-                            class="pb-3 mb-4 mx-auto"
-                            *ngIf="
-                                sessionService.isAuth &&
-                                user.is_subscribed &&
-                                user.subscribed_data.length > 0
-                            "
-                        >
-                            <div class="contprofile-listing mx-auto" *ngFor="
-                            let subscribData of user.subscribed_data;
-                            trackBy: trackById
-                        ">
-                        <div class="profileinitialimg mx-auto text-center">
-                            <h3 class="categoryname">{{subscribData.category.name}}</h3>
-                            <app-attachment
-                        [attachment]="subscribData.attachments[0]"
-                            [type]="original"
-                            [cssClass]="'profilefirstimg'"
-                        ></app-attachment>                                
-                        </div>
-                                <span *ngFor="
-                                let attachment of subscribData.attachments | slice:1; let i = index;
-                                trackBy: trackById
-                            ">
-                                    <span class="thumb-block" [ngClass]="{'block-hide': (i > 3 && !subscribData.viewmore)}" (click)="open(attachment.index)">
+                                    <li
+                                        class="pb-3 my-4 mx-auto"
+                                        *ngIf="
+                                            !sessionService.isAuth ||
+                                            !user.is_subscribed
+                                        "
+                                    >
+                                        <div class="contprofile-listing">
+                                            <a
+                                                href="javascript:void(0)"
+                                                [routerLink]="['/login']"
+                                                *ngIf="!sessionService.isAuth"
+                                            >
+                                                <img
+                                                    src="assets/images/subscribe-lock.png"
+                                                    class="img-fluid"
+                                                />
+                                            </a>
+                                            <a
+                                                href="javascript:void(0)"
+                                                [routerLink]="['/purchase']"
+                                                *ngIf="
+                                                    sessionService.isAuth &&
+                                                    !user.is_subscribed
+                                                "
+                                            >
+                                                <img
+                                                    src="assets/images/subscribe-lock.png"
+                                                    class="img-fluid"
+                                                />
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li
+                                        class="pb-3 mb-4 mx-auto"
+                                        *ngIf="
+                                            sessionService.isAuth &&
+                                            user.is_subscribed &&
+                                            user.subscribed_data.length > 0
+                                        "
+                                    >
+                                        <div class="contprofile-listing mx-auto" *ngFor="
+                                        let subscribData of user.subscribed_data;
+                                        trackBy: trackById
+                                    ">
+                                    <div class="profileinitialimg mx-auto text-center">
+                                        <h3 class="categoryname">{{subscribData.category.name}}</h3>
                                         <app-attachment
-                                        [attachment]="attachment"
-                                            [type]="original"
-                                            [cssClass]="'profilefulllist'"
-                                        ></app-attachment>
-                                    </span>
-                                </span>
-                                <span class="plusmore thumb-block" *ngIf="!subscribData.viewmore && subscribData.attachments.length > 3" (click)="viewMore(subscribData)">+View More</span>
+                                    [attachment]="subscribData.attachments[0]"
+                                        [type]="original"
+                                        [cssClass]="'profilefirstimg'"
+                                    ></app-attachment>                                
+                                    </div>
+                                            <span *ngFor="
+                                            let attachment of subscribData.attachments | slice:1; let i = index;
+                                            trackBy: trackById
+                                        ">
+                                                <span class="thumb-block" [ngClass]="{'block-hide': (i > 3 && !subscribData.viewmore)}" (click)="open(attachment.index)">
+                                                    <app-attachment
+                                                    [attachment]="attachment"
+                                                        [type]="original"
+                                                        [cssClass]="'profilefulllist'"
+                                                    ></app-attachment>
+                                                </span>
+                                            </span>
+                                            <span class="plusmore thumb-block" *ngIf="!subscribData.viewmore && subscribData.attachments.length > 3" (click)="viewMore(subscribData)">+View More</span>
+                                        </div>
+                                    </li>
+                                    <li
+                                        class="pb-3 my-4 mx-auto"
+                                        *ngIf="
+                                            sessionService.isAuth &&
+                                            user.is_subscribed &&
+                                            user.subscribed_data.length === 0
+                                        "
+                                    >
+                                        No Records
+                                    </li>
+                                </ul>
                             </div>
-                        </li>
-                        <li
-                            class="pb-3 my-4 mx-auto"
-                            *ngIf="
-                                sessionService.isAuth &&
-                                user.is_subscribed &&
-                                user.subscribed_data.length === 0
-                            "
-                        >
-                            No Records
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
