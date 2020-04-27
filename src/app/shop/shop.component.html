@@ -103,12 +103,12 @@
                             {{ product.description }}
                         </p>
                     </div>
-                    <div class="shopqtyarea d-flex" *ngIf="sessionService.isAuth">
+                    <div class="shopqtyarea d-flex">
                         <div class="cartquantity text-center">
                             <p class="text-uppercase ctqtytext">Quantity</p>
                             <div class="ctquantityinput">
                                 <button type="button" class="ctqtydecr" (click)="removeQuantity(product)"></button>
-                                <span *ngIf="!isMyproduct"
+                            <span *ngIf="!isMyproduct"
                                     class="quantityinput">{{product.showDetail.cart && product.showDetail.cart.quantity ? product.showDetail.cart.quantity : 0 }}</span>
                                     <span *ngIf="isMyproduct && product.showDetail.cart.quantity === 0"
                                     class="quantityinput">{{ product.showDetail.amount_detail.quantity }}</span>
@@ -131,23 +131,23 @@
                     <div class="d-flex mt-1">
                         <div class="d-flex flex-column cartdetails">
                             <p class="discount-details m-0 mt-3"
-                                *ngIf="sessionService.isAuth && product.showDetail.amount_detail.discount_percentage">
+                                *ngIf="product.showDetail.amount_detail.discount_percentage">
                                 <span>{{ product.showDetail.amount_detail.discount_percentage}}%
                                     discount</span>&nbsp;<span
                                     *ngIf="!product.showDetail.cart.coupon.isValid">available</span> <span
                                     *ngIf="product.showDetail.cart.coupon.isValid">applied</span>
 
                             </p>
-                            <input *ngIf="sessionService.isAuth && !isMyproduct && product.showDetail.amount_detail.discount_percentage"
+                            <input *ngIf="!isMyproduct && product.showDetail.amount_detail.discount_percentage"
                                 [(ngModel)]="product.showDetail.cart.coupon.coupon_code"
                                 [ngModelOptions]="{standalone: true}" class="discountcode"
                                 placeholder="Enter Code" />
-                            <span *ngIf="sessionService.isAuth && isMyproduct && product.showDetail.amount_detail.discount_percentage"> <label>Coupon Code : </label> {{product.showDetail.amount_detail.coupon_code}}</span>  
-                            <button *ngIf="sessionService.isAuth && !isMyproduct" class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart(product)">
+                            <span *ngIf="isMyproduct && product.showDetail.amount_detail.discount_percentage"> <label>Coupon Code : </label> {{product.showDetail.amount_detail.coupon_code}}</span>  
+                            <button *ngIf="!isMyproduct" class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart(product)">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 {{ product.showDetail.amount_detail.price | currency: settings.CURRENCY_CODE:'symbol' }}
                             </button>
-                            <button *ngIf="sessionService.isAuth && isMyproduct" class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart(product)">
+                            <button *ngIf="isMyproduct" class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart(product)">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                                 {{ product.showDetail.amount_detail.price | currency: settings.CURRENCY_CODE:'symbol' }}
                             </button>

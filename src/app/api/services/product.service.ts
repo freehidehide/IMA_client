@@ -37,4 +37,10 @@ export class ProductService {
             AppConst.SERVER_URL.PRODUCT;
         return this.apiService.httpPost(url, request);
     }
+
+    productEdit(request: any, id: number): Observable<any> {
+        const url: string =
+            AppConst.SERVER_URL.PRODUCT + '/' + id;
+        return this.apiService.httpPut(url, request);
+    }
 }

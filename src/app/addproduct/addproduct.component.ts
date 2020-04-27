@@ -33,6 +33,7 @@ export class AddproductComponent implements OnInit {
   public imageList: any = [];
   public images_details: any = [];
   public mainImage: any;
+  public color: any;
   constructor(private categoryService: CategoryService,
     protected userService: UserService,
     public router: Router,

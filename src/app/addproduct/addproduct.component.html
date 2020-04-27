@@ -49,7 +49,7 @@
                     <div class="customSizeadd pt-4">
                         <h6 class="titleh6">Choose Color</h6>
                         <div *ngFor="let detail of product.details; let i = index;" class="chooseColor" [ngClass]="{'active': detail.is_active}" [style.background]="detail.color" (click)="editColor(i)"></div>
-                        <div class="addColor" (colorPickerClose)="addColor($event)" >
+                        <div class="addColor" [(colorPicker)]="color" (colorPickerClose)="addColor($event)" >
                             <i class="fa fa-plus" for="color"></i>
                         </div>
                     </div>
