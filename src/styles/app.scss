@@ -24,7 +24,27 @@ html,
 body {
     height: 100%;
 }
-
+.pryBtn {
+    background-color: #0c8ff9;
+    border: none;
+    color: #fff;
+    cursor: pointer; 
+    border-color: #0689f2;
+    padding: 5px 20px !important;
+    border-radius: 2px !important;
+    margin-top: 1px !important;
+    display: -webkit-inline-box;
+    text-transform: uppercase;
+    &:hover {
+        background-color: #0c8ff9;
+        border: none;
+        color: #fff;
+        opacity: .8;
+    }
+}
+.pryColor{
+    color:#fbae27;
+}
 /* subheading starts */
 .subheadings {
     position: absolute;
@@ -32,7 +52,7 @@ body {
     top: 60%;
     left: 0;
     transform: translate(0%, -12%);
-    max-width: 1200px;
+    max-width: 1130px;
     margin: 0 auto;
     right: 0;
 
@@ -74,7 +94,7 @@ body {
         border-radius: 10px;
         overflow: hidden;
         display: inline-block;
-        height: 100px;
+        height: 80px;
         border: 1px solid #ccc;
         img{
             height: 100%;
@@ -216,7 +236,7 @@ body {
     }
 
     .subheadings {
-        padding: 0 0 0 25px;
+        padding: 0 0 0 35px;
         transform: translate(0%, -50%);
         h2 {
             font-size: 50px;
@@ -247,7 +267,7 @@ body {
         }
     }
     .subheadings {
-        padding: 0 0 0 15px;
+        padding: 0 0 0 30px;
         h2 {
             font-size: 30px;
             line-height: 30px;
