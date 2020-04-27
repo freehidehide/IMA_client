@@ -101,8 +101,14 @@ export class SidebarComponent implements OnInit {
                 response.error &&
                 response.error.code === AppConst.SERVICE_STATUS.SUCCESS
             ) {
-                this.sessionService.logout();
+                sessionStorage.removeItem('user_context');
+                sessionStorage.removeItem('login_time');
+                sessionStorage.removeItem('access_token');
+                sessionStorage.removeItem('refresh_token');
                 this.router.navigate(['/']);
+                setTimeout(() => {
+                    location.reload();
+                }, 100);
             } else {
                 this.toastService.error(response.error.message);
             }

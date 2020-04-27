@@ -168,43 +168,62 @@ export class ShopComponent extends BaseComponent implements OnInit {
 
     addToCart(product: Product) {
         if (this.sessionService.isAuth) {
-            const queryParam: QueryParam[] = [];
-            if (product.showDetail.cart.quantity === 0) {
-                this.toastService.warning('Please add quantity');
-                return;
-            }
-            if (product.showDetail.sizes.length > 0) {
-                const sizeEmpty = product.showDetail.sizes.filter(value => {
-                    return (value.isactive === true);
-                });
-                if (sizeEmpty.length === 0) {
-                    this.toastService.warning('Please choose size');
-                    return;
-                }
-            }
-            const cartObj = [];
-            product.showDetail.cart.sizes.forEach(value => {
-                if (value.quantity !== 0) {
-                    value.coupon_code = product.showDetail.cart.coupon.coupon_code;
-                    cartObj.push(value);
-                }
-            });
-            if (cartObj.length > 0) {
+            if (this.isMyproduct) {
                 this.toastService.showLoading();
-                this.productService.addToCart(cartObj).subscribe((response) => {
+                const queryParam: QueryParam = {
+                    quantity: product.showDetail.cart.quantity
+                };
+                this.productService.productEdit(queryParam, product.id).subscribe((response) => {
                     this.productDetail = response;
                     if (
                         this.productDetail.error &&
                         this.productDetail.error.code !== AppConst.SERVICE_STATUS.SUCCESS
                     ) {
-                        product.showDetail.cart.coupon_code = '';
                         this.toastService.error(this.productDetail.error.message);
+                        this.toastService.clearLoading();
                     } else {
-                        this.productList.cart_count = response.data.length;
-                        this.toastService.success(this.productDetail.error.message);
+                        this.getProducts();
                     }
-                    this.toastService.clearLoading();
                 });
+            } else {
+                const queryParam: QueryParam[] = [];
+                if (product.showDetail.cart.quantity === 0) {
+                    this.toastService.warning('Please add quantity');
+                    return;
+                }
+                if (product.showDetail.sizes.length > 0) {
+                    const sizeEmpty = product.showDetail.sizes.filter(value => {
+                        return (value.isactive === true);
+                    });
+                    if (sizeEmpty.length === 0) {
+                        this.toastService.warning('Please choose size');
+                        return;
+                    }
+                }
+                const cartObj = [];
+                product.showDetail.cart.sizes.forEach(value => {
+                    if (value.quantity !== 0) {
+                        value.coupon_code = product.showDetail.cart.coupon.coupon_code;
+                        cartObj.push(value);
+                    }
+                });
+                if (cartObj.length > 0) {
+                    this.toastService.showLoading();
+                    this.productService.addToCart(cartObj).subscribe((response) => {
+                        this.productDetail = response;
+                        if (
+                            this.productDetail.error &&
+                            this.productDetail.error.code !== AppConst.SERVICE_STATUS.SUCCESS
+                        ) {
+                            product.showDetail.cart.coupon_code = '';
+                            this.toastService.error(this.productDetail.error.message);
+                        } else {
+                            this.productList.cart_count = response.data.length;
+                            this.toastService.success(this.productDetail.error.message);
+                        }
+                        this.toastService.clearLoading();
+                    });
+                }
             }
         } else {
             this.router.navigate(['/login']);
@@ -212,76 +231,92 @@ export class ShopComponent extends BaseComponent implements OnInit {
     }
 
     addQuantity(product: Product) {
-        if (this.isMyproduct) {
-            product.showDetail.cart.quantity = (product.showDetail.cart.quantity === 0)
-            ? product.showDetail.amount_detail.quantity : product.showDetail.cart.quantity;
-            if (product.showDetail.cart.quantity >= product.showDetail.amount_detail.quantity) {
-                product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
-                this.setQty(product);
+        if (this.sessionService.isAuth) {
+            if (this.isMyproduct) {
+                product.showDetail.cart.quantity = (product.showDetail.cart.quantity === 0)
+                ? product.showDetail.amount_detail.quantity : product.showDetail.cart.quantity;
+                if (product.showDetail.cart.quantity >= product.showDetail.amount_detail.quantity) {
+                    product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
+                    this.setQty(product);
+                }
+            } else {
+                product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
+                product.showDetail.cart.quantity;
+                if (product.showDetail.cart.quantity < product.showDetail.amount_detail.quantity) {
+                    product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
+                    this.setQty(product);
+                }
             }
         } else {
-            product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
-            product.showDetail.cart.quantity;
-            if (product.showDetail.cart.quantity < product.showDetail.amount_detail.quantity) {
-                product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
-                this.setQty(product);
-            }
+            this.router.navigate(['/login']);
         }
     }
 
     removeQuantity(product: Product) {
-        if (this.isMyproduct) {
-            product.showDetail.cart.quantity = (product.showDetail.cart.quantity === 0)
-            ? product.showDetail.amount_detail.quantity : product.showDetail.cart.quantity;
-            if (product.showDetail.cart.quantity > product.showDetail.amount_detail.quantity) {
-                product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
+        if (this.sessionService.isAuth) {
+            if (this.isMyproduct) {
+                product.showDetail.cart.quantity = (product.showDetail.cart.quantity === 0)
+                ? product.showDetail.amount_detail.quantity : product.showDetail.cart.quantity;
+                if (product.showDetail.cart.quantity > product.showDetail.amount_detail.quantity) {
+                    product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
+                    this.setQty(product);
+                }
+            } else {
+                product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
+                product.showDetail.cart.quantity;
+                if (product.showDetail.cart.quantity !== 0) {
+                    product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
+                }
                 this.setQty(product);
             }
         } else {
-            product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
-            product.showDetail.cart.quantity;
-            if (product.showDetail.cart.quantity !== 0) {
-                product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
-            }
-            this.setQty(product);
+            this.router.navigate(['/login']);
         }
     }
 
     setQty(product: Product) {
-        if (product.showDetail.sizes.length > 0) {
-            let size_id;
-            product.showDetail.sizes.forEach(sizeElement => {
-                if (sizeElement.isactive) {
-                    size_id = sizeElement.id;
-                }
-            });
-            product.showDetail.cart.sizes.forEach(sizeElement => {
-                if (size_id === sizeElement.product_size_id) {
-                    sizeElement.quantity = product.showDetail.cart.quantity;
-                }
-            });
+        if (this.sessionService.isAuth) {
+            if (product.showDetail.sizes.length > 0) {
+                let size_id;
+                product.showDetail.sizes.forEach(sizeElement => {
+                    if (sizeElement.isactive) {
+                        size_id = sizeElement.id;
+                    }
+                });
+                product.showDetail.cart.sizes.forEach(sizeElement => {
+                    if (size_id === sizeElement.product_size_id) {
+                        sizeElement.quantity = product.showDetail.cart.quantity;
+                    }
+                });
+            } else {
+                product.showDetail.cart.sizes[0].quantity = product.showDetail.cart.quantity;
+            }
         } else {
-            product.showDetail.cart.sizes[0].quantity = product.showDetail.cart.quantity;
+            this.router.navigate(['/login']);
         }
     }
 
     chooseSize(size: ProductSize, product: Product) {
-        if (!this.isMyproduct) {
-            product.showDetail.cart.sizes.forEach(sizeElement => {
-                sizeElement.isactive = false;
-            });
-            size.isactive = true;
-            const cartObj = product.showDetail.carts.filter((value) => {
-                return (size.id === value.product_size_id);
-            });
-            if (cartObj[0]) {
-                product.showDetail.cart.quantity = cartObj[0].quantity;
-                product.showDetail.cart.coupon.coupon_code = (cartObj[0].coupon &&
-                    cartObj[0].coupon.coupon_code) ? cartObj[0].coupon.coupon_code : '';
-            } else {
-                product.showDetail.cart.quantity = 0;
-                product.showDetail.cart.coupon.coupon_code = '';
+        if (this.sessionService.isAuth) {
+            if (!this.isMyproduct) {
+                product.showDetail.cart.sizes.forEach(sizeElement => {
+                    sizeElement.isactive = false;
+                });
+                size.isactive = true;
+                const cartObj = product.showDetail.carts.filter((value) => {
+                    return (size.id === value.product_size_id);
+                });
+                if (cartObj[0]) {
+                    product.showDetail.cart.quantity = cartObj[0].quantity;
+                    product.showDetail.cart.coupon.coupon_code = (cartObj[0].coupon &&
+                        cartObj[0].coupon.coupon_code) ? cartObj[0].coupon.coupon_code : '';
+                } else {
+                    product.showDetail.cart.quantity = 0;
+                    product.showDetail.cart.coupon.coupon_code = '';
+                }
             }
+        } else {
+            this.router.navigate(['/login']);
         }
     }
 }

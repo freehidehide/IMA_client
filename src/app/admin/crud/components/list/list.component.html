@@ -35,7 +35,11 @@
               </td> -->
               <td class="text-center" *ngFor="let elementChild of menu.listview.fields">
                  <span *ngIf="!elementChild.listActions">
-                   {{getValue(elementChild['name'], element)}}
+                   <span *ngIf="elementChild['label'] === 'From User'">
+                      <span *ngIf="element.parent_user_id === 0">{{element.other_user.first_name}} {{element.other_user.last_name}}</span>
+                      <span *ngIf="element.parent_user_id !== 0">{{element.parent_user.first_name}} {{element.parent_user.last_name}}</span>
+                  </span>
+                   <span *ngIf="elementChild['label'] !== 'From User'">{{getValue(elementChild['name'], element)}}</span>
                   </span>
                   <span *ngIf="elementChild.listActions">
                   <a href="javascript:void(0)" (click)="action(element, button.label)" *ngFor="let button of elementChild.listActions" class="{{button.class}}" data-toggle="modal">&nbsp;&nbsp;<i class="{{button.icon}}"></i></a>&nbsp;
