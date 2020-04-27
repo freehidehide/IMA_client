@@ -1,5 +1,4 @@
 <!-- @format -->
-
 <div class="imacontainer">
     <div class="subheader position-relative">
         <div class="subheadings">
@@ -9,7 +8,7 @@
     </div>
     <div class="content-middle accounthistory-section">
         <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" autocomplete="off">
-            <div class="form-row">
+            <div class="form-row pb-3">
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Search</label>
                     <input type="text" class="form-control" id="validationCustom01" formControlName='q'
@@ -34,7 +33,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mt-2">
                     <button class="btn btn-primary mt-4" type="submit">Submit</button>
                 </div>
             </div>
@@ -72,7 +71,7 @@
                         </div>
                     </div>
                 </app-my-tab>
-                <app-my-tab tabTitle="VotePackage Transaction" tabClass="VotePackage">
+                <app-my-tab tabTitle="Vote Package Transaction" tabClass="VotePackage">
                     <div class="tabcontents">
                         <div *ngIf="votePackageTransactionData && votePackageTransactionData.length">
                             <ul class="list-unstyled">
@@ -100,7 +99,7 @@
                         </div>
                     </div>
                 </app-my-tab>
-                <app-my-tab tabTitle="Instant VotePackage Transaction" tabClass="InstantPackage">
+                <app-my-tab tabTitle="Instant Vote Package Transaction" tabClass="InstantPackage">
                     <div class="tabcontents">
                         <div *ngIf="instantTransactionData && instantTransactionData.length">
                             <ul class="list-unstyled">

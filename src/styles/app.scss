@@ -37,8 +37,24 @@ body {
     text-transform: uppercase;
     &:hover {
         background-color: #0c8ff9;
-        border: none;
         color: #fff;
+        opacity: .8;
+    }
+}
+.secBtn {
+    background-color: #d9dee2;
+    border-color: #171a1d;
+    border: none;
+    color: #696969;
+    cursor: pointer; 
+    padding: 5px 20px !important;
+    border-radius: 2px !important;
+    margin-top: 1px !important;
+    display: -webkit-inline-box;
+    text-transform: uppercase;
+    &:hover {
+        background-color: #d9dee2;
+        color: #696969;
         opacity: .8;
     }
 }

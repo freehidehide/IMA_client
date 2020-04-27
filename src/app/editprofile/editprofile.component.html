@@ -2,171 +2,175 @@
 
 <div class="eprofilecontainer mx-auto px-4 my-5" *ngIf="user">
     <div class="row">
-        <div class="col-md-4 text-center eprofleft">
-            <div class="profile-image mx-auto mb-4">
-                <app-attachment
-                    [attachment]="user.attachment"
-                    [type]="original"
-                ></app-attachment>
+        <div class="offset-md-1 col-md-10">
+            <div class="editPro">
+                <div class="col-md-12 text-center eprofleft">
+                    <div class="profile-image mx-auto mb-4">
+                        <app-attachment
+                            [attachment]="user.attachment"
+                            [type]="original"
+                        ></app-attachment>
+                    </div>
+                    <div class="mb-4">
+                        <app-attachment-upload
+                            [class]="userClass"
+                            [multiple]="multiple"
+                            (attachment)="attachment($event)"
+                        ></app-attachment-upload>
+                    </div>
+                </div>
+                <div class="col-md-12 pl-5">
+                    <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()" class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>First Name*</label>
+                            <input
+                                class="form-control"
+                                type="text"
+                                formControlName="first_name"
+                            />
+                            <div
+                                class="invalid-feedback-show"
+                                *ngIf="isSubmitted && f.first_name.errors.required"
+                            >
+                                {{ 'firstname is required' | translate }}
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Last Name*</label>
+                            <input
+                                class="form-control"
+                                type="text"
+                                formControlName="last_name"
+                            />
+                            <div
+                                class="invalid-feedback-show"
+                                *ngIf="isSubmitted && f.last_name.errors.required"
+                            >
+                                {{ 'lastname is required' | translate }}
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>Email Address*</label>
+                            <input
+                                class="form-control"
+                                type="email"
+                                formControlName="email"
+                            />
+                            <div
+                                class="invalid-feedback-show"
+                                *ngIf="isSubmitted && f.email.errors.required"
+                            >
+                                {{ 'email is required' | translate }}
+                            </div>
+                        </div>
+                        <div formGroupName="address" class="form-row px-2">
+                            <div class="form-group col-md-6">
+                                <label>AddressLine1*</label>
+                                <input
+                                    class="form-control"
+                                    type="text"
+                                    formControlName="addressline1"
+                                />
+                                <div
+                                    class="invalid-feedback-show"
+                                    *ngIf="
+                                        isSubmitted &&
+                                        address.addressline1.errors.required
+                                    "
+                                >
+                                    {{ 'addressline1 is required' | translate }}
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>AddressLine2*</label>
+                                <input
+                                    class="form-control"
+                                    type="text"
+                                    formControlName="addressline2"
+                                />
+                                <div
+                                    class="invalid-feedback-show"
+                                    *ngIf="
+                                        isSubmitted &&
+                                        address.addressline2.errors.required
+                                    "
+                                >
+                                    {{ 'addressline2 is required' | translate }}
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>City*</label>
+                                <input
+                                    class="form-control"
+                                    type="text"
+                                    formControlName="city"
+                                />
+                                <div
+                                    class="invalid-feedback-show"
+                                    *ngIf="isSubmitted && address.city.errors.required"
+                                >
+                                    {{ 'city is required' | translate }}
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>State*</label>
+                                <input
+                                    class="form-control"
+                                    type="text"
+                                    formControlName="state"
+                                />
+                                <div
+                                    class="invalid-feedback-show"
+                                    *ngIf="isSubmitted && address.state.errors.required"
+                                >
+                                    {{ 'state is required' | translate }}
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Country*</label>
+                                <input
+                                    class="form-control"
+                                    type="text"
+                                    formControlName="country"
+                                />
+                                <div
+                                    class="invalid-feedback-show"
+                                    *ngIf="
+                                        isSubmitted && address.country.errors.required
+                                    "
+                                >
+                                    {{ 'country is required' | translate }}
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Zip Code*</label>
+                                <input
+                                    class="form-control"
+                                    type="text"
+                                    formControlName="zipcode"
+                                />
+                                <div
+                                    class="invalid-feedback-show"
+                                    *ngIf="
+                                        isSubmitted && address.zipcode.errors.required
+                                    "
+                                >
+                                    {{ 'zipcode is required' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                        <span class="pl-2">Note: Please fill mandatory * fields</span>
+                        <div class="pt-4 text-center col-md-12">
+                            <input
+                                type="submit"
+                                class="btn btn-primary text-uppercase"
+                                [disabled]="editProfileForm.invalid"
+                                value="Update Profile"
+                            />
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="mb-4">
-                <app-attachment-upload
-                    [class]="userClass"
-                    [multiple]="multiple"
-                    (attachment)="attachment($event)"
-                ></app-attachment-upload>
-            </div>
-        </div>
-        <div class="col-md-8 pl-5">
-            <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label>First Name*</label>
-                    <input
-                        class="form-control"
-                        type="text"
-                        formControlName="first_name"
-                    />
-                    <div
-                        class="invalid-feedback-show"
-                        *ngIf="isSubmitted && f.first_name.errors.required"
-                    >
-                        {{ 'firstname is required' | translate }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Last Name*</label>
-                    <input
-                        class="form-control"
-                        type="text"
-                        formControlName="last_name"
-                    />
-                    <div
-                        class="invalid-feedback-show"
-                        *ngIf="isSubmitted && f.last_name.errors.required"
-                    >
-                        {{ 'lastname is required' | translate }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Email Address*</label>
-                    <input
-                        class="form-control"
-                        type="email"
-                        formControlName="email"
-                    />
-                    <div
-                        class="invalid-feedback-show"
-                        *ngIf="isSubmitted && f.email.errors.required"
-                    >
-                        {{ 'email is required' | translate }}
-                    </div>
-                </div>
-                <div formGroupName="address">
-                    <div class="form-group">
-                        <label>AddressLine1*</label>
-                        <input
-                            class="form-control"
-                            type="text"
-                            formControlName="addressline1"
-                        />
-                        <div
-                            class="invalid-feedback-show"
-                            *ngIf="
-                                isSubmitted &&
-                                address.addressline1.errors.required
-                            "
-                        >
-                            {{ 'addressline1 is required' | translate }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>AddressLine2*</label>
-                        <input
-                            class="form-control"
-                            type="text"
-                            formControlName="addressline2"
-                        />
-                        <div
-                            class="invalid-feedback-show"
-                            *ngIf="
-                                isSubmitted &&
-                                address.addressline2.errors.required
-                            "
-                        >
-                            {{ 'addressline2 is required' | translate }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>City*</label>
-                        <input
-                            class="form-control"
-                            type="text"
-                            formControlName="city"
-                        />
-                        <div
-                            class="invalid-feedback-show"
-                            *ngIf="isSubmitted && address.city.errors.required"
-                        >
-                            {{ 'city is required' | translate }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>State*</label>
-                        <input
-                            class="form-control"
-                            type="text"
-                            formControlName="state"
-                        />
-                        <div
-                            class="invalid-feedback-show"
-                            *ngIf="isSubmitted && address.state.errors.required"
-                        >
-                            {{ 'state is required' | translate }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Country*</label>
-                        <input
-                            class="form-control"
-                            type="text"
-                            formControlName="country"
-                        />
-                        <div
-                            class="invalid-feedback-show"
-                            *ngIf="
-                                isSubmitted && address.country.errors.required
-                            "
-                        >
-                            {{ 'country is required' | translate }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Zip Code*</label>
-                        <input
-                            class="form-control"
-                            type="text"
-                            formControlName="zipcode"
-                        />
-                        <div
-                            class="invalid-feedback-show"
-                            *ngIf="
-                                isSubmitted && address.zipcode.errors.required
-                            "
-                        >
-                            {{ 'zipcode is required' | translate }}
-                        </div>
-                    </div>
-                </div>
-                <span>Note: Please fill mandatory * fields</span>
-                <div class="pt-5 text-right">
-                    <input
-                        type="submit"
-                        class="btn btn-primary text-uppercase"
-                        [disabled]="editProfileForm.invalid"
-                        value="Update Profile"
-                    />
-                </div>
-            </form>
         </div>
     </div>
 </div>
