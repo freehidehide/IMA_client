@@ -30,6 +30,17 @@
     font-size: 25px;
 }
 
+.contName{
+    font-weight: 600;
+    color: #0c8ff9 !important;
+    font-size: 18px;
+}
+.contCate{
+    color: #403e3e;
+    font-size: 14px;
+    font-weight: 600;
+}
+    
 @media (max-width: 1440px) {
     .contestants-section {
         .contestant-img {

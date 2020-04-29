@@ -1,10 +1,11 @@
 .contestantimg {
-    max-height: 510px;
+    height: 510px;
     object-fit: cover;
     object-position: 100% 0;
     width: 100%;
     height: 100%;
     border-radius: 20px;
+    border:2px solid #eee;
 }
 
 .profiletopimg {
@@ -70,7 +71,7 @@
 @media (max-width: 1440px) {
     .contestantimg {
         max-width: 610px;
-        max-height: 315px;
+        height: 315px;
     }
 
     .profiletopimg {
@@ -96,14 +97,14 @@
 @media (max-width: 1199px) and (min-width: 992px) {
     .contestantimg {
         max-width: 480px;
-        max-height: 247px;
+        height: 247px;
     }
 }
 
 @media (max-width: 991px) and (min-width: 768px) {
     .contestantimg {
         max-width: 464px;
-        max-height: 226px;
+        height: 226px;
     }
 
     .profiletopimg {
@@ -129,7 +130,7 @@
 @media (max-width: 767px) {
     .contestantimg {
         max-width: 350px;
-        max-height: 210px;
+        height: 210px;
     }
 
     .profiletopimg {
@@ -154,7 +155,7 @@
 @media (max-width: 480px) {
     .contestantimg {
         max-width: 140px;
-        max-height: 140px;
+        height: 140px;
     }
 
     .profilefulllist {
