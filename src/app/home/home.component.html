@@ -26,16 +26,7 @@
                 <p>People can vote for the preferred contestants to choose the winners instant.</p>
             </div>
             <div class="invotebt">
-                <button
-                    *ngIf="!sessionService.isAuth"
-                    class="btn btn-primary text-uppercase instant-vote-btn"
-                    [routerLink]="['/login']"
-                >
-                    Vote Now
-                </button>
-                <button
-                    *ngIf="sessionService.isAuth"
-                    class="btn btn-primary text-uppercase instant-vote-btn"
+                <button class="btn btn-primary text-uppercase instant-vote-btn"
                     [routerLink]="['/instant-vote']"
                 >
                     Vote Now

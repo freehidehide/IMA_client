@@ -52,7 +52,8 @@ export class AppConst {
         '/pages/privacy',
         '/pages/how-it-works',
         '/pages/aup',
-        '/pages/faq'
+        '/pages/faq',
+        '/vote_packages'
     ];
 
     public static readonly SERVICE_STATUS = {

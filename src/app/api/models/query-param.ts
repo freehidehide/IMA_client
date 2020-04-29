@@ -12,6 +12,7 @@ export interface QueryParam {
     amount?: number;
     is_active?: boolean;
     contestant_id?: string;
+    username?: string;
     product_detail_id?: number;
     product_size_id?: number;
     quantity?: number;
