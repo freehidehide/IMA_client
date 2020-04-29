@@ -209,7 +209,7 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
     }
 
     redirect(user: User): void {
-        const url: string = '/vote/' + user.slug;
+        const url: string = '/vote/' + user.username;
         this.router.navigateByUrl(url, { state: { category_id: this.categoryId } });
     }
 

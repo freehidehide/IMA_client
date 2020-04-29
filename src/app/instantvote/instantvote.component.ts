@@ -147,7 +147,7 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
         userMain.is_active = false;
       });
       user.is_active = true;
-      this.userId = user.slug;
+      this.userId = user.username;
     }
 
     redirect(user: User): void {

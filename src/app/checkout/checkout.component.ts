@@ -38,7 +38,7 @@ export class CheckoutComponent implements OnInit {
     public settings: any;
     public packageId: string;
     public categoryId: number;
-    public contestantId: string;
+    public username: string;
     public userCategories: UserCategory[];
     public addressList: AddressList;
     public address: Address;
@@ -52,9 +52,9 @@ export class CheckoutComponent implements OnInit {
         public startupService: StartupService,
         public categoryService: CategoryService) {
             this.paymentType = this.activatedRoute.snapshot.paramMap.get('type');
-            if (this.activatedRoute.snapshot.queryParams.contestant_id) {
+            if (this.activatedRoute.snapshot.queryParams.username) {
                 this.packageId = this.activatedRoute.snapshot.queryParams.package;
-                this.contestantId = this.activatedRoute.snapshot.queryParams.contestant_id;
+                this.username = this.activatedRoute.snapshot.queryParams.username;
                 const catId = (window.history.state.category_id) ? window.history.state.category_id : 0;
                 this.categoryId = +catId;
             } else if (this.paymentType && this.paymentType.indexOf('?') > -1) {
@@ -63,8 +63,8 @@ export class CheckoutComponent implements OnInit {
                 const types = params[1].split('&');
                 const packId = types[0] ? types[0].split('=')[1] : 0;
                 this.packageId = packId.toString();
-                const contestantUserId = types[1] ? types[1].split('=')[1] : 0;
-                this.contestantId = contestantUserId.toString();
+                const contestantUserName = types[1] ? types[1].split('=')[1] : 0;
+                this.username = contestantUserName.toString();
                 const catId = types[2] ? types[2].split('=')[1] : 0;
                 this.categoryId = +catId;
             }
@@ -94,7 +94,7 @@ export class CheckoutComponent implements OnInit {
     getCategories() {
         this.toastService.showLoading();
         this.categoryService
-            .getUserCategory(this.contestantId, null)
+            .getUserCategory(this.username, null)
             .subscribe((response) => {
                 this.userCategoryList = response;
                 this.userCategories = this.userCategoryList.data;
@@ -188,12 +188,12 @@ export class CheckoutComponent implements OnInit {
                     if (
                     this.payment.error &&
                     this.payment.error.code === AppConst.SERVICE_STATUS.SUCCESS
-                ) {
-                    window.location.href = this.payment.payUrl;
-                } else {
-                    this.toastService.error(this.payment.error.message);
-                }
-                    this.toastService.clearLoading();
+                    ) {
+                        window.location.href = this.payment.payUrl;
+                    } else {
+                        this.toastService.error(this.payment.error.message);
+                        this.toastService.clearLoading();
+                    }
                 });
         } else {
             this.toastService.error('Amount should be greater then ' + this.settings.CURRENCY_CODE + '1');
@@ -214,12 +214,12 @@ export class CheckoutComponent implements OnInit {
                 if (
                 this.payment.error &&
                 this.payment.error.code === AppConst.SERVICE_STATUS.SUCCESS
-            ) {
-                window.location.href = this.payment.payUrl;
-            } else {
-                this.toastService.error(this.payment.error.message);
-            }
-                this.toastService.clearLoading();
+                ) {
+                    window.location.href = this.payment.payUrl;
+                } else {
+                    this.toastService.error(this.payment.error.message);
+                    this.toastService.clearLoading();
+                }
             });
     }
 
@@ -228,7 +228,7 @@ export class CheckoutComponent implements OnInit {
         // this.payment_gatewayId
         const queryParam: QueryParam = {
             payment_gateway_id: 1,
-            contestant_id: this.contestantId,
+            username: this.username,
             category_id: this.category_id,
             is_web: true
         };
@@ -239,12 +239,12 @@ export class CheckoutComponent implements OnInit {
                 if (
                 this.payment.error &&
                 this.payment.error.code === AppConst.SERVICE_STATUS.SUCCESS
-            ) {
-                window.location.href = this.payment.payUrl;
-            } else {
-                this.toastService.error(this.payment.error.message);
-            }
-                this.toastService.clearLoading();
+                ) {
+                    window.location.href = this.payment.payUrl;
+                } else {
+                    this.toastService.error(this.payment.error.message);
+                    this.toastService.clearLoading();
+                }
             });
     }
 
@@ -253,7 +253,7 @@ export class CheckoutComponent implements OnInit {
         // this.payment_gatewayId
         const queryParam: QueryParam = {
             payment_gateway_id: 1,
-            contestant_id: this.contestantId,
+            username: this.username,
             is_web: true
         };
         this.paymentService
@@ -263,12 +263,12 @@ export class CheckoutComponent implements OnInit {
                 if (
                 this.payment.error &&
                 this.payment.error.code === AppConst.SERVICE_STATUS.SUCCESS
-            ) {
-                window.location.href = this.payment.payUrl;
-            } else {
-                this.toastService.error(this.payment.error.message);
-            }
-                this.toastService.clearLoading();
+                ) {
+                    window.location.href = this.payment.payUrl;
+                } else {
+                    this.toastService.error(this.payment.error.message);
+                    this.toastService.clearLoading();
+                }
             });
     }
 
@@ -303,12 +303,12 @@ export class CheckoutComponent implements OnInit {
                         if (
                         this.payment.error &&
                         this.payment.error.code === AppConst.SERVICE_STATUS.SUCCESS
-                    ) {
-                        window.location.href = this.payment.payUrl;
-                    } else {
-                        this.toastService.error(this.payment.error.message);
-                    }
-                        this.toastService.clearLoading();
+                        ) {
+                            window.location.href = this.payment.payUrl;
+                        } else {
+                            this.toastService.error(this.payment.error.message);
+                            this.toastService.clearLoading();
+                        }
                     });
             });
     }

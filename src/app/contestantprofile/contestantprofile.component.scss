@@ -134,6 +134,39 @@ nav.navbar {
     background: rgba(0,0,0,0.15);
 }
 
+.proSec{
+    margin-top: 120px;
+}
+.proSec h2{
+    font-family: Rozha One,serif;
+    font-size: 42px;
+    color: #585757;
+    padding-top: 20px;
+}
+.secBorder{
+    border: 1px solid #eee;
+}
+.socialSec .faIcon{
+    width: 70px;
+    height: 70px;
+}
+.shareFace{
+    background: #1877f2;
+    color: #fff !important;
+    padding: 5px 23px;
+    border-radius: 3px;
+    font-size: 18px !important;
+    margin: 5px 8px;
+}
+.shareTwit{
+    background: #03a9f4;
+    color: #fff !important;
+    padding: 5px 23px;
+    border-radius: 3px;
+    font-size: 18px !important;
+    margin: 5px 8px;
+}
+
 @media (max-width: 1440px) {
     .contprofileimage {
         max-width: 420px;

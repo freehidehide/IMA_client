@@ -58,12 +58,27 @@ implements OnInit {
 
     redirect(id: number): void {
         let url: string;
+        let state: any = null;
         if (this.router.url.includes('/instant_vote/')) {
-            url = 'checkout/instant_votes?contest=' + id + '&contestant_id=' + this.username;
-            this.router.navigate([url]);
+            url = 'checkout/instant_votes?contest=' + id + '&username=' + this.username;
         } else {
-            url = 'checkout/votes?package=' + id + '&contestant_id=' + this.username;
-            this.router.navigateByUrl(url, { state: { category_id: this.categoryId } });
+            url = 'checkout/votes?package=' + id + '&username=' + this.username;
+            state = {
+                state: {
+                    category_id: this.categoryId
+                }
+            };
+        }
+        if (!this.sessionService.isAuth) {
+             url = url.replace('?', '#');
+             url = '/login?f=' + url;
+             if (state !== null) {
+                this.router.navigateByUrl(url, state);
+             } else {
+                this.router.navigateByUrl(url);
+             }
+        } else {
+            this.router.navigate([url]);
         }
     }
 }

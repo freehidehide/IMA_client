@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { routerTransition } from '../router.animations';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '../api/services/toast-service';
@@ -24,6 +25,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
     public user: User = new User();
     constructor(
         public router: Router,
+        private activatedRoute: ActivatedRoute,
         private formBuilder: FormBuilder,
         private userService: UserService,
         private sessionService: SessionService,
@@ -83,7 +85,10 @@ export class LoginComponent extends BaseComponent implements OnInit {
                     'login_time', dt.toString()
                 );
                 this.sessionService.isLogined();
-                if (this.user.role.id === AppConst.ROLE.ADMIN || this.user.role.id === AppConst.ROLE.COMPANY) {
+                if (this.activatedRoute.snapshot.queryParams && this.activatedRoute.snapshot.queryParams.f) {
+                    const url = this.activatedRoute.snapshot.queryParams.f + '?' + this.activatedRoute.snapshot.fragment;
+                    this.router.navigate([url]);
+                } else if (this.user.role.id === AppConst.ROLE.ADMIN || this.user.role.id === AppConst.ROLE.COMPANY) {
                     this.router.navigate(['/admin']);
                 } else if (this.user.role.id === AppConst.ROLE.CONTESTANT) {
                     this.router.navigate(['/profile/' + this.user.slug]);

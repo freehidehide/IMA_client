@@ -93,7 +93,7 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
     }
 
     redirect(user: User): void {
-        const url: string = '/profile/' + user.category.category.slug + '/' + user.slug;
+        const url: string = '/profile/' + user.category.category.slug + '/' + user.username;
         this.router.navigate([url]);
     }
 }

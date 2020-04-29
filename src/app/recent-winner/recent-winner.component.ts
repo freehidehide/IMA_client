@@ -46,7 +46,7 @@ export class RecentWinnerComponent extends BaseComponent implements OnInit {
   }
 
   redirect(user: User): void {
-      const url: string = '/profile/' + user.id;
+      const url: string = '/profile/' + user.username;
       this.router.navigate([url]);
   }
 }
