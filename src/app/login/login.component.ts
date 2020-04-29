@@ -91,7 +91,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
                 } else if (this.user.role.id === AppConst.ROLE.ADMIN || this.user.role.id === AppConst.ROLE.COMPANY) {
                     this.router.navigate(['/admin']);
                 } else if (this.user.role.id === AppConst.ROLE.CONTESTANT) {
-                    this.router.navigate(['/profile/' + this.user.slug]);
+                    this.router.navigate(['/profile/' + this.user.username]);
                 } else {
                     this.router.navigate(['/']);
                 }
