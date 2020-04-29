@@ -13,6 +13,27 @@
         font-weight: normal;
     }
 }
+.recentWin {
+    border: 1px solid #ddd;
+    margin-bottom: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    background: #f9f9f9;
+    img {
+        border-radius: 5px;
+    }
+    .contestvote-btn {
+        max-width: 350px;
+        width: 100%;
+    }
+    .list-inline-item {
+        a {
+            color: #212529;
+            text-decoration: none;
+        }
+    }
+}
+
 @media(max-width:1440px){
     ul.voterankcounts {
         > li{
