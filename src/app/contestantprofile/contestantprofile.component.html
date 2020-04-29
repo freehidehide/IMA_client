@@ -67,19 +67,26 @@
                                 ></a>
                             </li>
                         </ul>
-                        <ul *ngIf="user.socials.length === 0">
-                            <li>
-                                <a href="javascript:void(0)" (click)="openFb()"
-                                    ><i
-                                        class="fa fa-facebook social-share"
+                        <ul *ngIf="user.socials.length === 0" class="text-center mb-3">
+                            <li class="list-inline-item px-4 pt-4">
+                                <a
+                                    href="javascript:void(0)"
+                                    (click)="openFb()"
+                                    class="shareFace"
+                                    >Share
+                                    <i
+                                        class="fa fa-facebook"
                                         aria-hidden="true"
                                     ></i
                                 ></a>
+
                                 <a
                                     href="javascript:void(0)"
                                     (click)="openTwitter()"
-                                    ><i
-                                        class="fa fa-twitter social-share"
+                                    class="shareTwit"
+                                    >Share
+                                    <i
+                                        class="fa fa-twitter"
                                         aria-hidden="true"
                                     ></i
                                 ></a>
