@@ -126,7 +126,7 @@
     }
 
     .paymenttitle {
-        margin: 40px 0 10px;
+        margin: 0px 0 10px;
         font-size: 41px;
         color: #696969;
     }
@@ -141,13 +141,18 @@
         }
     }
 }
-
+h4{
+    font-size: 25px !important;
+}
+.paymentOp img{
+    width: 150px;
+}
 .paymentoptions-right {
     padding: 0 0 0 235px;
 
     h4 {
         color: #696969;
-        margin: 0 0 60px;
+        margin: 0 0 15px;
         font-size: 41px;
         font-weight: 500;
     }
@@ -192,11 +197,6 @@
 
     .paymentoptions-right {
         padding-left: 190px;
-
-        h4 {
-            margin: 0 0 45px;
-            font-size: 30px;
-        }
     }
 }
 

@@ -6,16 +6,11 @@
     </div>
     <div class="content-middle checkout-middle">
         <div class="row">
-            <div class="col-md-5">
-                <div class="paymentoptions-right">
-                    <h4>Payment Options</h4>
-                    <img
-                        src="assets/images/payment-options.png"
-                        class="img-fluid"
-                    />
+            <div class="col-md-12 order-md-first" >
+                <div class="paymentOp">
+                    <h4 class="pb-2">Payment Options</h4>
+                    <img src="assets/images/payment-options.png" class="pb-3" />
                 </div>
-            </div>
-            <div class="col-md-7 order-md-first" >
                 <div class="maincheckout" >
                     <form >
                         <h4 class="paymenttitle" *ngIf="isProduct">Choose Address</h4>
@@ -43,25 +38,27 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group" *ngIf="isProduct && address">
-                            <label for="address1">Address</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                [(ngModel)]="address.addressline1"
-                                [ngModelOptions]="{standalone: true}"
-                                id="address1"
-                            />
-                        </div>
-                        <div class="form-group" *ngIf="isProduct && address">
-                            <label for="address2" >Address2</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                [(ngModel)]="address.addressline2"
-                                [ngModelOptions]="{standalone: true}"
-                                id="address2"
-                            />
+                        <div class="form-row">
+                            <div class="form-group col-md-6" *ngIf="isProduct && address">
+                                <label for="address1">Address</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="address.addressline1"
+                                    [ngModelOptions]="{standalone: true}"
+                                    id="address1"
+                                />
+                            </div>
+                            <div class="form-group col-md-6" *ngIf="isProduct && address">
+                                <label for="address2" >Address2</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="address.addressline2"
+                                    [ngModelOptions]="{standalone: true}"
+                                    id="address2"
+                                />
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6" *ngIf="isProduct && address">
@@ -95,26 +92,31 @@
                                 />
                             </div>
                             <div class="form-group col-md-2" *ngIf="isProduct && address">
-                                <label for="inputPrimary">Default Address</label>
-                                <input
-                                    type="checkbox"
-                                    class="form-control"
-                                    [(ngModel)]="address.is_default"
-                                    [ngModelOptions]="{standalone: true}"
-                                    id="inputPrimary"
-                                />
+                                <div class="form-check">
+                                    <input
+                                        type="checkbox"
+                                        class="form-check-input"
+                                        [(ngModel)]="address.is_default"
+                                        [ngModelOptions]="{standalone: true}"
+                                        id="inputPrimary"
+                                    />
+                                    <label class="form-check-label" for="inputPrimary"> Default Address</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group" *ngIf="isFund">
-                            <label for="amount" >Amount In </label>
-                            <input
-                                type="number"
-                                min="1"
-                                class="form-control"
-                                [(ngModel)]="amount"
-                                [ngModelOptions]="{standalone: true}"
-                                id="amount"
-                            />
+                        <hr>
+                        <div class="form-row">
+                            <div class="form-group col-md-6" *ngIf="isFund">
+                                <label for="amount" >Amount In </label>
+                                <input
+                                    type="number"
+                                    min="1"
+                                    class="form-control"
+                                    [(ngModel)]="amount"
+                                    [ngModelOptions]="{standalone: true}"
+                                    id="amount"
+                                />
+                            </div>
                         </div>
                         <h4 class="paymenttitle" *ngIf="isCategory">Choose Category</h4>
                         <div class="paymentblock" *ngIf="isCategory">
@@ -216,6 +218,7 @@
                                 </div>
                             </div>
                         </div>
+                        <hr>
                         <h4 class="paymenttitle">Processing fee</h4>
                         <div class="paymentblock">
                             <div class="paymentoptions">
@@ -228,6 +231,7 @@
                     </form>
                 </div>
             </div>
+            <hr>
         </div>
     </div>
 </div>
