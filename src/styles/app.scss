@@ -19,7 +19,9 @@
 :focus {
     outline: none;
 }
-
+a, a:hover{
+    text-decoration:none;
+}
 html,
 body {
     height: 100%;
@@ -60,6 +62,7 @@ body {
 }
 .pryColor{
     color:#fbae27;
+    cursor:pointer;
 }
 /* subheading starts */
 .subheadings {

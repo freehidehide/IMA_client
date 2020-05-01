@@ -43,7 +43,7 @@
 
                             <div class="col-md-1 topcartright" *ngIf="sessionService.isAuth">
                                 <div class="cartsection text-center" *ngIf="!isMyproduct">
-                                    <div class="position-relative" [routerLink]="['/cart']">
+                                    <div class="position-relative pull-right" [routerLink]="['/cart']">
                                         <i class="fa fa-shopping-cart pryColor" aria-hidden="true"></i>
                                         <span class="rounded-circle cartcount"
                                             *ngIf="productList && productList.cart_count && productList.cart_count !== 0">{{productList.cart_count}}</span>
