@@ -4,6 +4,7 @@ import { ApiService } from './api.service';
 import { AppConst } from '../../utils/app-const';
 import { Observable } from 'rxjs';
 import { VotePackageList } from '../models/vote-package-list';
+import { VotePackage } from '../models/vote-package';
 import { PaymentGatewaysListData } from '../models/payment-gateways-list-data';
 import { Payment } from '../models/payment';
 import { AddressList } from '../models/address-list';
@@ -32,6 +33,11 @@ export class PaymentService {
     votePackages(queryParam: QueryParam): Observable<VotePackageList> {
         const votePackagesList: string = AppConst.SERVER_URL.VOTEPACKAGES;
         return this.apiService.httpGet(votePackagesList, queryParam);
+    }
+
+    votePackage(id: string): Observable<VotePackage> {
+        const votePackage: string = AppConst.SERVER_URL.VOTEPACKAGE + '/' + id;
+        return this.apiService.httpGet(votePackage, null);
     }
 
     fund(queryParam: QueryParam): Observable<Payment> {

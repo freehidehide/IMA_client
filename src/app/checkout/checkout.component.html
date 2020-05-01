@@ -139,6 +139,20 @@
                                 </div>
                             </div>
                         </div>
+                        <h4 class="paymenttitle">Amount To Be Paid</h4>
+                        <div class="paymentblock" *ngIf="votePackage">
+                            <div class="paymentoptions">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    Amount : {{votePackage.price | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline" *ngIf="votePackage.price < 10">
+                                    Processing Fee : {{(((paypalLessTen / 100) * votePackage.price) + paypalLessTenInCents).toFixed(0) | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline" *ngIf="votePackage.price > 10">
+                                    Processing Fee : {{(((paypalMoreTen / 100) * votePackage.price) + paypalMoreTenInCents).toFixed(0) | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                            </div>
+                        </div>
                         <h4 class="paymenttitle">Payment</h4>
                         <div class="paymentblock">
                             <div class="paymentoptions">
@@ -213,15 +227,6 @@
                                     >
                                         Continue
                                     </button>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="paymenttitle">Processing fee</h4>
-                        <div class="paymentblock">
-                            <div class="paymentoptions">
-                                <div 
-                                    class="custom-control custom-radio custom-control-inline">
-                                    a23343324
                                 </div>
                             </div>
                         </div>

@@ -17,6 +17,7 @@ export class AppConst {
         SETTINGS: '/settings?is_web=true',
         TRANSACTIONS: '/transactions',
         VOTEPACKAGES: '/vote_packages',
+        VOTEPACKAGE: '/vote_package',
         CONTEST: '/contest',
         FUND: '/fund',
         PAYMENT_GATEWAYS: '/payment_gateways',

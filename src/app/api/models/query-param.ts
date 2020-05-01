@@ -26,4 +26,5 @@ export interface QueryParam {
     location?: string;
     caption?: string;
     filter_by?: string;
+    ispaid?: boolean;
 }

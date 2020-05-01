@@ -20,6 +20,7 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
     public isNodata: boolean;
     public slug = '';
     public pageType: number;
+    public categoryName: string;
 
     @Input('type')
     set type(value: number) {
@@ -54,6 +55,7 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
                     this.categoriesList = response;
                     this.categoriesList.data.forEach(category => {
                         if (category.slug === this.slug) {
+                            this.categoryName = category.name;
                             this.getContestantsByCategories(category.id);
                             return;
                         }

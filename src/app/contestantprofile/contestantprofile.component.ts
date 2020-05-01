@@ -31,6 +31,7 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
     public image: any;
     public video: any;
     public isvideo = false;
+    public ispaid = true;
     public slug = '';
     public modalReference = null;
     public linkToShare = 'https://www.google.com/';
@@ -47,9 +48,33 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
         super(router, userService, toastService);
     }
 
+    ngOnInit(): void {
+        this.username = this.activatedRoute.snapshot.paramMap.get('username');
+        this.slug = this.activatedRoute.snapshot.paramMap.get('slug');
+        if (this.sessionService && this.sessionService.user.username === this.username) {
+            this.getCategories();
+        }
+        if (this.activatedRoute.snapshot.paramMap.get('slug')) {
+            this.categoryService.getAll(null).subscribe((response) => {
+                this.categoriesList = response;
+                this.categoriesList.data.forEach(category => {
+                    if (category.slug === this.activatedRoute.snapshot.paramMap.get('slug')) {
+                        this.categoryId = category.id;
+                        this.getUser(null);
+                        return;
+                    }
+                });
+            });
+        } else if (this.username) {
+            this.getUser(null);
+        } else {
+            this.router.navigate(['/']);
+        }
+    }
+
     getCategories() {
         this.categoryService
-            .getUserCategory(this.sessionService.user.slug, null)
+            .getUserCategory(this.sessionService.user.username, null)
             .subscribe((response) => {
                 this.userCategoryList = response;
                 this.userCategories = this.userCategoryList.data;
@@ -62,7 +87,6 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
     }
 
     open(content) {
-        this.getCategories();
         this.modalReference = this.modalService.open(content);
         this.modalReference.result.then((result) => {
         }, (reason) => {
@@ -150,7 +174,8 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
                 class: 'UserProfile',
                 category_id: this.catId,
                 location: this.location,
-                caption: this.caption
+                caption: this.caption,
+                ispaid: this.ispaid
             };
             this.userService.postFile(this.imageList, queryParam)
             .subscribe((response) => {
@@ -177,25 +202,8 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
         }
     }
 
-    ngOnInit(): void {
-        this.username = this.activatedRoute.snapshot.paramMap.get('username');
-        this.slug = this.activatedRoute.snapshot.paramMap.get('slug');
-        if (this.activatedRoute.snapshot.paramMap.get('slug')) {
-            this.categoryService.getAll(null).subscribe((response) => {
-                this.categoriesList = response;
-                this.categoriesList.data.forEach(category => {
-                    if (category.slug === this.activatedRoute.snapshot.paramMap.get('slug')) {
-                        this.categoryId = category.id;
-                        this.getUser(null);
-                        return;
-                    }
-                });
-            });
-        } else if (this.username) {
-            this.getUser(null);
-        } else {
-            this.router.navigate(['/']);
-        }
+    changeSelect(id: any) {
+        this.catId = id;
     }
 
     openFb() {

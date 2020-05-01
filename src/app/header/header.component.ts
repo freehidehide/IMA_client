@@ -43,7 +43,7 @@ export class HeaderComponent {
         this.router.events.subscribe((event) => {
             if (event instanceof NavigationEnd) {
                 if (event.url.indexOf('/admin') === -1) {
-                    this.hideHeader = !(this.headerRemove.indexOf(event.url) > -1);
+                    this.hideHeader = !(this.headerRemove.indexOf(event.url) > -1) && !event.url.includes('/login');
                     this.showStaticHeader =
                         this.staticheader.indexOf(event.url) > -1;
                 }

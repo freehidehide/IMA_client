@@ -14,6 +14,8 @@ import { PaymentGatewaysListData } from '../api/models/payment-gateways-list-dat
 import { PaymentGatewaysList } from '../api/models/payment-gateways-list';
 import { StartupService } from '../api/services/startup.service';
 import { CategoryService } from '../api/services/category.service';
+import { VotePackage } from '../api/models/vote-package';
+import { SessionService } from '../api/services/session-service';
 @Component({
     selector: 'app-checkout',
     templateUrl: './checkout.component.html',
@@ -46,11 +48,18 @@ export class CheckoutComponent implements OnInit {
     public userCategoryList: UserCategoryList;
     public category_id: number;
     public isCategory = false;
+    public votePackage: VotePackage;
+    public paypalLessTen: number;
+    public paypalLessTenInCents: number;
+    public paypalMoreTen: number;
+    public paypalMoreTenInCents: number;
+
     constructor(public paymentService: PaymentService,
         private toastService: ToastService,
         private activatedRoute: ActivatedRoute,
         public startupService: StartupService,
-        public categoryService: CategoryService) {
+        public categoryService: CategoryService,
+        public sessionService: SessionService) {
             this.paymentType = this.activatedRoute.snapshot.paramMap.get('type');
             if (this.activatedRoute.snapshot.queryParams.username) {
                 this.packageId = this.activatedRoute.snapshot.queryParams.package;
@@ -82,8 +91,10 @@ export class CheckoutComponent implements OnInit {
             this.name = 'Votes';
             this.isCategory = true;
             this.getCategories();
+            this.getvotePackage();
         } else if (this.paymentType.includes(this.instaVotes)) {
             this.name = 'Instant votes';
+            this.getvotePackage();
         } else if (this.paymentType === this.cart) {
             this.name = 'Cart';
             this.isProduct = true;
@@ -131,6 +142,17 @@ export class CheckoutComponent implements OnInit {
             });
     }
 
+    getvotePackage(): void {
+        this.paymentService
+            .votePackage(this.packageId)
+            .subscribe((response) => {
+              if (response) {
+                this.votePackage = response;
+              }
+              this.toastService.clearLoading();
+            });
+    }
+
     changeAddress(address: Address) {
         this.address = address;
     }
@@ -154,6 +176,10 @@ export class CheckoutComponent implements OnInit {
                 this.paymentGatewaysListData = response;
                 this.paymentGateways = this.paymentGatewaysListData.data;
                 this.payment_gatewayId = this.paymentGateways[0].id;
+                this.paypalLessTen = this.paymentGateways[0].paypal_less_ten;
+                this.paypalLessTenInCents = this.paymentGateways[0].paypal_less_ten_in_cents;
+                this.paypalMoreTen = this.paymentGateways[0].paypal_more_ten;
+                this.paypalMoreTenInCents = this.paymentGateways[0].paypal_more_ten_in_cents;
                 this.toastService.clearLoading();
             });
     }
