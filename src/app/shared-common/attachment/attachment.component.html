@@ -1,6 +1,6 @@
 <img *ngIf="!isVideo" [src]="url" class="img-fluid {{ cssClassString }}" />
 <div class="videosection" *ngIf="isVideo" (click)="open(mymodal)">
-    <img [src]="url" class="img-fluid {{ cssClassString }}" />
+    <img [defaultImage]="defaultImage" [lazyLoad]="url" [useSrcset]="true" class="img-fluid {{ cssClassString }}" />
     <img src="assets/images/video-play.png" class="img-fluid play-button" />
 </div>
 <ng-template #mymodal let-modal>

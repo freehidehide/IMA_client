@@ -18,6 +18,7 @@ export class AttachmentComponent {
     public isVideo: boolean;
     public isPlayVideo: boolean;
     public modalReference = null;
+    public defaultImage = 'https://via.placeholder.com/1920x840.png?text=IMA';
     public screenWidth = window.screen.width;
     constructor(private modalService: NgbModal) {
     }

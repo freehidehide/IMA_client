@@ -339,6 +339,8 @@
             <label for="category">Category <span>*</span></label>
             <select
                 class="form-control"
+                [(ngModel)]="catId"
+                [ngModelOptions]="{ standalone: true }"
                 id="category"
                 (change)="changeSelect($event.target.value)"
             >

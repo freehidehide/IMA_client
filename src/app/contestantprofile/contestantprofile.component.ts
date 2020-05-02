@@ -78,7 +78,7 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
             .subscribe((response) => {
                 this.userCategoryList = response;
                 this.userCategories = this.userCategoryList.data;
-                if (this.categoryId !== 0) {
+                if (this.categoryId && this.categoryId !== 0) {
                     this.catId = this.categoryId;
                 } else {
                     this.catId = this.userCategories[0].category.id;
@@ -175,12 +175,12 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
                 category_id: this.catId,
                 location: this.location,
                 caption: this.caption,
-                ispaid: this.ispaid
+                ispaid: (this.ispaid ? 1 : 0)
             };
             this.userService.postFile(this.imageList, queryParam)
             .subscribe((response) => {
                 if (response.error && response.error.code === AppConst.SERVICE_STATUS.SUCCESS) {
-                    this.catId = null;
+                    this.catId = this.userCategories[0].category.id;
                     this.location = '';
                     this.caption = '';
                     this.imageList = [];

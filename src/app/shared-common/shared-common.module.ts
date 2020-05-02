@@ -7,6 +7,7 @@ import { AttachmentUploadComponent } from './attachment-upload/attachment-upload
 import { TabComponent } from './tab/tab.component';
 import { TabsComponent } from './tab/tabs.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
         TabComponent,
         TabsComponent
     ],
-    imports: [CommonModule, NgbModule],
+    imports: [
+        CommonModule,
+        NgbModule,
+        LazyLoadImageModule
+    ],
     exports: [
         AttachmentComponent,
         AttachmentUploadComponent,
