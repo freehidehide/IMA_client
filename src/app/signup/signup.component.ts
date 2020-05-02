@@ -20,7 +20,7 @@ import { BaseComponent } from '../base.component';
 export class SignupComponent extends BaseComponent implements OnInit {
     public registerForm: FormGroup;
     public submitted: boolean;
-    public User: User = new User();
+    public user: User = new User();
     constructor(
         public router: Router,
         private formBuilder: FormBuilder,
@@ -72,21 +72,28 @@ export class SignupComponent extends BaseComponent implements OnInit {
         delete this.registerForm.value.confirm_password;
         this.userService.register(this.registerForm).subscribe((response) => {
             this.submitted = false;
-            this.User = response;
+            this.user = response;
             this.toastService.clearLoading();
             if (
-                this.User.error &&
-                this.User.error.code === AppConst.SERVICE_STATUS.SUCCESS
+                this.user.error &&
+                this.user.error.code === AppConst.SERVICE_STATUS.SUCCESS
             ) {
-                this.toastService.success(this.User.error.message);
+                this.toastService.success(this.user.error.message);
                 sessionStorage.setItem(
                     'user_context',
-                    JSON.stringify(this.User)
+                    JSON.stringify(this.user)
+                );
+                sessionStorage.setItem('access_token', this.user.access_token);
+                sessionStorage.setItem('refresh_token', this.user.refresh_token);
+                const dt = new Date();
+                dt.setMinutes( dt.getMinutes() + 60 );
+                sessionStorage.setItem(
+                    'login_time', dt.toString()
                 );
                 this.sessionService.isLogined();
                 this.router.navigate(['/']);
             } else {
-                this.toastService.error(this.User.error.message);
+                this.toastService.error(this.user.error.message);
             }
         });
     }

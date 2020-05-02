@@ -190,16 +190,8 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <ul
-                                    class="list-unstyled text-left d-flex justify-content-center contprofile-slisting flex-column"
-                                >
-                                    <li
-                                        class="pb-3 my-4 mx-auto"
-                                        *ngIf="
-                                            !sessionService.isAuth ||
-                                            !user.is_subscribed
-                                        "
-                                    >
+                                <ul class="list-unstyled text-left d-flex justify-content-center contprofile-slisting flex-column">
+                                    <li class="pb-3 my-4 mx-auto" *ngIf="user.subscribed_data.length === 0">
                                         <div class="contprofile-listing">
                                             <a
                                                 href="javascript:void(0)"
@@ -228,11 +220,7 @@
                                     </li>
                                     <li
                                         class="pb-3 mb-4 mx-auto"
-                                        *ngIf="
-                                            sessionService.isAuth &&
-                                            user.is_subscribed &&
-                                            user.subscribed_data.length > 0
-                                        "
+                                        *ngIf="user.subscribed_data.length > 0"
                                     >
                                         <div
                                             class="contprofile-listing mx-auto"
@@ -301,6 +289,25 @@
                                                 (click)="viewMore(subscribData)"
                                                 >+View More</span
                                             >
+                                            <a
+                                                href="javascript:void(0)"
+                                                [routerLink]="['/login']"
+                                                *ngIf="!sessionService.isAuth && !user.is_subscribed"
+                                            >
+                                                <img
+                                                    src="assets/images/subscribe-lock.png"
+                                                    class="img-fluid"
+                                                />
+                                            </a>
+                                            <a
+                                                href="javascript:void(0)"
+                                                [routerLink]="['/purchase']"
+                                                *ngIf="sessionService.isAuth && !user.is_subscribed">
+                                                <img
+                                                    src="assets/images/subscribe-lock.png"
+                                                    class="img-fluid"
+                                                />
+                                            </a>
                                         </div>
                                     </li>
                                     <li
@@ -322,7 +329,7 @@
         </div>
     </div>
 </div>
-<ng-template #mymodal let-modal>
+<ng-template *ngIf="sessionService.isAuth && sessionService.user.id === user.id" #mymodal let-modal>
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Upload Image/Video</h4>
         <button
