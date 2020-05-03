@@ -203,12 +203,7 @@
                 <p> Buy the tickets for trending events happening around you...</p>
             </div>
             <div class="purticketbt" >
-                <button *ngIf="!sessionService.isAuth" [routerLink]="['/login']"
-                    class="btn btn-warning text-uppercase pticket-btn text-white"
-                >
-                    Purchase Now
-                </button>
-                <button *ngIf="sessionService.isAuth"
+                <button type="button" [routerLink]="['/tickets']"
                     class="btn btn-warning text-uppercase pticket-btn text-white"
                 >
                     Purchase Now

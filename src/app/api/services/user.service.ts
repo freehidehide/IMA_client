@@ -76,6 +76,11 @@ export class UserService {
         return this.apiService.httpPut(url, null, null);
     }
 
+    tickets(queryParam: QueryParam): Observable<any> {
+        const url: string = AppConst.SERVER_URL.TICKETS;
+        return this.apiService.httpGet(url, queryParam);
+    }
+
     logout(): Observable<any> {
         const url: string = AppConst.SERVER_URL.LOGOUT;
         return this.apiService.httpGet(url, null);
