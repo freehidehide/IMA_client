@@ -148,16 +148,7 @@ export class InstantvoteComponent extends BaseComponent implements OnInit {
       });
       user.is_active = true;
       this.userId = user.username;
-    }
-
-    redirect(user: User): void {
-      if (this.isShowTime) {
-        if (this.userId) {
-          const url: string = '/instant_vote/' + this.userId;
-          this.router.navigate([url]);
-        } else {
-          this.toastService.warning('Please select the contestant to vote');
-        }
-      }
+      const url: string = '/instant_vote/' + this.userId;
+      this.router.navigate([url]);
     }
   }

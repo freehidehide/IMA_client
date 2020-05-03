@@ -19,7 +19,6 @@
                                     placeholder="Search for items" />
                                 <span class="search-icon"></span>
                             </div>
-
                             <div class="col-md-4 my-1 shopfilter position-relative" *ngIf="!isMyproduct">
                                 <div ngbDropdown class="d-inline-block filterddown dropdown">
                                     <button type="button" class="btn btn-outline-primary"
@@ -103,6 +102,12 @@
                             {{ product.description }}
                         </p>
                     </div>
+                    <div class="product-availsizes pt-2" *ngIf="product.showDetail.sizes.length > 0">
+                        <p class="text-uppercase ctqtytext"><b>Available Sizes</b></p>
+                        <a href="javascript:void(0)" class="text-uppercase" [ngClass]="{'active': size.isactive}"
+                            *ngFor="let size of product.showDetail.sizes"
+                            (click)="chooseSize(size, product)">{{size.size.name}}</a>
+                    </div>
                     <div class="shopqtyarea d-flex">
                         <div class="cartquantity text-center">
                             <p class="text-uppercase ctqtytext"><b>Quantity</b></p>
@@ -120,13 +125,6 @@
                                 Only {{ product.showDetail.amount_detail.quantity}} items left
                             </h6>
                         </div>
-                    </div>
-                    
-                    <div class="product-availsizes pt-2" *ngIf="product.showDetail.sizes.length > 1">
-                        <p class="text-uppercase ctqtytext"><b>Available Sizes</b></p>
-                        <a href="javascript:void(0)" class="text-uppercase" [ngClass]="{'active': size.isactive}"
-                            *ngFor="let size of product.showDetail.sizes"
-                            (click)="chooseSize(size, product)">{{size.size.name}}</a>
                     </div>
                     <div class="d-flex mt-1">
                         <div class="d-flex flex-column cartdetails">

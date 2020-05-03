@@ -141,18 +141,31 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <h4 class="paymenttitle">Amount To Be Paid</h4>
+                        <hr *ngIf="!isFund">
+                        <h4 *ngIf="!isFund" class="paymenttitle">Amount To Be Paid</h4>
                         <div class="paymentblock" *ngIf="votePackage">
                             <div class="paymentoptions">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     Amount : {{votePackage.price | currency: settings.CURRENCY_CODE:'symbol'}}
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline" *ngIf="votePackage.price < 10">
-                                    Processing Fee : {{(((paypalLessTen / 100) * votePackage.price) + paypalLessTenInCents).toFixed(0) | currency: settings.CURRENCY_CODE:'symbol'}}
+                                    Processing Fee : {{(((paypalLessTen / 100) * votePackage.price) + paypalLessTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline" *ngIf="votePackage.price > 10">
-                                    Processing Fee : {{(((paypalMoreTen / 100) * votePackage.price) + paypalMoreTenInCents).toFixed(0) | currency: settings.CURRENCY_CODE:'symbol'}}
+                                    Processing Fee : {{(((paypalMoreTen / 100) * votePackage.price) + paypalMoreTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="paymentblock" *ngIf="settings && isSubscription">
+                            <div class="paymentoptions">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    Amount : {{settings.SUBSCRIBE_PRICE | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline" *ngIf="settings.SUBSCRIBE_PRICE < 10">
+                                    Processing Fee : {{(((paypalLessTen / 100) * settings.SUBSCRIBE_PRICE) + paypalLessTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline" *ngIf="settings.SUBSCRIBE_PRICE > 10">
+                                    Processing Fee : {{(((paypalMoreTen / 100) * settings.SUBSCRIBE_PRICE) + paypalMoreTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
                                 </div>
                             </div>
                         </div>

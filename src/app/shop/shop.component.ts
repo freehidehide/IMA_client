@@ -76,10 +76,13 @@ export class ShopComponent extends BaseComponent implements OnInit {
             ) {
                 this.toastService.error(this.productList.error.message);
             } else {
-                if (this.productList.data.length !== 0) {
+                if (this.productList && this.productList.data.length !== 0) {
                     this.isNodata = false;
                     this.productDetails = this.productList.data;
                     this.addInitialProducts();
+                } else {
+                    this.isNodata = true;
+                    this.productDetails = [];
                 }
             }
             this.toastService.clearLoading();
@@ -120,6 +123,7 @@ export class ShopComponent extends BaseComponent implements OnInit {
                     });
                     if (cartObj.length > 0) {
                         qty = cartObj[0].quantity;
+                        size.isactive = (index === 0 && (size.id === cartObj[0].product_size_id));
                     }
                 }
                 product.showDetail.cart.sizes.push({
@@ -191,6 +195,7 @@ export class ShopComponent extends BaseComponent implements OnInit {
                     this.toastService.warning('Please add quantity');
                     return;
                 }
+                let sizeDetailIndex = 0;
                 if (product.showDetail.sizes.length > 0) {
                     const sizeEmpty = product.showDetail.sizes.filter(value => {
                         return (value.isactive === true);
@@ -199,15 +204,15 @@ export class ShopComponent extends BaseComponent implements OnInit {
                         this.toastService.warning('Please choose size');
                         return;
                     }
+                    sizeDetailIndex  = product.showDetail.sizes.findIndex(value => {
+                        return (value.isactive === true);
+                    });
                 }
-                const cartObj = [];
-                product.showDetail.cart.sizes.forEach(value => {
-                    if (value.quantity !== 0) {
-                        value.coupon_code = product.showDetail.cart.coupon.coupon_code;
-                        cartObj.push(value);
-                    }
-                });
-                if (cartObj.length > 0) {
+                const cartObj = product.showDetail.cart.sizes[sizeDetailIndex];
+                if (product.showDetail.cart.coupon.coupon_code !== '') {
+                    cartObj.coupon_code = product.showDetail.cart.coupon.coupon_code;
+                }
+                if (cartObj !== '') {
                     this.toastService.showLoading();
                     this.productService.addToCart(cartObj).subscribe((response) => {
                         this.productDetail = response;
@@ -219,6 +224,7 @@ export class ShopComponent extends BaseComponent implements OnInit {
                             this.toastService.error(this.productDetail.error.message);
                         } else {
                             this.productList.cart_count = response.data.length;
+                            product.showDetail.carts.push(cartObj);
                             this.toastService.success(this.productDetail.error.message);
                         }
                         this.toastService.clearLoading();
@@ -299,7 +305,7 @@ export class ShopComponent extends BaseComponent implements OnInit {
     chooseSize(size: ProductSize, product: Product) {
         if (this.sessionService.isAuth) {
             if (!this.isMyproduct) {
-                product.showDetail.cart.sizes.forEach(sizeElement => {
+                product.showDetail.sizes.forEach(sizeElement => {
                     sizeElement.isactive = false;
                 });
                 size.isactive = true;
@@ -312,7 +318,6 @@ export class ShopComponent extends BaseComponent implements OnInit {
                         cartObj[0].coupon.coupon_code) ? cartObj[0].coupon.coupon_code : '';
                 } else {
                     product.showDetail.cart.quantity = 0;
-                    product.showDetail.cart.coupon.coupon_code = '';
                 }
             }
         } else {

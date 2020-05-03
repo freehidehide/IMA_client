@@ -28,11 +28,6 @@
                     </a>
                 </li>
             </ul>
-            <div class="voteblock text-center" *ngIf="users.length > 0 && !contestProgress">
-                <button (click)="redirect(user)" type="button" class="btn btn-primary text-uppercase vote-btn">
-                    Instant Vote
-                </button>
-            </div>
             <div class="contestent-individual mx-auto" *ngIf="contestProgress">
                 <ul class=" list-unstyled" *ngIf="userContests.length > 0">
                     <li *ngFor="let userContest of userContests">

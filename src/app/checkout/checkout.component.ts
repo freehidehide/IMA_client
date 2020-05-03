@@ -53,6 +53,7 @@ export class CheckoutComponent implements OnInit {
     public paypalLessTenInCents: number;
     public paypalMoreTen: number;
     public paypalMoreTenInCents: number;
+    public isSubscription = false;
 
     constructor(public paymentService: PaymentService,
         private toastService: ToastService,
@@ -87,6 +88,7 @@ export class CheckoutComponent implements OnInit {
             this.isFund = true;
         } else if (this.paymentType === this.subscription) {
             this.name = 'Subscription';
+            this.isSubscription = true;
         } else if (this.paymentType === this.votes) {
             this.name = 'Votes';
             this.isCategory = true;

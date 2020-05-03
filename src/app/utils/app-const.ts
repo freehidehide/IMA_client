@@ -42,7 +42,6 @@ export class AppConst {
         '/change_password',
         '/catagories',
         '/contestants',
-        '/products',
         '/advertisements',
         '/settings?is_web=true',
         '/contestants/highest_votes',

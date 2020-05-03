@@ -37,26 +37,30 @@
                             <h5 class="cartsubtitle text-uppercase">
                                 Price
                             </h5>
-                            <div class="">
+                            <div class="" *ngIf="!product.coupon_id">
                                 <b>{{
-                                    product.showDetail.amount_detail.price
+                                    (product.showDetail.amount_detail.price * product.showDetail.cart.quantity)
                                         | currency
                                             : settings.CURRENCY_CODE
                                             : "symbol"
                                 }}</b>
                             </div>
-
-                            <h5 class="cartsubtitle text-uppercase pt-3">
-                                Discount Price
-                            </h5>
-
-                            <div class="">
+                            <div class="" *ngIf="product.coupon_id">
                                 <b>{{
-                                    product.showDetail.amount_detail
-                                        .discount_price
+                                    ((product.showDetail.amount_detail.price * product.showDetail.cart.quantity) - (((product.showDetail.amount_detail.discount_percentage / 100) * product.showDetail.amount_detail.price) * product.showDetail.cart.quantity)).toFixed(1)
                                         | currency
                                             : settings.CURRENCY_CODE
                                             : "symbol"
+                                }}</b>
+                            </div>
+                            <h5 class="cartsubtitle text-uppercase pt-3">
+                                Discount Price
+                            </h5>
+                            <div class="" *ngIf="!product.coupon_id">
+                                <b>{{0 | currency : settings.CURRENCY_CODE : "symbol"}}</b>
+                            </div>   
+                            <div class="" *ngIf="product.coupon_id">
+                                <b>{{(((product.showDetail.amount_detail.discount_percentage / 100) * product.showDetail.amount_detail.price) * product.showDetail.cart.quantity).toFixed(1) | currency : settings.CURRENCY_CODE : "symbol"
                                 }}</b>
                             </div>
                         </div>
@@ -76,6 +80,7 @@
                                 [(ngModel)]="
                                     product.showDetail.cart.coupon.coupon_code
                                 "
+                                (blur)="editCart(product)"
                                 [ngModelOptions]="{ standalone: true }"
                                 placeholder="Enter Code"
                                 class="form-control mt-3"
@@ -92,7 +97,7 @@
                                 <h5 class="cartsubtitle text-uppercase">
                                     Size
                                 </h5>
-                                <div class="cartSize"><sapn>{{product.size.size.name}}</sapn></div>
+                                <div class="cartSize"><span>{{product.size.size.name}}</span></div>
                             </div>
                         </div>
                     </div>
@@ -134,19 +139,7 @@
                         </p>
 
                         <div class="pull-right mt-4">
-                            <sapn *ngIf="!isMyOrder">
-                                <button
-                                    type="button"
-                                    class="editCart"
-                                    (click)="editCart(product)"
-                                >
-                                    <i
-                                        class="fa fa-pencil"
-                                        aria-hidden="true"
-                                    ></i>
-                                </button>
-                            </sapn>
-                            <sapn *ngIf="!isMyOrder">
+                            <span *ngIf="!isMyOrder">
                                 <button
                                     type="button"
                                     class="deleteCart"
@@ -157,7 +150,7 @@
                                         aria-hidden="true"
                                     ></i>
                                 </button>
-                            </sapn>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -165,7 +158,7 @@
                 <hr />
             </li>
         </ul>
-        <div class="cartupdate" *ngIf="!isMyOrder && productDetails.length > 0">
+        <div class="cartupdate" *ngIf="!isMyOrder && productDetails && productDetails.length > 0">
             <div class="checkout">
                 <div class="row">
                     <div
@@ -189,7 +182,7 @@
                 </div>
             </div>
         </div>
-        <div class="cartupdate" *ngIf="productDetails.length === 0">
+        <div class="cartupdate" *ngIf="!productDetails || productDetails.length === 0">
             <div class="checkout">
                 <div class="row">
                     <div

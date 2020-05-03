@@ -39,25 +39,30 @@ export class CartComponent implements OnInit {
     getCart(): void {
         this.isNodata = true;
         const queryParam: QueryParam = {
-            is_purchase: this.isMyOrder
+            is_purchase: this.isMyOrder,
+            is_web: true
         };
         this.productService.cart(queryParam).subscribe((response) => {
-            this.cartList = response;
-            if (
-                this.cartList.error &&
-                this.cartList.error.code !== AppConst.SERVICE_STATUS.SUCCESS
-            ) {
-                this.toastService.error(this.cartList.error.message);
-            } else {
-                if (this.cartList.data.length !== 0) {
-                    this.isNodata = false;
-                    this.productDetails = this.cartList.data;
-                    this.totalAmount = this.cartList.total_amount;
-                    this.addInitialProducts();
-                }
-            }
-            this.toastService.clearLoading();
+            this.cartSuccessHandler(response);
         });
+    }
+
+    cartSuccessHandler(response: ProductList) {
+        this.cartList = response;
+        if (
+            this.cartList.error &&
+            this.cartList.error.code !== AppConst.SERVICE_STATUS.SUCCESS
+        ) {
+            this.toastService.error(this.cartList.error.message);
+        } else {
+            if (this.cartList && this.cartList.data.length !== 0) {
+                this.isNodata = false;
+                this.productDetails = this.cartList.data;
+                this.totalAmount = this.cartList.total_amount;
+                this.addInitialProducts();
+            }
+        }
+        this.toastService.clearLoading();
     }
 
     addToCart(product: Product) {
@@ -93,29 +98,28 @@ export class CartComponent implements OnInit {
     }
 
     editCart(product: Product) {
-        const queryParam: QueryParam[] = [];
         if (product.showDetail.cart.quantity === 0) {
             this.toastService.error('Please add quantity');
             return;
         }
-        queryParam.push({
+        const queryParam: QueryParam = {
             product_detail_id: product.product_detail_id,
             product_size_id: product.product_size_id,
             quantity: product.showDetail.cart.quantity,
             coupon_code: product.showDetail.cart.coupon.coupon_code
-        });
-        this.toastService.showLoading();
+        };
         this.productService.addToCart(queryParam).subscribe((response) => {
             this.productDetail = response;
             if (
                 this.productDetail.error &&
                 this.productDetail.error.code !== AppConst.SERVICE_STATUS.SUCCESS
             ) {
-                product.showDetail.cart.coupon.coupon_code = '';
+                if (this.productDetail.error.message === 'Please enter a valid coupon code') {
+                    product.showDetail.cart.coupon.coupon_code = '';
+                }
                 this.toastService.error(this.productDetail.error.message);
             } else {
-                this.getCart();
-                this.toastService.success(this.productDetail.error.message);
+                this.cartSuccessHandler(response);
             }
             this.toastService.clearLoading();
         });
@@ -153,6 +157,11 @@ export class CartComponent implements OnInit {
         product.showDetail.cart.quantity;
         if (product.showDetail.cart.quantity < product.showDetail.amount_detail.quantity) {
             product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
+            if (product.showDetail.cart.quantity > 0) {
+                this.editCart(product);
+            } else {
+                this.deleteCart(product);
+            }
         }
     }
 
@@ -161,6 +170,11 @@ export class CartComponent implements OnInit {
         product.showDetail.cart.quantity;
         if (product.showDetail.cart.quantity !== 0) {
             product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
+        }
+        if (product.showDetail.cart.quantity > 0) {
+            this.editCart(product);
+        } else {
+            this.deleteCart(product);
         }
     }
 
