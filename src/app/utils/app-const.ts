@@ -26,6 +26,7 @@ export class AppConst {
         USER_CATEGORY: '/user_category/',
         INSTANT_VOTE_PURCHASE: '/purchase/contest/',
         CART: '/cart',
+        OFFLINECART: '/offline/cart',
         CART_PURCHASE: '/purchase/cart',
         USER_ADDRESS: '/user_address',
         INSTANT_WINNER: '/instant_vote',

@@ -42,7 +42,7 @@ export class CartComponent implements OnInit {
             is_purchase: this.isMyOrder,
             is_web: true
         };
-        this.productService.cart(queryParam).subscribe((response) => {
+        this.productService.cart(queryParam, this.sessionService.isAuth).subscribe((response) => {
             this.cartSuccessHandler(response);
         });
     }
@@ -79,7 +79,7 @@ export class CartComponent implements OnInit {
                     coupon_code: product.showDetail.cart.coupon.coupon_code
                 });
             this.toastService.showLoading();
-            this.productService.addToCart(queryParam).subscribe((response) => {
+            this.productService.addToCart(queryParam, this.sessionService.isAuth).subscribe((response) => {
                 this.productDetail = response;
                 if (
                     this.productDetail.error &&
@@ -108,7 +108,7 @@ export class CartComponent implements OnInit {
             quantity: product.showDetail.cart.quantity,
             coupon_code: product.showDetail.cart.coupon.coupon_code
         };
-        this.productService.addToCart(queryParam).subscribe((response) => {
+        this.productService.addToCart(queryParam, this.sessionService.isAuth).subscribe((response) => {
             this.productDetail = response;
             if (
                 this.productDetail.error &&
@@ -130,7 +130,7 @@ export class CartComponent implements OnInit {
             id: cart.id
         };
         this.toastService.showLoading();
-        this.productService.deleteCart(queryParam).subscribe((response) => {
+        this.productService.deleteCart(queryParam, this.sessionService.isAuth).subscribe((response) => {
             this.productDetail = response;
             if (
                 this.productDetail.error &&

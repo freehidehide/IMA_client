@@ -17,18 +17,19 @@ export class ProductService {
         return this.apiService.httpGet(products, queryParam);
     }
 
-    addToCart(queryParam: QueryParam | QueryParam[]): Observable<Product> {
-        const url: string = AppConst.SERVER_URL.CART;
+    addToCart(queryParam: QueryParam | QueryParam[], isAuth: boolean): Observable<Product> {
+        const url: string = (isAuth) ? AppConst.SERVER_URL.CART : AppConst.SERVER_URL.OFFLINECART;
         return this.apiService.httpPut(url, queryParam);
     }
 
-    deleteCart(queryParam: QueryParam): Observable<Product> {
-        const url: string = AppConst.SERVER_URL.CART + '/' + queryParam.id;
+    deleteCart(queryParam: QueryParam, isAuth: boolean): Observable<Product> {
+        let url: string = (isAuth) ? AppConst.SERVER_URL.CART : AppConst.SERVER_URL.OFFLINECART;
+        url = url + '/' + queryParam.id;
         return this.apiService.httpDelete(url, queryParam);
     }
 
-    cart(queryParam: QueryParam | QueryParam[]): Observable<ProductList> {
-        const url: string = AppConst.SERVER_URL.CART;
+    cart(queryParam: QueryParam | QueryParam[], isAuth: boolean): Observable<ProductList> {
+        const url: string = (isAuth) ? AppConst.SERVER_URL.CART : AppConst.SERVER_URL.OFFLINECART;
         return this.apiService.httpGet(url, queryParam);
     }
 

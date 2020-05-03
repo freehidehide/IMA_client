@@ -32,6 +32,7 @@ export class ShopComponent extends BaseComponent implements OnInit {
     public attachmentIndex = 0;
     public attachments: any = [];
     public q: string;
+    public offlineCart: any = [];
     public modalReference = null;
     public filterBy = 'Filter By All';
 
@@ -194,157 +195,137 @@ export class ShopComponent extends BaseComponent implements OnInit {
     }
 
     addToCart(product: Product) {
-        if (this.sessionService.isAuth) {
-            if (this.isMyproduct) {
+        if (this.isMyproduct) {
+            this.toastService.showLoading();
+            const queryParam: QueryParam = {
+                quantity: product.showDetail.cart.quantity
+            };
+            this.productService.productEdit(queryParam, product.id).subscribe((response) => {
+                this.productDetail = response;
+                if (
+                    this.productDetail.error &&
+                    this.productDetail.error.code !== AppConst.SERVICE_STATUS.SUCCESS
+                ) {
+                    this.toastService.error(this.productDetail.error.message);
+                    this.toastService.clearLoading();
+                } else {
+                    this.getProducts();
+                }
+            });
+        } else {
+            const queryParam: QueryParam[] = [];
+            let sizeDetailIndex = 0;
+            if (product.showDetail.sizes.length > 0) {
+                const sizeEmpty = product.showDetail.sizes.filter(value => {
+                    return (value.isactive === true);
+                });
+                if (sizeEmpty.length === 0) {
+                    this.toastService.warning('Please choose size');
+                    return;
+                }
+                sizeDetailIndex  = product.showDetail.sizes.findIndex(value => {
+                    return (value.isactive === true);
+                });
+            }
+            if (product.showDetail.cart.quantity === 0) {
+                this.toastService.warning('Please add quantity');
+                return;
+            }
+            const cartObj = product.showDetail.cart.sizes[sizeDetailIndex];
+            if (product.showDetail.cart.coupon.coupon_code !== '') {
+                cartObj.coupon_code = product.showDetail.cart.coupon.coupon_code;
+            }
+            if (cartObj !== '') {
                 this.toastService.showLoading();
-                const queryParam: QueryParam = {
-                    quantity: product.showDetail.cart.quantity
-                };
-                this.productService.productEdit(queryParam, product.id).subscribe((response) => {
+                this.productService.addToCart(cartObj, this.sessionService.isAuth).subscribe((response) => {
                     this.productDetail = response;
                     if (
                         this.productDetail.error &&
                         this.productDetail.error.code !== AppConst.SERVICE_STATUS.SUCCESS
                     ) {
+                        product.showDetail.cart.coupon_code = '';
                         this.toastService.error(this.productDetail.error.message);
-                        this.toastService.clearLoading();
                     } else {
-                        this.getProducts();
+                        this.productList.cart_count = response.data.length;
+                        product.showDetail.carts.push(cartObj);
+                        this.toastService.success(this.productDetail.error.message);
                     }
+                    this.toastService.clearLoading();
                 });
-            } else {
-                const queryParam: QueryParam[] = [];
-                if (product.showDetail.cart.quantity === 0) {
-                    this.toastService.warning('Please add quantity');
-                    return;
-                }
-                let sizeDetailIndex = 0;
-                if (product.showDetail.sizes.length > 0) {
-                    const sizeEmpty = product.showDetail.sizes.filter(value => {
-                        return (value.isactive === true);
-                    });
-                    if (sizeEmpty.length === 0) {
-                        this.toastService.warning('Please choose size');
-                        return;
-                    }
-                    sizeDetailIndex  = product.showDetail.sizes.findIndex(value => {
-                        return (value.isactive === true);
-                    });
-                }
-                const cartObj = product.showDetail.cart.sizes[sizeDetailIndex];
-                if (product.showDetail.cart.coupon.coupon_code !== '') {
-                    cartObj.coupon_code = product.showDetail.cart.coupon.coupon_code;
-                }
-                if (cartObj !== '') {
-                    this.toastService.showLoading();
-                    this.productService.addToCart(cartObj).subscribe((response) => {
-                        this.productDetail = response;
-                        if (
-                            this.productDetail.error &&
-                            this.productDetail.error.code !== AppConst.SERVICE_STATUS.SUCCESS
-                        ) {
-                            product.showDetail.cart.coupon_code = '';
-                            this.toastService.error(this.productDetail.error.message);
-                        } else {
-                            this.productList.cart_count = response.data.length;
-                            product.showDetail.carts.push(cartObj);
-                            this.toastService.success(this.productDetail.error.message);
-                        }
-                        this.toastService.clearLoading();
-                    });
-                }
             }
-        } else {
-            this.router.navigate(['/login']);
         }
     }
 
     addQuantity(product: Product) {
-        if (this.sessionService.isAuth) {
-            if (this.isMyproduct) {
-                product.showDetail.cart.quantity = (product.showDetail.cart.quantity === 0)
-                ? product.showDetail.amount_detail.quantity : product.showDetail.cart.quantity;
-                if (product.showDetail.cart.quantity >= product.showDetail.amount_detail.quantity) {
-                    product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
-                    this.setQty(product);
-                }
-            } else {
-                product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
-                product.showDetail.cart.quantity;
-                if (product.showDetail.cart.quantity < product.showDetail.amount_detail.quantity) {
-                    product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
-                    this.setQty(product);
-                }
+        if (this.isMyproduct) {
+            product.showDetail.cart.quantity = (product.showDetail.cart.quantity === 0)
+            ? product.showDetail.amount_detail.quantity : product.showDetail.cart.quantity;
+            if (product.showDetail.cart.quantity >= product.showDetail.amount_detail.quantity) {
+                product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
+                this.setQty(product);
             }
         } else {
-            this.router.navigate(['/login']);
+            product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
+            product.showDetail.cart.quantity;
+            if (product.showDetail.cart.quantity < product.showDetail.amount_detail.quantity) {
+                product.showDetail.cart.quantity = ++product.showDetail.cart.quantity;
+                this.setQty(product);
+            }
         }
     }
 
     removeQuantity(product: Product) {
-        if (this.sessionService.isAuth) {
-            if (this.isMyproduct) {
-                product.showDetail.cart.quantity = (product.showDetail.cart.quantity === 0)
-                ? product.showDetail.amount_detail.quantity : product.showDetail.cart.quantity;
-                if (product.showDetail.cart.quantity > product.showDetail.amount_detail.quantity) {
-                    product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
-                    this.setQty(product);
-                }
-            } else {
-                product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
-                product.showDetail.cart.quantity;
-                if (product.showDetail.cart.quantity !== 0) {
-                    product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
-                }
+        if (this.isMyproduct) {
+            product.showDetail.cart.quantity = (product.showDetail.cart.quantity === 0)
+            ? product.showDetail.amount_detail.quantity : product.showDetail.cart.quantity;
+            if (product.showDetail.cart.quantity > product.showDetail.amount_detail.quantity) {
+                product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
                 this.setQty(product);
             }
         } else {
-            this.router.navigate(['/login']);
+            product.showDetail.cart.quantity = (!product.showDetail.cart.quantity) ? 0 :
+            product.showDetail.cart.quantity;
+            if (product.showDetail.cart.quantity !== 0) {
+                product.showDetail.cart.quantity = --product.showDetail.cart.quantity;
+            }
+            this.setQty(product);
         }
     }
 
     setQty(product: Product) {
-        if (this.sessionService.isAuth) {
-            if (product.showDetail.sizes.length > 0) {
-                let size_id;
-                product.showDetail.sizes.forEach(sizeElement => {
-                    if (sizeElement.isactive) {
-                        size_id = sizeElement.id;
-                    }
-                });
-                product.showDetail.cart.sizes.forEach(sizeElement => {
-                    if (size_id === sizeElement.product_size_id) {
-                        sizeElement.quantity = product.showDetail.cart.quantity;
-                    }
-                });
-            } else {
-                product.showDetail.cart.sizes[0].quantity = product.showDetail.cart.quantity;
-            }
+        if (product.showDetail.sizes.length > 0) {
+            let size_id;
+            product.showDetail.sizes.forEach(sizeElement => {
+                if (sizeElement.isactive) {
+                    size_id = sizeElement.id;
+                }
+            });
+            product.showDetail.cart.sizes.forEach(sizeElement => {
+                if (size_id === sizeElement.product_size_id) {
+                    sizeElement.quantity = product.showDetail.cart.quantity;
+                }
+            });
         } else {
-            this.router.navigate(['/login']);
+            product.showDetail.cart.sizes[0].quantity = product.showDetail.cart.quantity;
         }
     }
 
     chooseSize(size: ProductSize, product: Product) {
-        if (this.sessionService.isAuth) {
-            if (!this.isMyproduct) {
-                product.showDetail.sizes.forEach(sizeElement => {
-                    sizeElement.isactive = false;
-                });
-                size.isactive = true;
-                const cartObj = product.showDetail.carts.filter((value) => {
-                    return (size.id === value.product_size_id);
-                });
-                if (cartObj[0]) {
-                    product.showDetail.cart.quantity = cartObj[0].quantity;
-                    product.showDetail.cart.coupon.coupon_code = (cartObj[0].coupon &&
-                        cartObj[0].coupon.coupon_code) ? cartObj[0].coupon.coupon_code : '';
-                } else {
-                    product.showDetail.cart.quantity = 0;
-                }
+        if (!this.isMyproduct) {
+            product.showDetail.sizes.forEach(sizeElement => {
+                sizeElement.isactive = false;
+            });
+            size.isactive = true;
+            const cartObj = product.showDetail.carts.filter((value) => {
+                return (size.id === value.product_size_id);
+            });
+            if (cartObj[0]) {
+                product.showDetail.cart.quantity = cartObj[0].quantity;
+                product.showDetail.cart.coupon.coupon_code = (cartObj[0].coupon &&
+                    cartObj[0].coupon.coupon_code) ? cartObj[0].coupon.coupon_code : '';
+            } else {
+                product.showDetail.cart.quantity = 0;
             }
-        } else {
-            this.router.navigate(['/login']);
         }
     }
 }

@@ -173,7 +173,16 @@
                         </div>
                         <button
                             type="button"
+                            *ngIf="sessionService.isAuth"
                             (click)="checkout()"
+                            class="checkoutbtn btn btn-success text-uppercase"
+                        >
+                            Proceed to Checkout
+                        </button>
+                        <button
+                            type="button"
+                            *ngIf="!sessionService.isAuth"
+                            [routerLink]="['/login']"
                             class="checkoutbtn btn btn-success text-uppercase"
                         >
                             Proceed to Checkout

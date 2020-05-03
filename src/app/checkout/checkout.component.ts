@@ -129,7 +129,7 @@ export class CheckoutComponent implements OnInit {
             is_purchase: false,
             is_web: true
         };
-        this.productService.cart(queryParam).subscribe((response) => {
+        this.productService.cart(queryParam, this.sessionService.isAuth).subscribe((response) => {
             this.totalAmount = response.total_amount;
         });
     }
