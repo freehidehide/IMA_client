@@ -32,8 +32,12 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
     public video: any;
     public isvideo = false;
     public ispaid = true;
+    public subscribeIndex = 0;
+    public attachmentIndex = 0;
+    public attachmentsLength = 0;
     public slug = '';
     public modalReference = null;
+    public isUploadAttachment = false;
     public linkToShare = 'https://www.google.com/';
     constructor(
         protected router: Router,
@@ -86,11 +90,23 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
             });
     }
 
-    open(content) {
+    open(content, isUpload, subscribeIndex, attachmentsLength) {
+        this.isUploadAttachment = isUpload;
+        this.subscribeIndex = subscribeIndex;
+        this.attachmentsLength = attachmentsLength;
+        this.attachmentIndex = 4;
         this.modalReference = this.modalService.open(content);
         this.modalReference.result.then((result) => {
         }, (reason) => {
         });
+    }
+
+    next() {
+        this.attachmentIndex = ++this.attachmentIndex;
+    }
+
+    prev() {
+        this.attachmentIndex = --this.attachmentIndex;
     }
 
     uploadImage(event) {
@@ -160,7 +176,7 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
                 if (response.error && response.error.code === AppConst.SERVICE_STATUS.SUCCESS) {
                     this.getUser(null);
                     this.toastService.success(response.error.message);
-                } else {
+                } else if (response.error && response.error.message) {
                     this.toastService.error(response.error.message);
                 }
                 this.toastService.clearLoading();

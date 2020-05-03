@@ -102,7 +102,7 @@
                             <li class="list-inline-item px-4">
                                 <a
                                     href="javascript:void(0)"
-                                    (click)="open(mymodal)"
+                                    (click)="open(mymodal, true, 0, 0)"
                                 >
                                     <i
                                         _ngcontent-bye-c27=""
@@ -225,7 +225,7 @@
                                         <div
                                             class="contprofile-listing mx-auto"
                                             *ngFor="
-                                                let subscribData of user.subscribed_data;
+                                                let subscribData of user.subscribed_data; let subscribDataIndex = index;
                                                 trackBy: trackById
                                             "
                                         >
@@ -264,9 +264,6 @@
                                                             i > 3 &&
                                                             !subscribData.viewmore
                                                     }"
-                                                    (click)="
-                                                        open(attachment.index)
-                                                    "
                                                 >
                                                     <app-attachment
                                                         [attachment]="
@@ -286,7 +283,7 @@
                                                     subscribData.attachments
                                                         .length > 3
                                                 "
-                                                (click)="viewMore(subscribData)"
+                                                (click)="open(mymodal, false, subscribDataIndex, subscribData.attachments.length)"
                                                 >+View More</span
                                             >
                                             <a
@@ -329,9 +326,9 @@
         </div>
     </div>
 </div>
-<ng-template *ngIf="sessionService.isAuth && sessionService.user.id === user.id" #mymodal let-modal>
+<ng-template #mymodal let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Upload Image/Video</h4>
+        <h4 *ngIf="isUploadAttachment" class="modal-title" id="modal-basic-title">Upload Image/Video</h4>
         <button
             type="button"
             class="close"
@@ -341,7 +338,7 @@
             <span aria-hidden="true">×</span>
         </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" *ngIf="isUploadAttachment">
         <div class="form-group">
             <label for="category">Category <span>*</span></label>
             <select
@@ -424,9 +421,16 @@
             <label class="form-check-label" for="ispaid">Paid</label>
         </div>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer" *ngIf="isUploadAttachment">
         <button type="button" (click)="profileUpload()" class="btn btn-primary">
             Submit
         </button>
+    </div>
+    <div class="modal-body" *ngIf="!isUploadAttachment">
+        Location : {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].location}}
+        Caption: {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].caption}}
+        <app-attachment [attachment]="user.subscribed_data[subscribeIndex].attachments[attachmentIndex]" [type]="original" [cssClass]="'profilefirstimg'"></app-attachment>
+        <button class="btn btn-primary" (click)="prev()" type="button" *ngIf="attachmentIndex !== 1"><<Prev</button>
+        <button class="btn btn-primary" (click)="next()" type="button" *ngIf="(attachmentIndex+1) < attachmentsLength">>>Next</button>
     </div>
 </ng-template>
