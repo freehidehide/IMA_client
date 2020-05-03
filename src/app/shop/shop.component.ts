@@ -14,6 +14,8 @@ import { Product } from '../api/models/product';
 import { ProductSize } from '../api/models/product-size';
 import { SessionService } from '../api/services/session-service';
 import { StartupService } from '../api/services/startup.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
     selector: 'app-shop',
     templateUrl: './shop.component.html',
@@ -27,7 +29,10 @@ export class ShopComponent extends BaseComponent implements OnInit {
     public productDetails: Product[] = [];
     public isMyproduct = false;
     public role_id: number;
+    public attachmentIndex = 0;
+    public attachments: any = [];
     public q: string;
+    public modalReference = null;
     public filterBy = 'Filter By All';
 
     constructor(
@@ -36,6 +41,7 @@ export class ShopComponent extends BaseComponent implements OnInit {
         private toastService: ToastService,
         public sessionService: SessionService,
         public startupService: StartupService,
+        private modalService: NgbModal
     ) {
         super();
         this.isMyproduct = (this.router.url === '/myproducts');
@@ -76,7 +82,7 @@ export class ShopComponent extends BaseComponent implements OnInit {
             ) {
                 this.toastService.error(this.productList.error.message);
             } else {
-                if (this.productList && this.productList.data.length !== 0) {
+                if (this.productList && this.productList.data && this.productList.data.length !== 0) {
                     this.isNodata = false;
                     this.productDetails = this.productList.data;
                     this.addInitialProducts();
@@ -93,6 +99,23 @@ export class ShopComponent extends BaseComponent implements OnInit {
         this.productDetails.forEach(product => {
             product = this.formatProduct(product, 0);
         });
+    }
+
+    open(content, attachments) {
+        this.attachments = attachments;
+        this.attachmentIndex = 4;
+        this.modalReference = this.modalService.open(content);
+        this.modalReference.result.then((result) => {
+        }, (reason) => {
+        });
+    }
+
+    next() {
+        this.attachmentIndex = ++this.attachmentIndex;
+    }
+
+    prev() {
+        this.attachmentIndex = --this.attachmentIndex;
     }
 
     formatProduct(product: Product, detail: number) {

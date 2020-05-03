@@ -74,12 +74,16 @@
                         </div>
                     </div>
                     <div class="cartlistthumbnails" *ngIf="product.showDetail.attachments.length > 1">
-                        <a href="javascript:void(0)" class="mb-3"
-                            *ngFor="let attachmentDetail of product.showDetail.attachments"
-                            (click)="changeImage(product, attachmentDetail)">
-                            <app-attachment [attachment]="attachmentDetail" [type]="original"
-                                [cssClass]="'shopattimage'"></app-attachment>
-                        </a>
+                        <span *ngFor="let attachmentDetail of product.showDetail.attachments; let thumbnailIndex = index;">
+                            <span href="javascript:void(0)" class="mb-3 thumbnail-span" *ngIf="thumbnailIndex < 4"
+                                (click)="changeImage(product, attachmentDetail)" >
+                                    <app-attachment [attachment]="attachmentDetail" [type]="original"
+                                        [cssClass]="'shopattimage'"></app-attachment>
+                            </span>
+                        </span>
+                        <span class="thumbnail-span" (click)="open(mymodal, product.showDetail.attachments)" *ngIf="product.showDetail.attachments.length > 4">
+                            View More
+                        </span>
                     </div>
                 </div>
                 <div class="slectcolors">
@@ -163,3 +167,20 @@
         </div>
     </div>
 </div>
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+        <button
+            type="button"
+            class="close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+        >
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-attachment [attachment]="attachments[attachmentIndex]" [type]="original" [cssClass]="'profilefirstimg'"></app-attachment>
+        <button class="btn btn-primary" (click)="prev()" type="button" *ngIf="attachmentIndex !== 1"><<Prev</button>
+        <button class="btn btn-primary" (click)="next()" type="button" *ngIf="(attachmentIndex+1) < attachments.length">>>Next</button>
+    </div>
+</ng-template>
