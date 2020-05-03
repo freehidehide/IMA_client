@@ -427,10 +427,10 @@
         </button>
     </div>
     <div class="modal-body" *ngIf="!isUploadAttachment">
-        Location : {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].location}}
-        Caption: {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].caption}}
+        <h4 class="text-center py-2">Location : {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].location}}
+        Caption: {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].caption}}</h4>
         <app-attachment [attachment]="user.subscribed_data[subscribeIndex].attachments[attachmentIndex]" [type]="original" [cssClass]="'profilefirstimg'"></app-attachment>
-        <button class="btn btn-primary" (click)="prev()" type="button" *ngIf="attachmentIndex !== 1"><<Prev</button>
-        <button class="btn btn-primary" (click)="next()" type="button" *ngIf="(attachmentIndex+1) < attachmentsLength">>>Next</button>
+        <button class="btn preBtn" (click)="prev()" type="button" *ngIf="attachmentIndex !== 1"><i class="fa fa-chevron-left"></i></button>
+        <button class="btn nextBtn" (click)="next()" type="button" *ngIf="(attachmentIndex+1) < attachmentsLength"><i class="fa fa-chevron-right"></i></button>
     </div>
 </ng-template>

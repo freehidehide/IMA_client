@@ -17,10 +17,13 @@
 }
 
 :focus {
-    outline: none;
+    outline: none !important;
 }
 a, a:hover{
     text-decoration:none;
+}
+button:focus, .btn:focus{
+    outline:none !important;
 }
 html,
 body {
