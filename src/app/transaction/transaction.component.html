@@ -47,12 +47,15 @@
                                 <li class="row accountlisting" *ngFor="let transaction of productTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
                                         <app-attachment
-                                            *ngIf="transaction.other_user && transaction.other_user.attachment"
-                                            [attachment]="transaction.other_user.attachment" [type]="original">
+                                            *ngIf="transaction.detail && transaction.detail.attachment"
+                                            [attachment]="transaction.detail.attachment" [type]="original">
                                         </app-attachment>
                                     </div>
                                     <div class="col-md-6 acvotepackage">
-                                        <h2>VOTE PACKAGE <span>for [{{transaction.other_user.first_name}}]</span></h2>
+                                        <h2>{{transaction.detail.product_detail.name}} <span>for [{{transaction.parent_user.first_name}} {{transaction.parent_user.last_name}}]</span></h2>
+                                        <p class="accountamount" *ngIf="transaction.detail.size">[
+                                            {{ transaction.detail.size.size.name }}]</p>
+                                        <p class="accountamount"><span [ngStyle]="{'background-color': transaction.detail.color.color}" class="availcolorsselect ml-2"></span></p>
                                         <p class="accountamount">[
                                             {{ transaction.amount | currency: transaction.CURRENCY_CODE:'symbol' }}]</p>
                                         <p class="packagename m-0">Package Name -
@@ -87,7 +90,8 @@
                                         <p class="accountamount">[
                                             {{ transaction.amount | currency: transaction.CURRENCY_CODE:'symbol' }}]</p>
                                         <p class="packagename m-0">Package Name - {{transaction.package.name}}</p>
-                                        <p>{{transaction.payment_gateway.name}}</p>
+                                        <p>Package Name -{{transaction.package.description}}</p>
+                                        <p>Payment Gateway -{{transaction.payment_gateway.name}}</p>
                                     </div>
                                     <div class="col-md-4 d-flex justify-content-end flex-column text-center acvotedate">
                                         <p class="accountdate m-0">{{transaction.created_at | date: 'short'}}</p>
@@ -117,7 +121,8 @@
                                         <p class="accountamount">[
                                             {{ transaction.amount | currency: transaction.CURRENCY_CODE:'symbol' }}]</p>
                                         <p class="packagename m-0">Package Name - {{transaction.package.name}}</p>
-                                        <p>{{transaction.payment_gateway.name}}</p>
+                                        <p>Package Name -{{transaction.package.description}}</p>
+                                        <p>Payment Gateway -{{transaction.payment_gateway.name}}</p>
                                     </div>
                                     <div class="col-md-4 d-flex justify-content-end flex-column text-center acvotedate">
                                         <p class="accountdate m-0">{{transaction.created_at | date: 'short'}}</p>

@@ -32,6 +32,7 @@ export class AppConst {
         PAGES: '/pages',
         USER_IMAGE: '/user_image',
         SIZES: '/sizes',
+        TICKETS: '/tickets',
         LOGOUT: '/users/logout'
     };
 
@@ -53,7 +54,8 @@ export class AppConst {
         '/pages/how-it-works',
         '/pages/aup',
         '/pages/faq',
-        '/vote_packages'
+        '/vote_packages',
+        '/tickets'
     ];
 
     public static readonly SERVICE_STATUS = {

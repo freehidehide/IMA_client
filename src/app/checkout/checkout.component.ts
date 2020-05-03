@@ -16,6 +16,7 @@ import { StartupService } from '../api/services/startup.service';
 import { CategoryService } from '../api/services/category.service';
 import { VotePackage } from '../api/models/vote-package';
 import { SessionService } from '../api/services/session-service';
+import { ProductService } from '../api/services/product.service';
 @Component({
     selector: 'app-checkout',
     templateUrl: './checkout.component.html',
@@ -53,6 +54,7 @@ export class CheckoutComponent implements OnInit {
     public paypalLessTenInCents: number;
     public paypalMoreTen: number;
     public paypalMoreTenInCents: number;
+    public totalAmount: number;
     public isSubscription = false;
 
     constructor(public paymentService: PaymentService,
@@ -60,7 +62,8 @@ export class CheckoutComponent implements OnInit {
         private activatedRoute: ActivatedRoute,
         public startupService: StartupService,
         public categoryService: CategoryService,
-        public sessionService: SessionService) {
+        public sessionService: SessionService,
+        private productService: ProductService) {
             this.paymentType = this.activatedRoute.snapshot.paramMap.get('type');
             if (this.activatedRoute.snapshot.queryParams.username) {
                 this.packageId = this.activatedRoute.snapshot.queryParams.package;
@@ -101,6 +104,7 @@ export class CheckoutComponent implements OnInit {
             this.name = 'Cart';
             this.isProduct = true;
             this.getAddress();
+            this.getCart();
         }
     }
 
@@ -118,6 +122,16 @@ export class CheckoutComponent implements OnInit {
                 }
                 this.toastService.clearLoading();
             });
+    }
+
+    getCart(): void {
+        const queryParam: QueryParam = {
+            is_purchase: false,
+            is_web: true
+        };
+        this.productService.cart(queryParam).subscribe((response) => {
+            this.totalAmount = response.total_amount;
+        });
     }
 
     getAddress() {
