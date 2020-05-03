@@ -55,7 +55,8 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
     ngOnInit(): void {
         this.username = this.activatedRoute.snapshot.paramMap.get('username');
         this.slug = this.activatedRoute.snapshot.paramMap.get('slug');
-        if (this.sessionService && this.sessionService.user.username === this.username) {
+        if (this.sessionService && this.sessionService.user &&
+            this.sessionService.user.username === this.username) {
             this.getCategories();
         }
         if (this.activatedRoute.snapshot.paramMap.get('slug')) {
