@@ -47,7 +47,7 @@ export class CartComponent implements OnInit {
         });
     }
 
-    cartSuccessHandler(response: ProductList) {
+    cartSuccessHandler(response: any) {
         this.cartList = response;
         if (
             this.cartList.error &&
