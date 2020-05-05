@@ -27,7 +27,7 @@
                             *ngIf="user.socials.length > 0"
                         >
                             <li
-                                class="list-inline-item px-4 pt-3"
+                                class="list-inline-item pt-3 mb-2"
                                 *ngFor="
                                     let social of user.socials;
                                     trackBy: trackById
@@ -42,7 +42,7 @@
                                         >{{ social.name }}</span
                                     >
                                 </a>
-                            </li>
+                            </li><br>
                             <li class="list-inline-item px-4 pt-4">
                                 <a
                                     href="javascript:void(0)"

@@ -13,38 +13,36 @@
         trackBy: trackById
     ">
         <div *ngIf="ticket.status === 'live'"
-            class="row mt-5 mb-4 adertindlist"
-            
-        >
+            class="row mt-5 mb-4 adertindlist ticketSec">
             <div class="col-lg-7 col-md-6">
-                <div class="d-flex justify-content-center align-items-center ">
+                <div class="d-flex justify-content-center align-items-center">
                     <div class="mr-3">
                         <div class="advertimg">
-                            <img *ngIf="!ticket.logo" [src]="'https://via.placeholder.com/320x200.png?text=IMA'" />
-                            <img *ngIf="ticket.logo" [src]="ticket.logo.url" />
+                            <img *ngIf="!ticket.logo" [src]="'https://via.placeholder.com/320x200.png?text=IMA'" class="img-fluid" />
+                            <img *ngIf="ticket.logo" [src]="ticket.logo.url" class="img-fluid" />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-5 col-md-6 d-flex align-items-center">
                 <div class="advertmaincontent">
-                    <h2 class="m-0 p-0">
+                    <h3 class="m-0 p-0 pb-3">
                         {{ ticket.name.text }}
-                    </h2>
-                    <p>
-                        Start Date : {{ ticket.start.utc | date: 'short' }}<br>
-                        End Date : {{ ticket.end.utc | date: 'short' }}<br>
-                        Tickets Left : {{ ticket.capacity }}<br>
+                    </h3>
+                    <p class="ticketSec-p">
+                        Start Date : <span>{{ ticket.start.utc | date: 'short' }}</span><br>
+                        End Date : <span>{{ ticket.end.utc | date: 'short' }}</span><br>
+                        Tickets Left : <span>{{ ticket.capacity }}</span><br>
                     </p>
-                    <div class="purchasebtn mt-5 pt-4 text-center">
+                    <div class="purchasebtn mt-2 pt-2">
                         <a *ngIf="!ticket.is_free"
                             href="{{ ticket.url }}"
-                            class="btn btn-primary text-uppercase purchasbtn px-5 py-2"
+                            class="btn btn-primary text-uppercase purchasbtn purchasBtn px-5 py-2"
                             >Purchase</a
                         >
                         <a *ngIf="ticket.is_free"
                             href="{{ ticket.url }}"
-                            class="btn btn-primary text-uppercase purchasbtn px-5 py-2"
+                            class="btn btn-primary text-uppercase purchasbtn purchasBtn px-5 py-2"
                             >Free Purchase</a
                         >
                     </div>
