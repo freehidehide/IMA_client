@@ -1,6 +1,6 @@
 <!-- @format -->
 <footer *ngIf="hideFooter">
-    <div class="footer-menu">
+    <!-- <div class="footer-menu">
         <div class="container">
             <ul *ngIf="pages">
                 <li *ngFor="let page of pages" (click)="redirect(page.url)">
@@ -8,11 +8,87 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
+    <section class="footerContact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Our Contacts</h4>
+                    <h5>Map Title</h5>
+                    <p>Map description text</p>
+                    <p><i class="fa fa-globe padR20" aria-hidden="true"></i> Jacksotts str. 698 San Diego, California, USA</p>
+                    <p><i class="fa fa-phone padR20" aria-hidden="true"></i> 1-800-123-4567, 1-800-123-4568</p>
+                    <p><a href="mailto: fashion_vogue@support.com"><i class="fa fa-envelope padR20" aria-hidden="true"></i> ima@support.com</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Working Hours</h4>                    
+                        <hr class="borderTop">
+                        <div class="row marginTop-10">
+                            <div class="col-md-6">
+                                <p>Monday - Friday</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-right">9 a.m. - 6 p.m.</p>
+                            </div>
+                        </div>
+                        <hr class="borderTop">
+                        <div class="row marginTop-10">
+                            <div class="col-md-6">
+                                <p>Saturday</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-right">10 a.m. - 8 p.m.</p>
+                            </div>
+                        </div>
+                        <hr class="borderTop">
+                        <div class="row marginTop-10">
+                            <div class="col-md-6">
+                                <p>Sunday</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-right">Closed</p>
+                            </div>                        
+                        </div>
+                        <hr class="borderBottom">
+                        <h4>Newsletter Signup</h4>
+                        <div class="newsletter">
+                            <form method="GET" action="" class="newsletter-form">
+                                <input type="hidden" name="u" value="">
+                                <input type="hidden" name="id" value="">
+                                <input type="email" name="EMAIL" id="email" placeholder="EMAIL ADDRESS">
+                                <button type="submit" class="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Banner Ad</h4>                    
+                    <div class="verticalItem">
+                        <a href="#">
+                            <div class="itemMedia">
+                                <img src="assets/images/footerbanner.jpg" alt="">
+                            </div>
+                            <div class="itemContent">
+                                <span class="visitBtn">visit</span>
+                                <h3>Model<br> Courses</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="footerSocial">
+                        <h4>Follow Us</h4>
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="copyright">
         <div class="container">
             <p class="text-center m-0 p-2">
-                Copyright 2020 [IMA]. All rights reserved.
+                © [IMA]. Copyright 2020 All Rights Reserved
             </p>
         </div>
     </div>

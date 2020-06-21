@@ -1,6 +1,5 @@
 <!-- @format -->
-
-<div class="imacontainer">
+<!-- <div class="imacontainer">
     <div class="subheader position-relative">
         <div class="subheadings">
             <h2 class="text-uppercase">Shop</h2>
@@ -183,4 +182,970 @@
         <button class="btn btn-primary" (click)="prev()" type="button" *ngIf="attachmentIndex !== 1"><<Prev</button>
         <button class="btn btn-primary" (click)="next()" type="button" *ngIf="(attachmentIndex+1) < attachments.length">>>Next</button>
     </div>
-</ng-template>
+</ng-template> -->
+
+<!-- New Design Start -->
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Products</h1>
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">SHOP</a></li>
+                        <li><p>PRODUCTS</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<!-- Product Start -->
+<section class="secProduct">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="proFilter">
+                    <div class="priceFilter">
+                        <h2>Filter by Price</h2> 
+                        Filter by price interval: <b>€ 10</b> <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/> <b>€ 1000</b>
+                        <a href="#" class="mediaBtn">Filter</a>  
+                    </div>            
+                    <div class="mediaFilter">
+                        <h2>Your Cart</h2>
+                        <div class="mediaFilter_box">
+                            <div class="mediaLeft">
+                                <a href="#">
+                                    <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                </a>
+                            </div>
+
+                            <div class="mediaContent">                       
+                                <a href="#">At vero eos accusam</a>                      
+                                <p class="amount">1 × <span>$49.95</span></p>
+                            </div>
+                        </div>
+                        <div class="mediaFilter_box">
+                            <div class="mediaLeft">
+                                <a href="#">
+                                    <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                </a>
+                            </div>
+
+                            <div class="mediaContent">                       
+                                <a href="#">At vero eos accusam</a>                      
+                                <p class="amount">1 × <span>$49.95</span></p>
+                            </div>
+                        </div>
+                        <a href="#" class="mediaBtn">View cart</a>
+                    </div>
+                    <div class="cateFilter">
+                        <h2>All Categories</h2>
+                        <ul class="cateFilter_links">
+                            <li>
+                                <a href="#" title="">Brisket turkey jerky</a>
+                            </li>
+                            <li>
+                                <a href="#" title="">Pig ham shank strip</a>
+                            </li>
+                            <li>
+                                <a href="#" title="">Beef picanha venison</a>
+                            </li>
+                            <li>
+                                <a href="#" title="">Picanha spare ribs</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="recentFilter">
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Popular</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Recent</a>
+                        </div>
+                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="#">At vero eos accusam</a>                      
+                                        <p class="amount">$49.95</p>
+                                    </div>
+                                </div> 
+                                <div class="clearfix"></div>
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="#">Lorem Ipsum ametsd</a>                      
+                                        <p class="amount">$29.95</p>
+                                    </div>
+                                </div> 
+                                <div class="clearfix"></div>
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="#">Nam libero tempore</a>                      
+                                        <p class="amount">$36.95</p>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="#">At vero eos accusam</a>                      
+                                        <p class="amount">$49.95</p>
+                                    </div>
+                                </div> 
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="#">Lorem Ipsum ametsd</a>                      
+                                        <p class="amount">$29.95</p>
+                                    </div>
+                                </div> 
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="#">Nam libero tempore</a>                      
+                                        <p class="amount">$36.95</p>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="proList">
+                    <div class="searchContainer">  
+                        <div class="row">      
+                            <div class="col-md-5">
+                                <div class="searchContainer_iput">
+                                    <form action="#">
+                                      <input type="text" placeholder="Search Item" name="search">
+                                      <button type="submit"><i class="fa fa-search"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="text-center">1-9 of 50 results</p>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group pull-right">                                    
+                                    <select class="form-control" id="sel1">
+                                        <option>Select Month</option>
+                                        <option>Popularity</option>
+                                        <option>Rating</option>
+                                        <option>Newness</option>
+                                        <option>Low to High</option>
+                                        <option>High to Low</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="row">           
+                        <div class="col-md-4 hoverZoomin">
+                            <a href="#" title="">
+                                <img src="assets/images/prodcutfilter1.jpg" class="img-fluid" alt=""/>
+                            </a>
+                            <span class="priceCross">
+                                <ins>
+                                    <span class="amount">$229.00</span>
+                                </ins>
+                            </span>
+                            <div class="product-buttons">
+                                <a href="#" rel="nofollow" class="favorite_button"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                <a href="#" rel="nofollow" class="cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            </div>                            
+                            <h4 class="text-center"><a href="shop-product-right.html">At vero eos accusam</a></h4>
+                        </div>
+                        <div class="col-md-4 hoverZoomin">
+                            <a href="#" title="">
+                                <img src="assets/images/prodcutfilter1.jpg" class="img-fluid" alt=""/>
+                            </a>
+                            <span class="priceCross">
+                                <del>
+                                    <span class="amount">$300.00 </span>
+                                </del>
+
+                                <ins>
+                                    <span class="amount">$289.00</span>
+                                </ins>
+                            </span>
+                            <div class="product-buttons">
+                                <a href="#" rel="nofollow" class="favorite_button"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                <a href="#" rel="nofollow" class="cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            </div>                            
+                            <h4 class="text-center"><a href="shop-product-right.html">At vero eos accusam</a></h4>
+                        </div>
+                        <div class="col-md-4 hoverZoomin">
+                            <a href="#" title="">
+                                <img src="assets/images/prodcutfilter1.jpg" class="img-fluid" alt=""/>
+                            </a>
+                            <span class="priceCross">
+                                <del>
+                                    <span class="amount">$300.00 </span>
+                                </del>
+
+                                <ins>
+                                    <span class="amount">$289.00</span>
+                                </ins>
+                            </span>
+                            <div class="product-buttons">
+                                <a href="#" rel="nofollow" class="favorite_button"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                <a href="#" rel="nofollow" class="cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            </div>                            
+                            <h4 class="text-center"><a href="shop-product-right.html">At vero eos accusam</a></h4>
+                        </div>
+                        <div class="col-md-4 hoverZoomin">
+                            <a href="#" title="">
+                                <img src="assets/images/prodcutfilter1.jpg" class="img-fluid" alt=""/>
+                            </a>
+                            <span class="priceCross">
+                                <del>
+                                    <span class="amount">$300.00 </span>
+                                </del>
+
+                                <ins>
+                                    <span class="amount">$289.00</span>
+                                </ins>
+                            </span>
+                            <div class="product-buttons">
+                                <a href="#" rel="nofollow" class="favorite_button"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                <a href="#" rel="nofollow" class="cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            </div>                            
+                            <h4 class="text-center"><a href="shop-product-right.html">At vero eos accusam</a></h4>
+                        </div>
+                        <div class="col-md-4 hoverZoomin">
+                            <a href="#" title="">
+                                <img src="assets/images/prodcutfilter1.jpg" class="img-fluid" alt=""/>
+                            </a>
+                            <span class="priceCross">
+                                <del>
+                                    <span class="amount">$300.00 </span>
+                                </del>
+
+                                <ins>
+                                    <span class="amount">$289.00</span>
+                                </ins>
+                            </span>
+                            <div class="product-buttons">
+                                <a href="#" rel="nofollow" class="favorite_button"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                <a href="#" rel="nofollow" class="cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            </div>                            
+                            <h4 class="text-center"><a href="shop-product-right.html">At vero eos accusam</a></h4>
+                        </div>
+                        <div class="col-md-4 hoverZoomin">
+                            <a href="#" title="">
+                                <img src="assets/images/prodcutfilter1.jpg" class="img-fluid" alt=""/>
+                            </a>
+                            <span class="priceCross">
+                                <del>
+                                    <span class="amount">$300.00 </span>
+                                </del>
+
+                                <ins>
+                                    <span class="amount">$289.00</span>
+                                </ins>
+                            </span>
+                            <div class="product-buttons">
+                                <a href="#" rel="nofollow" class="favorite_button"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                <a href="#" rel="nofollow" class="cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            </div>                            
+                            <h4 class="text-center"><a href="shop-product-right.html">At vero eos accusam</a></h4>
+                        </div>
+                        <div class="col-md-4 hoverZoomin">
+                            <a href="#" title="">
+                                <img src="assets/images/prodcutfilter1.jpg" class="img-fluid" alt=""/>
+                            </a>
+                            <span class="priceCross">
+                                <del>
+                                    <span class="amount">$300.00 </span>
+                                </del>
+
+                                <ins>
+                                    <span class="amount">$289.00</span>
+                                </ins>
+                            </span>
+                            <div class="product-buttons">
+                                <a href="#" rel="nofollow" class="favorite_button"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                <a href="#" rel="nofollow" class="cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            </div>                            
+                            <h4 class="text-center"><a href="shop-product-right.html">At vero eos accusam</a></h4>
+                        </div>
+                        <div class="col-md-4 hoverZoomin">
+                            <a href="#" title="">
+                                <img src="assets/images/prodcutfilter1.jpg" class="img-fluid" alt=""/>
+                            </a>
+                            <span class="priceCross">
+                                <del>
+                                    <span class="amount">$300.00 </span>
+                                </del>
+
+                                <ins>
+                                    <span class="amount">$289.00</span>
+                                </ins>
+                            </span>
+                            <div class="product-buttons">
+                                <a href="#" rel="nofollow" class="favorite_button"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                <a href="#" rel="nofollow" class="cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            </div>                            
+                            <h4 class="text-center"><a href="shop-product-right.html">At vero eos accusam</a></h4>
+                        </div>
+                        <div class="col-md-4 hoverZoomin">
+                            <a href="#" title="">
+                                <img src="assets/images/prodcutfilter1.jpg" class="img-fluid" alt=""/>
+                            </a>
+                            <span class="priceCross">
+                                <del>
+                                    <span class="amount">$300.00 </span>
+                                </del>
+
+                                <ins>
+                                    <span class="amount">$289.00</span>
+                                </ins>
+                            </span>
+                            <div class="product-buttons">
+                                <a href="#" rel="nofollow" class="favorite_button"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                <a href="#" rel="nofollow" class="cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            </div>                            
+                            <h4 class="text-center"><a href="shop-product-right.html">At vero eos accusam</a></h4>
+                        </div>
+                    </div>
+                    <div class="pagiNationbox">
+                        <div class="row">
+                            <nav aria-label="...">
+                                <ul class="pagination text-center">
+                                    <li class="page-item disabled">
+                                      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item">
+                                      <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product End -->
+
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Single Product</h1>
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">SHOP</a></li>
+                        <li><p>SINGLE PRODUCTS</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<!-- Shop Product Start -->
+<section class="secProduct">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="proFilter">
+                    <div class="priceFilter">
+                        <h2>Filter by Price</h2> 
+                        Filter by price interval: <b>€ 10</b> <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/> <b>€ 1000</b>
+                        <a href="#" class="mediaBtn">Filter</a>  
+                    </div>            
+                    <div class="mediaFilter">
+                        <h2>Your Cart</h2>
+                        <div class="mediaFilter_box">
+                            <div class="mediaLeft">
+                                <a href="#">
+                                    <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                </a>
+                            </div>
+
+                            <div class="mediaContent">                       
+                                <a href="#">At vero eos accusam</a>                      
+                                <p class="amount">1 × <span>$49.95</span></p>
+                            </div>
+                        </div>
+                        <div class="mediaFilter_box">
+                            <div class="mediaLeft">
+                                <a href="#">
+                                    <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                </a>
+                            </div>
+
+                            <div class="mediaContent">                       
+                                <a href="#">At vero eos accusam</a>                      
+                                <p class="amount">1 × <span>$49.95</span></p>
+                            </div>
+                        </div>
+                        <a href="#" class="mediaBtn">View cart</a>
+                    </div>
+                    <div class="cateFilter">
+                        <h2>All Categories</h2>
+                        <ul class="cateFilter_links">
+                            <li>
+                                <a href="#" title="">Brisket turkey jerky</a>
+                            </li>
+                            <li>
+                                <a href="#" title="">Pig ham shank strip</a>
+                            </li>
+                            <li>
+                                <a href="#" title="">Beef picanha venison</a>
+                            </li>
+                            <li>
+                                <a href="#" title="">Picanha spare ribs</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="recentFilter">
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Popular</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Recent</a>
+                        </div>
+                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="#">At vero eos accusam</a>                      
+                                        <p class="amount">$49.95</p>
+                                    </div>
+                                </div> 
+                                <div class="clearfix"></div>
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="#">Lorem Ipsum ametsd</a>                      
+                                        <p class="amount">$29.95</p>
+                                    </div>
+                                </div> 
+                                <div class="clearfix"></div>
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="#">Nam libero tempore</a>                      
+                                        <p class="amount">$36.95</p>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="#">At vero eos accusam</a>                      
+                                        <p class="amount">$49.95</p>
+                                    </div>
+                                </div> 
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="#">Lorem Ipsum ametsd</a>                      
+                                        <p class="amount">$29.95</p>
+                                    </div>
+                                </div> 
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="#">Nam libero tempore</a>                      
+                                        <p class="amount">$36.95</p>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="singleProduct">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="zoomHover">
+                                <a href="#">
+                                    <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                </a>
+                                <span class="newproduct">New</span>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="row mt-2">
+                                <div class="col-md-4 mobSlider">
+                                    <div class="zoomHover mt-3">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mobSlider">
+                                    <div class="zoomHover mt-3">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mobSlider">
+                                    <div class="zoomHover mt-3">
+                                        <a href="#">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="proitemTitle pb-2">
+                                <h3>Item Title</h3>
+                                <div class="proitemTitle_star">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                </div>
+                                <a href="#">3 review(s)</a> | <a href="#">Add Review</a>
+                            </div>
+                            <hr class="proLine mb-4">
+                            <div class="proCatdesc pt-2">
+                                <div class="pb-4">Categories: <a href="#">PRODUCT CAT</a></div>
+                                <p class="pt-2 pb-3">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                            </div>
+                            <hr class="proLine">
+                            <div class="proRate">
+                                <del>
+                                    <span class="amount">$339.00</span>
+                                </del> 
+                                <ins>
+                                    <span class="amount">$299.00</span>
+                                </ins>
+                            </div>
+                            <hr class="proLine">
+                            <div class="proStock py-2">
+                                <p>Availability: <span>In Stock</span></p>
+                                <a href="#">Email to a Friend</a>
+                            </div>
+                            <hr class="proLine">
+                            <div class="proSpec">
+                                <form class="cart" method="post">
+                                    <div class="form-group pb-3">
+                                        <label for="product_size" class="grey">Size</label>
+                                        <span class="red">*</span>
+                                        <select class="form-control" id="product_size">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+
+                                    <span class="product-option-name grey">Color</span>
+                                    <span class="red">*</span>
+
+                                    <div class="radio pt-3">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked=""> Grey
+                                        </label>
+                                    </div>
+                                    <div class="radio pb-4">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Magenta
+                                        </label>
+                                    </div>
+
+                                    <span class="product-option-name grey">Other Options</span>
+
+                                    <div class="checkbox pt-3">
+                                        <label>
+                                            <input type="checkbox" value=""> Option one
+                                        </label>
+                                    </div>
+                                    <div class="checkbox pb-4">
+                                        <label>
+                                            <input type="checkbox" value=""> Option two
+                                        </label>
+                                    </div>
+
+
+                                    <span class="product-option-name grey">Select Delivery Date</span>
+
+                                    <div class="form-inline mt-2 mb-4">
+                                        <div class="form-group mx-2">
+                                            <select class="form-control">
+                                                <option value="" selected="">-</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4</option>
+                                                <option value="">5</option>
+                                                <option value="">6</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group mx-2">
+                                            <select class="form-control">
+                                                <option value="" selected="">-</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4</option>
+                                                <option value="">5</option>
+                                                <option value="">6</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group mx-2">
+                                            <select class="form-control">
+                                                <option value="" selected="">-</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4</option>
+                                                <option value="">5</option>
+                                                <option value="">6</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <span class="product-option-name grey">Additional Comment</span>
+
+                                    <textarea class="form-control mt-2" rows="3"></textarea>
+                                    <p class="labText">Maximum number of characters: <span id="char_left">500</span></p>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="grey" for="product_quantity">Qty:</label>
+                                            <input type="number" class="form-control" value="1">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="submit" class="mediaBtn mt-4 pull-right" value="BUY">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="proReviews">
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Details</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Additional</a>
+                            <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-controls="nav-reviews" aria-selected="false">Reviews</a>
+                            <a class="nav-item nav-link" id="nav-custom-tab" data-toggle="tab" href="#nav-custom" role="tab" aria-controls="nav-custom" aria-selected="false">Custom</a>
+                        </div>
+                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="proDet">
+                                    <p>Duis autem veiudolorn hendrerit vulputate velit esse molestie. consequat, vel illum dolore eu feugiat nulla facilisis at vereros accumsan etiusto dignissim:</p>
+                                    <ul class="darklinks">
+                                        <li>
+                                            <a href="#">Lorem ipsum dolor sit amet</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Sint animi non ut sed</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Eaque blanditiis nemo</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Amet, consectetur adipisicing</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Blanditiis nemo quaerat</a>
+                                        </li>
+                                    </ul>
+                                    <p class="px-2"><span class="red">Warning!</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="proAddition">
+                                    <table class="table table-striped mt-3">
+                                        <tbody>
+                                            <tr>
+                                                <th>Product title:</th>
+                                                <td>Product Name</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Item SKU:</th>
+                                                <td>5552281538</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Brand:</th>
+                                                <td><a href="#">Brand Name</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Style:</th>
+                                                <td>SuperStyle</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Size:</th>
+                                                <td>Middle</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Color:</th>
+                                                <td>Black</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Targeted Group:</th>
+                                                <td>All</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
+                                <div class="proRevsec">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row cardInner1">
+                                                <div class="col-md-2">
+                                                    <div class="mediaObject">
+                                                        <img class="img-fluid" src="assets/images/reviewimg1.jpg"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <a class="author_url" rel="external nofollow" href="#">Alan Smith</a><br>
+                                                    <span class="commentDate pb-3">
+                                                        <time datetime="2017-11-08T15:05:23+00:00" class="entry-date">22.11.2017 at 12:34</time>
+                                                    </span>
+
+                                                    <div class="mb-3">  
+                                                        <div class="float-left">
+                                                            <span class="pr-2">Customer Rating: </span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                        </div>
+                                                        <a href="#" class="float-right"><i class="fa fa-reply"></i></a>
+                                                    </div>
+                                                   <div class="clearfix"></div>
+                                                    <p class="pt-2">First Level Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p> 
+                                                </div>
+                                            </div>
+                                            <div class="row cardInner2">
+                                                <div class="col-md-2">
+                                                    <div class="mediaObject">
+                                                        <img class="img-fluid" src="assets/images/reviewimg1.jpg"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <a class="author_url" rel="external nofollow" href="#">Alan Smith</a><br>
+                                                    <span class="commentDate pb-3">
+                                                        <time datetime="2017-11-08T15:05:23+00:00" class="entry-date">22.11.2017 at 12:34</time>
+                                                    </span>
+
+                                                    <div class="mb-3">  
+                                                        <div class="float-left">
+                                                            <span class="pr-2">Customer Rating: </span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                        </div>
+                                                        <a href="#" class="float-right"><i class="fa fa-reply"></i></a>
+                                                    </div>
+                                                   <div class="clearfix"></div>
+                                                    <p class="pt-2">First Level Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p> 
+                                                </div>
+                                            </div>
+                                            <div class="row cardInner3">
+                                                <div class="col-md-2">
+                                                    <div class="mediaObject">
+                                                        <img class="img-fluid" src="assets/images/reviewimg1.jpg"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <a class="author_url" rel="external nofollow" href="#">Alan Smith</a><br>
+                                                    <span class="commentDate pb-3">
+                                                        <time datetime="2017-11-08T15:05:23+00:00" class="entry-date">22.11.2017 at 12:34</time>
+                                                    </span>
+
+                                                    <div class="mb-3">  
+                                                        <div class="float-left">
+                                                            <span class="pr-2">Customer Rating: </span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                        </div>
+                                                        <a href="#" class="float-right"><i class="fa fa-reply"></i></a>
+                                                    </div>
+                                                   <div class="clearfix"></div>
+                                                    <p class="pt-2">First Level Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p> 
+                                                </div>
+                                            </div>
+                                            <div class="row cardInner1">
+                                                <div class="col-md-2">
+                                                    <div class="mediaObject">
+                                                        <img class="img-fluid" src="assets/images/reviewimg1.jpg"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <a class="author_url" rel="external nofollow" href="#">Alan Smith</a><br>
+                                                    <span class="commentDate pb-3">
+                                                        <time datetime="2017-11-08T15:05:23+00:00" class="entry-date">22.11.2017 at 12:34</time>
+                                                    </span>
+
+                                                    <div class="mb-3">  
+                                                        <div class="float-left">
+                                                            <span class="pr-2">Customer Rating: </span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                        </div>
+                                                        <a href="#" class="float-right"><i class="fa fa-reply"></i></a>
+                                                    </div>
+                                                   <div class="clearfix"></div>
+                                                    <p class="pt-2">First Level Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p> 
+                                                </div>
+                                            </div>
+                                            <div class="row cardInner1">
+                                                <div class="col-md-2">
+                                                    <div class="mediaObject">
+                                                        <img class="img-fluid" src="assets/images/reviewimg1.jpg"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <a class="author_url" rel="external nofollow" href="#">Alan Smith</a><br>
+                                                    <span class="commentDate pb-3">
+                                                        <time datetime="2017-11-08T15:05:23+00:00" class="entry-date">22.11.2017 at 12:34</time>
+                                                    </span>
+
+                                                    <div class="mb-3">  
+                                                        <div class="float-left">
+                                                            <span class="pr-2">Customer Rating: </span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                        </div>
+                                                        <a href="#" class="float-right"><i class="fa fa-reply"></i></a>
+                                                    </div>
+                                                   <div class="clearfix"></div>
+                                                    <p class="pt-2">First Level Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div>
+                                        <h3 class="pb-4">Write Your Own Review</h3>
+                                        <div class="clearfix">                                            
+                                            <div class="rating">
+                                                <span class="pr-2">Your rating:</span>
+                                                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Meh">5 stars</label>
+                                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Kinda bad">4 stars</label>
+                                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Kinda bad">3 stars</label>
+                                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Sucks big tim">2 stars</label>
+                                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+                                            </div>
+                                        </div>
+                                        <form class="comment-form" id="commentform" method="post" action="">
+                                            <div class="row columns_margin_bottom_30">
+                                                <div class="col-md-6 mt-2">
+                                                    <input type="text" aria-required="true" size="30" value="" name="author" id="author" class="form-control" placeholder="Full Name">
+                                                </div>
+                                                <div class="col-md-6 mt-2">
+                                                    <input type="email" aria-required="true" size="30" value="" name="comment_email" id="comment_email" class="form-control" placeholder="Email Address">
+                                                </div>
+                                                <div class="col-md-12 mt-4">
+                                                    <textarea aria-required="true" rows="8" cols="45" name="comment" id="comment" class="form-control" placeholder="Review"></textarea>
+                                                </div>
+                                            </div>                                            
+                                            <button type="submit" id="submit" name="submit" class="subBtn mt-4">Submit Review</button>
+                                            <button type="reset" id="reset" class="cancelBtn mt-4">Clear Form</button>                                            
+                                        </form>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="tab-pane fade " id="nav-custom" role="tabpanel" aria-labelledby="nav-custom-tab">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>  
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Product End -->
+<!-- New Design End -->
+

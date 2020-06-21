@@ -3,8 +3,8 @@ $topnav-background-color: #222;
 /* header starts */
 
 .navbar {
-    background-color: rgba(34, 34, 34, 0.47);
-    padding: 12px 130px;
+    background-color: #1a1a1a;
+    padding: 0px 130px;
 
     .navbar-brand {
         color: #fff;
@@ -23,7 +23,7 @@ $topnav-background-color: #222;
         }
     }
     &.scrollheader {
-        background-color: rgba(34, 34, 34, 0.75);
+        background-color: #1a1a1a;
     }
 }
 
@@ -64,26 +64,29 @@ li.nav-item.dropdown:hover .dropdown-menu {
 .dropdown-menu ul li.dropdown-item a {
     color: #000000;
     font-size: 13px;
-    text-decoration: none;
+    text-decoration: none;    
 }
 
 
 @media (max-width: 1440px) {
     :host {
         .navbar {
-            padding: 6px 88px;
+            padding: 0px 88px;
             .nav-item {
-                padding: 0 15px;
+                padding: 0 20px;
 
                 > a {
-                    font-size: 13px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-transform: uppercase;
                     padding-left: 0;
                     padding-right: 0;
+                    font-family: 'Lusitana', serif;
                 }
             }
             .navbar-brand {
                 img {
-                    height: 70px;
+                    
                 }
             }
         }
@@ -98,10 +101,32 @@ li.nav-item.dropdown:hover .dropdown-menu {
     }
     .navbar {
         .nav-item {
+            padding: 0 !important;
             a {
                 font-size: 14px;
             }
         }
     }
 }
+
+.nav-item {
+    .nav-link.active {
+        color: #ef90a4 !important;
+    }
+}
+.logoSize {
+    width: 60px;
+}
+.menuReverse {
+    justify-content: flex-end;
+}
+@media (max-width: 1024px) and (min-width: 998px) {
+    .nav-item {
+        padding: 0 10px !important;
+        a {
+            font-size: 13px !important;
+        }
+    }
+}
+
 /* header ends */
