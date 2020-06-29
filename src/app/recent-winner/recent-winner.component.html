@@ -8,60 +8,80 @@
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
     <div class="content-middle recentwinner-section">
-<h1 *ngIf="pageTitle">{{pageTitle}}</h1>
-<div *ngIf="users">
-    <div class="imacontainer" *ngFor="let user of users">        
-        <div class="contestantprofile">
-            <div class="container">
-                <div class="row">
-                    <div class="offset-md-3 col-md-6">
-                        <div class="recentWin">
-                            <div class="profileheader text-center">
-                                <app-attachment
-                                    [attachment]="user.attachment"
-                                    [type]="original"
-                                    [cssClass]="'profiletopimg'"
-                                ></app-attachment>
-                            </div>
-                            <div class="contprofilearea">
-                                <div class="text-center">
-                                    <h2 class="py-3">
-                                        {{ user.first_name }} {{ user.last_name }}
-                                    </h2>
-                                    <ul
-                                        class="profile-social list-inline text-center"
-                                        *ngIf="user.socials.length > 0">
-                                        <li
-                                            class="list-inline-item px-3"
-                                            *ngFor="
-                                        let social of user.socials;
-                                        trackBy: trackById
-                                    "
-                                        >
-                                            <a
-                                                href="{{ social.url }}"
-                                                target="_bank" 
+        <h1 *ngIf="pageTitle">{{ pageTitle }}</h1>
+        <div *ngIf="users">
+            <div class="imacontainer" *ngFor="let user of users">
+                <div class="contestantprofile">
+                    <div class="container">
+                        <div class="row">
+                            <div class="offset-md-3 col-md-6">
+                                <div class="recentWin">
+                                    <div class="profileheader text-center">
+                                        <app-attachment
+                                            [attachment]="user.attachment"
+                                            [type]="original"
+                                            [cssClass]="'profiletopimg'"
+                                        ></app-attachment>
+                                    </div>
+                                    <div class="contprofilearea">
+                                        <div class="text-center">
+                                            <h2 class="py-3">
+                                                {{ user.first_name }}
+                                                {{ user.last_name }}
+                                            </h2>
+                                            <ul
+                                                class="profile-social list-inline text-center"
+                                                *ngIf="user.socials.length > 0"
                                             >
-                                                <img
-                                                    src="{{ social.web_image }}"
-                                                    class="img-fluid"
-                                                />
-                                                <span class="d-block">{{ social.name }}</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="voteandrank">
-                                        <ul class="voterankcounts list-inline text-center">
-                                            <li class="list-inline-item px-4">
-                                                <img
-                                                    src="assets/images/rating-icon.png"
-                                                    class="img-fluid"
-                                                />
-                                                <span class="d-block profilevcount"
-                                                *ngIf="categoryId">{{user.category.votes}}<span class="d-block contvotestext">votes</span></span
+                                                <li
+                                                    class="list-inline-item px-3"
+                                                    *ngFor="
+                                                        let social of user.socials;
+                                                        trackBy: trackById
+                                                    "
                                                 >
-                                            </li>
-                                        </ul>
+                                                    <a
+                                                        href="{{ social.url }}"
+                                                        target="_bank"
+                                                    >
+                                                        <img
+                                                            src="{{
+                                                                social.web_image
+                                                            }}"
+                                                            class="img-fluid"
+                                                        />
+                                                        <span class="d-block">{{
+                                                            social.name
+                                                        }}</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="voteandrank">
+                                                <ul
+                                                    class="voterankcounts list-inline text-center"
+                                                >
+                                                    <li
+                                                        class="list-inline-item px-4"
+                                                    >
+                                                        <img
+                                                            src="assets/images/rating-icon.png"
+                                                            class="img-fluid"
+                                                        />
+                                                        <span
+                                                            class="d-block profilevcount"
+                                                            *ngIf="categoryId"
+                                                            >{{
+                                                                user.category
+                                                                    .votes
+                                                            }}<span
+                                                                class="d-block contvotestext"
+                                                                >votes</span
+                                                            ></span
+                                                        >
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -71,6 +91,4 @@
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>

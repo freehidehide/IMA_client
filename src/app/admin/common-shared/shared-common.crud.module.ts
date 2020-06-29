@@ -13,6 +13,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedCommonModule } from '../../shared-common/shared-common.module';
 import { NgxTagsInputModule } from 'ngx-tags-input';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { NgxTagsInputModule } from 'ngx-tags-input';
         NgbModule,
         FormsModule,
         SharedCommonModule,
-        NgxTagsInputModule
+        NgxTagsInputModule,
+        SelectDropDownModule
     ],
     exports: [
         ListComponent,

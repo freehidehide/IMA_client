@@ -100,6 +100,11 @@ const routes: Routes = [
             import('./shop/shop.module').then((m) => m.ShopModule)
     },
     {
+        path: 'shop/:slug',
+        loadChildren: () =>
+            import('./shopview/shopview.module').then((m) => m.ShopViewModule)
+    },
+    {
         path: 'advertisers',
         loadChildren: () =>
             import('./advertisers/advertisers.module').then(

@@ -60,22 +60,24 @@ export class WinnerComponent extends BaseComponent implements OnInit {
       this.categoryService
           .getWinnerList(null)
           .subscribe((response) => {
-            if (response.data.highest_votes && response.data.highest_votes.data) {
-              this.usersTop = response.data.highest_votes.data;
-              this.pageTitle = response.data.highest_votes.title;
+            if (response.data) {
+              if (response.data.highest_votes && response.data.highest_votes.data) {
+                this.usersTop = response.data.highest_votes.data;
+                this.pageTitle = response.data.highest_votes.title;
+              }
+              if (response.data.category_highest_votes) {
+                this.users = response.data.category_highest_votes;
+              }
+              this.left_time = response.data.left_time;
+              // this.counter$ = Observable.timer(0, this.left_time)
+              //   .takeWhile(() => this.alive) // only fires when component is alive
+              //   .subscribe(() => {
+              //     return Math.floor((this.left_time - new Date().getTime()) / 1000);
+              //   });
+              // this.subscription = this.counter$.subscribe((x) => this.message = this.dhms(x));
+              this.message = '4 days, 2 hours, 21 minutes, 41 seconds';
+              this.isShowTime = true;
             }
-            if (response.data.category_highest_votes) {
-              this.users = response.data.category_highest_votes;
-            }
-            this.left_time = response.data.left_time;
-            // this.counter$ = Observable.timer(0, this.left_time)
-            //   .takeWhile(() => this.alive) // only fires when component is alive
-            //   .subscribe(() => {
-            //     return Math.floor((this.left_time - new Date().getTime()) / 1000);
-            //   });
-            // this.subscription = this.counter$.subscribe((x) => this.message = this.dhms(x));
-            this.message = '4 days, 2 hours, 21 minutes, 41 seconds';
-            this.isShowTime = true;
             this.toastService.clearLoading();
           });
   }

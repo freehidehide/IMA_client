@@ -254,8 +254,8 @@
                     <div class="bannerContent">
                         <h1>Welcome to the <span>IMA<span>s</span></span></h1>
                         <div>
-                            <a href="#" class="primaryBtn">Vote Now</a>
-                            <a href="#" class="secondryBtn">See Nominees</a>
+                            <a href="javascript:void(0)" [routerLink]="['/categories']" class="primaryBtn">Vote Now</a>
+                            <a href="javascript:void(0)" [routerLink]="['/categories']" class="secondryBtn">See Nominees</a>
                         </div>
                     </div>
                 </div>
@@ -309,7 +309,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 text-center mb-4"><a href="#" class="primaryBtn">Read More</a></div>
+            <div class="col-md-12 text-center mb-4"><a href="javascript:void(0)" class="primaryBtn">Read More</a></div>
         </div>
     </div>
 </section>
@@ -320,11 +320,11 @@
         <div class="row db-padding-btm db-attached">
             <div class="col-md-12 text-center">
                 <div class="titleH2 pb-5">
-                    <h2>Photo Shoot Prices</h2>
-                    <h5>SELECT YOUR OPTION</h5>
+                    <h2>IMA</h2>
+                    <!-- <h5>SELECT YOUR OPTION</h5> -->
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <!-- <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                 <div class="db-wrapper">
                     <div class="db-pricing-eleven db-bk-color-one">
                         <div class="type">
@@ -342,38 +342,38 @@
                             <li>Tri-tip beef ribs</li>
                         </ul>
                         <div class="pricing-footer">
-                            <a href="#" class="secondryBtn">Select Now</a>
+                            <a href="javascript:void(0)" class="secondryBtn">Select Now</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            </div> -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" *ngIf="!sessionService.isAuth || !sessionService.user.is_subscribed">
                 <div class="db-wrapper">
                     <div class="db-pricing-eleven db-bk-color-two popular">
                         <div class="type">
-                            UNLIMITED
+                            VIP MEMBER
                         </div>
                         <div class="price">
-                            <sub>$</sub>599
-                            <small>PER SHOOT</small>
+                            {{ settings.SUBSCRIBE_PRICE | currency: settings.CURRENCY_CODE:'symbol' }}
+                            <!-- <sub>$</sub>100.00 -->
+                            <!-- <small>Subscribe Now</small> -->
                         </div>   
                         <div class="priceBorder">                     
                             <ul>
-                                <li>Tenderloin strip steak</li>
-                                <li>Cow sausage filet</li>
-                                <li>Mignon t-bone sirloin</li>
-                                <li>Shank ham hock</li>
-                                <li>Tongue leberkas pastrami</li>
-                                <li>Beef ribs cow chicken</li>
+                                <li>Free Contestants Images</li>
+                                <li>Free Contestants Videos</li>
                             </ul>
                             <div class="pricing-footer">
-                                <a href="#" class="secondryBtn">Select Now</a>
+                                <a href="javascript:void(0)" *ngIf="!sessionService.isAuth"
+                                [routerLink]="['/login']" class="secondryBtn">Subscribe Now</a>
+                                <a href="javascript:void(0)" [routerLink]="['/checkout/subscription']"
+                                *ngIf="(sessionService.isAuth && !sessionService.user.is_subscribed)" class="secondryBtn">Subscribe Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <!-- <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                 <div class="db-wrapper">
                     <div class="db-pricing-eleven db-bk-color-three">
                         <div class="type">
@@ -391,11 +391,11 @@
                             <li>Brisket pork pork chop</li>
                         </ul>
                         <div class="pricing-footer">
-                            <a href="#" class="secondryBtn">Select Now</a>
+                            <a href="javascript:void(0)" class="secondryBtn">Select Now</a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -407,11 +407,11 @@
             <div class="row">
                 <div class="col-md-6">
                    <div class="homeGallareyfilters">
-                        <a href="#" class="theme_button selected active">All</a>
-                        <a href="#" class="theme_button">Fashion</a>
-                        <a href="#" class="theme_button">Studio</a>
-                        <a href="#" class="theme_button">Session</a>
-                        <a href="#" class="theme_button">Top</a>
+                        <a href="javascript:void(0)" class="theme_button selected active">All</a>
+                        <a href="javascript:void(0)" class="theme_button">Fashion</a>
+                        <a href="javascript:void(0)" class="theme_button">Studio</a>
+                        <a href="javascript:void(0)" class="theme_button">Session</a>
+                        <a href="javascript:void(0)" class="theme_button">Top</a>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -432,11 +432,11 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="content"> 
-                        <a href="#">
+                        <a href="javascript:void(0)">
                             <div class="content-overlay"></div>
                             <img class="content-image" src="assets/images/model1.jpg">
                             <div class="content-details fadeIn-bottom">
-                                <a href="#" class="homeGallarey_link">Rachel Tale</a>
+                                <a href="javascript:void(0)" class="homeGallarey_link">Rachel Tale</a>
                                 <h5 class="pb-3">Top Model</h5>
                                 <table class="text-center w-100">
                                     <tr class="pb-4">
@@ -484,11 +484,11 @@
                 </div>
                 <div class="col-md-3">
                     <div class="content"> 
-                        <a href="#">
+                        <a href="javascript:void(0)">
                             <div class="content-overlay"></div>
                             <img class="content-image" src="assets/images/model2.jpg">
                             <div class="content-details fadeIn-bottom">
-                                <a href="#" class="homeGallarey_link">Rachel Tale</a>
+                                <a href="javascript:void(0)" class="homeGallarey_link">Rachel Tale</a>
                                 <h5 class="pb-3">Top Model</h5>
                                 <table class="text-center w-100">
                                     <tr class="pb-4">
@@ -536,11 +536,11 @@
                 </div>
                 <div class="col-md-3">
                     <div class="content"> 
-                        <a href="#">
+                        <a href="javascript:void(0)">
                             <div class="content-overlay"></div>
                             <img class="content-image" src="assets/images/model3.jpg">
                             <div class="content-details fadeIn-bottom">
-                                <a href="#" class="homeGallarey_link">Rachel Tale</a>
+                                <a href="javascript:void(0)" class="homeGallarey_link">Rachel Tale</a>
                                 <h5 class="pb-3">Top Model</h5>
                                 <table class="text-center w-100">
                                     <tr class="pb-4">
@@ -588,11 +588,11 @@
                 </div>
                 <div class="col-md-3">
                     <div class="content"> 
-                        <a href="#">
+                        <a href="javascript:void(0)">
                             <div class="content-overlay"></div>
                             <img class="content-image" src="assets/images/model4.jpg">
                             <div class="content-details fadeIn-bottom">
-                                <a href="#" class="homeGallarey_link">Rachel Tale</a>
+                                <a href="javascript:void(0)" class="homeGallarey_link">Rachel Tale</a>
                                 <h5 class="pb-3">Top Model</h5>
                                 <table class="text-center w-100">
                                     <tr class="pb-4">
@@ -651,7 +651,7 @@
                 <img src="assets/images/testimonialimg1.jpg" alt="">
                 <div class="item-meta">
                     <h5>
-                        <a href="#">Helen Thompson</a>
+                        <a href="javascript:void(0)">Helen Thompson</a>
                     </h5>
                     <p class="small-text highlight">photographer</p>
                 </div>
@@ -661,7 +661,7 @@
                 <img src="assets/images/testimonialimg1.jpg" alt="">
                 <div class="item-meta">
                     <h5>
-                        <a href="#">Helen Thompson</a>
+                        <a href="javascript:void(0)">Helen Thompson</a>
                     </h5>
                     <p class="small-text highlight">photographer</p>
                 </div>

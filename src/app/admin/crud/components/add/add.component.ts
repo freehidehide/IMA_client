@@ -44,7 +44,7 @@ export class AddComponent implements OnInit {
     if (value) {
       this.menu = value;
       this.menu.add.fields.forEach((element, index) => {
-        if (element.type === 'tags') {
+        if (element.type === 'tags' || element.type === 'searchable') {
           this.crudService.get(element.reference, null)
           .subscribe((response) => {
             element.options = response.data;
@@ -134,6 +134,26 @@ export class AddComponent implements OnInit {
 
   isRange(date: NgbDate) {
     return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
+  }
+
+  changeDropDown(event, item) {
+    if (item.is_dependent) {
+      let query = null;
+      if (item.query) {
+        query = {
+          class: null
+        };
+      }
+      this.crudService.get(item.dependent_api, query)
+        .subscribe((responseRef) => {
+          if (responseRef.data) {
+            this.menu.add.fields[item.child_drop].options = responseRef.data;
+          } else {
+            this.menu.add.fields[item.child_drop].options = [];
+          }
+          this.menu.add.fields[item.child_drop].value = [];
+        });
+    }
   }
 
   submit() {
