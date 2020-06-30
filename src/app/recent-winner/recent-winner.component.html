@@ -1,12 +1,23 @@
-<div class="imacontainer">
-    <div class="subheader position-relative">
-        <div class="subheadings">
-            <h2>
-                RECENT WINNERS
-            </h2>
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Recent Winner</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)">HOME</a></li>
+                        <li><a href="#">WINNERS</a></li>
+                        <li><p>RECENT WINNERS</p></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
+</section>
+<!-- Banner End -->
+<div class="imacontainer">
     <div class="content-middle recentwinner-section">
         <h1 *ngIf="pageTitle">{{ pageTitle }}</h1>
         <div *ngIf="users">
