@@ -19,9 +19,13 @@
                         "assets": ["src/assets", "src/favicon.ico"],
                         "styles": [
                             "node_modules/font-awesome/css/font-awesome.css",
+                            "node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css",
                             "src/styles/app.scss"
                         ],
-                        "scripts": ["node_modules/chart.js/dist/Chart.js"]
+                        "scripts": [
+                            "node_modules/chart.js/dist/Chart.js",
+                            "node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
