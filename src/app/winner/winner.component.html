@@ -1,5 +1,23 @@
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Winner</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)">HOME</a></li>
+                        <li><p>WINNER</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
 <div class="imacontainer">
-    <div class="subheader position-relative">
+    <!-- <div class="subheader position-relative">
         <div class="subheadings" *ngIf="pageType === 2">
             <h2>
                 HIGHEST VOTES
@@ -11,7 +29,7 @@
             </h2>
         </div>
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
-    </div>
+    </div> -->
     <div class="content-middle contestants-section">
 <h1 *ngIf="pageTitle" class="mb-4 text-center">{{pageTitle}}</h1>
 <div class="offset-md-2 col-md-8 remindTime mb-5">
@@ -36,7 +54,7 @@
         </div>
     </ng-template>
 </ngb-carousel>
-<div *ngIf="usersTop.length === 0">No Records</div>
+<div *ngIf="usersTop.length === 0" class="textWhite">No Records</div>
 <app-contestants [usersData]="users" [type]="pageType"></app-contestants>
-<div *ngIf="usersTop.length === 0">No Records</div>
+<div *ngIf="usersTop.length === 0" class="textWhite">No Records</div>
 </div>

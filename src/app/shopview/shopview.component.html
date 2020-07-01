@@ -1,4 +1,4 @@
-<!-- @format -->
+@format -->
 <!-- <div class="imacontainer">
     <div class="subheader position-relative">
         <div class="subheadings">
@@ -347,7 +347,7 @@
                         <div class="col-md-6">
                             <div class="zoomHover">
                                 <a href="javascript:void(0)">
-                                    <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                    <img src="assets/images/prodcutfilter1.jpg" class="img-fluid zoomHoverimg">
                                 </a>
                                 <span class="newproduct">New</span>
                             </div>
@@ -356,21 +356,21 @@
                                 <div class="col-md-4 mobSlider">
                                     <div class="zoomHover mt-3">
                                         <a href="javascript:void(0)">
-                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid zoomHovercap">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mobSlider">
                                     <div class="zoomHover mt-3">
                                         <a href="javascript:void(0)">
-                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid zoomHovercap">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mobSlider">
                                     <div class="zoomHover mt-3">
                                         <a href="javascript:void(0)">
-                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid zoomHovercap">
                                         </a>
                                     </div>
                                 </div>
@@ -421,7 +421,17 @@
                                             <option>5</option>
                                         </select>
                                     </div>
-                                    <span class="product-option-name grey">Color</span>
+                                    <div class="slectcolors pb-4">
+                                        <span class="product-option-name">Available Colors</span>
+                                        <span class="red">*</span>
+                                        <span>
+                                            <a *ngFor="let color of product.colors; let i = index;trackBy: trackById"
+                                                href="javascript:void(0)" (click)="changeDetail(productIndex, i)"
+                                                [ngClass]="{'active': color.isactive}" [ngStyle]="{'background-color': color.color}"
+                                                class="availcolorsselect ml-2"></a>
+                                        </span>
+                                    </div>
+                                    <!-- <span class="product-option-name grey">Color</span>
                                     <span class="red">*</span>
                                     <div class="radio pt-3">
                                         <label>
@@ -432,7 +442,7 @@
                                         <label>
                                             <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Magenta
                                         </label>
-                                    </div>
+                                    </div> -->
 
                                     <!-- <span class="product-option-name grey">Other Options</span>
 
@@ -752,4 +762,4 @@
     </div>
 </section>
 <!-- Shop Product End -->
-<!-- New Design End -->
+<!-- New Design End

@@ -42,7 +42,7 @@
         "ngx-bootstrap-slider": "^1.8.0",
         "ngx-color-picker": "^9.1.0",
         "ngx-countdown": "^9.0.0",
-        "ngx-select-dropdown": "^1.4.2",
+        "ngx-select-dropdown": "^1.4.3",
         "ngx-tags-input": "^2.0.1",
         "rxjs": "6.5.4",
         "sweetalert2": "^9.10.10",

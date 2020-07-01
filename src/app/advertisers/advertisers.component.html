@@ -1,12 +1,23 @@
 <!-- @format -->
-
-<div class="imacontainer">
-    <div class="subheader position-relative">
-        <div class="subheadings">
-            <h2 class="text-uppercase">Advertisers</h2>
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Advertisers</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)">HOME</a></li>
+                        <li><p>ADVERTISERS</p></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
+</section>
+<!-- Banner End -->
+<div class="imacontainer">
     <div class="content-middle advertlisting" *ngIf="!isNodata">
         <div
             class="row mt-5 mb-4 adertindlist"
@@ -29,13 +40,13 @@
             </div>
             <div class="col-lg-5 col-md-6 d-flex align-items-center">
                 <div class="advertmaincontent">
-                    <h2 class="m-0 p-0">
+                    <h2 class="m-0 p-0 textWhite">
                         {{ advertisement.name }}
                     </h2>
-                    <p>
+                    <p class="textWhite pt-3">
                         {{ advertisement.description }}
                     </p>
-                    <div class="purchasebtn mt-5 pt-4 text-center">
+                    <div class="purchasebtn mt-5 pt-4">
                         <a
                             href="{{ advertisement.url }}"
                             class="btn btn-primary text-uppercase purchasbtn px-5 py-2"

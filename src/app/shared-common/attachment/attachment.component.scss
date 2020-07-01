@@ -70,6 +70,70 @@
         max-width: 100%;
     }
 }
+.hoverZoominimg {
+    width: 100% !important;
+    -o-object-fit: cover !important;
+    object-fit: cover !important;
+    height: 270px !important;
+    object-position: center;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+        opacity: .8;
+        background-color: rgba(0,0,0,0.4);
+    }
+}
+.zoomHoverimg {
+    width: 100% !important;
+    -o-object-fit: cover !important;
+    object-fit: cover !important;
+    height: 385px !important;
+    object-position: center;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+        opacity: .8;
+        background-color: rgba(0,0,0,0.4);
+    }
+}
+.zoomHovercap {
+    width: 100% !important;
+    -o-object-fit: cover !important;
+    object-fit: cover !important;
+    height: 105px !important;
+    object-position: center;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+        opacity: .8;
+        background-color: rgba(0,0,0,0.4);
+    }
+}
+
 @media (max-width: 1440px) {
     .contestantimg {
         max-width: 610px;
