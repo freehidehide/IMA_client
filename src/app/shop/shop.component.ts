@@ -91,4 +91,8 @@ export class ShopComponent extends BaseComponent implements OnInit {
             this.toastService.clearLoading();
         });
     }
+
+    trackById(index: number, el: any): number {
+        return el.id;
+    }
 }
