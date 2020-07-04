@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="innerBanners_box">
-                    <h1>Advertisers</h1>
+                    <h1>Sponsors</h1>
                     <ul>
                         <li><a href="javascript:void(0)">HOME</a></li>
-                        <li><p>ADVERTISERS</p></li>
+                        <li><p>SPONSORS</p></li>
                     </ul>
                 </div>
             </div>
@@ -17,45 +17,266 @@
     </div>
 </section>
 <!-- Banner End -->
-<div class="imacontainer">
-    <div class="content-middle advertlisting" *ngIf="!isNodata">
-        <div
-            class="row mt-5 mb-4 adertindlist"
-            *ngFor="
-                let advertisement of advertisementList.data;
-                trackBy: trackById
-            "
-        >
-            <div class="col-lg-7 col-md-6">
-                <div class="d-flex justify-content-center align-items-center ">
-                    <div class="mr-3">
-                        <div class="advertimg">
-                            <app-attachment
-                                [attachment]="advertisement.attachment"
-                                [type]="original"
-                            ></app-attachment>
-                        </div>
+<!-- Sponcers Start -->
+<section class="sponsorsBoxsec">
+    <div class="container">
+        <div *ngIf="!isNodata">
+            <div class="row mt-5 mb-4 sponsorsBox" *ngFor="let advertisement of advertisementList.data;
+                    trackBy: trackById">
+                <div class="col-lg-4 col-md-6">
+                    <div class="d-flex justify-content-center align-items-center ">
+                        <app-attachment
+                            [attachment]="advertisement.attachment"
+                            [type]="original" [cssClass]="'sponsorsBox-img'"
+                        ></app-attachment>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-5 col-md-6 d-flex align-items-center">
-                <div class="advertmaincontent">
-                    <h2 class="m-0 p-0 textWhite">
-                        {{ advertisement.name }}
-                    </h2>
-                    <p class="textWhite pt-3">
-                        {{ advertisement.description }}
-                    </p>
-                    <div class="purchasebtn mt-5 pt-4">
-                        <a
-                            href="{{ advertisement.url }}"
-                            class="btn btn-primary text-uppercase purchasbtn px-5 py-2"
-                            target="_blank"
-                            >Purchase</a
-                        >
+                <div class="col-lg-8 col-md-6 pr-5 d-flex align-items-center">
+                    <div class="advertmaincontent">
+                        <h2 class="m-0 p-0 textWhite">
+                            {{ advertisement.name }}
+                        </h2>
+                        <p class="pt-3">
+                            {{ advertisement.description }}
+                        </p>
+                        <div class="purchasebtn pt-4">
+                            <a
+                                href="{{ advertisement.url }}"
+                                class="primaryBtn"
+                                target="_blank"
+                                >Purchase</a
+                            >
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+<!-- Sponcers End -->
+
+/////// Executive team Start/////////////////////////////////////////////////////////
+<!-- Banner Start -->
+<section class="executiveBanners">
+    <div class="executiveBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="executiveBanners_box">
+                    <h1>Executive Team</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)">HOME</a></li>
+                        <li><p>EXECUTIVE TEAM</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<!-- Team Start -->
+<section class="executiveteamSec">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="executiveteamSec-box text-center">
+                        <img src="assets/images/executiveteam1.jpg" alt="" class="img-fluid">
+                    <div class="executiveteamSec-content">
+                        <h4>Lucille Moran</h4>
+                        <p>director</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="executiveteamSec-box text-center">
+                        <img src="assets/images/executiveteam2.jpg" alt="" class="img-fluid">
+                    <div class="executiveteamSec-content">
+                        <h4>Helen Thompson</h4>
+                        <p>MANAGER</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="executiveteamSec-box text-center">
+                        <img src="assets/images/executiveteam3.jpg" alt="" class="img-fluid">
+                    <div class="executiveteamSec-content">
+                        <h4>Mildred Rodriguez</h4>
+                        <p>PHOTOGRAPHER</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="executiveteamSec-box text-center">
+                        <img src="assets/images/executiveteam3.jpg" alt="" class="img-fluid">
+                    <div class="executiveteamSec-content">
+                        <h4>Cora Tucker</h4>
+                        <p>MANAGER</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="executiveteamSec-box text-center">
+                        <img src="assets/images/executiveteam2.jpg" alt="" class="img-fluid">
+                    <div class="executiveteamSec-content">
+                        <h4>Rosa Robinson</h4>
+                        <p>MANAGER</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="executiveteamSec-box text-center">
+                        <img src="assets/images/executiveteam1.jpg" alt="" class="img-fluid">
+                    <div class="executiveteamSec-content">
+                        <h4>Lucille Moran</h4>
+                        <p>director</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team End -->
+/////// Executive team End/////////////////////////////////////////////////////////
+
+
+/////// Judges team Start/////////////////////////////////////////////////////////
+<!-- Banner Start -->
+<section class="executiveBanners">
+    <div class="executiveBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="executiveBanners_box">
+                    <h1>Judges</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)">HOME</a></li>
+                        <li><p>JUDGES</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<!-- Team Start -->
+<section class="judgespageSec">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="judgespageSec-box">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="judgespageSec-Media">
+                                <img src="assets/images/executiveteam1.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="judgespageSec-content">
+                                <h3>Michael Casey</h3>
+                                <h6>CEO</h6>
+                                <p>Lorem ipsum dolor sit amet, elit.</p>
+
+                                <div class="judgespageSec-social mt-4">
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Google" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="judgespageSec-box">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="judgespageSec-Media">
+                                <img src="assets/images/executiveteam2.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="judgespageSec-content">
+                                <h3>Amelia May</h3>
+                                <h6>ART DIRECTOR</h6>
+                                <p>Lorem ipsum dolor sit amet, elit.</p>
+
+                                <div class="judgespageSec-social mt-4">
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Google" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="judgespageSec-box">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="judgespageSec-Media">
+                                <img src="assets/images/executiveteam3.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="judgespageSec-content">
+                                <h3>Serg Thompson</h3>
+                                <h6>CATEGORY2ER</h6>
+                                <p>Lorem ipsum dolor sit amet, elit.</p>
+
+                                <div class="judgespageSec-social mt-4">
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Google" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="judgespageSec-box">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="judgespageSec-Media">
+                                <img src="assets/images/executiveteam1.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="judgespageSec-content">
+                                <h3>Vlad Argento</h3>
+                                <h6>MANAGER</h6>
+                                <p>Lorem ipsum dolor sit amet, elit.</p>
+
+                                <div class="judgespageSec-social mt-4">
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Google" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Team End -->
+/////// Executive team End/////////////////////////////////////////////////////////

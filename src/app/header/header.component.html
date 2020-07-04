@@ -128,14 +128,13 @@
                     <div class="dropdown-menu sm-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#1">Judges</a>
                         <a class="dropdown-item" href="#2">Executive Team</a>
-                        <a class="dropdown-item" [routerLink]="['/advertisers']" (click)="toggleSidebar()">ADVERTISERS</a>
                         <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/shop']" (click)="toggleSidebar()">SHOP</a>
                         <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/winner']" (click)="toggleSidebar()">Highest Votes</a>
                         <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/recent_winner']" (click)="toggleSidebar()">Recent Winner</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Sponsors</a>
+                    <a class="nav-link" [routerLink]="['/advertisers']" (click)="toggleSidebar()">Sponsors</a>
                 </li>                
             </ul>            
             
