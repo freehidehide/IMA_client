@@ -1,82 +1,4 @@
-.advertlisting {
-    .advertimg {
-        display: inline-block;
-        border-radius: 40px;
-        overflow: hidden;
-    }
-
-    .advertmaincontent {
-        margin: 180px 0 0;
-        width: 100%;
-
-        h2 {
-            font-size: 75px;
-            color: #696969;
-            font-weight: 300;
-        }
-
-        p {
-            font-size: 25px;
-            color: #696969;
-        }
-    }
-
-    .purchasbtn {
-        font-size: 25px;
-        color: #fff;
-        font-weight: 300;
-    }
-
-    .adertindlist {
-        margin: 0 0 30px;
-    }
-}
-
-@media (max-width: 1440px) {
-    .advertlisting {
-        .advertmaincontent {
-            margin: 0;
-            h2 {
-                font-size: 56px;
-            }
-
-            p {
-                font-size: 18px;
-            }
-        }
-
-        .advertimg {
-            app-attachment {
-                img {
-                    max-height: 380px;
-                }
-            }
-        }
-        .purchasebtn {
-            margin: 0 !important;
-        }
-        .purchasbtn {
-            font-size: 22px;
-        }
-    }
-}
-
-@media (max-width: 767px) {
-    .advertlisting {
-        .advertmaincontent {
-            h2 {
-                font-size: 30px;
-            }
-
-            p {
-                font-size: 14px;
-            }
-        }
-    }
-}
-
-/////New Styles
-////Inner Banner Start
+////Sponcers Start
 .innerBanners {
     background-image: url(../../assets/images/innerBanners.jpg);
     background-position: 50% 50%;
@@ -128,9 +50,249 @@
 .textWhite{
     color:#ffffff !important;
 }
+.primaryBtn {
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #c25582;
+    margin-right: 5px;
+    margin-left: 3px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 12px 29px;
+    transition: all 0.4s linear 0s;
+    &:focus {
+        background-color: #fff;
+        border: 1px solid #fff;
+        color: #c25582;
+        margin-right: 5px;
+        margin-left: 3px;
+        margin-top: 50px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 12px 29px;
+        transition: all 0.4s linear 0s;
+    }
+    &:hover {
+        background-color: #c25582;
+        border: 1px solid #c25582;
+        color: #fff;
+    }
+}
+.sponsorsBoxsec {
+    padding: 50px 0 70px 0;
+}
+.sponsorsBox {
+    background-color: #0d0d0d;
+    padding: 50px 0;
+    margin: 30px auto;
+    p {
+        color: #ababab;
+    }
+}
 @media (max-width: 798px) {
     .innerBanners_box {
         padding: 75px 0 50px 0;
     }
 }
-////Inner Banner End
+////Sponcers End
+
+
+
+////Executive Start
+.executiveBanners {
+    background-image: url(../../assets/images/executiveBanners.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: #fff;
+}
+.executiveBanners_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+}
+.executiveBanners_box {
+    z-index: 1;
+    text-align: center;
+    padding: 170px 0 70px 0;
+    h1 {
+        font-size: 52px;
+        padding-bottom: 8px;
+    }
+    ul {
+        margin-left: -40px;
+    }
+    li {
+        display: inline-block;
+        font-family: 'Lusitana', serif;
+        padding: 0 25px;
+        font-weight: 800;
+        a {
+            color: #a9a9a9;
+            &:focus {
+                color: #a9a9a9;
+            }
+            &:hover {
+                color: #ef90a4;
+            }
+        }
+        p {
+            color: #ef90a4;
+        }
+    }
+}
+.executiveteamSec {
+    padding: 60px 0;
+}
+.executiveteamSec-box {
+    background: #0d0d0d;
+    margin-bottom: 20px;
+}
+.executiveteamSec-content {
+    padding: 30px 30px 15px 30px;
+    font-family: 'Playfair Display', serif;
+    h4 {
+        color: #ffffff;
+        font-size: 20px;
+        line-height: 1;
+    }
+    p {
+        color: #ef90a4;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: 'Lusitana', serif;
+    }
+}
+
+@media (max-width: 798px) {
+    .executiveBanners_box {
+        padding: 75px 0 50px 0;
+    }
+}
+////Executive End
+
+
+
+////Judges Start
+.executiveBanners {
+    background-image: url(../../assets/images/executiveBanners.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: #fff;
+}
+.executiveBanners_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+}
+.executiveBanners_box {
+    z-index: 1;
+    text-align: center;
+    padding: 170px 0 70px 0;
+    h1 {
+        font-size: 52px;
+        padding-bottom: 8px;
+    }
+    ul {
+        margin-left: -40px;
+    }
+    li {
+        display: inline-block;
+        font-family: 'Lusitana', serif;
+        padding: 0 25px;
+        font-weight: 800;
+        a {
+            color: #a9a9a9;
+            &:focus {
+                color: #a9a9a9;
+            }
+            &:hover {
+                color: #ef90a4;
+            }
+        }
+        p {
+            color: #ef90a4;
+        }
+    }
+}
+.judgespageSec {
+    padding: 60px 0;
+}
+.judgespageSec-box {
+    background-color: #0d0d0d;
+    margin: 15px 0;
+    cursor: pointer;
+    &:hover {
+        .judgespageSec-Media {
+            opacity: .3;
+        }
+    }
+}
+.judgespageSec-Media {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s linear 0s;
+}
+.judgespageSec-content {
+    padding: 35px 20px;
+    h3 {
+        margin-bottom: 10px;
+        font-size: 30px;
+        font-family: 'Playfair Display', serif;
+        font-weight: 400;
+        line-height: 1;
+        word-break: break-word;
+        color: #fff;
+    }
+    h6 {
+        color: #ef90a4;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: 'Lusitana', serif;
+        margin-bottom: 20px;
+    }
+    p {
+        color: #ababab;
+    }
+}
+.judgespageSec-social {
+    .fa-facebook {
+        color: #507cbe;
+    }
+    .fa-twitter {
+        color: #00abef;
+        margin-left: 20px;
+    }
+    .fa-google {
+        color: #d93e2d;
+        margin-left: 20px;
+    }
+}
+@media (max-width: 798px) {
+    .executiveBanners_box {
+        padding: 75px 0 50px 0;
+    }
+}
+////Judges End
+
+
