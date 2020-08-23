@@ -27,4 +27,5 @@ export interface QueryParam {
     caption?: string;
     filter_by?: string;
     ispaid?: number;
+    type?: string;
 }

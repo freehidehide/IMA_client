@@ -3,6 +3,7 @@ export class AppConst {
     public static readonly SERVER_URL = {
         REGISTER: '/users/register',
         LOGIN: '/users/login',
+        SOCIAL_LOGIN: '/users/social_login',
         USER: '/users',
         FORGETPASSWORD: '/users/forgot_password',
         CHANGEPASSWORD: '/users/change_password',

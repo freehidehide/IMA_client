@@ -41,7 +41,7 @@ export class AdvertisersComponent extends BaseComponent implements OnInit {
             ) {
                 this.toastService.error(this.advertisementList.error.message);
             } else {
-                if (this.advertisementList.data.length !== 0) {
+                if (!this.advertisementList.data || this.advertisementList.data.length !== 0) {
                     this.isNodata = false;
                 }
             }

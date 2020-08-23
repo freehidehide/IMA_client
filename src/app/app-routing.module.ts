@@ -244,6 +244,27 @@ const routes: Routes = [
             )
     },
     {
+        path: 'judges',
+        loadChildren: () =>
+            import('./judges/judges.module').then(
+                (m) => m.JudgesModule
+            )
+    },
+    {
+        path: 'executive-team',
+        loadChildren: () =>
+            import('./executive-team/executive-team.module').then(
+                (m) => m.ExecutiveTeamModule
+            )
+    },
+    {
+        path: 'sponsors',
+        loadChildren: () =>
+            import('./sponsors/sponsors.module').then(
+                (m) => m.SponsorsModule
+            )
+    },
+    {
         path: 'error',
         loadChildren: () =>
             import('./server-error/server-error.module').then(

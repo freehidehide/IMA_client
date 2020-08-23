@@ -6,6 +6,7 @@ import { AppConst } from '../../utils/app-const';
 import { Observable } from 'rxjs';
 import { QueryParam } from '../models/query-param';
 import { User } from '../models/user';
+import { SocialLogin } from '../models/social-login';
 
 @Injectable()
 export class UserService {
@@ -19,6 +20,11 @@ export class UserService {
     login(loginForm: FormGroup): Observable<User> {
         const login: string = AppConst.SERVER_URL.LOGIN;
         return this.apiService.httpPost(login, loginForm.value);
+    }
+
+    socialLogin(socialLogin: SocialLogin, queryParam: QueryParam): Observable<User> {
+        const login: string = AppConst.SERVER_URL.SOCIAL_LOGIN;
+        return this.apiService.httpPost(login, socialLogin, queryParam);
     }
 
     update(updateForm: FormGroup): Observable<User> {

@@ -1,14 +1,20 @@
 {
     "/api/*": {
-        "target": "http://app.itstheimas.com",
-        "secure": false
+        "target": "https://itstheimasapp.com",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
     },
     "/images/original/*": {
-        "target": "http://app.itstheimas.com",
-        "secure": false
+        "target": "https://itstheimasapp.com",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
     },
     "/images/static/*": {
-        "target": "http://app.itstheimas.com",
-        "secure": false
+        "target": "https://itstheimasapp.com",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
     }
 }
