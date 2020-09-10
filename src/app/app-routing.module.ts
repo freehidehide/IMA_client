@@ -265,6 +265,13 @@ const routes: Routes = [
             )
     },
     {
+        path: 'contactus',
+        loadChildren: () =>
+            import('./contactus/contactus.module').then(
+                (m) => m.ContactusModule
+            )
+    },
+    {
         path: 'error',
         loadChildren: () =>
             import('./server-error/server-error.module').then(
