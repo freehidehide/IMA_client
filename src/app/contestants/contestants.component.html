@@ -20,11 +20,12 @@
 <!-- Contestants Start -->
 <section class="contestantsSec">    
     <div class="container">
-        <div class="row">
-            <div class="col-md-12"><h2>Best in Dance</h2></div>
-            <div class="col-md-4">
+        <div class="row" *ngIf="!isNodata">
+            <div class="col-md-12"><h2>{{categoryName}}</h2></div>
+            <div class="col-md-4" *ngFor="let user of users; trackBy: trackById">
                 <div class="contestantsBox">
-                    <img src="assets/images/executiveteam1.jpg" class="img-fluid" />
+                    <app-attachment [attachment]="user.attachment" [type]="original" [cssClass]="'img-fluid'">
+                    </app-attachment>
                     <div class="contestantsBox_overlay"></div>                    
                 </div>
                 <div class="contestantsText_1">
@@ -32,92 +33,7 @@
                     <p>VOTE NOW @ ITSTHEIMES.COM/nicolekirkland</p>
                 </div>
                 <div class="contestantsText_2">
-                    <h3>BEST IN DANCE</h3>
-                    <h5>Celebrating & Promoting & Women Empowerment</h5>
-                </div>
-                <div class="contestantsText_3">
-                    <p>2021</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="contestantsBox">
-                    <img src="assets/images/executiveteam3.jpg" class="img-fluid" />
-                    <div class="contestantsBox_overlay"></div>                    
-                </div>
-                <div class="contestantsText_1">
-                    <h4>NOMINEE <span>@nicolekirkland</span></h4>
-                    <p>VOTE NOW @ ITSTHEIMES.COM/nicolekirkland</p>
-                </div>
-                <div class="contestantsText_2">
-                    <h3>BEST IN DANCE</h3>
-                    <h5>Celebrating & Promoting & Women Empowerment</h5>
-                </div>
-                <div class="contestantsText_3">
-                    <p>2021</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="contestantsBox">
-                    <img src="assets/images/contestant-profile.jpg" class="img-fluid" />
-                    <div class="contestantsBox_overlay"></div>                    
-                </div>
-                <div class="contestantsText_1">
-                    <h4>NOMINEE <span>@nicolekirkland</span></h4>
-                    <p>VOTE NOW @ ITSTHEIMES.COM/nicolekirkland</p>
-                </div>
-                <div class="contestantsText_2">
-                    <h3>BEST IN DANCE</h3>
-                    <h5>Celebrating & Promoting & Women Empowerment</h5>
-                </div>
-                <div class="contestantsText_3">
-                    <p>2021</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="contestantsBox">
-                    <img src="assets/images/executiveteam2.jpg" class="img-fluid" />
-                    <div class="contestantsBox_overlay"></div>                    
-                </div>
-                <div class="contestantsText_1">
-                    <h4>NOMINEE <span>@nicolekirkland</span></h4>
-                    <p>VOTE NOW @ ITSTHEIMES.COM/nicolekirkland</p>
-                </div>
-                <div class="contestantsText_2">
-                    <h3>BEST IN DANCE</h3>
-                    <h5>Celebrating & Promoting & Women Empowerment</h5>
-                </div>
-                <div class="contestantsText_3">
-                    <p>2021</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="contestantsBox">
-                    <img src="assets/images/login-image.jpg" class="img-fluid" />
-                    <div class="contestantsBox_overlay"></div>                    
-                </div>
-                <div class="contestantsText_1">
-                    <h4>NOMINEE <span>@nicolekirkland</span></h4>
-                    <p>VOTE NOW @ ITSTHEIMES.COM/nicolekirkland</p>
-                </div>
-                <div class="contestantsText_2">
-                    <h3>BEST IN DANCE</h3>
-                    <h5>Celebrating & Promoting & Women Empowerment</h5>
-                </div>
-                <div class="contestantsText_3">
-                    <p>2021</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="contestantsBox">
-                    <img src="assets/images/contestant-3.jpg" class="img-fluid" />
-                    <div class="contestantsBox_overlay"></div>                    
-                </div>
-                <div class="contestantsText_1">
-                    <h4>NOMINEE <span>@nicolekirkland</span></h4>
-                    <p>VOTE NOW @ ITSTHEIMES.COM/nicolekirkland</p>
-                </div>
-                <div class="contestantsText_2">
-                    <h3>BEST IN DANCE</h3>
+                    <h3>{{categoryName}}</h3>
                     <h5>Celebrating & Promoting & Women Empowerment</h5>
                 </div>
                 <div class="contestantsText_3">
@@ -128,41 +44,3 @@
     </div>
 </section>
 <!-- Contestants End -->
-<div class="imacontainer">
-    <div class="subheader position-relative" *ngIf="pageType === 1">
-        <div class="subheadings">
-            <h2>
-                CONTESTANTS
-                <span>by <em>{{ categoryName }}</em></span>
-            </h2>
-        </div>
-        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
-    </div>
-    <div class="content-middle contestants-section">
-        <div class="row" *ngIf="!isNodata">
-            <div class="col-md-6 col-6 mb-4" *ngFor="let user of users; trackBy: trackById">
-                <a (click)="redirect(user)" href="javascript:void(0)" class="contestant-img">
-                    <app-attachment [attachment]="user.attachment" [type]="original" [cssClass]="'contestantimg'">
-                    </app-attachment>
-                </a>
-                <div class="d-flex contestant-listdetails flex-wrap">
-                    <div class="contestant-name text-truncate ml-1 contName">
-                        {{ user.first_name }} {{ user.last_name }}
-                    </div>
-                    <div class="contestant-counts">
-                        <span class="mr-1 d-flex align-items-center"><img src="assets/images/star-icon.png" width="25"
-                                class="img-fluid mr-2" />
-                            {{user.category.votes}}</span>
-                    </div>
-                    <div class="usercategory ml-1 contCate" *ngIf="pageType !== 1">
-                        {{user.category.name}}</div>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-4" *ngIf="isNodata">
-            <div class="col-md-6">
-                No Records
-            </div>
-        </div>
-    </div>
-</div>
