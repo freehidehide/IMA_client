@@ -1,4 +1,22 @@
+.cateText {
+  list-style: none;
 
+  li {
+    &::before {
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+      background: #ef90a4;
+      height: 1px;
+      font-size: 22px;
+    }
+
+    a:hover {
+      color: #ef90a4;
+    }
+  }
+}
 .categoriescontainer {
     max-width: 1300px;
     width: 100%;
@@ -78,7 +96,7 @@
     text-align: center;
     padding: 170px 0 70px 0;
     h1 {
-        font-size: 52px;
+        font-size: 50px;
         padding-bottom: 8px;
     }
     ul {

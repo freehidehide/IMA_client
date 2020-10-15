@@ -1,5 +1,4 @@
 <!-- @format -->
-
 <div class="login-page" [@routerTransition]>
     <div class="imacontainer">
         <div class="d-flex">
@@ -16,14 +15,13 @@
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <div class="form-content">
                             <div class="form-group">
-                                <label>Username</label>
                                 <input
                                     formControlName="username"
                                     type="text"
                                     ng-model="name"
                                     class="form-control input-underline input-lg"
                                     required
-                                    (keydown)="onKeydown($event)"
+                                    (keydown)="onKeydown($event)" placeholder="Username"
                                 />
                                 <div
                                     *ngIf="
@@ -50,13 +48,12 @@
                             </div>
 
                             <div class="form-group m-0">
-                                <label>Password</label>
                                 <input
                                     formControlName="password"
                                     type="password"
                                     required
                                     class="form-control input-underline input-lg"
-                                    (keydown)="onKeydown($event)"
+                                    (keydown)="onKeydown($event)" placeholder="Password"
                                 />
                                 <div
                                     *ngIf="
@@ -90,39 +87,39 @@
                             </p>
                         </div>
                         <div
-                            class="login-actions d-flex justify-content-between"
+                            class="pt-3 login-actions d-flex justify-content-between"
                         >
                             <a
-                                class="btn loginbtn rounded-btn"
+                                class="btn primaryBtn"
                                 (keydown)="onKeydown($event)"
                                 (click)="onSubmit()"
                                 >{{ 'Log in' | translate }}</a
                             >
                             <a
-                                class="btn rounded-btn"
+                                class="secondryBtn"
                                 [routerLink]="['/signup']"
                                 >{{ 'Register' | translate }}</a
                             >
                         </div>
                     </form>
-                    <div class="thirdlogin">
+                    <div class="thirdlogin pt-3">
                         <p class="thirdtext">
-                            Sign in using your social account
-                        </p>
+                            Sign in with : 
+                        
                         <a
                             href="javascript:void(0)"
                             (click)="signInWithFB()"
                             class="facebook rounded-btn text-center mb-3"
                             ><i class="fa fa-facebook" aria-hidden="true"></i
-                            >Sign in with <span>Facebook</span></a
+                            ></a
                         >
                         <a
                             href="javascript:void(0)"
                             (click)="signInWithGoogle()"
                             class="google rounded-btn text-center"
-                            ><i class="fa fa-google" aria-hidden="true"></i>Sign
-                            in with <span>Google</span></a
+                            ><i class="fa fa-google" aria-hidden="true"></i></a
                         >
+                        </p>
                     </div>
                 </div>
             </div>

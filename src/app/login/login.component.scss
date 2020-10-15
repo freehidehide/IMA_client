@@ -1,15 +1,78 @@
+.primaryBtn {
+  background-color: #c25582;
+  border: 1px solid #c25582;
+  color: #fff !important;
+  margin-right: 5px;
+  margin-left: 3px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  transition: all 0.4s linear 0s;
+  text-align: center;
+  border-radius: 0;
 
+  &:focus {
+    background-color: #c25582;
+    border: 1px solid #c25582;
+    color: #fff !important;
+    margin-right: 5px;
+    margin-left: 3px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 7px 20px;
+    transition: all 0.4s linear 0s;
+    text-align: center;
+    border-radius: 0;
+  }
+
+  &:hover {
+    background-color: #c25582;
+    border: 1px solid #c25582;
+    color: #fff;
+    opacity: .8;
+  }
+}
+
+.secondryBtn {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  margin-right: 3px;
+  margin-left: 5px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  transition: all 0.4s linear 0s;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 0;
+
+  &:hover {
+    background-color: #c25582;
+    border: 1px solid #c25582;
+    color: #fff;
+  }
+}
 $topnav-background-color: #222;
 
 .login-page {
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
-    background: #fff;
+    background: #1a1a1a;
     color: #fff;
 
     .login-left {
         flex: 1 1 0;
-        width: 42%;
+        width: 50%;
+        padding: 50px 0;
+        background-color: #1a1a1a;
+        color: #808080;
     }
 
     .limageright {
@@ -47,7 +110,7 @@ $topnav-background-color: #222;
     .input-lg {
         height: 46px;
         padding: 10px 0;
-        font-size: 18px;
+        font-size: 15px;
         line-height: 1.3333333;
         border-radius: 0;
     }
@@ -74,7 +137,7 @@ $topnav-background-color: #222;
         border: 2px solid #acacac;
         font-size: 18px;
         line-height: 40px;
-        padding: 5px 25px;
+        padding: 12px 5px 10px 5px;
     }
 
     .rounded-btn:hover,
@@ -87,7 +150,8 @@ $topnav-background-color: #222;
     .forgotpass {
         a {
             color: #acacac;
-            font-weight: 600;
+            font-weight: 400;
+            font-size: 13px;
         }
     }
 
@@ -104,7 +168,7 @@ $topnav-background-color: #222;
     }
 
     .form-group {
-        padding: 8px 0;
+        padding: 5px 0;
     }
 
     .form-content {
@@ -128,13 +192,11 @@ $topnav-background-color: #222;
 
     a {
         width: 100% !important;
-        padding: 8px 0 !important;
+        padding: 9px 6px 6px 5px !important;
         border: none !important;
-        display: flex;
         text-decoration: none;
-        font-weight: 300;
-        justify-content: center;
-        align-items: center;
+        margin: 0 5px;
+        border-radius: 0 !important;
 
         span {
             font-weight: 600;
@@ -163,7 +225,8 @@ $topnav-background-color: #222;
         font-size: 15px;
         .toplogo {
             img {
-                max-width: 145px;
+                max-width: 100px;
+                border-radius: 2px;
             }
         }
         .logininner {
@@ -191,14 +254,16 @@ $topnav-background-color: #222;
         }
     }
     .thirdlogin {
-        margin: 26px 0 0;
+        margin: 20px 0 0;
         .thirdtext {
-            font-size: 15px;
+            font-size: 14px;
             margin: 0 0 8px;
+            padding-bottom: 5px;
+            color: #ddd;
         }
         a {
             i {
-                font-size: 23px;
+                font-size: 20px;
             }
         }
     }

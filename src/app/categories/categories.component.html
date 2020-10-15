@@ -20,7 +20,7 @@
 <div class="imacontainer">
     <div class="content-middle">
         <div class="categoriescontainer mx-auto px-4" *ngIf="!isNodata">
-            <ul class="list-unstyled categorieslisting row">
+            <ul class="list-unstyled categorieslisting row cateText">
                 <li
                     class="col-md-6"
                     *ngFor="
@@ -31,7 +31,7 @@
                     <a
                         href="javascript:void(0)"
                         [routerLink]="['/contestants', category.slug]"
-                        ><em>{{ category.name }}</em></a
+                        >{{ category.name }}</a
                     >
                 </li>
             </ul>
