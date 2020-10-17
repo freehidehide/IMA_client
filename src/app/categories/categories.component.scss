@@ -39,9 +39,9 @@
         &:before {
             content: '';
             position: absolute;
-            width: 5px;
-            height: 6px;
-            background-color: white;
+            width: 15px;
+            height: 1px;
+            background-color: #ef90a4;
             top: 50%;
             left: 0;
             transform: translate(-50%, -50%);
@@ -96,7 +96,7 @@
     text-align: center;
     padding: 170px 0 70px 0;
     h1 {
-        font-size: 50px;
+        font-size: 46px;
         padding-bottom: 8px;
     }
     ul {
