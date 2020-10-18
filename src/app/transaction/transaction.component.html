@@ -1,11 +1,28 @@
+<style type="text/css">
+    .accounttabs ul.nav-tabs li {
+        border-radius: 0px;
+    }
+</style>
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Transaction</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)">HOME</a></li>
+                        <li><p>TRANSACTION</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
 <!-- @format -->
 <div class="imacontainer">
-    <div class="subheader position-relative">
-        <div class="subheadings">
-            <h2 class="text-uppercase">Account History</h2>
-        </div>
-        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
-    </div>
     <div class="content-middle accounthistory-section">
         <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" autocomplete="off">
             <div class="form-row pb-3">
@@ -34,7 +51,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 mt-2">
-                    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+                    <button class="primaryBtn mt-4" type="submit">Submit</button>
                 </div>
             </div>
         </form>

@@ -136,19 +136,21 @@ body {
         border: none;
         display: flex;
         justify-content: space-between;
+        margin-bottom: 5px;
         li{
             text-transform: uppercase;
             margin:0 5px;
             width: 19%;
             border-radius: 10px 10px 0 0;
-            background-color:#b3b3b3;
+            background-color:#fff;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 0px;
             a{
-                color:#fff;
+                color:#c25582;
                 font-size: 16px;
-                padding: 20px 10px;
+                padding: 10px;
                 display: block;
                 text-align: center;
                 &:hover,&:focus{
@@ -156,9 +158,9 @@ body {
                 }
             }
             &.active{
-                background-color: #ededed;
+                background-color: #c25582;
                 a{
-                    color:#000;
+                    color:#fff;
                 }
             }
             &:first-child{

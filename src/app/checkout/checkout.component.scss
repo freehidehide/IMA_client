@@ -75,6 +75,7 @@
 
         .custom-radio {
             padding-left: 55px;
+            color: #808080;
 
             input[type='radio'] {
                 display: none;
@@ -118,9 +119,17 @@
             margin-bottom: 20px;
 
             .continue-btn {
-                font-size: 17px;
-                height: 58px;
-                width: 316px;
+                background-color: #c25582;
+                border: 1px solid #c25582;
+                color: #fff;
+                margin: 15px 5px 10px 3px;
+                font-size: 12px;
+                text-transform: uppercase;
+                font-weight: 700;
+                padding: 12px 29px;
+                transition: all 0.4s linear 0s;
+                border-radius: 0px;
+                cursor: pointer;
             }
         }
     }
@@ -190,9 +199,17 @@ h4{
                 margin-bottom: 20px;
 
                 .continue-btn {
-                    font-size: 17px;
-                    height: 43px;
-                    width: 235px;
+                    background-color: #c25582;
+                    border: 1px solid #c25582;
+                    color: #fff;
+                    margin: 15px 5px 10px 3px;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    padding: 12px 29px;
+                    transition: all 0.4s linear 0s;
+                    border-radius: 0px;
+                    cursor: pointer;
                 }
             }
 
@@ -247,7 +264,14 @@ h4{
         }
     }
 }
-
+.hrColor1{
+    border-top: 1px solid rgb(220 215 215 / 18%);
+}
+.continue-btn:hover {
+    background-color: #fff !important;
+    border: 1px solid #fff !important;
+    color: #c25582 !important; 
+}
 ////Inner Banner Start
 .innerBanners {
     background-image: url(../../assets/images/innerBanners.jpg);

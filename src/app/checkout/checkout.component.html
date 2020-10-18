@@ -131,7 +131,7 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
+                        <hr class="hrColor1">
                         <div class="form-row">
                             <div class="form-group col-md-6" *ngIf="isFund">
                                 <label for="amount" >Amount In </label>
@@ -168,7 +168,7 @@
                                 </div>
                             </div>
                         </div>
-                        <hr *ngIf="!isFund">
+                        <hr *ngIf="!isFund" class="hrColor1"> 
                         <h4 *ngIf="!isFund" class="paymenttitle">Amount To Be Paid</h4>
                         <div class="paymentblock" *ngIf="votePackage">
                             <div class="paymentoptions">
@@ -279,7 +279,7 @@
                                 </div>
                                 <div class="col-md-6 continuews">
                                     <button type="button"
-                                        class="btn btn-success continue-btn text-uppercase" (click)="pay()"
+                                        class="continue-btn text-uppercase" (click)="pay()"
                                     >
                                         Continue
                                     </button>

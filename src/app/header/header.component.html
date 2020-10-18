@@ -160,7 +160,7 @@
                     <div class="dropdown-menu sm-menu" aria-labelledby="navbarDropdown">
                        <a *ngIf="sessionService.user.role.id === 2" [routerLink]="['/view-profile']" href="javascript:void(0)" class="dropdown-item" (click)="toggleSidebar()">PROFILE</a>
                        <a href="javascript:void(0)" *ngIf="sessionService.user.role.id !== 2" [routerLink]="['/edit']" (click)="toggleSidebar()">PROFILE</a>
-                        <a href="javascript:void(0)" class="dropdown-item" [routerLink]="['/myproducts']" *ngIf="sessionService.isAuth && sessionService.user.role.id !== 2"
+                        <a href="javascript:void(0)" class="dropdown-item pt-2" [routerLink]="['/myproducts']" *ngIf="sessionService.isAuth && sessionService.user.role.id !== 2"
                                     (click)="toggleSidebar()">MY PRODUCTS</a>
                         <a href="javascript:void(0)" class="dropdown-item" [routerLink]="['/cart']"
                                     (click)="toggleSidebar()">CART</a>

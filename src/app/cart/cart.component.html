@@ -1,7 +1,22 @@
-<div class="imacontainer">
-    <div class="carttitle d-flex justify-content-center align-items-center">
-        <h3 class="rozhafont text-uppercase">Cart</h3>
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Cart</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)">HOME</a></li>
+                        <li><p>CART</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
+<!-- Banner End -->
+<div class="imacontainer">
     <div class="content-middle cart-middle">
         <ul class="cartinner list-unstyled">
             <li
@@ -194,10 +209,8 @@
         <div class="cartupdate" *ngIf="!productDetails || productDetails.length === 0">
             <div class="checkout">
                 <div class="row">
-                    <div
-                        class="offset-xl-9 offset-md-8 col-xl-3 col-md-4 col-12 "
-                    >
-                        <h5 class="carttotal text-uppercase">No Records</h5>
+                    <div class="col-md-12">
+                        <div class="text-uppercase noRecord">No Records</div>
                     </div>
                 </div>
             </div>

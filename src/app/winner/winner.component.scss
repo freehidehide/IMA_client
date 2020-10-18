@@ -112,21 +112,49 @@
     }
 }
 .remindTime{
-    background: #343a40;
+    background: #0d0d0d;
     border:1px solid #343a40;
     text-align: center;
     padding: 30px;
-    border-radius: 5px;
 }
 .remindTime h4{
     color: #fff;
     font-weight: 600;
+    font-size: 26px;
 }
 .remindTime h6{
-    color: #fff;
+    color: #ef90a4;
     font-size: 13px;
 }
+.noRecord {
+  font-size: 22px;
+  color: #a9a9a9;
+  position: relative;
 
+  &::before {
+    position: absolute;
+    background: rgb(239 144 164 / 28%);
+    content: '';
+    top: 15px;
+    bottom: 0;
+    left: 300px;
+    height: 1px;
+    width: 15%;
+    margin: 0 auto;
+  }
+
+  &::after {
+    position: absolute;
+    background: rgb(239 144 164 / 28%);
+    content: '';
+    top: 15px;
+    bottom: 0;
+    right: 300px;
+    height: 1px;
+    width: 15%;
+    margin: 0 auto;
+  }
+}
 ////// New Styles
 ////Inner Banner Start
 .innerBanners {
@@ -152,7 +180,7 @@
     text-align: center;
     padding: 170px 0 70px 0;
     h1 {
-        font-size: 52px;
+        font-size: 46px;
         padding-bottom: 8px;
     }
     ul {
