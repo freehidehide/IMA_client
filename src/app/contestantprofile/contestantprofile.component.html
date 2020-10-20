@@ -1,3 +1,22 @@
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Best in Acting</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)">HOME</a></li>
+                        <li><a href="javascript:void(0)">PROFILE</a></li>
+                        <li><p>BEST IN ACTING</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
 <div class="imacontainer" *ngIf="user">
     <div class="container">
         <div class="row proSec">
@@ -43,7 +62,7 @@
                                     >
                                 </a>
                             </li><br>
-                            <li class="list-inline-item px-4 pt-4">
+                            <li class="list-inline-item pt-4">
                                 <a
                                     href="javascript:void(0)"
                                     (click)="openFb()"
@@ -67,7 +86,7 @@
                                 ></a>
                             </li>
                         </ul>
-                        <ul *ngIf="user.socials.length === 0" class="text-center mb-3 mt-2">
+                        <ul *ngIf="user.socials.length === 0" class="text-center mb-3 mt-2 ml_35">
                             <li class="list-inline-item pt-4">
                                 <a
                                     href="javascript:void(0)"
@@ -119,7 +138,7 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="content-middle contestantprofile">
+                <div class="contestantprofile">
                     <div class="container">
                         <div class="contprofilearea">
                             <div class="text-center">
@@ -150,7 +169,7 @@
                                     <a
                                         href="javascript:void(0)"
                                         (click)="redirect(user)"
-                                        class="btn btn-primary contestvote-btn d-flex align-items-center justify-content-center text-uppercase m-auto"
+                                        class="btn contestvoteBtn d-flex align-items-center justify-content-center text-uppercase m-auto"
                                     >
                                         <i
                                             class="fa fa-star fa-2x mr-2"
@@ -190,7 +209,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <ul class="list-unstyled text-left d-flex justify-content-center contprofile-slisting flex-column">
+                                <ul class="list-unstyled text-left d-flex justify-content-center contprofile-slisting flex-column mt-4">
                                     <li class="pb-3 my-4 mx-auto" *ngIf="user.subscribed_data.length === 0">
                                         <div class="contprofile-listing">
                                             <a
@@ -248,6 +267,7 @@
                                                         'profilefirstimg'
                                                     "
                                                 ></app-attachment>
+
                                             </div>
                                             <span
                                                 *ngFor="

@@ -54,3 +54,64 @@
     }
 }
 ////Inner Banner End
+.commingSoon{
+    padding:60px 0;
+    text-align: center;
+}
+.commingSoon-text {
+  font-size: 22px;
+  position: relative;
+  color: #fff;
+  font-family: sans-serif;
+
+  &::before {
+    position: absolute;
+    background: rgba(239, 144, 164, 0.28);
+    content: "";
+    top: 15px;
+    bottom: 0;
+    left: 300px;
+    height: 1px;
+    width: 15%;
+    margin: 0 auto;
+  }
+
+  &::after {
+    position: absolute;
+    background: rgba(239, 144, 164, 0.28);
+    content: "";
+    top: 15px;
+    bottom: 0;
+    right: 300px;
+    height: 1px;
+    width: 15%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 798px) {
+    .commingSoon-text {
+      &::before {
+        position: absolute;
+        background: rgba(239, 144, 164, 0.28);
+        content: "";
+        top: 15px;
+        bottom: 0;
+        left: 10px;
+        height: 1px;
+        width: 15%;
+        margin: 0 auto;
+      }
+
+      &::after {
+        position: absolute;
+        background: rgba(239, 144, 164, 0.28);
+        content: "";
+        top: 15px;
+        bottom: 0;
+        right: 10px;
+        height: 1px;
+        width: 15%;
+        margin: 0 auto;
+      }
+    }
+}

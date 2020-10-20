@@ -23,8 +23,9 @@
 }
 
 .profile-name {
-    font-size: 66px;
-    color: #585757;
+    font-size: 32px;
+    color: #fff;
+    padding: 10px 0 25px 0;
 }
 
 .forgot-subscribe {
@@ -86,10 +87,6 @@ p {
         }
     }
 
-    .profile-name {
-        font-size: 50px;
-    }
-
     .forgot-subscribe {
         font-size: 37px;
     }
@@ -104,9 +101,12 @@ p {
 
     .subscribe-button {
         a {
-            font-size: 13px;
             height: 43px;
             line-height: 28px;
+            font-size: 12px !important;
+            text-transform: uppercase !important;
+            font-weight: 700;
+            border-radius: 0;
         }
     }
 
@@ -129,7 +129,7 @@ p {
         margin-bottom: 15px;
     }
     .profile-name {
-        font-size: 35px;
+        font-size: 32px;
     }
 
     .view-profile {
@@ -137,4 +137,46 @@ p {
             padding: 25px 0;
         }
     }
+}
+
+////New Style
+.viewProfiles {
+  background: #0d0d0d;
+  padding: 50px 0;
+}
+
+.btnOutline {
+  background-color: #fff;
+  border: 1px solid #fff;
+  color: #c25582;
+  margin-right: 5px;
+  margin-left: 3px;
+  margin-bottom: 10px;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  font-weight: 700;
+  padding: 8px 30px;
+  transition: all 0.4s linear 0s;
+  border-radius: 0;
+
+  &:focus {
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #c25582;
+    margin-right: 5px;
+    margin-left: 3px;
+    margin-bottom: 10px;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    font-weight: 700;
+    padding: 8px 30px;
+    transition: all 0.4s linear 0s;
+    border-radius: 0;
+  }
+
+  &:hover {
+    background-color: #c25582;
+    border: 1px solid #c25582;
+    color: #fff;
+  }
 }

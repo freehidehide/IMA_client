@@ -1,3 +1,23 @@
+<style type="text/css">
+    .inputUnderline {
+        border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        background-color: transparent;
+        border-radius: 0;
+        color: #808080;
+        padding-left: 40px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 9px;
+        font-size: 12px;
+    }
+    .inputUnderline:focus {
+        outline: none;
+        box-shadow: none;
+    }
+</style>
 <!-- @format -->
 <div class="login-page" [@routerTransition]>
     <div class="imacontainer">
@@ -19,7 +39,7 @@
                                     formControlName="username"
                                     type="text"
                                     ng-model="name"
-                                    class="form-control input-underline input-lg"
+                                    class="form-control inputUnderline input-lg"
                                     required
                                     (keydown)="onKeydown($event)" placeholder="Username"
                                 />
@@ -52,7 +72,7 @@
                                     formControlName="password"
                                     type="password"
                                     required
-                                    class="form-control input-underline input-lg"
+                                    class="form-control inputUnderline input-lg"
                                     (keydown)="onKeydown($event)" placeholder="Password"
                                 />
                                 <div

@@ -119,13 +119,11 @@ $topnav-background-color: #222;
         background: 0 0;
         border: none;
         box-shadow: none;
-        border-bottom: 1px solid #acacac;
         color: #acacac;
         border-radius: 0;
     }
 
     .input-underline:focus {
-        border-bottom: 1px solid #acacac;
         box-shadow: none;
     }
 
@@ -301,4 +299,7 @@ $topnav-background-color: #222;
     .thirdlogin {
         margin: 10px 0 0;
     }
+}
+.signup-page {
+    background: #1a1a1a !important;
 }

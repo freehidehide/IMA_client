@@ -1,15 +1,27 @@
-<div class="imacontainer">
-    <div class="subheader position-relative">
-        <div class="subheadings">
-            <h2 class="text-uppercase">Purchase Vote</h2>
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Purchase Vote</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)">HOME</a></li>
+                        <li><p>PURCHASE VOTE</p></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
+</section>
+<!-- Banner End -->
+<div class="imacontainer">
     <div class="content-middle">
         <div class="purchasecontainer mx-auto px-4" *ngIf="user">
             <div class="row align-items-center">
                 <div class="col-md-3">
-                    <div class="rounded-circle purchase-contimg mx-auto">
+                    <div class="purchase-contimg mx-auto">
                         <app-attachment
                             [attachment]="user.attachment"
                             [type]="original"
@@ -30,13 +42,13 @@
                             <p>{{votePackage.description}}</p>
                         </div>
                         <div class="col-md-5 text-center">
-                            <div class="text-success purchase-amount">
+                            <div class="textSuccess purchase-amount">
                                 {{ votePackage.price | currency: settings.CURRENCY_CODE:'symbol' }}
                             </div>
                             <a
                                 href="javascript:void(0)"
                                 (click)="redirect(votePackage.id)"
-                                class="btn btn-success text-uppercase px-5 purchase-btn"
+                                class="btn btnSuccess text-uppercase px-5 purchase-btn"
                                 >Purchase</a
                             >
                         </div>

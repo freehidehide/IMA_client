@@ -140,6 +140,7 @@
         line-height: 1;
         word-break: break-word;
         font-size: 24px;
+        padding-top: 10px;
     }
 
     .paymentoptions {
@@ -271,6 +272,19 @@ h4{
     background-color: #fff !important;
     border: 1px solid #fff !important;
     color: #c25582 !important; 
+}
+.form-control {
+    background-color: transparent;
+    border-radius: 0;
+    border: 1px solid rgba(128, 128, 128, 0.5) !important;
+    color: #808080 !important;
+    padding-left: 40px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 9px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 ////Inner Banner Start
 .innerBanners {

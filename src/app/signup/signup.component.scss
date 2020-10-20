@@ -13,16 +13,7 @@
     }
 
     .login-actions {
-        margin: 0;
-
-        .register-btn {
-            background: #3ea6fa;
-            font-size: 22px;
-            font-weight: 600;
-            color: #fff;
-            border: none;
-            width: 100%;
-        }
+        margin: 0;        
     }
 
     .thirdlogin {
@@ -37,27 +28,27 @@
 }
 
 .signupwhite {
-    background: #fff;
+    background: #0d0d0d;
     max-width: 800px;
     width: 100%;
-    padding: 15px 0;
+    padding: 40px 0;
     margin: 0 auto;
 
     form {
         padding: 15px 145px;
 
         input {
-            background: #ebebeb;
-            border: none;
-            color: #797979;
-            height: 47px;
-            padding: 0 15px;
-            text-align: center;
-            font-size: 21px;
-
-            &:focus {
-                border: none;
-            }
+            background-color: transparent;
+            border-radius: 0;
+            border: 1px solid rgba(128, 128, 128, 0.5);
+            color: #808080;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 9px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         .form-group {
@@ -127,10 +118,6 @@
                 margin: 0 0 15px;
             }
 
-            input {
-                height: 40px;
-                font-size: 16px;
-            }
         }
     }
 
@@ -169,4 +156,42 @@
             padding: 15px;
         }
     }
+}
+/// New Style
+.register-btn {
+  background-color: #c25582;
+  border: 1px solid #c25582;
+  color: #fff;
+  margin-right: 5px;
+  margin-left: 3px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 12px !important;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 3px 30px;
+  border-radius: 0;
+  transition: all 0.4s linear 0s;
+
+  &:focus {
+    background-color: #c25582;
+    border: 1px solid #c25582;
+    color: #fff;
+    margin-right: 5px;
+    margin-left: 3px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 3px 30px;
+    border-radius: 0;
+    transition: all 0.4s linear 0s;
+  }
+
+  &:hover {
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #c25582;
+  }
 }
