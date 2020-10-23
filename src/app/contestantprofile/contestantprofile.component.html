@@ -186,7 +186,7 @@
                                         <li class="list-inline-item px-4">
                                             <img
                                                 src="assets/images/rating-icon.png"
-                                                class="img-fluid"
+                                                class="img-fluid mt-2"
                                             />
                                             <span
                                                 class="d-block profilevcount"
@@ -347,110 +347,112 @@
     </div>
 </div>
 <ng-template #mymodal let-modal>
-    <div class="modal-header">
-        <h4 *ngIf="isUploadAttachment" class="modal-title" id="modal-basic-title">Upload Image/Video</h4>
-        <button
-            type="button"
-            class="close"
-            aria-label="Close"
-            (click)="modal.dismiss('Cross click')"
-        >
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    <div class="modal-body" *ngIf="isUploadAttachment">
-        <div class="form-group">
-            <label for="category">Category <span>*</span></label>
-            <select
-                class="form-control"
-                [(ngModel)]="catId"
-                [ngModelOptions]="{ standalone: true }"
-                id="category"
-                (change)="changeSelect($event.target.value)"
+    <div class="profileModal">
+        <div class="modal-header">
+            <h4 *ngIf="isUploadAttachment" class="modal-title pb-3" id="modal-basic-title">Upload Image/Video</h4>
+            <button
+                type="button"
+                class="close"
+                aria-label="Close"
+                (click)="modal.dismiss('Cross click')"
             >
-                <option
-                    *ngFor="let userCategory of userCategories"
-                    [value]="userCategory.category_id"
-                    >{{ userCategory.category.name }}</option
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body" *ngIf="isUploadAttachment">
+            <div class="form-group">
+                <label for="category">Category <span>*</span></label>
+                <select
+                    class="form-control"
+                    [(ngModel)]="catId"
+                    [ngModelOptions]="{ standalone: true }"
+                    id="category"
+                    (change)="changeSelect($event.target.value)"
                 >
-            </select>
+                    <option
+                        *ngFor="let userCategory of userCategories"
+                        [value]="userCategory.category_id"
+                        >{{ userCategory.category.name }}</option
+                    >
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="location">Location <span>*</span></label>
+                <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="location"
+                    [ngModelOptions]="{ standalone: true }"
+                    id="location"
+                />
+            </div>
+            <div class="form-group">
+                <label for="caption">Caption<span>*</span></label>
+                <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="caption"
+                    [ngModelOptions]="{ standalone: true }"
+                    id="caption"
+                />
+            </div>
+            <div class="form-group" *ngIf="!isvideo">
+                <label for="Image">Image<span>*</span></label>
+                <input
+                    [(ngModel)]="image"
+                    (change)="uploadImage($event)"
+                    accept="image/x-png,image/jpeg"
+                    [ngModelOptions]="{ standalone: true }"
+                    type="file"
+                    multiple
+                    class="form-control"
+                    id="Image"
+                />
+            </div>
+            <div class="form-group" *ngIf="isvideo">
+                <label for="Video">Video<span>*</span></label>
+                <input
+                    type="file"
+                    id="video-upload"
+                    class="form-control"
+                    (change)="uploadVideo($event)"
+                    [(ngModel)]="video"
+                    accept="video/*"
+                    [ngModelOptions]="{ standalone: true }"
+                />
+            </div>
+            <div class="form-check">
+                <input
+                    type="checkbox"
+                    [(ngModel)]="isvideo"
+                    [ngModelOptions]="{ standalone: true }"
+                    class="form-check-input"
+                    id="isvideo"
+                />
+                <label class="form-check-label" for="isvideo">Video</label>
+            </div>
+            <div class="form-check">
+                <input
+                    type="checkbox"
+                    [(ngModel)]="ispaid"
+                    [ngModelOptions]="{ standalone: true }"
+                    class="form-check-input"
+                    id="ispaid"
+                />
+                <label class="form-check-label" for="ispaid">Paid</label>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="location">Location <span>*</span></label>
-            <input
-                type="text"
-                class="form-control"
-                [(ngModel)]="location"
-                [ngModelOptions]="{ standalone: true }"
-                id="location"
-            />
+        <div class="modal-footer" *ngIf="isUploadAttachment">
+            <button type="button" (click)="profileUpload()" class="btn btnPrimary">
+                Submit
+            </button>
         </div>
-        <div class="form-group">
-            <label for="caption">Caption<span>*</span></label>
-            <input
-                type="text"
-                class="form-control"
-                [(ngModel)]="caption"
-                [ngModelOptions]="{ standalone: true }"
-                id="caption"
-            />
+        <div class="modal-body" *ngIf="!isUploadAttachment">
+            <h4 class="text-center py-2">Location : {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].location}}
+            Caption: {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].caption}}</h4>
+            <app-attachment [attachment]="user.subscribed_data[subscribeIndex].attachments[attachmentIndex]" [type]="original" [cssClass]="'profilefirstimg'"></app-attachment>
+            <button class="btn preBtn" (click)="prev()" type="button" *ngIf="attachmentIndex !== 1"><i class="fa fa-chevron-left"></i></button>
+            <button class="btn nextBtn" (click)="next()" type="button" *ngIf="(attachmentIndex+1) < attachmentsLength"><i class="fa fa-chevron-right"></i></button>
         </div>
-        <div class="form-group" *ngIf="!isvideo">
-            <label for="Image">Image<span>*</span></label>
-            <input
-                [(ngModel)]="image"
-                (change)="uploadImage($event)"
-                accept="image/x-png,image/jpeg"
-                [ngModelOptions]="{ standalone: true }"
-                type="file"
-                multiple
-                class="form-control"
-                id="Image"
-            />
-        </div>
-        <div class="form-group" *ngIf="isvideo">
-            <label for="Video">Video<span>*</span></label>
-            <input
-                type="file"
-                id="video-upload"
-                class="form-control"
-                (change)="uploadVideo($event)"
-                [(ngModel)]="video"
-                accept="video/*"
-                [ngModelOptions]="{ standalone: true }"
-            />
-        </div>
-        <div class="form-check">
-            <input
-                type="checkbox"
-                [(ngModel)]="isvideo"
-                [ngModelOptions]="{ standalone: true }"
-                class="form-check-input"
-                id="isvideo"
-            />
-            <label class="form-check-label" for="isvideo">Video</label>
-        </div>
-        <div class="form-check">
-            <input
-                type="checkbox"
-                [(ngModel)]="ispaid"
-                [ngModelOptions]="{ standalone: true }"
-                class="form-check-input"
-                id="ispaid"
-            />
-            <label class="form-check-label" for="ispaid">Paid</label>
-        </div>
-    </div>
-    <div class="modal-footer" *ngIf="isUploadAttachment">
-        <button type="button" (click)="profileUpload()" class="btn btn-primary">
-            Submit
-        </button>
-    </div>
-    <div class="modal-body" *ngIf="!isUploadAttachment">
-        <h4 class="text-center py-2">Location : {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].location}}
-        Caption: {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].caption}}</h4>
-        <app-attachment [attachment]="user.subscribed_data[subscribeIndex].attachments[attachmentIndex]" [type]="original" [cssClass]="'profilefirstimg'"></app-attachment>
-        <button class="btn preBtn" (click)="prev()" type="button" *ngIf="attachmentIndex !== 1"><i class="fa fa-chevron-left"></i></button>
-        <button class="btn nextBtn" (click)="next()" type="button" *ngIf="(attachmentIndex+1) < attachmentsLength"><i class="fa fa-chevron-right"></i></button>
     </div>
 </ng-template>
