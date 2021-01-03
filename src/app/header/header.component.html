@@ -126,11 +126,9 @@
                     Sub menus
                     </a>
                     <div class="dropdown-menu sm-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/judges']">Judges</a>
-                        <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/executive-team']">Executive Team</a>
-                        <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/shop']" (click)="toggleSidebar()">SHOP</a>
+                        <!-- <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/shop']" (click)="toggleSidebar()">SHOP</a> -->
                         <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/winner']" (click)="toggleSidebar()">Highest Votes</a>
-                        <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/recent_winner']" (click)="toggleSidebar()">Recent Winner</a>
+                        <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/recent_winner']" (click)="toggleSidebar()">2021 Winner</a>
                         <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/contactus']" (click)="toggleSidebar()">Contact</a>
                     </div>
                 </li>
@@ -145,7 +143,7 @@
             
             <ul class="navbar-nav col-md-5">
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Live Event 2021</a>
+                    <a class="nav-link" href="javascript:void(0)" target="_blank">2021 Event</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)" [routerLink]="['/categories']" (click)="toggleSidebar()">Nominees</a>
@@ -160,12 +158,12 @@
                     <div class="dropdown-menu sm-menu" aria-labelledby="navbarDropdown">
                        <a *ngIf="sessionService.user.role.id === 2" [routerLink]="['/view-profile']" href="javascript:void(0)" class="dropdown-item" (click)="toggleSidebar()">PROFILE</a>
                        <a href="javascript:void(0)" *ngIf="sessionService.user.role.id !== 2" [routerLink]="['/edit']" (click)="toggleSidebar()">PROFILE</a>
-                        <a href="javascript:void(0)" class="dropdown-item pt-2" [routerLink]="['/myproducts']" *ngIf="sessionService.isAuth && sessionService.user.role.id !== 2"
+                        <!-- <a href="javascript:void(0)" class="dropdown-item pt-2" [routerLink]="['/myproducts']" *ngIf="sessionService.isAuth && sessionService.user.role.id !== 2"
                                     (click)="toggleSidebar()">MY PRODUCTS</a>
                         <a href="javascript:void(0)" class="dropdown-item" [routerLink]="['/cart']"
                                     (click)="toggleSidebar()">CART</a>
                         <a href="javascript:void(0)" class="dropdown-item" [routerLink]="['/myorder']"
-                                    (click)="toggleSidebar()">MY ORDERS</a>
+                                    (click)="toggleSidebar()">MY ORDERS</a> -->
                         <a href="javascript:void(0)" class="dropdown-item" [routerLink]="['/transaction']"
                                     (click)="toggleSidebar()">TRANSACTION</a>   
                         <a href="javascript:void(0)" class="dropdown-item" [routerLink]="['/change-password']"

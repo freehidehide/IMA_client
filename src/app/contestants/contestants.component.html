@@ -5,11 +5,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="innerBanners_box">
-                    <h1>Contestants</h1>
+                    <h1>Nominees</h1>
                     <ul>
                         <li><a href="javascript:void(0)">HOME</a></li>
                         <li><a href="javascript:void(0)">PAGES</a></li>
-                        <li><p>CONTESTANTS</p></li>
+                        <li><p>NOMINEES</p></li>
                     </ul>
                 </div>
             </div>
@@ -40,6 +40,10 @@
                     <p>2021</p>
                 </div>
             </div>
+        </div>
+        <div class="row" *ngIf="isNodata">
+            <div class="col-md-12"><h2>{{categoryName}}</h2></div>
+            <div class="col-md-4">No Records</div>
         </div>
     </div>
 </section>

@@ -224,12 +224,12 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
     }
 
     openFb() {
-        window.open('https://www.facebook.com/sharer/sharer.php?u=http://app.itstheimas.com/vote/' + this.slug, 'pop'
+        window.open('https://www.facebook.com/sharer/sharer.php?u=https://itstheimasapp.com/vote/' + this.slug, 'pop'
         , 'width=600, height=400, scrollbars=no');
     }
 
     openTwitter() {
-        window.open('https://twitter.com/intent/tweet?url=http://app.itstheimas.com/vote/' + this.slug + '&via=' + this.slug, 'pop',
+        window.open('https://twitter.com/intent/tweet?url=https://itstheimasapp.com/vote/' + this.slug + '&via=' + this.slug, 'pop',
         'width=600, height=400, scrollbars=no');
     }
 

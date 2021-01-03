@@ -42,7 +42,7 @@ export class AttachmentComponent {
                 value.class + id + filename + this.imageClass
             ).toString();
             this.url =
-            'http://app.itstheimas.com/images/' + this.imageClass + '/' +
+            'https://itstheimasapp.com/images/' + this.imageClass + '/' +
                 value.class +
                 '/' +
                 id +
@@ -61,14 +61,14 @@ export class AttachmentComponent {
                 value.class + idVideo + fileVideoName + this.imageClass
             ).toString();
             this.url =
-                'http://app.itstheimas.com/images/' + this.imageClass + '/' +
+                'https://itstheimasapp.com/images/' + this.imageClass + '/' +
                 value.thumb.class +
                 '/' +
                 id +
                 '.' +
                 hash +
                 '.' + filename;
-            this.videoUrl = 'http://app.itstheimas.com/images/' + this.imageClass + '/' +
+            this.videoUrl = 'https://itstheimasapp.com/images/' + this.imageClass + '/' +
                             value.class +
                             '/' +
                             idVideo +
