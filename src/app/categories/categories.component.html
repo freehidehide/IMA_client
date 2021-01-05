@@ -9,7 +9,9 @@
                     <h1>Categories</h1>
                     <ul>
                         <li><a href="javascript:void(0)">HOME</a></li>
-                        <li><p>CATEGORIES</p></li>
+                        <li>
+                            <p>CATEGORIES</p>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -17,22 +19,14 @@
     </div>
 </section>
 <!-- Banner End -->
-<div class="imacontainer">
+<div class="imacontainer clsCategoriesBlock">
     <div class="content-middle">
         <div class="categoriescontainer mx-auto px-4" *ngIf="!isNodata">
             <ul class="list-unstyled categorieslisting row cateText ml-3">
-                <li
-                    class="col-md-4"
-                    *ngFor="
-                        let category of categoriesList.data;
-                        trackBy: trackById
-                    "
-                >
-                    <a
-                        href="javascript:void(0)"
-                        [routerLink]="['/contestants', category?.slug]"
-                        >{{ category.name }}</a
-                    >
+                <li class="col-md-6" *ngFor=" let category of categoriesList.data; trackBy: trackById">
+                    <a href="javascript:void(0)" [routerLink]="['/contestants', category?.slug]">
+                        {{ category.name }}
+                    </a>
                 </li>
             </ul>
         </div>
