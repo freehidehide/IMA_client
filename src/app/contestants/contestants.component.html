@@ -1,5 +1,5 @@
 <!-- Banner Start -->
-<section class="innerBanners">
+<section class="innerBanners" *ngIf="header">
     <div class="innerBanners_overlay"></div>
     <div class="container">
         <div class="row">
@@ -22,15 +22,15 @@
     <div class="container">
         <div class="row" *ngIf="!isNodata">
             <div class="col-md-12"><h2>{{categoryName}}</h2></div>
-            <div class="col-md-4" *ngFor="let user of users; trackBy: trackById">
+            <div class="col-md-4" (click)="redirect(user)" *ngFor="let user of users; trackBy: trackById">
                 <div class="contestantsBox">
                     <app-attachment [attachment]="user.attachment" [type]="original" [cssClass]="'img-fluid'">
                     </app-attachment>
                     <div class="contestantsBox_overlay"></div>                    
                 </div>
                 <div class="contestantsText_1">
-                    <h4>NOMINEE <span>@nicolekirkland</span></h4>
-                    <p>VOTE NOW @ ITSTHEIMES.COM/nicolekirkland</p>
+                    <h4>NOMINEE <span>@{{user.username}}</span></h4>
+                    <p>VOTE NOW @ ITSTHEIMES.COM/{{user.username}}</p>
                 </div>
                 <div class="contestantsText_2">
                     <h3>{{categoryName}}</h3>
@@ -41,7 +41,7 @@
                 </div>
             </div>
         </div>
-        <div class="row" *ngIf="isNodata">
+        <div class="row" *ngIf="isHeader && isNodata">
             <div class="col-md-12"><h2>{{categoryName}}</h2></div>
             <div class="col-md-4">No Records</div>
         </div>

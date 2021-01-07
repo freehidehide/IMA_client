@@ -21,6 +21,7 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
     public slug = '';
     public pageType: number;
     public categoryName: string;
+    public header: any = true;
 
     @Input('type')
     set type(value: number) {
@@ -32,6 +33,12 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
     set usersData(value: User[]) {
         if (value && value.length > 0) {
             this.users = value;
+        }
+    }
+    @Input('isHeader')
+    set isHeader(value: any) {
+        if (value && value.length > 0) {
+            this.header = value;
         }
     }
     constructor(

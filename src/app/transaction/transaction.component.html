@@ -57,7 +57,7 @@
         </form>
         <div class="accounttabs">
             <app-my-tabs (tabSelected)="tabSelected($event)">
-                <app-my-tab [tabTitle]="'Product Transaction'" [tabClass]="'Product'">
+                <!-- <app-my-tab [tabTitle]="'Product Transaction'" [tabClass]="'Product'">
                     <div class="tabcontents">
                         <div *ngIf="productTransactionData && productTransactionData.length">
                             <ul class="list-unstyled">
@@ -90,7 +90,7 @@
                             Sorry no records found
                         </div>
                     </div>
-                </app-my-tab>
+                </app-my-tab> -->
                 <app-my-tab tabTitle="Vote Package Transaction" tabClass="VotePackage">
                     <div class="tabcontents">
                         <div *ngIf="votePackageTransactionData && votePackageTransactionData.length">
@@ -153,7 +153,7 @@
                         </div>
                     </div>
                 </app-my-tab>
-                <app-my-tab tabTitle="Subscription Transaction" tabClass="SubscriptionPackage">
+                <!-- <app-my-tab tabTitle="Subscription Transaction" tabClass="SubscriptionPackage">
                     <div class="tabcontents">
                         <div *ngIf="subscriptionTransactionData && subscriptionTransactionData.length">
                             <ul class="list-unstyled">
@@ -181,8 +181,8 @@
                             Sorry no records found
                         </div>
                     </div>
-                </app-my-tab>
-                <app-my-tab tabTitle="Fund Transaction" tabClass="Fund">
+                </app-my-tab> -->
+                <!-- <app-my-tab tabTitle="Fund Transaction" tabClass="Fund">
                     <div class="tabcontents">
                         <div *ngIf="fundTransactionData && fundTransactionData.length">
                             <ul class="list-unstyled">
@@ -207,7 +207,7 @@
                             Sorry no records found
                         </div>
                     </div>
-                </app-my-tab>
+                </app-my-tab> -->
             </app-my-tabs>
 
         </div>

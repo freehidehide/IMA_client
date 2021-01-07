@@ -10,6 +10,7 @@ export class AppConst {
         ALLCATEGORY: '/catagories',
         CONTESTANTS: '/contestants',
         HIGHEST_VOTES: '/contestants/highest_votes',
+        HIGHEST_VOTES_LIST: '/contestants/highest_votes_list',
         RECENT_WINNER: '/contestants/recent_winner',
         ADVERTISEMENTS: '/advertisements',
         PRODUCTS: '/products',

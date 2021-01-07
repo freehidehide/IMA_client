@@ -18,7 +18,7 @@ export class TransactionComponent implements OnInit {
     public fundTransactionData: [];
     public searchForm: FormGroup;
     public original = 'original';
-    public class = 'Product';
+    public class = 'VotePackage';
     constructor(public transactionService: TransactionService,
         public toastService: ToastService, private formBuilder: FormBuilder,
         private ngbDateParserFormatter: NgbDateParserFormatter) {}

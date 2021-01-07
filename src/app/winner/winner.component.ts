@@ -22,8 +22,9 @@ export class WinnerComponent extends BaseComponent implements OnInit {
   public pageTitle: string;
   public left_time: number;
   public message: string;
-  public isShowTime = false;
+  public isShowTime: any = false;
   public prettyConfig: CountdownConfig;
+  public isHeader: any = false;
   constructor(
       private router: Router,
       private categoryService: CategoryService,

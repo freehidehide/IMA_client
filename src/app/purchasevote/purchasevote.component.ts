@@ -69,16 +69,16 @@ implements OnInit {
                 }
             };
         }
-        if (!this.sessionService.isAuth) {
-             url = url.replace('?', '#');
-             url = '/login?f=' + url;
-             if (state !== null) {
-                this.router.navigateByUrl(url, state);
-             } else {
-                this.router.navigateByUrl(url);
-             }
-        } else {
+        // if (!this.sessionService.isAuth) {
+        //      url = url.replace('?', '#');
+        //      url = '/login?f=' + url;
+        //      if (state !== null) {
+        //         this.router.navigateByUrl(url, state);
+        //      } else {
+        //         this.router.navigateByUrl(url);
+        //      }
+        // } else {
             this.router.navigate([url]);
-        }
+        ///}
     }
 }

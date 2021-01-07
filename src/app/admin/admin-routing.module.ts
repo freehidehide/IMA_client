@@ -18,6 +18,13 @@ const routes: Routes = [
                         (m) => m.DashboardModule
                     )
             },
+			{
+                path: 'change_password',
+                loadChildren: () =>
+                    import('./passwordchanged/passwordchanged.module').then(
+                        (m) => m.PasswordchangedModule
+                    )
+            },
             {
                 path: 'actions/:api',
                 loadChildren: () =>

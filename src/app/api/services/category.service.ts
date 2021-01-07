@@ -22,6 +22,12 @@ export class CategoryService {
         return this.apiService.httpGet(categoriesList, queryParam);
     }
 
+    getContestantsHighestList(): Observable<any> {
+        const contestantsList: string =
+            AppConst.SERVER_URL.HIGHEST_VOTES_LIST;
+        return this.apiService.httpGet(contestantsList, null);
+    }
+
     getContestantsList(queryParam: QueryParam): Observable<UserList> {
         const contestantsList: string =
             AppConst.SERVER_URL.CONTESTANTS;
@@ -44,8 +50,8 @@ export class CategoryService {
         const contestantsList: string =
             AppConst.SERVER_URL.RECENT_WINNER;
         return this.apiService.httpGet(contestantsList, queryParam);
+        
     }
-
     getContest(queryParam: QueryParam): Observable<ContestList> {
         const contestList: string =
             AppConst.SERVER_URL.CONTEST;

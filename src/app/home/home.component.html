@@ -264,223 +264,25 @@
 </section>
 <!-- Banner End -->
 <!-- About Start -->
-<section class="homeAbout">
+<section class="homeAbout"  *ngIf="users && users.length > 0">
     <div class="homeAbout_overlay"></div>
     <div class="container">
-        <div class="row d-none">
-            <div class="col-md-12 text-center">
-                <div class="titleH2">
-                    <h2>About Our Agency</h2>
-                    <h5>THE TEAM OF PROFESSIONALS</h5>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <p class="bigCont">Nonumy eirmod tempor invidunt ut labore dolore magna aliquyam erat, sed diam
-                    voluptua.</p>
-                <p>Swine brisket pig, ground round andouille salami jowl biltong. Jerky pancetta turducken, landjaeger
-                    pig strip steak meatloaf burgdoggen. Frankfurter meatball beef ribs chicken burgdoggen shank. Spare
-                    ribs pork chop sirloin ground round kielbasa pork loin shank, burgdoggen sausage fatback turkey pig
-                    picanha shankle. Tenderloin andouille chicken shank pig ball tip.</p>
-            </div>
-            <div class="col-md-6 mb-5">
-                <div class="aboutProgress">
-                    <p class="progress-bar-title small-text lusitana grey">European Models - <span
-                            class="highlight">40%</span></p>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" data-transitiongoal="40" aria-valuenow="40"
-                            style="width: 40%;">
-                        </div>
-                    </div>
-
-                    <p class="progress-bar-title small-text lusitana grey">Asian Models - <span
-                            class="highlight">20%</span></p>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" data-transitiongoal="20" aria-valuenow="20"
-                            style="width: 20%;">
-                        </div>
-                    </div>
-
-                    <p class="progress-bar-title small-text lusitana grey">african-american Models - <span
-                            class="highlight">30%</span></p>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" data-transitiongoal="30" aria-valuenow="30"
-                            style="width: 30%;">
-                        </div>
-                    </div>
-
-                    <p class="progress-bar-title small-text lusitana grey">Latin Models - <span
-                            class="highlight">10%</span></p>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" data-transitiongoal="10" aria-valuenow="10"
-                            style="width: 10%;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 text-center mb-4"><a href="javascript:void(0)" class="primaryBtn">Read More</a></div>
-        </div>
-
-        <div class="row clsTopList">
+        <div class="row clsTopList" *ngIf="users && users.length > 0">
             <div class="col-sm-12">
                 <h2 class="text-center"> Top 10 Contestants </h2>
             </div>
             <div class="col-md-6 offset-md-3">
                 <ol class="clearfix">
-                    <li>
+                    <li *ngFor=" let user of users; let i = index;">
                         <div class="media">
-                            <img src="../../assets/images/executiveteam1.jpg" class="mr-3" alt="...">
-
+                            <app-attachment [attachment]="user.attachment" [type]="original" [cssClass]="'mr-3'">
+                            </app-attachment>
                             <div class="media-body align-self-center">
-                                <h3 class="mt-0">Center-aligned media</h3>
+                                <h3 class="mt-0"><a href="javascript:void(0)" (click)="redirect(user)">{{user.first_name}} {{user.last_name}}</a></h3>
                             </div>
-
                             <div class="media-right">
                                 <div class="clsInner">
-                                    10
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="media">
-                            <img src="../../assets/images/executiveteam1.jpg" class="mr-3" alt="...">
-
-                            <div class="media-body align-self-center">
-                                <h3 class="mt-0">Center-aligned media</h3>
-                            </div>
-
-                            <div class="media-right">
-                                <div class="clsInner">
-                                    10
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="media">
-                            <img src="../../assets/images/executiveteam1.jpg" class="mr-3" alt="...">
-
-                            <div class="media-body align-self-center">
-                                <h3 class="mt-0">Center-aligned media</h3>
-                            </div>
-
-                            <div class="media-right">
-                                <div class="clsInner">
-                                    10
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="media">
-                            <img src="../../assets/images/executiveteam1.jpg" class="mr-3" alt="...">
-
-                            <div class="media-body align-self-center">
-                                <h3 class="mt-0">Center-aligned media</h3>
-                            </div>
-
-                            <div class="media-right">
-                                <div class="clsInner">
-                                    10
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="media">
-                            <img src="../../assets/images/executiveteam1.jpg" class="mr-3" alt="...">
-
-                            <div class="media-body align-self-center">
-                                <h3 class="mt-0">Center-aligned media</h3>
-                            </div>
-
-                            <div class="media-right">
-                                <div class="clsInner">
-                                    10
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="media">
-                            <img src="../../assets/images/executiveteam1.jpg" class="mr-3" alt="...">
-
-                            <div class="media-body align-self-center">
-                                <h3 class="mt-0">Center-aligned media</h3>
-                            </div>
-
-                            <div class="media-right">
-                                <div class="clsInner">
-                                    10
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="media">
-                            <img src="../../assets/images/executiveteam1.jpg" class="mr-3" alt="...">
-
-                            <div class="media-body align-self-center">
-                                <h3 class="mt-0">Center-aligned media</h3>
-                            </div>
-
-                            <div class="media-right">
-                                <div class="clsInner">
-                                    10
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="media">
-                            <img src="../../assets/images/executiveteam1.jpg" class="mr-3" alt="...">
-
-                            <div class="media-body align-self-center">
-                                <h3 class="mt-0">Center-aligned media</h3>
-                            </div>
-
-                            <div class="media-right">
-                                <div class="clsInner">
-                                    10
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="media">
-                            <img src="../../assets/images/executiveteam1.jpg" class="mr-3" alt="...">
-
-                            <div class="media-body align-self-center">
-                                <h3 class="mt-0">Center-aligned media</h3>
-                            </div>
-
-                            <div class="media-right">
-                                <div class="clsInner">
-                                    10
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="media">
-                            <img src="../../assets/images/executiveteam1.jpg" class="mr-3" alt="...">
-
-                            <div class="media-body align-self-center">
-                                <h3 class="mt-0">Center-aligned media</h3>
-                            </div>
-
-                            <div class="media-right">
-                                <div class="clsInner">
-                                    10
+                                    {{user.votes}}
                                 </div>
                             </div>
                         </div>
