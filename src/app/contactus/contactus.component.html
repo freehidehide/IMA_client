@@ -23,52 +23,51 @@
         <div class="row">
             <div class="col-md-8">
                 <h2>Contact Form</h2>
-                <form class="contact-form row" method="post" action="./">
+                <div class="contact-form row" >
                     <div class="col-sm-6">
                         <div class="form-group">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            <input type="text" value="" name="name" id="name" class="form-control" placeholder="Name">
+                            <input type="text" value="" name="name" id="name" class="form-control" placeholder="Name" [(ngModel)]="contact.name" [ngModelOptions]="{standalone: true}">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <i class="fa fa-comment" aria-hidden="true"></i>
-                            <input type="text" value="" name="subject" id="subject" class="form-control" placeholder="Subject">
+                            <input type="text" value="" name="subject" id="subject" class="form-control" placeholder="Subject" [(ngModel)]="contact.subject" [ngModelOptions]="{standalone: true}">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <i class="fa fa-phone" aria-hidden="true"></i>
-                            <input type="text" value="" name="phone" id="phone" class="form-control" placeholder="Phone number">
+                            <input type="text" value="" name="phone" id="phone" class="form-control" placeholder="Phone number" [(ngModel)]="contact.phone" [ngModelOptions]="{standalone: true}">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
-                            <input type="email" value="" name="email" id="email" class="form-control" placeholder="Email address">
+                            <input type="email" value="" name="email" id="email" class="form-control" placeholder="Email address" [(ngModel)]="contact.email" [ngModelOptions]="{standalone: true}">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group">
                             <i class="fa fa-folder-open" aria-hidden="true"></i>
-                            <textarea aria-required="true" rows="9" cols="45" name="message" id="message" class="form-control" placeholder="Message..."></textarea>
+                            <textarea [(ngModel)]="contact.msg" [ngModelOptions]="{standalone: true}" aria-required="true" rows="9" cols="45" name="message" id="message" class="form-control" placeholder="Message..."></textarea>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="contact-form-submit topmargin_10">
-                            <button type="submit" id="contact_form_submit" name="contactSubmit" class="contactSubmit">Submit</button>
-                            <button type="reset" id="contact_form_reset" name="contactReset" class="contactReset">Clear</button>
+                            <button type="button" id="contact_form_submit" (click)="onSubmit()" name="contactSubmit" class="contactSubmit">Submit</button>
+                            <button type="button" id="contact_form_reset" name="contactReset" class="contactReset">Clear</button>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
             <div class="col-md-4">
                 <div class="contAddress">
                     <h2>Contact Info</h2>
-                    <p><i class="fa fa-globe"></i> Jacksotts str. 698 San Diego, California, USA</p>
-                    <p><i class="fa fa-phone"></i> 1-800-123-4567, 1-800-123-4568</p>
-                    <p><i class="fa fa-envelope"></i> <a href="mailto:ima@support.com">ima@support.com</a></p>
-                    <p><i class="fa fa-clock-o"></i> Monday - Friday 9 a.m. - 8 p.m.</p>
+                    <p><i class="fa fa-globe"></i> Miami, FL USA</p>
+                    <p><i class="fa fa-phone"></i> (305) 999-5910</p>
+                    <p><i class="fa fa-envelope"></i> <a href="itstheimas@gmail.com">itstheimas@gmail.com</a></p>
                 </div>
             </div>
         </div>

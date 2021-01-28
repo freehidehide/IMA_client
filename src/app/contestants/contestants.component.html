@@ -1,5 +1,4 @@
-<!-- Banner Start -->
-<section class="innerBanners" *ngIf="header">
+<section class="innerBanners" *ngIf="header && !isContest && !isLoading">
     <div class="innerBanners_overlay"></div>
     <div class="container">
         <div class="row">
@@ -16,9 +15,7 @@
         </div>
     </div>
 </section>
-<!-- Banner End -->
-<!-- Contestants Start -->
-<section class="contestantsSec">    
+<section class="contestantsSec" *ngIf="header && !isContest && !isLoading">    
     <div class="container">
         <div class="row" *ngIf="!isNodata">
             <div class="col-md-12"><h2>{{categoryName}}</h2></div>
@@ -41,10 +38,54 @@
                 </div>
             </div>
         </div>
+        <div class="clearfix justify-content-center d-flex" *ngIf="metaData.last_page > 1">
+            <ngb-pagination [collectionSize]="metaData.total" [pageSize]="metaData.per_page"
+               [(page)]="metaData.current_page" [maxSize]="7" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"
+               (pageChange)="loadPage($event)"></ngb-pagination>
+         </div>
         <div class="row" *ngIf="isHeader && isNodata">
             <div class="col-md-12"><h2>{{categoryName}}</h2></div>
             <div class="col-md-4">No Records</div>
         </div>
     </div>
 </section>
-<!-- Contestants End -->
+<div class="imacontainer" *ngIf="isContest && !isLoading">
+    <div class="subheader position-relative">
+        <div class="subheadings">
+            <h2>
+                NOMINEES
+            </h2>
+        </div>
+        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
+    </div>
+    <div class="content-middle contestants-section">
+        <div class="row">
+            <div class="col-md-6 col-6 mb-4" *ngFor="let user of users; trackBy: trackById">
+                <a (click)="redirect(user)" href="javascript:void(0)" class="contestant-img">
+                    <app-attachment [attachment]="user.attachment" [type]="original" [cssClass]="'contestantimg'">
+                    </app-attachment>
+                </a>
+                <div class="d-flex contestant-listdetails flex-wrap">
+                    <div class="contestant-name text-truncate ml-1 contName" (click)="redirect(user)">
+                        {{ user.first_name }} {{ user.last_name }}
+                    </div>
+                    <div class="contestant-counts">
+                        <span class="mr-1 d-flex align-items-center"><img src="assets/images/star-icon.png" width="25"
+                                class="img-fluid mr-2" />
+                            {{user.votes}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4" *ngIf="isNodata">
+            <div class="col-md-6">
+                No Records
+            </div>
+        </div>
+    </div>
+    <div class="clearfix justify-content-center d-flex" *ngIf="metaData.last_page > 1">
+        <ngb-pagination [collectionSize]="metaData.total" [pageSize]="metaData.per_page"
+           [(page)]="metaData.current_page" [maxSize]="7" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"
+           (pageChange)="loadPage($event)"></ngb-pagination>
+     </div>
+</div>

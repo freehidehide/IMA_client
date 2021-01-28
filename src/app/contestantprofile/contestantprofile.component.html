@@ -253,8 +253,7 @@
                                             >
                                                 <h3 class="categoryname">
                                                     {{
-                                                        subscribData.category
-                                                            .name
+                                                        subscribData.category ? subscribData.category.name : ''
                                                     }}
                                                 </h3>
                                                 <app-attachment

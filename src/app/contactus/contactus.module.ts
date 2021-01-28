@@ -7,7 +7,7 @@ import { ContactusComponent } from './contactus.component';
 import { PaymentService } from '../api/services/payment.service';
 @NgModule({
     declarations: [ContactusComponent],
-    imports: [CommonModule, ContactusRoutingModule],
+    imports: [CommonModule, ContactusRoutingModule, FormsModule],
     providers: [PaymentService]
 
 })

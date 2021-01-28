@@ -252,8 +252,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="bannerContent">
-                        <h1>Welcome to the <span>IMA<span>s</span></span>
-                        </h1>
+                        <h1>Welcome to the <span>IMA<span>s</span></span></h1>
                         <div>
                             <a href="javascript:void(0)" [routerLink]="['/categories']" class="primaryBtn">Vote Now</a>
                         </div>
@@ -265,22 +264,22 @@
 </section>
 <!-- Banner End -->
 <!-- About Start -->
-<section class="homeAbout" *ngIf="users && users.length > 0">
+<section class="homeAbout"  *ngIf="users && users.length > 0">
     <div class="homeAbout_overlay"></div>
     <div class="container">
         <div class="row clsTopList" *ngIf="users && users.length > 0">
             <div class="col-sm-12">
-                <h2 class="text-center"> Top 10 Contestants </h2>
+                <h2 class="text-center"> Top 10 Contestants (<countdown [config]="{leftTime: 900000000}"></countdown>)</h2>
                 <p class="text-center clsItalic"> Keep supporting your favourite models by casting votes while you can </p>
             </div>
             <div class="col-md-6 offset-md-3">
                 <ol class="clearfix">
                     <li *ngFor=" let user of users; let i = index;">
-                        <div class="media">
-                            <app-attachment [attachment]="user.attachment" [type]="original" [cssClass]="'mr-3'">
+                        <div class="media" (click)="redirect(user)">
+                            <app-attachment [attachment]="user.attachment" [type]="mobile" [cssClass]="'mr-3'">
                             </app-attachment>
                             <div class="media-body align-self-center">
-                                <h3 class="mt-0"><a href="javascript:void(0)" (click)="redirect(user)">{{user.first_name}} {{user.last_name}}</a></h3>
+                                <h3 class="mt-0"><a style="color: white;" href="javascript:void(0)" >{{user.first_name}} {{user.last_name}}</a></h3>
                             </div>
                             <div class="media-right">
                                 <div class="clsInner">

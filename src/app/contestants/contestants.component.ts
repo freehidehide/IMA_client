@@ -22,6 +22,12 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
     public pageType: number;
     public categoryName: string;
     public header: any = true;
+    public isContest: any;
+    public isLoading: any = true;
+    public metaData: any;
+    public settings: any;
+    public previousPage: any = 1;
+    public catId: any = 0;
 
     @Input('type')
     set type(value: number) {
@@ -58,32 +64,41 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
                 this.slug = this.activatedRoute.snapshot.paramMap.get(
                     'slug'
                 );
-                this.categoryService.getAll(null).subscribe((response) => {
-                    this.categoriesList = response;
-                    this.categoriesList.data.forEach(category => {
-                        if (category.slug === this.slug) {
-                            this.categoryName = category.name;
-                            this.getContestantsByCategories(category.id);
-                            return;
-                        }
+                if(this.slug === 'all') {
+                    this.isContest = true;
+                    this.getContestantsByCategories();
+                } else {
+                    this.isContest = false;
+                    this.categoryService.getAll(null).subscribe((response) => {
+                        this.categoriesList = response;
+                        this.categoriesList.data.forEach(category => {
+                            if (category.slug === this.slug) {
+                                this.categoryName = category.name;
+                                this.isContest = false;
+                                this.catId = category.id;
+                                this.getContestantsByCategories();
+                                return;
+                            }
+                        });
                     });
-                });
+                }
             }
         }
     }
 
-    getContestantsByCategories(catId): void {
+    getContestantsByCategories(): void {
         this.toastService.showLoading();
         this.isNodata = true;
         const queryParam: QueryParam = {
-            page: 1,
+            page: this.previousPage,
             sortby: 'desc',
-            category_id: catId
+            category_id: (this.catId !== 0) ? this.catId : ''
         };
         this.categoryService
             .getContestantsList(queryParam)
-            .subscribe((data) => {
-                this.userList = data;
+            .subscribe((response) => {
+                this.userList = response;
+                this.metaData = response._metadata;
                 if (
                     this.userList.error &&
                     this.userList.error.code !== AppConst.SERVICE_STATUS.SUCCESS
@@ -93,16 +108,28 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
                     this.users = this.userList.data;
                     this.isNodata = this.userList.data.length === 0;
                 }
+                this.isLoading = false;
                 this.toastService.clearLoading();
             });
     }
 
+    loadPage(page: number) {
+        if (page !== this.previousPage) {
+          this.previousPage = page;
+          this.getContestantsByCategories();
+        }
+    }
     trackById(index: number, el: any): number {
         return el.id;
     }
 
     redirect(user: User): void {
-        const url: string = '/profile/' + user.category.category.slug + '/' + user.username;
+        let url: string;
+        if (this.slug == 'all') {
+            url = '/profile/' + user.username;
+        } else {
+            url = '/profile/' + user.category.category.slug + '/' + user.username;
+        }
         this.router.navigate([url]);
     }
 }
