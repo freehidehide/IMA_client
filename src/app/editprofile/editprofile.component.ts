@@ -41,9 +41,14 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
                 state: ['', [Validators.required]],
                 country: ['', [Validators.required]],
                 zipcode: ['', [Validators.required]]
-            })
+            }),
+            paypal_email: ['', [Validators.email]],
         });
         if (this.sessionService.user) {
+            if (this.sessionService.user.role.name !== 'User') {
+                this.editProfileForm.controls['paypal_email'].setValidators([Validators.required]);
+                this.editProfileForm.get('paypal_email').updateValueAndValidity();
+            }
             this.userId = this.sessionService.user.id;
             this.getUser(true);
         } else {

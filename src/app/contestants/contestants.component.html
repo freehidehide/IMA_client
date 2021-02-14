@@ -19,6 +19,7 @@
 </section>
 <section class="contestantsSec" *ngIf="header && !isContest && !isLoading">
     <div class="container">
+
         <div class="row" *ngIf="!isNodata">
             <div class="col-md-12">
                 <h2>{{categoryName}}</h2>
@@ -63,6 +64,14 @@
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
     <div class="container pt-65 pb-65">
+            <div class="md-form mt-0">
+              <input class="form-control mr-sm-2" type="text" [(ngModel)]="search" name="search" placeholder="Search">
+              <button
+                                type="button"
+                                class="primaryBtn text-uppercase"
+                                (click)="getContestantsByCategories()"
+                            >Search</button>
+            </div>
         <ul class="clearfix unstyled clsNamineeList">
             <li class="" *ngFor="let user of users; trackBy: trackById">
                 <a (click)="redirect(user)" href="javascript:void(0)" class="contestant-img">

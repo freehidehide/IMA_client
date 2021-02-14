@@ -52,7 +52,7 @@
                 <li class="nav-item" *ngIf="!sessionService.isAuth">
                     <a href="javascript:void(0)" [routerLink]="['/login']" (click)="toggleSidebar()"
                         class="nav-link logBtn">LOGIN</a>
-                </li>                
+                </li>
 
                 <li class="nav-item dropdown" *ngIf="sessionService.isAuth">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0)">
@@ -61,31 +61,31 @@
                     <div class="dropdown-menu dropdown">
                         <ul>
                             <li class="dropdown-item" *ngIf="sessionService.user.role.id === 2" [routerLink]="['/view-profile']" >
-                                <a href="javascript:void(0)" 
+                                <a href="javascript:void(0)"
                                     (click)="toggleSidebar()">PROFILE</a>
                             </li>
                             <li class="dropdown-item" *ngIf="sessionService.user.role.id !== 2" [routerLink]="['/edit']" >
-                                <a href="javascript:void(0)" 
+                                <a href="javascript:void(0)"
                                     (click)="toggleSidebar()">PROFILE</a>
                             </li>
                             <li class="dropdown-item" [routerLink]="['/myproducts']" *ngIf="sessionService.isAuth && sessionService.user.role.id !== 2">
-                                <a href="javascript:void(0)" 
+                                <a href="javascript:void(0)"
                                     (click)="toggleSidebar()">MY PRODUCTS</a>
                             </li>
                             <li class="dropdown-item" [routerLink]="['/cart']" >
-                                <a href="javascript:void(0)" 
+                                <a href="javascript:void(0)"
                                     (click)="toggleSidebar()">CART</a>
                             </li>
                             <li class="dropdown-item" [routerLink]="['/myorder']" >
-                                <a href="javascript:void(0)" 
+                                <a href="javascript:void(0)"
                                     (click)="toggleSidebar()">MY ORDERS</a>
                             </li>
                             <li class="dropdown-item" [routerLink]="['/transaction']" >
-                                <a href="javascript:void(0)" 
+                                <a href="javascript:void(0)"
                                     (click)="toggleSidebar()">TRANSACTION</a>
                             </li>
                             <li class="dropdown-item" [routerLink]="['/change-password']" >
-                                <a href="javascript:void(0)" 
+                                <a href="javascript:void(0)"
                                     (click)="toggleSidebar()">CHANGE PASSWORD</a>
                             </li>
                         </ul>
@@ -127,7 +127,7 @@
                         </li>
 
                         <li class="nav-item"
-                            *ngIf="(sessionService.isAuth && (sessionService.user.role.id === 1 || sessionService.user.role.id === 4))">
+                            *ngIf="(sessionService.isAuth && (sessionService.user.role.id === 4))">
                             <a class="nav-link active" href="javascript:void(0)"
                                 (click)="toggleSidebar();redirect('/profile/', sessionService.user.username)">
                                 Home <span class="sr-only">(current)</span>

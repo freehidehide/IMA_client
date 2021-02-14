@@ -28,6 +28,7 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
     public settings: any;
     public previousPage: any = 1;
     public catId: any = 0;
+    public search ='';
 
     @Input('type')
     set type(value: number) {
@@ -92,7 +93,8 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
         const queryParam: QueryParam = {
             page: this.previousPage,
             sortby: 'desc',
-            category_id: (this.catId !== 0) ? this.catId : ''
+            category_id: (this.catId !== 0) ? this.catId : '',
+            search: this.search
         };
         this.categoryService
             .getContestantsList(queryParam)

@@ -10,6 +10,7 @@ import { ServiceResponse } from '../api/models/service-response';
 import { User } from '../api/models/user';
 import { AppConst } from '../utils/app-const';
 import { BaseComponent } from '../base.component';
+import { SocialAuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
 
 @Component({
     selector: 'app-signup',
@@ -26,7 +27,8 @@ export class SignupComponent extends BaseComponent implements OnInit {
         private formBuilder: FormBuilder,
         private userService: UserService,
         private sessionService: SessionService,
-        private toastService: ToastService
+        private toastService: ToastService,
+        private authService: SocialAuthService
     ) {
         super();
     }
@@ -102,5 +104,13 @@ export class SignupComponent extends BaseComponent implements OnInit {
         if (event.key === 'Enter') {
             this.onSubmit();
         }
+    }
+
+    signInWithGoogle(): void {
+        this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    }
+
+    signInWithFB(): void {
+        this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
     }
 }

@@ -6,6 +6,7 @@ import { SharedCommonModule } from './shared-common.module';
 import { ContestantsComponent } from '../contestants/contestants.component';
 import { WinnerComponent } from '../winner/winner.component';
 import { CountdownModule } from 'ngx-countdown';
+import { FormsModule } from '@angular/forms';
 @NgModule({
     declarations: [
         ContestantsComponent,
@@ -15,7 +16,8 @@ import { CountdownModule } from 'ngx-countdown';
         CommonModule,
         SharedCommonModule,
         NgbModule,
-        CountdownModule
+        CountdownModule,
+        FormsModule
     ],
     exports: [
         ContestantsComponent,

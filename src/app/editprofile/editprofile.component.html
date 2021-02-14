@@ -157,6 +157,23 @@
                                     {{ 'zipcode is required' | translate }}
                                 </div>
                             </div>
+
+                        </div>
+                        <div class="form-group col-md-12" *ngIf="sessionService.user.role.name !== 'User'">
+                            <label>Paypal Email*</label>
+                            <input
+                                class="form-control"
+                                type="text"
+                                formControlName="paypal_email"
+                            />
+                            <div
+                                class="invalid-feedback-show"
+                                *ngIf="
+                                    isSubmitted && paypal_email.errors.required
+                                "
+                            >
+                                {{ 'Paypal Eamil is required' | translate }}
+                            </div>
                         </div>
                         <span class="pl-2 noteText">Note: Please fill mandatory * fields</span>
                         <div class="pt-4 text-center col-md-12">

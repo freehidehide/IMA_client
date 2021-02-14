@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '../api/services/toast-service';
 import { UserService } from '../api/services/user.service';
+import { AppConst } from 'src/app/utils/app-const';
 
 @Component({
     selector: 'app-passwordchanged',
@@ -71,7 +72,32 @@ export class PasswordchangedComponent implements OnInit {
                 } else {
                     this.changedSuccess = true;
                     this.toastService.success(data.error.message);
+                    setTimeout(() => {
+                        this.userLogout();
+                    }, 100);
+
                 }
             });
+    }
+
+    userLogout() {
+        this.userService.logout().subscribe((response) => {
+            if (
+                response.error &&
+                response.error.code === AppConst.SERVICE_STATUS.SUCCESS
+            ) {
+                sessionStorage.removeItem('user_context');
+                sessionStorage.removeItem('login_time');
+                sessionStorage.removeItem('access_token');
+                sessionStorage.removeItem('refresh_token');
+                this.router.navigate(['/']);
+                setTimeout(() => {
+                    location.reload();
+                }, 100);
+            } else {
+                this.toastService.error(response.error.message);
+            }
+            this.toastService.clearLoading();
+        });
     }
 }

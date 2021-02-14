@@ -42,4 +42,5 @@ export class User extends ServiceResponse {
     vote_category?: VoteCategory;
     subscribed_data?: any;
     is_active?: boolean;
+    paypal_email?: string;
 }

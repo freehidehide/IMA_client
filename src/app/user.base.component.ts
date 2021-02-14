@@ -78,7 +78,8 @@ export abstract class UserBaseComponent {
                 state: user.data.address.state,
                 country: user.data.address.country,
                 zipcode: user.data.address.zipcode
-            }
+            },
+            paypal_email: user.data.paypal_email
         });
     }
 }
