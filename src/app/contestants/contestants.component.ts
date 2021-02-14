@@ -92,7 +92,8 @@ export class ContestantsComponent extends BaseComponent implements OnInit {
         this.isNodata = true;
         const queryParam: QueryParam = {
             page: this.previousPage,
-            sortby: 'desc',
+            sort: 'username',
+            sortby: 'ASC',
             category_id: (this.catId !== 0) ? this.catId : '',
             search: this.search
         };
