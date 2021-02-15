@@ -36,7 +36,7 @@
                                 <div *ngFor="
                                 let address of addressArrayList;
                                 trackBy: trackById">
-                                    <div 
+                                    <div
                                         class="custom-control custom-radio custom-control-inline">
                                         <input
                                             type="radio"
@@ -151,7 +151,7 @@
                                 <div *ngFor="
                                 let userCategory of userCategories;
                                 trackBy: trackById">
-                                    <div 
+                                    <div
                                         class="custom-control custom-radio custom-control-inline">
                                         <input
                                             type="radio"
@@ -167,13 +167,14 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                         <hr *ngIf="!isFund" class="hrColor1"> -->
                         <h4 *ngIf="!isFund" class="paymenttitle">Amount To Be Paid</h4>
                         <div class="paymentblock" *ngIf="votePackage">
                             <div class="paymentoptions">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    Amount : {{votePackage.price | currency: settings.CURRENCY_CODE:'symbol'}}
+                                   <span *ngIf="packageId !== '6'"> Amount : {{votePackage.price | currency: settings.CURRENCY_CODE:'symbol'}}</span>
+                                   <span *ngIf="packageId === '6'"> Amount : {{votePackage.price * customPackageCount | currency: settings.CURRENCY_CODE:'symbol'}}</span>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline" *ngIf="votePackage.price < 10">
                                     Processing Fee : {{(((paypalLessTen / 100) * votePackage.price) + paypalLessTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
@@ -215,7 +216,7 @@
                                 <div *ngFor="
                                 let paymentGateway of paymentGateways;
                                 trackBy: trackById">
-                                    <div 
+                                    <div
                                         class="custom-control custom-radio custom-control-inline">
                                         <input
                                             type="radio"

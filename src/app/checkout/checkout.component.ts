@@ -56,6 +56,7 @@ export class CheckoutComponent implements OnInit {
     public paypalMoreTenInCents: number;
     public totalAmount: number;
     public isSubscription = false;
+    public customPackageCount: number;
 
     constructor(public paymentService: PaymentService,
         private toastService: ToastService,
@@ -69,6 +70,7 @@ export class CheckoutComponent implements OnInit {
                 this.packageId = this.activatedRoute.snapshot.queryParams.package;
                 this.username = this.activatedRoute.snapshot.queryParams.username;
                 const catId = (window.history.state.category_id) ? window.history.state.category_id : 0;
+                this.customPackageCount = this.activatedRoute.snapshot.queryParams.customcount;
                 this.categoryId = +catId;
             } else if (this.paymentType && this.paymentType.indexOf('?') > -1) {
                 const params = this.paymentType.split('?');
@@ -78,8 +80,9 @@ export class CheckoutComponent implements OnInit {
                 this.packageId = packId.toString();
                 const contestantUserName = types[1] ? types[1].split('=')[1] : 0;
                 this.username = contestantUserName.toString();
-                const catId = types[2] ? types[2].split('=')[1] : 0;
-                this.categoryId = +catId;
+                // const catId = types[2] ? types[2].split('=')[1] : 0;
+                // this.categoryId = +catId;
+                this.customPackageCount = types[2] ? +types[2].split('=')[1] : 0;
             }
         }
 
@@ -272,7 +275,8 @@ export class CheckoutComponent implements OnInit {
             payment_gateway_id: 1,
             username: this.username,
             category_id: this.category_id,
-            is_web: true
+            is_web: true,
+            customCount: this.customPackageCount
         };
         this.paymentService
             .votePurchase(this.packageId, queryParam)

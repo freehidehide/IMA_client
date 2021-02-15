@@ -20,6 +20,7 @@ implements OnInit {
     public votePackages: VotePackage[] = [];
     public settings: any;
     public type: string;
+    public customCount = 1;
     constructor(
         protected router: Router,
         protected userService: UserService,
@@ -60,9 +61,9 @@ implements OnInit {
         let url: string;
         let state: any = null;
         if (this.router.url.includes('/instant_vote/')) {
-            url = 'checkout/instant_votes?contest=' + id + '&username=' + this.username;
+            url = 'checkout/instant_votes?contest=' + id + '&username=' + this.username + '&customcount=' + this.customCount;
         } else {
-            url = 'checkout/votes?package=' + id + '&username=' + this.username;
+            url = 'checkout/votes?package=' + id + '&username=' + this.username + '&customcount=' + this.customCount;
             state = {
                 state: {
                     category_id: this.categoryId
