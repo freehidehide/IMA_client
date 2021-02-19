@@ -174,7 +174,7 @@
                             <div class="paymentoptions">
                                 <div class="custom-control custom-radio custom-control-inline">
                                    <span *ngIf="packageId !== '6'"> Amount : {{votePackage.price | currency: settings.CURRENCY_CODE:'symbol'}}</span>
-                                   <span *ngIf="packageId === '6'"> Amount : {{votePackage.price * customPackageCount | currency: settings.CURRENCY_CODE:'symbol'}}</span>
+                                   <span *ngIf="packageId === '6'"> Amount : {{customPackageCount / votePackage.vote | currency: settings.CURRENCY_CODE:'symbol'}}</span>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline" *ngIf="votePackage.price < 10">
                                     Processing Fee : {{(((paypalLessTen / 100) * votePackage.price) + paypalLessTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}

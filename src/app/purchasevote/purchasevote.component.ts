@@ -20,7 +20,7 @@ implements OnInit {
     public votePackages: VotePackage[] = [];
     public settings: any;
     public type: string;
-    public customCount = 1;
+    public customCount = 2;
     constructor(
         protected router: Router,
         protected userService: UserService,

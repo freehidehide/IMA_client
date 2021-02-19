@@ -43,10 +43,10 @@
                         </div>
                         <div class="col-md-5 text-center">
                             <input type="number" name="custom-count"
-                            [(ngModel)]="customCount" min="1" max="100" *ngIf="votePackage.id === 6"/>
+                            [(ngModel)]="customCount" min="2" max="100" *ngIf="votePackage.id === 6"/>
                             <div class="textSuccess purchase-amount">
                                 <span *ngIf="votePackage.id !== 6">{{ votePackage.price | currency: settings.CURRENCY_CODE:'symbol' }}</span>
-                                <span *ngIf="votePackage.id === 6">{{customCount * votePackage.price | currency: settings.CURRENCY_CODE:'symbol'}}</span>
+                                <span *ngIf="votePackage.id === 6">{{customCount / votePackage.vote | currency: settings.CURRENCY_CODE:'symbol'}}</span>
                             </div>
                             <a
                                 href="javascript:void(0)"
