@@ -13,7 +13,9 @@
                     <h1>Transaction</h1>
                     <ul>
                         <li><a href="javascript:void(0)">HOME</a></li>
-                        <li><p>TRANSACTION</p></li>
+                        <li>
+                            <p>TRANSACTION</p>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -25,11 +27,10 @@
 <div class="imacontainer">
     <div class="content-middle accounthistory-section">
         <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" autocomplete="off">
-            <div class="form-row pb-3">
+            <div class="row pb-3">
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Search</label>
-                    <input type="text" class="form-control" id="validationCustom01" formControlName='q'
-                        placeholder="Enter text here">
+                    <input type="text" class="form-control" id="validationCustom01" formControlName='q' placeholder="Enter text here">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom02">From</label>
@@ -43,15 +44,14 @@
                 <div class="col-md-3 mb-3">
                     <label for="validationCustomUsername">To</label>
                     <div class="input-group datepicker-input">
-                        <input class="form-control" placeholder="yyyy-mm-dd" formControlName='to' name="to"
-                            ngbDatepicker #d1="ngbDatepicker">
+                        <input class="form-control" placeholder="yyyy-mm-dd" formControlName='to' name="to" ngbDatepicker #d1="ngbDatepicker">
                         <button class="input-group-addon" (click)="d1.toggle()" type="button">
                             <span class="fa fa-calendar"></span>
                         </button>
                     </div>
                 </div>
                 <div class="col-md-3 mt-2">
-                    <button class="primaryBtn mt-4" type="submit">Submit</button>
+                    <button class="primaryBtn mt-4 w-100" type="submit">Submit</button>
                 </div>
             </div>
         </form>
@@ -97,15 +97,12 @@
                             <ul class="list-unstyled">
                                 <li class="row accountlisting" *ngFor="let transaction of votePackageTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
-                                        <app-attachment *ngIf="transaction.parent_user_id === 0" [attachment]="transaction.other_user.attachment"
-                                            [type]="original"></app-attachment>
-                                        <app-attachment *ngIf="transaction.parent_user_id !== 0" [attachment]="transaction.parent_user.attachment"
-                                            [type]="original"></app-attachment>
+                                        <app-attachment *ngIf="transaction.parent_user_id === 0" [attachment]="transaction.other_user.attachment" [type]="original"></app-attachment>
+                                        <app-attachment *ngIf="transaction.parent_user_id !== 0" [attachment]="transaction.parent_user.attachment" [type]="original"></app-attachment>
                                     </div>
                                     <div class="col-md-6 acvotepackage">
                                         <h2>VOTE PACKAGE <span *ngIf="transaction.parent_user_id === 0">for [{{transaction.other_user.first_name}} {{transaction.other_user.last_name}}]</span><span *ngIf="transaction.parent_user_id !== 0">for [{{transaction.parent_user.first_name}} {{transaction.parent_user.last_name}}]</span></h2>
-                                        <p class="accountamount">[
-                                            {{ transaction.amount | currency: transaction.CURRENCY_CODE:'symbol' }}]</p>
+                                        <p class="accountamount">[ {{ transaction.amount | currency: transaction.CURRENCY_CODE:'symbol' }}]</p>
                                         <p class="packagename m-0">Package Name - {{transaction.package.name}}</p>
                                         <p>Package Name -{{transaction.package.description}}</p>
                                         <p>Payment Gateway -{{transaction.payment_gateway.name}}</p>
