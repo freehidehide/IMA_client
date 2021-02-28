@@ -6,11 +6,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="innerBanners_box">
-                    <h1>{{name}}</h1>
-                    <ul>
+                    <!-- <h1>{{name}}</h1> -->
+                    <h1>Vote For {{displayname}}</h1>
+                    <!-- <ul>
                         <li><a href="javascript:void(0)">HOME</a></li>
                         <li><p>CATEGORIES</p></li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
@@ -176,12 +177,13 @@
                                    <span *ngIf="packageId !== '6'"> Amount : {{votePackage.price | currency: settings.CURRENCY_CODE:'symbol'}}</span>
                                    <span *ngIf="packageId === '6'"> Amount : {{customPackageCount / votePackage.vote | currency: settings.CURRENCY_CODE:'symbol'}}</span>
                                 </div>
-                                <div class="custom-control custom-radio custom-control-inline" *ngIf="votePackage.price < 10">
+                                <div class="custom-control custom-radio custom-control-inline">Exculsive of Paypal Processing Fee</div>
+                                <!-- <div class="custom-control custom-radio custom-control-inline" *ngIf="votePackage.price < 10">
                                     Processing Fee : {{(((paypalLessTen / 100) * votePackage.price) + paypalLessTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline" *ngIf="votePackage.price > 10">
                                     Processing Fee : {{(((paypalMoreTen / 100) * votePackage.price) + paypalMoreTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="paymentblock" *ngIf="settings && isSubscription">

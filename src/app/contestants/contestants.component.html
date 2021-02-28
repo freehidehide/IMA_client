@@ -44,7 +44,9 @@
             </div>
         </div>
         <div class="clearfix justify-content-center d-flex" *ngIf="metaData.last_page > 1">
-            <ngb-pagination [collectionSize]="metaData.total" [pageSize]="metaData.per_page" [(page)]="metaData.current_page" [maxSize]="7" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+            <ngb-pagination [collectionSize]="metaData.total" [pageSize]="metaData.per_page"
+                [(page)]="metaData.current_page" [maxSize]="7" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"
+                (pageChange)="loadPage($event)"></ngb-pagination>
         </div>
         <div class="row" *ngIf="isHeader && isNodata">
             <div class="col-md-12">
@@ -64,14 +66,11 @@
         <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
     </div>
     <div class="container pt-65 pb-65">
-            <div class="md-form mt-0">
-              <input class="form-control mr-sm-2" type="text" [(ngModel)]="search" name="search" placeholder="Search">
-              <button
-                                type="button"
-                                class="primaryBtn text-uppercase"
-                                (click)="getContestantsByCategories()"
-                            >Search</button>
-            </div>
+        <div class="md-form mt-0">
+            <input class="form-control mr-sm-2" type="text" [(ngModel)]="search" name="search" placeholder="Search">
+            <button type="button" class="primaryBtn text-uppercase"
+                (click)="getContestantsByCategories()">Search</button>
+        </div>
         <ul class="clearfix unstyled clsNamineeList">
             <li class="" *ngFor="let user of users; trackBy: trackById">
                 <a (click)="redirect(user)" href="javascript:void(0)" class="contestant-img">
@@ -100,6 +99,8 @@
         </div>
     </div>
     <div class="clearfix justify-content-center d-flex" *ngIf="metaData.last_page > 1">
-        <ngb-pagination [collectionSize]="metaData.total" [pageSize]="metaData.per_page" [(page)]="metaData.current_page" [maxSize]="7" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        <ngb-pagination [collectionSize]="metaData.total" [pageSize]="metaData.per_page"
+            [(page)]="metaData.current_page" [maxSize]="7" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"
+            (pageChange)="loadPage($event)"></ngb-pagination>
     </div>
 </div>

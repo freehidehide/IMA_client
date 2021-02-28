@@ -121,7 +121,7 @@
                             <li class="list-inline-item px-4">
                                 <a
                                     href="javascript:void(0)"
-                                    (click)="open(mymodal, true, 0, 0)"
+                                    (click)="open(mymodal, true, 0, 0, true)"
                                 >
                                     <i
                                         _ngcontent-bye-c27=""
@@ -251,22 +251,23 @@
                                             <div
                                                 class="profileinitialimg mx-auto text-center"
                                             >
-                                                <h3 class="categoryname">
+                                                <h3 class="categoryname" *ngIf="subscribData.category">
                                                     {{
                                                         subscribData.category ? subscribData.category.name : ''
                                                     }}
                                                 </h3>
-                                                <app-attachment
-                                                    [attachment]="
-                                                        subscribData
-                                                            .attachments[0]
-                                                    "
-                                                    [type]="original"
-                                                    [cssClass]="
-                                                        'profilefirstimg'
-                                                    "
-                                                ></app-attachment>
-
+                                                <span (click)="open(mymodal, false, subscribDataIndex, subscribData.attachments.length, true)">
+                                                    <app-attachment
+                                                        [attachment]="
+                                                            subscribData
+                                                                .attachments[0]
+                                                        "
+                                                        [type]="original"
+                                                        [cssClass]="
+                                                            'profilefirstimg'
+                                                        "
+                                                    ></app-attachment>
+                                                </span>
                                             </div>
                                             <span
                                                 *ngFor="
@@ -285,6 +286,7 @@
                                                     }"
                                                 >
                                                     <app-attachment
+                                                        (click)="open(mymodal, false, subscribDataIndex, subscribData.attachments.length, true)"
                                                         [attachment]="
                                                             attachment
                                                         "
@@ -302,7 +304,7 @@
                                                     subscribData.attachments
                                                         .length > 3
                                                 "
-                                                (click)="open(mymodal, false, subscribDataIndex, subscribData.attachments.length)"
+                                                (click)="open(mymodal, false, subscribDataIndex, subscribData.attachments.length, true)"
                                                 >+View More</span
                                             >
                                             <!-- <a
@@ -446,7 +448,7 @@
                 Submit
             </button>
         </div>
-        <div class="modal-body" *ngIf="!isUploadAttachment">
+        <div class="modal-body" *ngIf="!isUploadAttachment && user.subscribed_data[subscribeIndex].attachments[attachmentIndex]">
             <h4 class="text-center py-2">Location : {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].location}}
             Caption: {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].caption}}</h4>
             <app-attachment [attachment]="user.subscribed_data[subscribeIndex].attachments[attachmentIndex]" [type]="original" [cssClass]="'profilefirstimg'"></app-attachment>

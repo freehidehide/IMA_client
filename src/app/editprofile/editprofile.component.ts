@@ -43,6 +43,11 @@ export class EditprofileComponent extends UserBaseComponent implements OnInit {
                 zipcode: ['', [Validators.required]]
             }),
             paypal_email: ['', [Validators.email]],
+            instagram_url: [''],
+            tiktok_url: [''],
+            youtube_url: [''],
+            twitter_url: [''],
+            facebook_url: ['']
         });
         if (this.sessionService.user) {
             if (this.sessionService.user.role.name !== 'User') {

@@ -57,6 +57,7 @@ export class CheckoutComponent implements OnInit {
     public totalAmount: number;
     public isSubscription = false;
     public customPackageCount: number;
+    public displayname: string;
 
     constructor(public paymentService: PaymentService,
         private toastService: ToastService,
@@ -83,6 +84,7 @@ export class CheckoutComponent implements OnInit {
                 // const catId = types[2] ? types[2].split('=')[1] : 0;
                 // this.categoryId = +catId;
                 this.customPackageCount = types[2] ? +types[2].split('=')[1] : 0;
+                this.displayname = types[3] ? types[3].split('=')[1] : '';
             }
         }
 

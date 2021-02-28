@@ -91,15 +91,17 @@ export class ContestantprofileComponent extends UserBaseComponent  implements On
             });
     }
 
-    open(content, isUpload, subscribeIndex, attachmentsLength) {
-        this.isUploadAttachment = isUpload;
-        this.subscribeIndex = subscribeIndex;
-        this.attachmentsLength = attachmentsLength;
-        this.attachmentIndex = 4;
-        this.modalReference = this.modalService.open(content);
-        this.modalReference.result.then((result) => {
-        }, (reason) => {
-        });
+    open(content, isUpload, subscribeIndex, attachmentsLength, isViewMore) {
+        if (attachmentsLength < 3 || isViewMore) {
+            this.isUploadAttachment = isUpload;
+            this.subscribeIndex = subscribeIndex;
+            this.attachmentsLength = attachmentsLength;
+            this.attachmentIndex = 4;
+            this.modalReference = this.modalService.open(content);
+            this.modalReference.result.then((result) => {
+            }, (reason) => {
+            });
+        }
     }
 
     next() {

@@ -61,9 +61,9 @@ implements OnInit {
         let url: string;
         let state: any = null;
         if (this.router.url.includes('/instant_vote/')) {
-            url = 'checkout/instant_votes?contest=' + id + '&username=' + this.username + '&customcount=' + this.customCount;
+            url = 'checkout/instant_votes?contest=' + id + '&username=' + this.username + '&customcount=' + this.customCount + '&displayname=' + this.user.first_name + ' ' + this.user.last_name;
         } else {
-            url = 'checkout/votes?package=' + id + '&username=' + this.username + '&customcount=' + this.customCount;
+            url = 'checkout/votes?package=' + id + '&username=' + this.username + '&customcount=' + this.customCount + '&displayname=' + this.user.first_name + ' ' + this.user.last_name;
             state = {
                 state: {
                     category_id: this.categoryId
