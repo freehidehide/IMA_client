@@ -234,3 +234,141 @@ ul.unstyled {
         border-color: #cd6c80;
     }
 }
+
+.text-right {
+    .btn {
+        margin-left: 10px;
+        &:first-child {
+            margin-left: 0px;
+        }
+    }
+}
+
+.text-left {
+    .btn,
+    button {
+        margin-left: 10px;
+        &:first-child {
+            margin-left: 0px;
+        }
+    }
+}
+
+// Padding and Margins // Use like this (.pt-10, .pt-5 ..., .mt-10, .mt-5 ...)
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 100);
+$sides: (top, bottom, left, right);
+@each $space in $spaceamounts {
+    @each $side in $sides {
+        .m#{str-slice($side, 0, 1)}-#{$space} {
+            margin-#{$side}: #{$space}px;
+        }
+        .p#{str-slice($side, 0, 1)}-#{$space} {
+            padding-#{$side}: #{$space}px;
+        }
+    }
+}
+
+.custom-file-upload {
+    border: 1px solid #cd6c80;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background: #cd6c80;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+.clsAction {
+    text-align: center;
+    li {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 10px;
+        a {
+            display: block;
+        }
+        &:last-child {
+            margin-right: 10px;
+        }
+    }
+}
+
+.table-wrapper {
+    background: #fff;
+    padding: 20px 25px;
+    margin: 0px 0 30px;
+    border: 1px solid #435d7d;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.boxInputNew {
+    label {
+        color: #333;
+        font-size: 13px;
+        font-weight: 400;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+    }
+    p {
+        width: 100%;
+        background-color: #f7f7f7;
+        height: 36px;
+        border: solid 1px #ddd;
+        font-weight: 400;
+        border-radius: 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 10px 10px;
+        font-size: 13px;
+        color: #333;
+        line-height: 15px;
+    }
+}
+
+.form-check {
+    &.form-check-inline {
+        margin-top: 35px;
+    }
+}
+
+input[type="checkbox"] {
+    +label {
+        margin: 0 0 0 5px;
+    }
+}
+
+.clsCircleBtn {
+    width: 30px;
+    height: 30px;
+    border: 0px;
+    border-radius: 100%;
+    background: transparent;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    display: inline-block;
+    margin-right: 15px;
+    &.clsAddBtn {
+        background: #199228;
+    }
+    &.clsDeleteBtn {
+        background: #dc3545;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        color: #fff;
+    }
+    &:last-child {
+        margin-right: 0px;
+    }
+}
