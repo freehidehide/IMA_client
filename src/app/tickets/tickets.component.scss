@@ -1,33 +1,27 @@
-
 .advertlisting {
     .advertimg {
         display: inline-block;
         border-radius: 40px;
         overflow: hidden;
     }
-
     .advertmaincontent {
         margin: 180px 0 0;
         width: 100%;
-
         h2 {
             font-size: 75px;
             color: #696969;
             font-weight: 300;
         }
-
         p {
             font-size: 25px;
             color: #696969;
         }
     }
-
     .purchasbtn {
         font-size: 25px;
         color: #fff;
         font-weight: 300;
     }
-
     .adertindlist {
         margin: 0 0 30px;
     }
@@ -43,6 +37,7 @@
         margin-bottom: 10px;
     }
 }
+
 .ticketSec-p {
     font-size: 16px !important;
     span {
@@ -50,24 +45,22 @@
         font-size: 18px !important;
     }
 }
+
 .purchasBtn {
     font-size: 16px !important;
 }
 
-
-@media (max-width: 1440px) {
+@media (max-width: 1900px) {
     .advertlisting {
         .advertmaincontent {
             margin: 0;
             h2 {
                 font-size: 56px;
             }
-
             p {
                 font-size: 18px;
             }
         }
-
         .advertimg {
             app-attachment {
                 img {
@@ -90,7 +83,6 @@
             h2 {
                 font-size: 30px;
             }
-
             p {
                 font-size: 14px;
             }

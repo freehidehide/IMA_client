@@ -1,9 +1,9 @@
-
 .imafeaturescontainer {
     max-width: 1220px;
     width: 100%;
     margin: 0 auto;
 }
+
 .homefeatures {
     margin: 140px 0 75px;
     ul {
@@ -27,7 +27,8 @@
         padding: 11px;
     }
 }
-@media (max-width: 1440px) {
+
+@media (max-width: 1900px) {
     .homefeatures {
         margin: 100px 0 50px;
         ul {
@@ -46,6 +47,7 @@
         }
     }
 }
+
 @media (max-width: 991px) {
     .homefeatures {
         margin: 15px 0;

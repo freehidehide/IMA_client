@@ -1,7 +1,5 @@
-
 .view-profile {
     min-height: calc(100vh - 260px);
-
     .vpinner {
         padding: 104px 0 170px;
     }
@@ -17,7 +15,7 @@
     width: 200px;
     height: 200px;
     margin: 50px auto 0 auto;
-    > img {
+    >img {
         max-width: 560px;
     }
 }
@@ -53,7 +51,6 @@ p {
     margin-top: 30px;
     max-width: 200px;
     margin: 0 auto;
-
     a {
         height: 58px;
         font-size: 18px;
@@ -70,35 +67,30 @@ p {
     transform: translate(-50%, -50%);
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1900px) {
     .profileupdate {
         a.btn {
             font-size: 13px;
         }
     }
-
     .vpcontainer {
         max-width: 510px;
         .profile-image {
-            > img {
+            >img {
                 max-width: 420px;
                 width: 100%;
             }
         }
     }
-
     .forgot-subscribe {
         font-size: 37px;
     }
-
     .subscribed {
         font-size: 25px;
     }
-
     p {
         font-size: 18px;
     }
-
     .subscribe-button {
         a {
             height: 43px;
@@ -109,7 +101,6 @@ p {
             border-radius: 0;
         }
     }
-
     .subscribedicon {
         width: 69px;
         height: 69px;
@@ -124,14 +115,12 @@ p {
     .vpcontainer {
         margin-top: 0;
     }
-
     .profileupdate {
         margin-bottom: 15px;
     }
     .profile-name {
         font-size: 32px;
     }
-
     .view-profile {
         .vpinner {
             padding: 25px 0;
@@ -141,25 +130,11 @@ p {
 
 ////New Style
 .viewProfiles {
-  background: #0d0d0d;
-  padding: 50px 0;
+    background: #0d0d0d;
+    padding: 50px 0;
 }
 
 .btnOutline {
-  background-color: #fff;
-  border: 1px solid #fff;
-  color: #c25582;
-  margin-right: 5px;
-  margin-left: 3px;
-  margin-bottom: 10px;
-  font-size: 12px !important;
-  text-transform: uppercase !important;
-  font-weight: 700;
-  padding: 8px 30px;
-  transition: all 0.4s linear 0s;
-  border-radius: 0;
-
-  &:focus {
     background-color: #fff;
     border: 1px solid #fff;
     color: #c25582;
@@ -172,11 +147,23 @@ p {
     padding: 8px 30px;
     transition: all 0.4s linear 0s;
     border-radius: 0;
-  }
-
-  &:hover {
-    background-color: #c25582;
-    border: 1px solid #c25582;
-    color: #fff;
-  }
+    &:focus {
+        background-color: #fff;
+        border: 1px solid #fff;
+        color: #c25582;
+        margin-right: 5px;
+        margin-left: 3px;
+        margin-bottom: 10px;
+        font-size: 12px !important;
+        text-transform: uppercase !important;
+        font-weight: 700;
+        padding: 8px 30px;
+        transition: all 0.4s linear 0s;
+        border-radius: 0;
+    }
+    &:hover {
+        background-color: #c25582;
+        border: 1px solid #c25582;
+        color: #fff;
+    }
 }

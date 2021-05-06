@@ -44,9 +44,7 @@
             </div>
         </div>
         <div class="clearfix justify-content-center d-flex" *ngIf="metaData.last_page > 1">
-            <ngb-pagination [collectionSize]="metaData.total" [pageSize]="metaData.per_page"
-                [(page)]="metaData.current_page" [maxSize]="7" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"
-                (pageChange)="loadPage($event)"></ngb-pagination>
+            <ngb-pagination [collectionSize]="metaData.total" [pageSize]="metaData.per_page" [(page)]="metaData.current_page" [maxSize]="7" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
         </div>
         <div class="row" *ngIf="isHeader && isNodata">
             <div class="col-md-12">
@@ -67,7 +65,7 @@
     </div>
     <div class="container pt-20 pb-20">
         <div class="row">
-            <div class="col-sm-6 offset-lg-3">
+            <div class="col-sm-7">
                 <div class="input-group mb-3">
                     <input class="form-control" type="text" [(ngModel)]="search" name="search" placeholder="Search">
                     <div class="input-group-append">
@@ -76,6 +74,12 @@
                           </button>
                     </div>
                 </div>
+            </div>
+
+            <div class="offset-sm-2 col-sm-3 text-right">
+                <button type="button" class="btn btn-secondary">
+                    <i class="fa fa-angle-left"></i> Back
+                </button>
             </div>
         </div>
 
@@ -107,8 +111,6 @@
         </div>
     </div>
     <div class="clearfix justify-content-center d-flex" *ngIf="metaData.last_page > 1">
-        <ngb-pagination [collectionSize]="metaData.total" [pageSize]="metaData.per_page"
-            [(page)]="metaData.current_page" [maxSize]="7" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"
-            (pageChange)="loadPage($event)"></ngb-pagination>
+        <ngb-pagination [collectionSize]="metaData.total" [pageSize]="metaData.per_page" [(page)]="metaData.current_page" [maxSize]="7" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
     </div>
 </div>

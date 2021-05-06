@@ -18,38 +18,33 @@
         padding-bottom: 85px;
         border-bottom: 1px solid #333;
     }
-
     &:last-child {
         li {
             border-bottom: 0;
         }
     }
-
     h2 {
         font-weight: 300;
         font-size: 75px;
         margin: 0;
     }
-
     p {
         font-size: 50px;
         margin: 0;
     }
-
     .purchase-amount {
         font-weight: 300;
         font-size: 100px;
     }
-
     .purchase-btn {
         font-size: 34px;
         font-weight: 300;
     }
 }
-@media (max-width: 1440px) {
+
+@media (max-width: 1900px) {
     .votepurchase-listing {
         margin: 0;
-
         li {
             padding: 0;
             display: inline-block;
@@ -81,11 +76,9 @@
     .purchase-contimg {
         max-width: 280px;
     }
-
     .purchase-contesttitle {
         text-align: center;
     }
-
     .votepurchase-listing {
         li {
             padding: 10px 0 !important;
@@ -96,15 +89,12 @@
         h2 {
             font-size: 30px;
         }
-
         p {
             font-size: 18px;
         }
-
         .purchase-amount {
             font-size: 30px;
         }
-
         .purchase-btn {
             font-size: 14px;
         }
@@ -119,7 +109,7 @@
         li {
             text-align: center;
             padding: 20px 0 !important;
-            > .row {
+            >.row {
                 margin-top: 0 !important;
             }
             h2 {
@@ -135,19 +125,8 @@
         }
     }
 }
-.btnSuccess {
-  background-color: #c25582;
-  border: 1px solid #c25582;
-  color: #fff;
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 700;
-  padding: 10px 25px;
-  border-radius: 0;
-  margin-top: 10px;
-  transition: all 0.4s linear 0s;
 
-  &:focus {
+.btnSuccess {
     background-color: #c25582;
     border: 1px solid #c25582;
     color: #fff;
@@ -158,18 +137,29 @@
     border-radius: 0;
     margin-top: 10px;
     transition: all 0.4s linear 0s;
-  }
-
-  &:hover {
-    background-color: #fff;
-    border: 1px solid #fff;
-    color: #c25582;
-  }
+    &:focus {
+        background-color: #c25582;
+        border: 1px solid #c25582;
+        color: #fff;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 10px 25px;
+        border-radius: 0;
+        margin-top: 10px;
+        transition: all 0.4s linear 0s;
+    }
+    &:hover {
+        background-color: #fff;
+        border: 1px solid #fff;
+        color: #c25582;
+    }
 }
 
 .textSuccess {
-  color: #fff;
+    color: #fff;
 }
+
 ////Inner Banner Start
 .innerBanners {
     background-image: url(../../assets/images/innerBanners.jpg);
@@ -180,6 +170,7 @@
     position: relative;
     color: #fff;
 }
+
 .innerBanners_overlay {
     position: absolute;
     top: 0;
@@ -189,6 +180,7 @@
     background-color: #000;
     opacity: 0.7;
 }
+
 .innerBanners_box {
     z-index: 1;
     text-align: center;
@@ -225,4 +217,5 @@
         padding: 75px 0 50px 0;
     }
 }
+
 ////Inner Banner End

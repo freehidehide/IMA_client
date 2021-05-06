@@ -1,19 +1,4 @@
 .primaryBtn {
-  background-color: #c25582;
-  border: 1px solid #c25582;
-  color: #fff !important;
-  margin-right: 5px;
-  margin-left: 3px;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  font-size: 12px !important;
-  text-transform: uppercase;
-  padding: 7px 20px;
-  transition: all 0.4s linear 0s;
-  text-align: center;
-  border-radius: 0;
-
-  &:focus {
     background-color: #c25582;
     border: 1px solid #c25582;
     color: #fff !important;
@@ -27,46 +12,57 @@
     transition: all 0.4s linear 0s;
     text-align: center;
     border-radius: 0;
-  }
-
-  &:hover {
-    background-color: #c25582;
-    border: 1px solid #c25582;
-    color: #fff;
-    opacity: .8;
-  }
+    &:focus {
+        background-color: #c25582;
+        border: 1px solid #c25582;
+        color: #fff !important;
+        margin-right: 5px;
+        margin-left: 3px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-size: 12px !important;
+        text-transform: uppercase;
+        padding: 7px 20px;
+        transition: all 0.4s linear 0s;
+        text-align: center;
+        border-radius: 0;
+    }
+    &:hover {
+        background-color: #c25582;
+        border: 1px solid #c25582;
+        color: #fff;
+        opacity: .8;
+    }
 }
 
 .secondryBtn {
-  background-color: transparent;
-  border: 1px solid #fff;
-  color: #fff;
-  margin-right: 3px;
-  margin-left: 5px;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  font-size: 12px !important;
-  text-transform: uppercase;
-  padding: 7px 20px;
-  transition: all 0.4s linear 0s;
-  text-align: center;
-  text-transform: uppercase;
-  border-radius: 0;
-
-  &:hover {
-    background-color: #c25582;
-    border: 1px solid #c25582;
+    background-color: transparent;
+    border: 1px solid #fff;
     color: #fff;
-  }
+    margin-right: 3px;
+    margin-left: 5px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    padding: 7px 20px;
+    transition: all 0.4s linear 0s;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 0;
+    &:hover {
+        background-color: #c25582;
+        border: 1px solid #c25582;
+        color: #fff;
+    }
 }
-$topnav-background-color: #222;
 
+$topnav-background-color: #222;
 .login-page {
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
     background: #1a1a1a;
     color: #fff;
-
     .login-left {
         flex: 1 1 0;
         width: 50%;
@@ -74,39 +70,32 @@ $topnav-background-color: #222;
         background-color: #1a1a1a;
         color: #808080;
     }
-
     .limageright {
         width: 58%;
         text-align: right;
-
         img {
             height: 100vh;
             object-fit: cover;
             width: 100%;
         }
     }
-
     .logininner {
         max-width: 510px;
         width: 100%;
         margin: 0 auto;
         padding: 0 15px;
-
         .invalid-feedback-show {
             color: #f00;
             font-size: 14px;
             margin: 1px 0 0;
         }
     }
-
     label {
         color: #acacac;
     }
-
     .col-lg-4 {
         padding: 0;
     }
-
     .input-lg {
         height: 46px;
         padding: 10px 0;
@@ -114,7 +103,6 @@ $topnav-background-color: #222;
         line-height: 1.3333333;
         border-radius: 0;
     }
-
     .input-underline {
         background: 0 0;
         border: none;
@@ -122,11 +110,9 @@ $topnav-background-color: #222;
         color: #acacac;
         border-radius: 0;
     }
-
     .input-underline:focus {
         box-shadow: none;
     }
-
     .rounded-btn {
         -webkit-border-radius: 50px;
         border-radius: 0.3rem;
@@ -137,14 +123,12 @@ $topnav-background-color: #222;
         line-height: 40px;
         padding: 12px 5px 10px 5px;
     }
-
     .rounded-btn:hover,
     .rounded-btn:focus,
     .rounded-btn:active,
     .rounded-btn:visited {
         outline: none;
     }
-
     .forgotpass {
         a {
             color: #acacac;
@@ -152,27 +136,22 @@ $topnav-background-color: #222;
             font-size: 13px;
         }
     }
-
     .login-actions {
         a {
             width: 47%;
         }
     }
-
     .loginbtn {
         background: #3ea6fa;
         border: 2px solid #3ea6fa;
         color: #fff;
     }
-
     .form-group {
         padding: 5px 0;
     }
-
     .form-content {
         padding: 40px 0 10px;
     }
-
     .user-avatar {
         -webkit-border-radius: 50%;
         border-radius: 50%;
@@ -182,12 +161,10 @@ $topnav-background-color: #222;
 
 .thirdlogin {
     margin: 85px 0 0;
-
     .thirdtext {
         color: #000;
         font-size: 17px;
     }
-
     a {
         width: 100% !important;
         padding: 9px 6px 6px 5px !important;
@@ -195,30 +172,26 @@ $topnav-background-color: #222;
         text-decoration: none;
         margin: 0 5px;
         border-radius: 0 !important;
-
         span {
             font-weight: 600;
             margin: 0 0 0 6px;
         }
-
         i {
             margin: 0 15px;
             font-size: 28px;
         }
     }
-
     .facebook {
         color: #fff;
         background: #3b5998;
     }
-
     .google {
         color: #fff;
         background: #dd4b39;
     }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1900px) {
     .login-page {
         font-size: 15px;
         .toplogo {
@@ -229,7 +202,6 @@ $topnav-background-color: #222;
         .logininner {
             width: 380px;
         }
-
         .limageright {
             img {
                 object-position: 83% 100%;
@@ -277,11 +249,9 @@ $topnav-background-color: #222;
         .logininner {
             margin: 20px auto 15px;
         }
-
         .limageright {
             display: none;
         }
-
         .toplogo {
             img {
                 max-width: 100px;
@@ -294,11 +264,11 @@ $topnav-background-color: #222;
             padding: 10px 0 10px;
         }
     }
-
     .thirdlogin {
         margin: 10px 0 0;
     }
 }
+
 .signup-page {
     background: #1a1a1a !important;
 }

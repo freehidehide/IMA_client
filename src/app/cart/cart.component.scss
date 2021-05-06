@@ -1,7 +1,6 @@
 .cartinner {
     li {
         margin: 0 0 110px;
-
         &:last-child {
             margin: 0 0 20px;
         }
@@ -32,23 +31,22 @@
     color: #696969;
     line-height: 75px;
 }
-.singlecartprops{
-    button{
-        margin:20px 0 0;
+
+.singlecartprops {
+    button {
+        margin: 20px 0 0;
     }
 }
+
 .ctquantityinput {
     display: flex;
     align-items: center;
-
     .ctqtydecr {
         width: 74px;
         height: 74px;
         border: none;
-        background: #cfcfcf url('../../assets/images/minus-symbol.png')
-            no-repeat center center;
+        background: #cfcfcf url('../../assets/images/minus-symbol.png') no-repeat center center;
     }
-
     .quantityinput {
         border: none;
         height: 74px;
@@ -58,20 +56,17 @@
         font-weight: 300;
         color: #696969;
         background: #ededed;
-
         &:hover,
         &:focus {
             border-color: transparent;
             outline: none;
         }
     }
-
     .ctqtyincr {
         width: 74px;
         height: 74px;
         border: none;
-        background: #cfcfcf url('../../assets/images/plus-symbol.png') no-repeat
-            center center;
+        background: #cfcfcf url('../../assets/images/plus-symbol.png') no-repeat center center;
     }
 }
 
@@ -83,7 +78,6 @@
 
 .updatecart {
     text-align: center;
-
     button.btn {
         width: 100%;
         height: 57px;
@@ -95,20 +89,17 @@
 .checkout {
     margin: 85px 0 0;
     text-align: center;
-
     .carttotal {
         font-size: 20px;
         margin: 0 0 25px;
         font-weight: 500;
         color: #696969;
     }
-
     .cartamount {
         font-size: 75px;
         color: #696969;
         font-weight: 300;
     }
-
     .checkoutbtn {
         width: 100%;
         height: 57px;
@@ -117,73 +108,61 @@
     }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1900px) {
     .cartinner {
         li {
             margin: 0 0 85px;
         }
     }
-
     .carttitle {
         height: 248px;
-
         h3 {
             font-size: 85px;
         }
     }
-
     .cartsubtitle {
         font-size: 15px;
     }
-
     .cartproducttitle {
         font-size: 25px;
         line-height: 25px;
         font-weight: 500;
     }
-
     .proddescription {
         font-size: 15px;
         line-height: 20px;
     }
-
     .cartprodamt {
         font-size: 56px;
         line-height: 56px;
     }
-
     .ctquantityinput {
         .ctqtydecr {
             width: 35px;
             height: 36px;
             background-size: 60%;
         }
-
         .quantityinput {
             height: 36px;
             width: 100px;
             font-size: 22px;
             font-weight: 400;
         }
-
         .ctqtyincr {
             width: 35px;
             height: 36px;
             background-size: 60%;
         }
     }
-
     .produtimage {
         img {
             border-radius: 30px;
         }
     }
-
     .cart-middle {
         padding-left: 75px;
         padding-right: 75px;
     }
-
     .updatecart {
         button.btn {
             height: 43px;
@@ -191,19 +170,15 @@
             max-width: 235px;
         }
     }
-
     .checkout {
         margin: 60px 0 0;
-
         .carttotal {
             font-size: 15px;
             margin: 0 0 15px;
         }
-
         .cartamount {
             font-size: 55px;
         }
-
         .checkoutbtn {
             height: 43px;
             font-size: 13px;
@@ -224,47 +199,38 @@
             margin: 0 0 50px;
         }
     }
-
     .carttitle {
         height: 170px;
-
         h3 {
             font-size: 85px;
         }
     }
-
     .cartsubtitle {
         font-size: 15px;
         margin: 0 0 20px;
     }
-
     .cartproducttitle {
         font-size: 38px;
         line-height: 38px;
     }
-
     .proddescription {
         font-size: 13px;
     }
-
     .cartprodamt {
         font-size: 38px;
         line-height: 38px;
     }
-
     .ctquantityinput {
         .ctqtydecr {
             width: 38px;
             height: 38px;
             background-size: 65%;
         }
-
         .quantityinput {
             height: 38px;
             width: 86px;
             font-size: 26px;
         }
-
         .ctqtyincr {
             width: 38px;
             height: 38px;
@@ -276,7 +242,6 @@
             border-radius: 10px;
         }
     }
-
     .cart-middle {
         padding-left: 15px;
         padding-right: 15px;
@@ -289,49 +254,40 @@
             margin: 0 0 15px;
         }
     }
-
     .carttitle {
         h3 {
             font-size: 55px;
         }
     }
-
     .cartsubtitle {
         font-size: 12px;
         margin: 0 0 8px;
     }
-
     .cartproducttitle {
         font-size: 22px;
         line-height: 22px;
     }
-
     .proddescription {
         font-size: 13px;
     }
-
     .cartprice {
         padding: 0;
     }
-
     .cartprodamt {
         font-size: 22px;
         line-height: 22px;
     }
-
     .ctquantityinput {
         .ctqtydecr {
             width: 22px;
             height: 22px;
             background-size: 65%;
         }
-
         .quantityinput {
             height: 22px;
             width: 32px;
             font-size: 15px;
         }
-
         .ctqtyincr {
             width: 22px;
             height: 22px;
@@ -350,11 +306,13 @@
         line-height: 20px;
     }
 }
+
 .qtyremain {
     color: #dc3545;
     font-size: 12px;
     font-weight: 600;
 }
+
 .cartSize {
     width: 26px;
     height: 26px;
@@ -368,6 +326,7 @@
     padding: 4px 6px;
     display: inline-flex;
 }
+
 .cartColor {
     width: 26px;
     height: 26px;
@@ -376,15 +335,19 @@
     margin-right: 10px;
     cursor: pointer;
 }
+
 .cartColor.one {
     background: #e80000;
 }
+
 .cartColor.two {
     background: #ddd;
 }
+
 .cartColor.three {
     background: #e8e8e8;
 }
+
 .editCart {
     background: var(--success);
     color: var(--light);
@@ -397,6 +360,7 @@
     font-size: 14px;
     padding: 3px;
 }
+
 .deleteCart {
     background: var(--danger);
     color: var(--light);
@@ -409,63 +373,63 @@
     font-size: 14px;
     padding: 2px;
 }
+
 ///////New Style Start
 .noRecord {
-  font-size: 22px;
-  color: #a9a9a9;
-  position: relative;
-
-  &::before {
-    position: absolute;
-    background: rgb(239 144 164 / 28%);
-    content: '';
-    top: 15px;
-    bottom: 0;
-    left: 300px;
-    height: 1px;
-    width: 15%;
-    margin: 0 auto;
-  }
-
-  &::after {
-    position: absolute;
-    background: rgb(239 144 164 / 28%);
-    content: '';
-    top: 15px;
-    bottom: 0;
-    right: 300px;
-    height: 1px;
-    width: 15%;
-    margin: 0 auto;
-  }
-}
-@media (max-width: 798px) {
-    .noRecord {
-      &::before {
+    font-size: 22px;
+    color: #a9a9a9;
+    position: relative;
+    &::before {
         position: absolute;
-        background: rgba(239, 144, 164, 0.28);
-        content: "";
+        background: rgb(239 144 164 / 28%);
+        content: '';
         top: 15px;
         bottom: 0;
-        left: 10px;
+        left: 300px;
         height: 1px;
         width: 15%;
         margin: 0 auto;
-      }
-
-      &::after {
+    }
+    &::after {
         position: absolute;
-        background: rgba(239, 144, 164, 0.28);
-        content: "";
+        background: rgb(239 144 164 / 28%);
+        content: '';
         top: 15px;
         bottom: 0;
-        right: 10px;
+        right: 300px;
         height: 1px;
         width: 15%;
         margin: 0 auto;
-      }
     }
 }
+
+@media (max-width: 798px) {
+    .noRecord {
+        &::before {
+            position: absolute;
+            background: rgba(239, 144, 164, 0.28);
+            content: "";
+            top: 15px;
+            bottom: 0;
+            left: 10px;
+            height: 1px;
+            width: 15%;
+            margin: 0 auto;
+        }
+        &::after {
+            position: absolute;
+            background: rgba(239, 144, 164, 0.28);
+            content: "";
+            top: 15px;
+            bottom: 0;
+            right: 10px;
+            height: 1px;
+            width: 15%;
+            margin: 0 auto;
+        }
+    }
+}
+
 ////Inner Banner Start
 .innerBanners {
     background-image: url(../../assets/images/innerBanners.jpg);
@@ -476,6 +440,7 @@
     position: relative;
     color: #fff;
 }
+
 .innerBanners_overlay {
     position: absolute;
     top: 0;
@@ -485,6 +450,7 @@
     background-color: #000;
     opacity: 0.7;
 }
+
 .innerBanners_box {
     z-index: 1;
     text-align: center;
@@ -521,4 +487,5 @@
         padding: 75px 0 50px 0;
     }
 }
+
 ////Inner Banner End

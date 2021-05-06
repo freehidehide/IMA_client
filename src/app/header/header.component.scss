@@ -1,27 +1,23 @@
 $topnav-background-color: #222;
+
 /* header starts */
 
 .navbar {
     background-color: #1a1a1a;
-    padding         : 0px 130px;
-
+    padding: 0px 130px;
     .navbar-brand {
         color: #fff;
     }
-
     .nav-item {
         padding: 0 15px;
-
         >a {
-            color    : #fff;
+            color: #fff;
             font-size: 16px;
-
             &:hover {
                 color: #ef90a4;
             }
         }
     }
-
     &.scrollheader {
         background-color: #1a1a1a;
     }
@@ -29,22 +25,22 @@ $topnav-background-color: #222;
 
 .imacontainer {
     max-width: 1920px;
-    margin   : 0 auto;
-    width    : 100%;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .staticimanav {
-    position        : static;
+    position: static;
     background-color: #20293c;
-    padding-top     : 10px;
-    padding-bottom  : 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .header-alert {
     z-index: 99;
-    width  : 100%;
-    left   : 0;
-    top    : 15px;
+    width: 100%;
+    left: 0;
+    top: 15px;
 }
 
 li.nav-item.dropdown:hover .dropdown-menu {
@@ -54,8 +50,7 @@ li.nav-item.dropdown:hover .dropdown-menu {
 .dropdown-menu {
     ul {
         list-style: none;
-        padding   : 0;
-
+        padding: 0;
         li {
             border-bottom: 1px solid #eee;
         }
@@ -63,53 +58,48 @@ li.nav-item.dropdown:hover .dropdown-menu {
 }
 
 .dropdown-menu ul li.dropdown-item a {
-    color          : #000000;
-    font-size      : 13px;
+    color: #000000;
+    font-size: 13px;
     text-decoration: none;
 }
 
 .dropdown-menu a {
-    color    : #fff;
+    color: #fff;
     font-size: 14px !important;
 }
 
-@media (max-width: 1440px) {
-    :host {
+@media (max-width: 1900px) {
+     :host {
         .navbar {
             padding: 0px 88px;
-
             .nav-item {
                 padding: 27px 20px;
-
                 >a {
-                    font-size     : 14px;
-                    font-weight   : 700;
+                    font-size: 14px;
+                    font-weight: 700;
                     text-transform: uppercase;
-                    padding-left  : 0;
-                    padding-right : 0;
-                    font-family   : 'Lusitana', serif;
-                    white-space   : nowrap;
+                    padding-left: 0;
+                    padding-right: 0;
+                    font-family: 'Lusitana', serif;
+                    white-space: nowrap;
                 }
             }
-
-            .navbar-brand {
-                img {}
-            }
+            // .navbar-brand {
+            //     img {}
+            // }
         }
     }
 }
 
 @media (max-width: 991px) {
     .imanavbar {
-        position  : static;
+        position: static;
         background: rgba(0, 0, 0, 0.95);
-        padding   : 12px 25px !important;
+        padding: 12px 25px !important;
     }
-
     .navbar {
         .nav-item {
             padding: 0 !important;
-
             a {
                 font-size: 14px;
             }
@@ -134,11 +124,11 @@ li.nav-item.dropdown:hover .dropdown-menu {
 @media (max-width: 1024px) and (min-width: 998px) {
     .nav-item {
         padding: 0 10px !important;
-
         a {
             font-size: 13px !important;
         }
     }
 }
+
 
 /* header ends */

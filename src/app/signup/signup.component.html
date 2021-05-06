@@ -99,8 +99,19 @@
                 </div>
             </div>
             <div class="login-actions">
-                <a class="btn rounded-btn register-btn" (keydown)="onKeydown($event)" (click)="onSubmit()">{{ 'Sign Up' | translate }}</a
-                >
+                <div class="row">
+                    <div class="col-sm-6 text-left">
+                        <a class="btn btn-primary" (keydown)="onKeydown($event)" (click)="onSubmit()">
+                            {{ 'Sign Up' | translate }}
+                        </a>
+                    </div>
+
+                    <div class="col-sm-6 text-right">
+                        <button type="button" class="btn btn-secondary">
+                            <i class="fa fa-angle-left"></i> Back
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="already_acc">
                 Already have an account?
