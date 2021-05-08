@@ -47,7 +47,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
         const isBackendFailure = sessionStorage.getItem('backend_failure');
         if (isSessionExpired !== undefined && isSessionExpired === 'true') {
             sessionStorage.removeItem('session_expired');
-            this.toastService.warning('Session Expired');
+            //this.toastService.warning('Session Expired');
         } else if (
             isBackendFailure !== undefined &&
             isBackendFailure === 'true'

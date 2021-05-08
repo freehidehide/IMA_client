@@ -7,8 +7,7 @@
                 <div class="innerBanners_box">
                     <h1>Recent Winner</h1>
                     <ul>
-                        <li><a href="javascript:void(0)">HOME</a></li>
-                        <li><a href="#">WINNERS</a></li>
+                        <li><a href="javascript:void(0)" [routerLink]="['/']">HOME</a></li>
                         <li><p>RECENT WINNERS</p></li>
                     </ul>
                 </div>
@@ -20,6 +19,7 @@
 <div class="imacontainer">
     <div class="content-middle recentwinner-section">
         <h1 *ngIf="pageTitle">{{ pageTitle }}</h1>
+        <!-- <h1 *ngIf="pageTitle">Coming Soon</h1> -->
         <div *ngIf="users">
             <div class="imacontainer" *ngFor="let user of users">
                 <div class="contestantprofile">
@@ -28,9 +28,9 @@
                             <div class="offset-md-3 col-md-6">
                                 <div class="recentWin">
                                     <div class="profileheader text-center">
-                                        <app-attachment
+                                        <app-attachment [type]="'mobile'"
                                             [attachment]="user.attachment"
-                                            [type]="original"
+                                            
                                             [cssClass]="'profiletopimg'"
                                         ></app-attachment>
                                     </div>

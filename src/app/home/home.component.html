@@ -264,19 +264,20 @@
 </section>
 <!-- Banner End -->
 <!-- About Start -->
-<section class="homeAbout"  *ngIf="users && users.length > 0">
+<section class="homeAbout"  *ngIf="settings && settings.CONTEST_EXIST && (settings.CONTEST_END_DAYS_LEFT || settings.CONTEST_END_TIME_LEFT) && users && users.length > 0">
     <div class="homeAbout_overlay"></div>
     <div class="container">
         <div class="row clsTopList" *ngIf="users && users.length > 0">
             <div class="col-sm-12">
-                <h2 class="text-center"> Top 10 Contestants (<countdown [config]="{leftTime: 900000000}"></countdown>)</h2>
+                <!-- {{settings.CONTEST_NAME}}  -->
+                <h2 class="text-center"> Top 10 Contestants <span *ngIf="settings.CONTEST_END_DAYS_LEFT > 1">({{settings.CONTEST_END_DAYS_LEFT}} Days Left)</span><span *ngIf="settings.CONTEST_END_DAYS_LEFT <= 1">(<countdown [config]="{leftTime: settings.CONTEST_END_TIME_LEFT}" (event)="handleEvent($event)"></countdown>)</span></h2>
                 <p class="text-center clsItalic"> Keep supporting your favourite models by casting votes while you can </p>
             </div>
             <div class="col-md-6 offset-md-3">
                 <ol class="clearfix">
                     <li *ngFor=" let user of users; let i = index;">
                         <div class="media" (click)="redirect(user)">
-                            <app-attachment [attachment]="user.attachment" [type]="mobile" [cssClass]="'mr-3'">
+                            <app-attachment [type]="'mobile'" [attachment]="user.attachment"  [cssClass]="'mr-3'">
                             </app-attachment>
                             <div class="media-body align-self-center">
                                 <h3 class="mt-0"><a style="color: white;" href="javascript:void(0)" >{{user.first_name}} {{user.last_name}}</a></h3>
@@ -289,6 +290,17 @@
                         </div>
                     </li>
                 </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="homeAbout" *ngIf="settings && settings.CONTEST_EXIST && settings.CONTEST_END_DAYS_LEFT < 0">
+    <div class="homeAbout_overlay"></div>
+    <div class="container">
+        <div class="row clsTopList">
+            <div class="col-sm-12">
+                <h2 class="text-center"> {{settings.CONTEST_NAME}} </h2>
+                <p class="text-center"> <a href="javascript:void(0)" [routerLink]="['/recent_winner']" class="primaryBtn">Recent winners</a></p>
             </div>
         </div>
     </div>

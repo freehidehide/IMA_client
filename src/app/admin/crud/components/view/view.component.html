@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-md-2" *ngIf="item.type === 'file'">
                         <div class="contprofileimage">
-                            <app-attachment [attachment]="responseData.attachment" [type]="original"></app-attachment>
+                            <app-attachment [type]="'mobile'" [attachment]="responseData.attachment" ></app-attachment>
                         </div>
                     </div>
                   </div>

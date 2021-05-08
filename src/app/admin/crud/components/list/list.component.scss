@@ -4,6 +4,11 @@
         width: 20px;
     }
 }
+a.disabled {
+    color: gray;
+    cursor: not-allowed;
+    text-decoration: underline;
+}
 .crud-approval-action {
 	margin-right: 10px;
 	i {

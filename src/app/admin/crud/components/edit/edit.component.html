@@ -32,7 +32,7 @@
                         <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
                         <input type="file" (change)="uploadImage($event, item)" [(ngModel)]="item.value" [ngModelOptions]="{standalone: true}" class="form-control-file" id="{{item.name}}">
                         <div class="contprofileimage" *ngIf="!item.isUploaded">
-                            <app-attachment [attachment]="responseData.attachment" [type]="original"></app-attachment>
+                            <app-attachment [type]="'mobile'" [attachment]="responseData.attachment" ></app-attachment>
                         </div>
                     </div>
                     <div class="form-check form-check-inline" *ngIf="item.type === 'checkbox'">

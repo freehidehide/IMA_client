@@ -33,7 +33,7 @@ export class AttachmentComponent {
 
     @Input('attachment')
     set attachment(value: Attachment) {
-        this.imageClass = 'original';
+        //this.imageClass = 'original';
         this.isVideo = (value && value.thumb) ? true : false;
         if (!this.isVideo && value && value.id) {
             const id: string = value.id.toString();

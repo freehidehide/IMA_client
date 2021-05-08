@@ -64,10 +64,10 @@
                 <div class="cartimglisting d-flex">
                     <div class="mr-3 cartmiouter">
                         <div class="cartmainimage position-relative">
-                            <app-attachment [attachment]="product.showDetail.panelImage" [type]="original"
+                            <app-attachment [type]="'mobile'" [attachment]="product.showDetail.panelImage" 
                                 [cssClass]="'shopattimage'"></app-attachment>
                             <a href="javascript:void(0)" (click)="redirect(product.user)" class="cartuserimg">
-                                <app-attachment *ngIf="product.user" [attachment]="product.user.attachment" [type]="original"
+                                <app-attachment [type]="'mobile'" *ngIf="product.user" [attachment]="product.user.attachment" 
                                     [cssClass]="'rounded-circle'"></app-attachment>
                             </a>
                         </div>
@@ -76,7 +76,7 @@
                         <span *ngFor="let attachmentDetail of product.showDetail.attachments; let thumbnailIndex = index;">
                             <span href="javascript:void(0)" class="mb-3 thumbnail-span" *ngIf="thumbnailIndex < 4"
                                 (click)="changeImage(product, attachmentDetail)" >
-                                    <app-attachment [attachment]="attachmentDetail" [type]="original"
+                                    <app-attachment [type]="'mobile'" [attachment]="attachmentDetail" 
                                         [cssClass]="'shopattimage'"></app-attachment>
                             </span>
                         </span>
@@ -178,7 +178,7 @@
         </button>
     </div>
     <div class="modal-body">
-        <app-attachment [attachment]="attachments[attachmentIndex]" [type]="original" [cssClass]="'profilefirstimg'"></app-attachment>
+        <app-attachment [type]="'mobile'" [attachment]="attachments[attachmentIndex]"  [cssClass]="'profilefirstimg'"></app-attachment>
         <button class="btn btn-primary" (click)="prev()" type="button" *ngIf="attachmentIndex !== 1"><<Prev</button>
         <button class="btn btn-primary" (click)="next()" type="button" *ngIf="(attachmentIndex+1) < attachments.length">>>Next</button>
     </div>

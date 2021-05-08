@@ -6,9 +6,12 @@
             <div class="col-md-4 offset-md-1">
                 <!-- <h4>Banner Ad</h4> -->
                 <div class="verticalItem">
-                    <a href="javascript:void(0)">
+                    <a href="javascript:void(0)" *ngIf="advertisementList && advertisementList.data.length > 0">
                         <div class="itemMedia">
-                            <img src="assets/images/footerbanner.jpg" alt="">
+                            <app-attachment [type]="'mobile'"
+                                    [attachment]="advertisementList.data[0].attachment"
+                                     [cssClass]="'sponsorsBox-img'"
+                                ></app-attachment>
                         </div>
                         <div class="itemContent">
                             <h3> Title Sponsor </h3>
@@ -20,12 +23,6 @@
             <div class="col-md-6 offset-md-1">
                 <div class="innerBanners_box">
                     <h1>Sponsors</h1>
-                    <ul>
-                        <li><a href="javascript:void(0)">HOME</a></li>
-                        <li>
-                            <p>SPONSORS</p>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -37,59 +34,22 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="commingSoon-text"> Coming Soon </h4>
+                <!-- <h4 class="commingSoon-text"> Coming Soon </h4> -->
 
-                <div class="clsclientBlock pt-20">
-                    <div>
-                        <div class="clsImage">
+                <div class="clsclientBlock pt-20" *ngIf="advertisementList">
+                    <div *ngFor="let advertisement of advertisementList.data;
+                    let i = index;">
+                        <div class="clsImage" *ngIf="i !== 0">
                             <a href="javascript:void(0)">
-                                <img src="assets/images/login-logo.png" alt="">
+                                <app-attachment [type]="'mobile'"
+                                    [attachment]="advertisement.attachment"
+                                     [cssClass]="'sponsorsBox-img'"
+                                ></app-attachment>
                             </a>
                         </div>
                     </div>
-
-                    <div>
-                        <div class="clsImage">
-                            <a href="javascript:void(0)">
-                                <img src="assets/images/login-logo.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="clsImage">
-                            <a href="javascript:void(0)">
-                                <img src="assets/images/login-logo.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="clsImage">
-                            <a href="javascript:void(0)">
-                                <img src="assets/images/login-logo.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="clsImage">
-                            <a href="javascript:void(0)">
-                                <img src="assets/images/login-logo.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="clsImage">
-                            <a href="javascript:void(0)">
-                                <img src="assets/images/login-logo.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
+    </div>
 </section>
-<!-- Comming Soon End -->

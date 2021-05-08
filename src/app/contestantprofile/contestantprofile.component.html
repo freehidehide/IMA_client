@@ -1,38 +1,19 @@
-<!-- Banner Start -->
-<section class="innerBanners">
-    <div class="innerBanners_overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="innerBanners_box">
-                    <h1>Best in Acting</h1>
-                    <ul>
-                        <li><a href="javascript:void(0)">HOME</a></li>
-                        <li><a href="javascript:void(0)">PROFILE</a></li>
-                        <li><p>BEST IN ACTING</p></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Banner End -->
 <div class="imacontainer" *ngIf="user">
     <div class="container">
         <div class="row proSec">
             <div class="offset-md-2 col-md-8">
                 <div class="secBorder">
                     <div class="profileheader text-center">
-                        <app-attachment
+                        <app-attachment [type]="'mobile'"
                             [attachment]="user.attachment"
-                            [type]="original"
+                            
                             [cssClass]="'profiletopimg'"
                         ></app-attachment>
                     </div>
                     <div class="contprofileimage">
-                        <app-attachment
+                        <app-attachment [type]="'mobile'"
                             [attachment]="user.attachment"
-                            [type]="original"
+                            
                             [cssClass]="'profilecircleimg'"
                         ></app-attachment>
                     </div>
@@ -257,12 +238,12 @@
                                                     }}
                                                 </h3>
                                                 <span (click)="open(mymodal, false, subscribDataIndex, subscribData.attachments.length, true)">
-                                                    <app-attachment
+                                                    <app-attachment [type]="'mobile'"
                                                         [attachment]="
                                                             subscribData
                                                                 .attachments[0]
                                                         "
-                                                        [type]="original"
+                                                        
                                                         [cssClass]="
                                                             'profilefirstimg'
                                                         "
@@ -285,12 +266,12 @@
                                                             !subscribData.viewmore
                                                     }"
                                                 >
-                                                    <app-attachment
+                                                    <app-attachment [type]="'mobile'"
                                                         (click)="open(mymodal, false, subscribDataIndex, subscribData.attachments.length, true)"
                                                         [attachment]="
                                                             attachment
                                                         "
-                                                        [type]="original"
+                                                        
                                                         [cssClass]="
                                                             'profilefulllist'
                                                         "
@@ -361,7 +342,7 @@
             </button>
         </div>
         <div class="modal-body" *ngIf="isUploadAttachment">
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="category">Category <span>*</span></label>
                 <select
                     class="form-control"
@@ -376,7 +357,7 @@
                         >{{ userCategory.category.name }}</option
                     >
                 </select>
-            </div>
+            </div> -->
             <div class="form-group">
                 <label for="location">Location <span>*</span></label>
                 <input
@@ -451,7 +432,7 @@
         <div class="modal-body" *ngIf="!isUploadAttachment && user.subscribed_data[subscribeIndex].attachments[attachmentIndex]">
             <h4 class="text-center py-2">Location : {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].location}}
             Caption: {{user.subscribed_data[subscribeIndex].attachments[attachmentIndex].caption}}</h4>
-            <app-attachment [attachment]="user.subscribed_data[subscribeIndex].attachments[attachmentIndex]" [type]="original" [cssClass]="'profilefirstimg'"></app-attachment>
+            <app-attachment [type]="'mobile'" [attachment]="user.subscribed_data[subscribeIndex].attachments[attachmentIndex]"  [cssClass]="'profilefirstimg'"></app-attachment>
             <button class="btn preBtn" (click)="prev()" type="button" *ngIf="attachmentIndex !== 1"><i class="fa fa-chevron-left"></i></button>
             <button class="btn nextBtn" (click)="next()" type="button" *ngIf="(attachmentIndex+1) < attachmentsLength"><i class="fa fa-chevron-right"></i></button>
         </div>

@@ -7,12 +7,14 @@ import { QueryParam } from '../api/models/query-param';
 import { AppConst } from '../utils/app-const';
 import { BaseComponent } from '../base.component';
 import { SessionService } from '../api/services/session-service';
+import { UserService } from '../api/services/user.service';
 @Component({
   selector: 'app-recent-winner',
   templateUrl: './recent-winner.component.html',
   styleUrls: ['./recent-winner.component.scss']
 })
 export class RecentWinnerComponent extends BaseComponent implements OnInit {
+  public settings: any;
   public users: User[] = [];
   public isNodata: boolean;
   public categoryId = 1;
@@ -24,17 +26,28 @@ export class RecentWinnerComponent extends BaseComponent implements OnInit {
       private categoryService: CategoryService,
       private activatedRoute: ActivatedRoute,
       private toastService: ToastService,
-      public sessionService: SessionService
+      public sessionService: SessionService,
+      public userService: UserService
   ) {
       super();
   }
 
   ngOnInit(): void {
-      this.getRecentWinnerList();
+    this.toastService.showLoading();
+    this.userService
+        .settings()
+        .subscribe((response) => {
+          this.settings = response.data;
+          if (this.settings && this.settings.CONTEST_EXIST && this.settings.CONTEST_END_DAYS_LEFT < 0) {
+            this.getRecentWinnerList();
+          } else {
+            this.toastService.clearLoading();
+            this.router.navigate(['/']);
+          }
+        });    
   }
 
   getRecentWinnerList(): void {
-    this.toastService.showLoading();
     this.categoryService
         .getRecentWinnerList(null)
         .subscribe((response) => {

@@ -91,4 +91,9 @@ export class UserService {
         const url: string = AppConst.SERVER_URL.LOGOUT;
         return this.apiService.httpGet(url, null);
     }
+
+    settings(): Observable<any> {
+        const url: string = AppConst.SERVER_URL.SETTINGS;
+        return this.apiService.httpGet(url, null);
+    }
 }

@@ -189,7 +189,7 @@
                         <div class="col-md-4 hoverZoomin" *ngFor="let product of productDetails; let productIndex = index; trackBy: trackById">
                             <div class="shopBox">
                                 <a href="javascript:void(0)" title="">
-                                    <app-attachment [attachment]="product.details[0].attachments[0]" [type]="original"
+                                    <app-attachment [type]="'mobile'" [attachment]="product.details[0].attachments[0]" 
                                     [cssClass]="'shopattimage hoverZoominimg'"></app-attachment>
                                 </a>
                                 <span class="priceCross">
