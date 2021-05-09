@@ -38,9 +38,9 @@
 </div>
 <ngb-carousel *ngIf="usersTop.length > 0">
     <ng-template ngbSlide *ngFor="let user of usersTop">
-            <app-attachment
+            <app-attachment [type]="'mobile'"
                         [attachment]="user.attachment"
-                        [type]="original"
+                        
                         [cssClass]="'carouselimage'"
                     ></app-attachment>
         <div class="carousel-caption">

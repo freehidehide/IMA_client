@@ -14,9 +14,9 @@
                     </div>
                     <div class="vpcontainer mx-auto text-center">
                         <div class="profile-image position-relative">
-                            <app-attachment
+                            <app-attachment [type]="'mobile'"
                             [attachment]="user.attachment"
-                            [type]="original"
+                            
                             [cssClass]="'img-fluid rounded-circle overflow-hidden'"
                         ></app-attachment>
                             <div class="subscribedicon" *ngIf="user.is_subscribed">

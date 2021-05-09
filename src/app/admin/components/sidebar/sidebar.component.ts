@@ -19,6 +19,7 @@ export class SidebarComponent implements OnInit {
     pushRightClass: string;
     settings: any;
     menus: any;
+    session: any;
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
     constructor(private translate: TranslateService,
@@ -44,7 +45,8 @@ export class SidebarComponent implements OnInit {
         this.showMenu = '';
         this.pushRightClass = 'push-right';
         this.settings = this.startupService.startupData();
-        this.menus = this.settings.MENU;
+        this.session = JSON.parse(sessionStorage.getItem('user_context'));
+        this.menus = this.settings.MENU.filter((e) => (!e.role_id || e.role_id.indexOf(this.session.role.id) > -1)); 
     }
 
     eventCalled() {
@@ -90,7 +92,7 @@ export class SidebarComponent implements OnInit {
     redirect(url: string): void {
         if (url === '/admin/actions/logout') {
             this.logout();
-        } else {
+        } else if (url) {
             this.router.navigate([ url ]);
         }
     }

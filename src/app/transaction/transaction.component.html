@@ -63,9 +63,9 @@
                             <ul class="list-unstyled">
                                 <li class="row accountlisting" *ngFor="let transaction of productTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
-                                        <app-attachment
+                                        <app-attachment [type]="'mobile'"
                                             *ngIf="transaction.detail && transaction.detail.attachment"
-                                            [attachment]="transaction.detail.attachment" [type]="original">
+                                            [attachment]="transaction.detail.attachment" >
                                         </app-attachment>
                                     </div>
                                     <div class="col-md-6 acvotepackage">
@@ -97,8 +97,8 @@
                             <ul class="list-unstyled">
                                 <li class="row accountlisting" *ngFor="let transaction of votePackageTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
-                                        <app-attachment *ngIf="transaction.parent_user_id === 0" [attachment]="transaction.other_user.attachment" [type]="original"></app-attachment>
-                                        <app-attachment *ngIf="transaction.parent_user_id !== 0" [attachment]="transaction.parent_user.attachment" [type]="original"></app-attachment>
+                                        <app-attachment [type]="'mobile'" *ngIf="transaction.parent_user_id === 0" [attachment]="transaction.other_user.attachment" ></app-attachment>
+                                        <app-attachment [type]="'mobile'" *ngIf="transaction.parent_user_id !== 0" [attachment]="transaction.parent_user.attachment" ></app-attachment>
                                     </div>
                                     <div class="col-md-6 acvotepackage">
                                         <h2>VOTE PACKAGE <span *ngIf="transaction.parent_user_id === 0">for [{{transaction.other_user.first_name}} {{transaction.other_user.last_name}}]</span><span *ngIf="transaction.parent_user_id !== 0">for [{{transaction.parent_user.first_name}} {{transaction.parent_user.last_name}}]</span></h2>
@@ -125,10 +125,10 @@
                             <ul class="list-unstyled">
                                 <li class="row accountlisting" *ngFor="let transaction of instantTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
-                                        <app-attachment *ngIf="transaction.parent_user_id === 0" [attachment]="transaction.other_user.attachment"
-                                            [type]="original"></app-attachment>
-                                        <app-attachment *ngIf="transaction.parent_user_id !== 0" [attachment]="transaction.parent_user.attachment"
-                                            [type]="original"></app-attachment>
+                                        <app-attachment [type]="'mobile'" *ngIf="transaction.parent_user_id === 0" [attachment]="transaction.other_user.attachment"
+                                            ></app-attachment>
+                                        <app-attachment [type]="'mobile'" *ngIf="transaction.parent_user_id !== 0" [attachment]="transaction.parent_user.attachment"
+                                            ></app-attachment>
                                     </div>
                                     <div class="col-md-6 acvotepackage">
                                         <h2>VOTE PACKAGE <span *ngIf="transaction.parent_user_id === 0">for [{{transaction.other_user.first_name}} {{transaction.other_user.last_name}}]</span><span *ngIf="transaction.parent_user_id !== 0">for [{{transaction.parent_user.first_name}} {{transaction.parent_user.last_name}}]</span></h2>
@@ -156,8 +156,8 @@
                             <ul class="list-unstyled">
                                 <li class="row accountlisting" *ngFor="let transaction of subscriptionTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
-                                        <app-attachment [attachment]="transaction.other_user.attachment"
-                                            [type]="original"></app-attachment>
+                                        <app-attachment [type]="'mobile'" [attachment]="transaction.other_user.attachment"
+                                            ></app-attachment>
                                     </div>
                                     <div class="col-md-6 acvotepackage">
                                         <h2>VOTE PACKAGE <span>for [{{transaction.other_user.first_name}}]</span></h2>
@@ -185,8 +185,8 @@
                             <ul class="list-unstyled">
                                 <li class="row accountlisting" *ngFor="let transaction of fundTransactionData">
                                     <div class="col-md-1 acuserimage text-center p-0">
-                                        <app-attachment [attachment]="transaction.other_user.attachment"
-                                            [type]="original"></app-attachment>
+                                        <app-attachment [type]="'mobile'" [attachment]="transaction.other_user.attachment"
+                                            ></app-attachment>
                                     </div>
                                     <div class="col-md-6 acvotepackage">
                                         <p class="accountamount">[

@@ -20,6 +20,7 @@ export class ListComponent implements OnInit {
   public settings: any;
   public page = 1;
   public previousPage: any;
+  search: any;
 
   constructor(private crudService: CrudService,
     private toastService: ToastService,
@@ -31,6 +32,7 @@ export class ListComponent implements OnInit {
     if (value) {
       this.menu = value;
       this.menu.listview.fields = value.listview.fields.filter((x) => (x.list === true));
+      this.search = '';
       if (this.menu && this.menu.api) {
         this.getRecords();
       }
@@ -40,7 +42,10 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+  getFilterRecords() {
+    this.previousPage = '';
+    this.getRecords();
+  }
   getRecords() {
     this.toastService.showLoading();
       const queryParam: QueryParam = {};
@@ -49,6 +54,9 @@ export class ListComponent implements OnInit {
       }
       if (this.previousPage) {
         queryParam.page = this.previousPage;
+      }
+      if (this.search) {
+        queryParam.q = this.search;
       }
       this.crudService.get(this.menu.api, queryParam)
       .subscribe((responseApi) => {

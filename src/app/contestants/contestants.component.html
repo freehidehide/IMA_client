@@ -4,14 +4,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="innerBanners_box">
-                    <h1>Nominees</h1>
-                    <ul>
-                        <li><a href="javascript:void(0)">HOME</a></li>
-                        <li><a href="javascript:void(0)">PAGES</a></li>
-                        <li>
-                            <p>NOMINEES</p>
-                        </li>
-                    </ul>
+                    <h1>{{categoryName}} Nominees</h1>
                 </div>
             </div>
         </div>
@@ -20,37 +13,54 @@
 <section class="contestantsSec" *ngIf="header && !isContest && !isLoading">
     <div class="container">
 
-        <div class="row" *ngIf="!isNodata">
+        <div class="row">
             <div class="col-md-12">
                 <h2>{{categoryName}}</h2>
             </div>
-            <div class="col-md-4" (click)="redirect(user)" *ngFor="let user of users; trackBy: trackById">
-                <div class="contestantsBox">
-                    <app-attachment [attachment]="user.attachment" [type]="original" [cssClass]="'img-fluid'">
-                    </app-attachment>
-                    <div class="contestantsBox_overlay"></div>
+            <div class="col-md-12" *ngFor="let user of users; trackBy: trackById">
+                <div class="container pt-20 pb-20">
+                    <div class="row">
+                        <div class="col-sm-6 offset-lg-3">
+                            <div class="input-group mb-3">
+                                <input class="form-control" type="text" [(ngModel)]="search" name="search" placeholder="Search">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-primary primaryBtn text-uppercase" (click)="getContestantsByCategories()">
+                                        Search
+                                      </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <ul class="clearfix unstyled clsNamineeList">
+                        <li class="" *ngFor="let user of users; trackBy: trackById">
+                            <a (click)="redirect(user)" href="javascript:void(0)" class="contestant-img">
+                                <app-attachment [type]="'mobile'" [attachment]="user.attachment"  [cssClass]="'contestantimg'">
+                                </app-attachment>
+                            </a>
+                            <div class="clsNameBlock">
+                                <div class="clsStar">
+                                    <span class="">
+                                        <!-- <img src="assets/images/star-icon.png" width="25" class="img-fluid mr-2" /> -->
+                                        <i class="fa fa-star"></i>
+                                        {{user.votes}}
+                                    </span>
+                                </div>
+            
+                                <div class="contestant-name" (click)="redirect(user)">
+                                    {{ user.username }}
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="contestantsText_1">
-                    <h4>NOMINEE <span>@{{user.username}}</span></h4>
-                    <p>VOTE NOW @ ITSTHEIMES.COM/{{user.username}}</p>
-                </div>
-                <div class="contestantsText_2">
-                    <h3>{{categoryName}}</h3>
-                    <h5>Celebrating & Promoting & Women Empowerment</h5>
-                </div>
-                <div class="contestantsText_3">
-                    <p>2021</p>
-                </div>
+            </div>
+            <div class="col-md-12" *ngIf="isNodata">
+                <label style="font-weight: bold;color: #ffffff;">No Records</label>
             </div>
         </div>
         <div class="clearfix justify-content-center d-flex" *ngIf="metaData.last_page > 1">
             <ngb-pagination [collectionSize]="metaData.total" [pageSize]="metaData.per_page" [(page)]="metaData.current_page" [maxSize]="7" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
-        </div>
-        <div class="row" *ngIf="isHeader && isNodata">
-            <div class="col-md-12">
-                <h2>{{categoryName}}</h2>
-            </div>
-            <div class="col-md-4">No Records</div>
         </div>
     </div>
 </section>
@@ -86,7 +96,7 @@
         <ul class="clearfix unstyled clsNamineeList">
             <li class="" *ngFor="let user of users; trackBy: trackById">
                 <a (click)="redirect(user)" href="javascript:void(0)" class="contestant-img">
-                    <app-attachment [attachment]="user.attachment" [type]="original" [cssClass]="'contestantimg'">
+                    <app-attachment [type]="'mobile'" [attachment]="user.attachment"  [cssClass]="'contestantimg'">
                     </app-attachment>
                 </a>
                 <div class="clsNameBlock">

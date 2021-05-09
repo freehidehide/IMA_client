@@ -6,10 +6,6 @@
             <div class="col-md-12">
                 <div class="innerBanners_box">
                     <h1>Purchase Vote</h1>
-                    <ul>
-                        <li><a href="javascript:void(0)">HOME</a></li>
-                        <li><p>PURCHASE VOTE</p></li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -22,9 +18,9 @@
             <div class="row align-items-center">
                 <div class="col-md-3">
                     <div class="purchase-contimg mx-auto">
-                        <app-attachment
+                        <app-attachment [type]="'mobile'"
                             [attachment]="user.attachment"
-                            [type]="original"
+                            
                         ></app-attachment>
                     </div>
                 </div>

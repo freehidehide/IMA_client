@@ -31,7 +31,15 @@ export class HomeComponent implements OnInit {
         if (this.router.url.indexOf('fail') > -1) {
             this.toastService.error('Payment completed failed');
         }
-        this.getUsers();
+        if (this.settings && this.settings.CONTEST_EXIST && (this.settings.CONTEST_END_DAYS_LEFT || this.settings.CONTEST_END_TIME_LEFT)) {
+            this.getUsers();
+        }
+    }
+
+    handleEvent($event) {
+        if ($event.action === 'stop') {
+            this.router.navigate(['/recent_winner']);
+        }
     }
 
     getUsers(): void {

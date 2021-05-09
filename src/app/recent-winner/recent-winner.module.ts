@@ -4,6 +4,7 @@ import { RecentWinnerComponent } from './recent-winner.component';
 import { RecentWinnerRoutingModule } from './recent-winner-routing.module';
 import { SharedCommonModule } from '../shared-common/shared-common.module';
 import { CategoryService } from '../api/services/category.service';
+import { UserService } from '../api/services/user.service';
 @NgModule({
   declarations: [RecentWinnerComponent],
   imports: [
@@ -11,6 +12,6 @@ import { CategoryService } from '../api/services/category.service';
     SharedCommonModule,
     RecentWinnerRoutingModule
   ],
-  providers: [CategoryService]
+  providers: [CategoryService, UserService]
 })
 export class RecentWinnerModule { }

@@ -20,9 +20,9 @@
             <ul class="list-unstyled instaprofilelisting" *ngIf="users.length > 0 && !contestProgress">
                 <li *ngFor="let user of users">
                     <a href="javascript:void(0)" [ngClass]="{'active': user.is_active}" (click)="chooseUser(user)">
-                        <app-attachment
+                        <app-attachment [type]="'mobile'"
                             [attachment]="user.attachment"
-                            [type]="original"
+                            
                             [cssClass]="'instantvoteimg'"
                         ></app-attachment>
                     </a>
@@ -33,9 +33,9 @@
                     <li *ngFor="let userContest of userContests">
                         <div class="contprofileleft">
                             <a href="javascript:void(0)">
-                                <app-attachment
+                                <app-attachment [type]="'mobile'"
                             [attachment]="userContest.user.attachment"
-                            [type]="original"
+                            
                             [cssClass]="'instantvoteimg'"
                         ></app-attachment>
                             </a>
