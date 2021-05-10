@@ -1,13 +1,11 @@
-<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+<nav
+    class="sidebar"
+    [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}"
+>
     <div class="list-group" *ngIf="menus">
         <span *ngFor="let menu of menus">
             <a href="javascript:void(0)" *ngIf="!menu.child_sub_menu" (click)="redirect(menu.route, menu.child_sub_menu)" class="list-group-item" >
                 <i class="{{ menu.icon_class }}"></i>&nbsp;
-                <span>{{ menu.title }}</span>
-        </a>
-        <div class="nested-menu" *ngIf="menu.child_sub_menu">
-            <a class="list-group-item" (click)="addExpandClass(menu.title)">
-                <i class="fa fa-plus"></i>&nbsp;
                 <span>{{ menu.title }}</span>
             </a>
             <div class="nested-menu" *ngIf="menu.child_sub_menu">
@@ -26,16 +24,21 @@
                     </ul>
                 </li>
             </div>
-            </li>
-            </ul>
-            <div class="header-fields">
+        </span>
+        <div class="header-fields">
                 <a class="list-group-item" (click)="addExpandClass('profile')">
                     <span><i class="fa fa-user"></i>&nbsp; John Smith</span>
                 </a>
-            </div>
         </div>
-        <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
-            <i class="fa fa-fw fa-angle-double-{{ collapsed ? 'right' : 'left' }}"></i
+    </div>
+    <div
+        class="toggle-button"
+        [ngClass]="{collapsed: collapsed}"
+        (click)="toggleCollapsed()"
+    >
+        <i
+            class="fa fa-fw fa-angle-double-{{ collapsed ? 'right' : 'left' }}"
+        ></i
         >&nbsp;
         <span>{{ 'Collapse Sidebar' | translate }}</span>
     </div>
