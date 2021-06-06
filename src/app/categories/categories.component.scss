@@ -126,7 +126,7 @@
 .innerBanners_box {
     z-index: 1;
     text-align: center;
-    padding: 170px 0 70px 0;
+    padding: 90px 0 0px 0;
     h1 {
         font-size: 46px;
         padding-bottom: 8px;
@@ -161,3 +161,18 @@
 }
 
 ////Inner Banner End
+.subheadings {
+    text-align: left;
+    h2 {
+        font-size: 40px;
+        line-height: 50px;
+        margin-bottom: 20px;
+    }
+}
+
+.clsListWinner {
+    margin: 0px !important;
+    li {
+        padding-left: 0px !important;
+    }
+}

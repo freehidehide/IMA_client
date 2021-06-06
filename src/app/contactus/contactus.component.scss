@@ -8,6 +8,7 @@
     position: relative;
     color: #fff;
 }
+
 .innerBanners_overlay {
     position: absolute;
     top: 0;
@@ -17,10 +18,11 @@
     background-color: #000;
     opacity: 0.7;
 }
+
 .innerBanners_box {
     z-index: 1;
     text-align: center;
-    padding: 170px 0 70px 0;
+    padding: 90px 0 70px 0;
     h1 {
         font-size: 46px;
         padding-bottom: 8px;
@@ -53,6 +55,7 @@
         padding: 75px 0 50px 0;
     }
 }
+
 ////Inner Banner End
 //Inner Page Start
 .mapSec {
@@ -66,6 +69,7 @@
         border-radius: 3px;
     }
 }
+
 .contForm {
     padding: 0 0 80px 0;
     h2 {
@@ -110,6 +114,7 @@
         color: #808080;
     }
 }
+
 .contactSubmit {
     background-color: #c25582;
     border: 1px solid #c25582;
@@ -143,6 +148,7 @@
         color: #c25582;
     }
 }
+
 .contactReset {
     background-color: transparent;
     border: 1px solid #fff;
@@ -176,6 +182,7 @@
         color: #c25582;
     }
 }
+
 .contAddress {
     p {
         color: #808080;
@@ -196,3 +203,18 @@
 }
 
 //Inner Page End
+.subheadings {
+    text-align: left;
+    h2 {
+        font-size: 40px;
+        line-height: 50px;
+        margin-bottom: 20px;
+    }
+}
+
+.clsListWinner {
+    margin: 0px !important;
+    li {
+        padding-left: 0px !important;
+    }
+}
