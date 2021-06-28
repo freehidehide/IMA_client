@@ -287,7 +287,7 @@ body {
     }
     .subheadings {
         padding: 0 0 0 35px;
-        transform: translate(0%, -50%);
+        transform: translate(0%, -56%);
         h2 {
             font-size: 50px;
             line-height: 50px;
@@ -332,6 +332,7 @@ body {
         >img {
             object-fit: cover;
             object-position: 80%;
+            min-height: 100px;
         }
     }
     .subheadings {
